@@ -1,0 +1,41 @@
+---
+page_title: "Provider: Oblique"
+description: |-
+  The Oblique provider manages identity and access resources in Oblique.
+---
+
+# Oblique provider
+
+{{ .Description | trimspace }}
+
+## Example usage
+
+{{ tffile "../../examples/provider/provider.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Common scenarios
+
+### Basic setup
+
+Configure the provider, connect to Okta and Google Workspace, and set up admin users.
+
+{{ tffile "../../examples/scenarios/basic_setup/main.tf" }}
+
+### Team groups
+
+Create a team group — a manually-managed collection of users that can be used anywhere an `oblique_group` can.
+
+{{ tffile "../../examples/scenarios/team_groups/main.tf" }}
+
+### Attribute and reporting based groups
+
+Create dynamic groups that match users based on attributes from an integration or on reporting lines in the directory.
+
+{{ tffile "../../examples/scenarios/attribute_and_reporting_based_groups/main.tf" }}
+
+### Service catalog with listings
+
+Set up a user-facing service catalog with listings, roles at different access levels, owners, and request policies per team.
+
+{{ tffile "../../examples/scenarios/service_catalog/main.tf" }}

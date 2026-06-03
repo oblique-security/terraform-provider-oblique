@@ -1,0 +1,82 @@
+version: 2
+
+project_name: terraform-provider-oblique
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: ./cmd/terraform-provider-oblique
+    binary: "{{ .ProjectName }}_v{{ .Version }}"
+    env:
+      - CGO_ENABLED=0
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
+    ldflags:
+      - "-s -w -X main.version={{.Version}}"
+    goos:
+      - freebsd
+      - windows
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - "386"
+      - arm
+      - arm64
+    ignore:
+      # darwin/386 is not a supported target for Go 1.20 and later, so exclude it.
+      - goos: darwin
+        goarch: "386"
+
+archives:
+  - formats: [zip]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "{{ .ProjectName }}_{{ .Version }}_SHA256SUMS"
+  algorithm: sha256
+  extra_files:
+    - glob: terraform-registry-manifest.json
+      name_template: "{{ .ProjectName }}_{{ .Version }}_manifest.json"
+
+signs:
+  - artifacts: checksum
+    # The passphrase is piped to gpg on stdin (matched by --passphrase-fd 0
+    # below) so it never appears in argv or relies on agent state. The release
+    # workflow sets both GPG_FINGERPRINT and GPG_PASSPHRASE on this step.
+    stdin: "{{ .Env.GPG_PASSPHRASE }}"
+    args:
+      - "--batch"
+      - "--pinentry-mode"
+      - "loopback"
+      - "--passphrase-fd"
+      - "0"
+      - "--local-user"
+      - "{{ .Env.GPG_FINGERPRINT }}"
+      - "--output"
+      - "${signature}"
+      - "--detach-sign"
+      - "${artifact}"
+
+release:
+  # Canonical release path: the monorepo's sync workflow tags the synced
+  # commit, the tag push fires this workflow, and GoReleaser creates the
+  # GitHub release object at that tag. The maintainer edits the release notes
+  # in the GitHub UI afterward. `mode: keep-existing` makes re-runs (dispatch
+  # with the same tag) attach to the existing release instead of trying to
+  # recreate it, so the maintainer's notes survive.
+  mode: keep-existing
+  # On a re-run, overwrite previously-uploaded artifacts of the same name
+  # rather than erroring out.
+  replace_existing_artifacts: true
+  extra_files:
+    - glob: terraform-registry-manifest.json
+      name_template: "{{ .ProjectName }}_{{ .Version }}_manifest.json"
+
+changelog:
+  # No point in having a changelog  since we don't carry over any git history
+  # after the repo sync.
+  disable: true

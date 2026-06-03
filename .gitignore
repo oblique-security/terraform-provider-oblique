@@ -1,0 +1,6 @@
+# GoReleaser output
+/dist/
+
+# Credentials file written to the workspace by google-github-actions/auth
+# during release runs.
+gha-creds-*.json

@@ -1,0 +1,123 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to release (e.g. v1.2.3). Required if 'sha' is not set."
+        required: false
+        type: string
+      sha:
+        description: "Commit SHA to release as a snapshot — exercises the pipeline (build, sign, manifest) without needing a git tag. Mutually exclusive with 'tag'."
+        required: false
+        type: string
+
+permissions:
+  contents: write   # for the GitHub release
+  id-token: write   # for Workload Identity Federation
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      # Workflow_dispatch must set exactly one of tag/sha. Tag push events skip
+      # this check (inputs is empty).
+      - name: Validate dispatch inputs
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TAG: ${{ inputs.tag }}
+          SHA: ${{ inputs.sha }}
+        run: |
+          if [[ -z "${TAG}" && -z "${SHA}" ]]; then
+            echo "::error::Either 'tag' or 'sha' input must be set."
+            exit 1
+          fi
+          if [[ -n "${TAG}" && -n "${SHA}" ]]; then
+            echo "::error::Only one of 'tag' or 'sha' may be set."
+            exit 1
+          fi
+
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          # Priority: dispatched sha → dispatched tag → trigger ref (the pushed
+          # tag, for tag-push runs). GoReleaser reads the version from the
+          # checked-out commit; with --snapshot (sha runs) it derives a pseudo-
+          # version, otherwise it uses the tag.
+          ref: ${{ inputs.sha || inputs.tag || github.ref }}
+          # GoReleaser walks the full git history to derive the version.
+          fetch-depth: 0
+
+      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      # Pick the right signing identity based on which repo this run is in.
+      - name: Resolve release identity
+        id: identity
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          case "${REPO}" in
+            oblique-security/terraform-provider-oblique)
+              echo "service_account=tf-provider-release@oblique-prod.iam.gserviceaccount.com" >> "${GITHUB_OUTPUT}"
+              echo "gpg_private_key_secret=terraform-provider-oblique-gpg-private-key" >> "${GITHUB_OUTPUT}"
+              echo "gpg_passphrase_secret=terraform-provider-oblique-gpg-passphrase" >> "${GITHUB_OUTPUT}"
+              ;;
+            oblique-security/terraform-provider-oblique-testing)
+              echo "service_account=tf-provider-testing-release@oblique-prod.iam.gserviceaccount.com" >> "${GITHUB_OUTPUT}"
+              echo "gpg_private_key_secret=terraform-provider-oblique-testing-gpg-private-key" >> "${GITHUB_OUTPUT}"
+              echo "gpg_passphrase_secret=terraform-provider-oblique-testing-gpg-passphrase" >> "${GITHUB_OUTPUT}"
+              ;;
+            *)
+              echo "Unknown repository: ${REPO}" >&2
+              exit 1
+              ;;
+          esac
+
+      - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093
+        with:
+          workload_identity_provider: projects/298647613525/locations/global/workloadIdentityPools/oblique-github-actions-pool/providers/tf-provider-release-provider
+          service_account: ${{ steps.identity.outputs.service_account }}
+          audience: oblique-terraform-provider-release
+
+      - id: secrets
+        uses: google-github-actions/get-secretmanager-secrets@bc9c54b29fdffb8a47776820a7d26e77b379d262
+        with:
+          secrets: |-
+            gpg_private_key:oblique-prod/${{ steps.identity.outputs.gpg_private_key_secret }}
+            gpg_passphrase:oblique-prod/${{ steps.identity.outputs.gpg_passphrase_secret }}
+
+      # Import the GPG signing key.
+      # We only need two things: the key in the keyring, and the primary key's
+      # fingerprint exposed as a step output so GoReleaser can target it via
+      # GPG_FINGERPRINT. The passphrase is handed to gpg by GoReleaser's signs
+      # step at use time (see .goreleaser.yml), so we don't prime gpg-agent
+      # here.
+      - id: import_gpg
+        env:
+          GPG_PRIVATE_KEY: ${{ steps.secrets.outputs.gpg_private_key }}
+        run: |
+          printf '%s' "${GPG_PRIVATE_KEY}" | gpg --batch --import
+          fingerprint="$(gpg --list-secret-keys --with-colons | awk -F: '/^fpr:/ {print $10; exit}')"
+          if [[ -z "${fingerprint}" ]]; then
+            echo "::error::Failed to extract GPG fingerprint after import."
+            exit 1
+          fi
+          echo "fingerprint=${fingerprint}" >> "${GITHUB_OUTPUT}"
+
+      # https://github.com/goreleaser/goreleaser-action/releases
+      - uses: goreleaser/goreleaser-action@5daf1e915a5f0af01ddbcd89a43b8061ff4f1a89
+        with:
+          version: "~> v2"
+          # --snapshot when releasing a SHA: GoReleaser builds and signs into
+          # dist/ but skips the GitHub release publish.
+          args: release --clean ${{ inputs.sha && '--snapshot' || '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          # GoReleaser pipes this to gpg --passphrase-fd 0 in the signs step.
+          GPG_PASSPHRASE: ${{ steps.secrets.outputs.gpg_passphrase }}
