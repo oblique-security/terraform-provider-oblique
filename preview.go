@@ -81,6 +81,16 @@ func (*groupPreviewer) schemaAttributes() map[string]schema.Attribute {
 
 func (p *groupPreviewer) previewPlan(ctx context.Context, pc *providerClient, config tfsdk.Config, priorState tfsdk.State, plan *tfsdk.Plan) diag.Diagnostics {
 	var d diag.Diagnostics
+	// On create there is no prior state, and the group's members may be created
+	// by the same apply (e.g. a reporting group whose reports are declared
+	// alongside it). PreviewGroup reads the directory as it stands now, before
+	// those members exist, so a concrete preview here can differ from the
+	// post-apply membership and trip Terraform's "produced inconsistent result
+	// after apply" check. Leave the attribute "(known after apply)"; Create's
+	// previewState fills it from the live response.
+	if priorState.Raw.IsNull() {
+		return d
+	}
 	// PreviewGroup needs the group's selection fully resolved. If the
 	// configuration references values that won't be known until apply, leave
 	// the attribute "(known after apply)".

@@ -48,7 +48,6 @@ resource "oblique_group" "managers_reports" {
 - `direct_report_count` (Number) Number of direct reports to this user.
 - `display_name` (String) Primary display name of the user.
 - `id` (String) The ID is a computed type that always matches 'name'.
-- `management` (Attributes) How this user is managed. Set automatically by the server based on the calling client. Omitted from responses when the user is manually managed (the default). (see [below for nested schema](#nestedatt--management))
 - `manager` (String) Optional manager of the user.
 
 Format: `users/{user}`
@@ -57,12 +56,3 @@ Format: `users/{user}`
 - `title` (String) Self reported role. "VP of Engineering", "Senior Frontend Engineer", "Engineering Director, Frontend".
 - `total_report_count` (Number) Number of total reports to this user.
 - `update_time` (String)
-
-<a id="nestedatt--management"></a>
-### Nested Schema for `management`
-
-Read-Only:
-
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.

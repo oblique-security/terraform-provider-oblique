@@ -29,7 +29,6 @@ const (
 type Entitlement struct {
 	state                        protoimpl.MessageState   `protogen:"opaque.v1"`
 	xxx_hidden_Name              *string                  `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Management        *Management              `protobuf:"bytes,14,opt,name=management"`
 	xxx_hidden_Resource          *string                  `protobuf:"bytes,6,opt,name=resource"`
 	xxx_hidden_Subject           *string                  `protobuf:"bytes,7,opt,name=subject"`
 	xxx_hidden_Expiration        isEntitlement_Expiration `protobuf_oneof:"expiration"`
@@ -80,13 +79,6 @@ func (x *Entitlement) GetName() string {
 		return ""
 	}
 	return ""
-}
-
-func (x *Entitlement) GetManagement() *Management {
-	if x != nil {
-		return x.xxx_hidden_Management
-	}
-	return nil
 }
 
 func (x *Entitlement) GetResource() string {
@@ -193,21 +185,17 @@ func (x *Entitlement) GetDisablingPolicies() []string {
 
 func (x *Entitlement) SetName(v string) {
 	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 13)
-}
-
-func (x *Entitlement) SetManagement(v *Management) {
-	x.xxx_hidden_Management = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 12)
 }
 
 func (x *Entitlement) SetResource(v string) {
 	x.xxx_hidden_Resource = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 12)
 }
 
 func (x *Entitlement) SetSubject(v string) {
 	x.xxx_hidden_Subject = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 12)
 }
 
 func (x *Entitlement) SetExpireTime(v *timestamppb.Timestamp) {
@@ -236,17 +224,17 @@ func (x *Entitlement) SetUpdateTime(v *timestamppb.Timestamp) {
 
 func (x *Entitlement) SetJustification(v string) {
 	x.xxx_hidden_Justification = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 12)
 }
 
 func (x *Entitlement) SetImported(v bool) {
 	x.xxx_hidden_Imported = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 12)
 }
 
 func (x *Entitlement) SetRequest(v string) {
 	x.xxx_hidden_Request = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 12)
 }
 
 func (x *Entitlement) SetOktaApp(v *Entitlement_OktaApp) {
@@ -272,25 +260,18 @@ func (x *Entitlement) HasName() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *Entitlement) HasManagement() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Management != nil
-}
-
 func (x *Entitlement) HasResource() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *Entitlement) HasSubject() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *Entitlement) HasExpiration() bool {
@@ -334,21 +315,21 @@ func (x *Entitlement) HasJustification() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *Entitlement) HasImported() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
 }
 
 func (x *Entitlement) HasRequest() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
 }
 
 func (x *Entitlement) HasMetadata() bool {
@@ -378,17 +359,13 @@ func (x *Entitlement) ClearName() {
 	x.xxx_hidden_Name = nil
 }
 
-func (x *Entitlement) ClearManagement() {
-	x.xxx_hidden_Management = nil
-}
-
 func (x *Entitlement) ClearResource() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
 	x.xxx_hidden_Resource = nil
 }
 
 func (x *Entitlement) ClearSubject() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
 	x.xxx_hidden_Subject = nil
 }
 
@@ -417,17 +394,17 @@ func (x *Entitlement) ClearUpdateTime() {
 }
 
 func (x *Entitlement) ClearJustification() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
 	x.xxx_hidden_Justification = nil
 }
 
 func (x *Entitlement) ClearImported() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
 	x.xxx_hidden_Imported = false
 }
 
 func (x *Entitlement) ClearRequest() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
 	x.xxx_hidden_Request = nil
 }
 
@@ -482,10 +459,6 @@ type Entitlement_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	Name *string
-	// How this entitlement is managed. Set automatically by the server based on
-	// the calling client. Omitted from responses when the entitlement is
-	// manually managed (the default).
-	Management *Management
 	// The resource that this entitlement grants access to.
 	//
 	// Format: `resources/{resource}`
@@ -541,16 +514,15 @@ func (b0 Entitlement_builder) Build() *Entitlement {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 12)
 		x.xxx_hidden_Name = b.Name
 	}
-	x.xxx_hidden_Management = b.Management
 	if b.Resource != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 12)
 		x.xxx_hidden_Resource = b.Resource
 	}
 	if b.Subject != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 12)
 		x.xxx_hidden_Subject = b.Subject
 	}
 	if b.ExpireTime != nil {
@@ -562,15 +534,15 @@ func (b0 Entitlement_builder) Build() *Entitlement {
 	x.xxx_hidden_CreateTime = b.CreateTime
 	x.xxx_hidden_UpdateTime = b.UpdateTime
 	if b.Justification != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 12)
 		x.xxx_hidden_Justification = b.Justification
 	}
 	if b.Imported != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 12)
 		x.xxx_hidden_Imported = *b.Imported
 	}
 	if b.Request != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 12)
 		x.xxx_hidden_Request = b.Request
 	}
 	if b.OktaApp != nil {
@@ -1094,14 +1066,13 @@ type ListEntitlementsRequest_builder struct {
 	PageSize *int32
 	// A page token, received from a previous `ListEntitlements` call.
 	PageToken *string
-	// Resources may be filtered by the subject they apply to, the resource
-	// they grant access to, or management information. More advanced filters are rejected.
+	// Resources may be filtered by the subject they apply to or the resource
+	// they grant access to. More advanced filters are rejected.
 	//
 	// Examples:
 	// - 'subject="teams/{team}"'
 	// - 'subject="users/{user}"' or 'subject="users/me"'
 	// - 'resource="resources/{resource}"'
-	// - 'management.manager="MANUAL" or management.manager="TERRAFORM"'
 	Filter *string
 	// If true, the response will include entitlements in resources that have been
 	// deleted.
@@ -1722,12 +1693,9 @@ var File_oblique_security_v1_entitlements_proto protoreflect.FileDescriptor
 
 const file_oblique_security_v1_entitlements_proto_rawDesc = "" +
 	"\n" +
-	"&oblique/security/v1/entitlements.proto\x12\x13oblique.security.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$oblique/security/v1/management.proto\"\x9f\b\n" +
+	"&oblique/security/v1/entitlements.proto\x12\x13oblique.security.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xdf\a\n" +
 	"\vEntitlement\x12\x17\n" +
-	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12D\n" +
-	"\n" +
-	"management\x18\x0e \x01(\v2\x1f.oblique.security.v1.ManagementB\x03\xe0A\x01R\n" +
-	"management\x12C\n" +
+	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12C\n" +
 	"\bresource\x18\x06 \x01(\tB'\xe0A\x02\xe0A\x05\xfaA\x1e\n" +
 	"\x1coblique.security.v1/ResourceR\bresource\x12&\n" +
 	"\asubject\x18\a \x01(\tB\f\xe0A\x02\xe0A\x05\xfaA\x03\n" +
@@ -1758,7 +1726,7 @@ const file_oblique_security_v1_entitlements_proto_rawDesc = "" +
 	"\n" +
 	"expirationB\n" +
 	"\n" +
-	"\bmetadataJ\x04\b\x02\x10\x03J\x04\b\x03\x10\x04\"T\n" +
+	"\bmetadataJ\x04\b\x02\x10\x03J\x04\b\x03\x10\x04J\x04\b\x0e\x10\x0f\"T\n" +
 	"\x15GetEntitlementRequest\x12;\n" +
 	"\x04name\x18\x01 \x01(\tB'\xe0A\x02\xfaA!\n" +
 	"\x1foblique.security.v1/EntitlementR\x04name\"\\\n" +
@@ -1809,31 +1777,29 @@ var file_oblique_security_v1_entitlements_proto_goTypes = []any{
 	(*UpdateEntitlementRequest)(nil),        // 9: oblique.security.v1.UpdateEntitlementRequest
 	(*DeleteEntitlementRequest)(nil),        // 10: oblique.security.v1.DeleteEntitlementRequest
 	(*Entitlement_OktaApp)(nil),             // 11: oblique.security.v1.Entitlement.OktaApp
-	(*Management)(nil),                      // 12: oblique.security.v1.Management
-	(*timestamppb.Timestamp)(nil),           // 13: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),             // 14: google.protobuf.Duration
-	(*fieldmaskpb.FieldMask)(nil),           // 15: google.protobuf.FieldMask
+	(*timestamppb.Timestamp)(nil),           // 12: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),             // 13: google.protobuf.Duration
+	(*fieldmaskpb.FieldMask)(nil),           // 14: google.protobuf.FieldMask
 }
 var file_oblique_security_v1_entitlements_proto_depIdxs = []int32{
-	12, // 0: oblique.security.v1.Entitlement.management:type_name -> oblique.security.v1.Management
-	13, // 1: oblique.security.v1.Entitlement.expire_time:type_name -> google.protobuf.Timestamp
-	14, // 2: oblique.security.v1.Entitlement.ttl:type_name -> google.protobuf.Duration
-	13, // 3: oblique.security.v1.Entitlement.create_time:type_name -> google.protobuf.Timestamp
-	13, // 4: oblique.security.v1.Entitlement.update_time:type_name -> google.protobuf.Timestamp
-	11, // 5: oblique.security.v1.Entitlement.okta_app:type_name -> oblique.security.v1.Entitlement.OktaApp
-	13, // 6: oblique.security.v1.Entitlement.disabled_time:type_name -> google.protobuf.Timestamp
-	0,  // 7: oblique.security.v1.BatchGetEntitlementsResponse.entitlements:type_name -> oblique.security.v1.Entitlement
-	8,  // 8: oblique.security.v1.BatchCreateEntitlementsRequest.requests:type_name -> oblique.security.v1.CreateEntitlementRequest
-	0,  // 9: oblique.security.v1.BatchCreateEntitlementsResponse.entitlements:type_name -> oblique.security.v1.Entitlement
-	0,  // 10: oblique.security.v1.ListEntitlementsResponse.entitlements:type_name -> oblique.security.v1.Entitlement
-	0,  // 11: oblique.security.v1.CreateEntitlementRequest.entitlement:type_name -> oblique.security.v1.Entitlement
-	0,  // 12: oblique.security.v1.UpdateEntitlementRequest.entitlement:type_name -> oblique.security.v1.Entitlement
-	15, // 13: oblique.security.v1.UpdateEntitlementRequest.update_mask:type_name -> google.protobuf.FieldMask
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	12, // 0: oblique.security.v1.Entitlement.expire_time:type_name -> google.protobuf.Timestamp
+	13, // 1: oblique.security.v1.Entitlement.ttl:type_name -> google.protobuf.Duration
+	12, // 2: oblique.security.v1.Entitlement.create_time:type_name -> google.protobuf.Timestamp
+	12, // 3: oblique.security.v1.Entitlement.update_time:type_name -> google.protobuf.Timestamp
+	11, // 4: oblique.security.v1.Entitlement.okta_app:type_name -> oblique.security.v1.Entitlement.OktaApp
+	12, // 5: oblique.security.v1.Entitlement.disabled_time:type_name -> google.protobuf.Timestamp
+	0,  // 6: oblique.security.v1.BatchGetEntitlementsResponse.entitlements:type_name -> oblique.security.v1.Entitlement
+	8,  // 7: oblique.security.v1.BatchCreateEntitlementsRequest.requests:type_name -> oblique.security.v1.CreateEntitlementRequest
+	0,  // 8: oblique.security.v1.BatchCreateEntitlementsResponse.entitlements:type_name -> oblique.security.v1.Entitlement
+	0,  // 9: oblique.security.v1.ListEntitlementsResponse.entitlements:type_name -> oblique.security.v1.Entitlement
+	0,  // 10: oblique.security.v1.CreateEntitlementRequest.entitlement:type_name -> oblique.security.v1.Entitlement
+	0,  // 11: oblique.security.v1.UpdateEntitlementRequest.entitlement:type_name -> oblique.security.v1.Entitlement
+	14, // 12: oblique.security.v1.UpdateEntitlementRequest.update_mask:type_name -> google.protobuf.FieldMask
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_oblique_security_v1_entitlements_proto_init() }
@@ -1841,7 +1807,6 @@ func file_oblique_security_v1_entitlements_proto_init() {
 	if File_oblique_security_v1_entitlements_proto != nil {
 		return
 	}
-	file_oblique_security_v1_management_proto_init()
 	file_oblique_security_v1_entitlements_proto_msgTypes[0].OneofWrappers = []any{
 		(*entitlement_ExpireTime)(nil),
 		(*entitlement_Ttl)(nil),

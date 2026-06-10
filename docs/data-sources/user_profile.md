@@ -41,7 +41,6 @@ data "oblique_user_profile" "janedoe" {
 - `delete_time` (String) User profiles can only be soft-deleted to preserve logs and history. If this field is present, the user has been deleted and this profile can't be updated and won't be returned in lists.
 - `id` (String) The ID is a computed type that always matches 'name'.
 - `location` (String) Business location, such as "San Francisco".
-- `management` (Attributes) How this profile is managed. Inherited from the parent user: profiles of Terraform-managed users are themselves Terraform managed and can only be updated through the Terraform provider; manage the parent user to change this. Omitted from responses when the parent user is manually managed (the default). (see [below for nested schema](#nestedatt--management))
 - `pronouns` (String) Preferred pronouns. "he/him", "they/them".
 - `reporting_chain` (List of String) Reporting chain of the user from lowest in the chain to highest.
 
@@ -53,12 +52,3 @@ Format: `users/{user}`
 Format: `users/{user}`
 - `time_zone` (String) IANA TZ codes "America/Los_Angeles" or "Europe/London".
 - `update_time` (String)
-
-<a id="nestedatt--management"></a>
-### Nested Schema for `management`
-
-Read-Only:
-
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.

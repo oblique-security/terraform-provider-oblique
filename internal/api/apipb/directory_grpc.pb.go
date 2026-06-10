@@ -196,6 +196,16 @@ const (
 	Oblique_CreatePolicy_FullMethodName                     = "/oblique.security.v1.Oblique/CreatePolicy"
 	Oblique_UpdatePolicy_FullMethodName                     = "/oblique.security.v1.Oblique/UpdatePolicy"
 	Oblique_DeletePolicy_FullMethodName                     = "/oblique.security.v1.Oblique/DeletePolicy"
+	Oblique_GetPolicyExceptionConfig_FullMethodName         = "/oblique.security.v1.Oblique/GetPolicyExceptionConfig"
+	Oblique_ListPolicyExceptionConfigs_FullMethodName       = "/oblique.security.v1.Oblique/ListPolicyExceptionConfigs"
+	Oblique_CreatePolicyExceptionConfig_FullMethodName      = "/oblique.security.v1.Oblique/CreatePolicyExceptionConfig"
+	Oblique_UpdatePolicyExceptionConfig_FullMethodName      = "/oblique.security.v1.Oblique/UpdatePolicyExceptionConfig"
+	Oblique_DeletePolicyExceptionConfig_FullMethodName      = "/oblique.security.v1.Oblique/DeletePolicyExceptionConfig"
+	Oblique_GetPolicyException_FullMethodName               = "/oblique.security.v1.Oblique/GetPolicyException"
+	Oblique_ListPolicyExceptions_FullMethodName             = "/oblique.security.v1.Oblique/ListPolicyExceptions"
+	Oblique_CreatePolicyException_FullMethodName            = "/oblique.security.v1.Oblique/CreatePolicyException"
+	Oblique_UpdatePolicyException_FullMethodName            = "/oblique.security.v1.Oblique/UpdatePolicyException"
+	Oblique_DeletePolicyException_FullMethodName            = "/oblique.security.v1.Oblique/DeletePolicyException"
 )
 
 // ObliqueClient is the client API for Oblique service.
@@ -517,6 +527,26 @@ type ObliqueClient interface {
 	UpdatePolicy(ctx context.Context, in *UpdatePolicyRequest, opts ...grpc.CallOption) (*Policy, error)
 	// Soft-delete a policy. The policy's delete_time will be set.
 	DeletePolicy(ctx context.Context, in *DeletePolicyRequest, opts ...grpc.CallOption) (*Policy, error)
+	// Get a policy exception config by name.
+	GetPolicyExceptionConfig(ctx context.Context, in *GetPolicyExceptionConfigRequest, opts ...grpc.CallOption) (*PolicyExceptionConfig, error)
+	// List exception configs for a policy.
+	ListPolicyExceptionConfigs(ctx context.Context, in *ListPolicyExceptionConfigsRequest, opts ...grpc.CallOption) (*ListPolicyExceptionConfigsResponse, error)
+	// Create a new exception config for a policy.
+	CreatePolicyExceptionConfig(ctx context.Context, in *CreatePolicyExceptionConfigRequest, opts ...grpc.CallOption) (*PolicyExceptionConfig, error)
+	// Update an existing policy exception config, or create one if allow_missing is set.
+	UpdatePolicyExceptionConfig(ctx context.Context, in *UpdatePolicyExceptionConfigRequest, opts ...grpc.CallOption) (*PolicyExceptionConfig, error)
+	// Delete a policy exception config.
+	DeletePolicyExceptionConfig(ctx context.Context, in *DeletePolicyExceptionConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// Get a policy exception by name.
+	GetPolicyException(ctx context.Context, in *GetPolicyExceptionRequest, opts ...grpc.CallOption) (*PolicyException, error)
+	// List exceptions for a policy.
+	ListPolicyExceptions(ctx context.Context, in *ListPolicyExceptionsRequest, opts ...grpc.CallOption) (*ListPolicyExceptionsResponse, error)
+	// Create a new exception to an existing policy.
+	CreatePolicyException(ctx context.Context, in *CreatePolicyExceptionRequest, opts ...grpc.CallOption) (*PolicyException, error)
+	// Update an existing policy exception.
+	UpdatePolicyException(ctx context.Context, in *UpdatePolicyExceptionRequest, opts ...grpc.CallOption) (*PolicyException, error)
+	// Delete a policy exception.
+	DeletePolicyException(ctx context.Context, in *DeletePolicyExceptionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type obliqueClient struct {
@@ -2287,6 +2317,106 @@ func (c *obliqueClient) DeletePolicy(ctx context.Context, in *DeletePolicyReques
 	return out, nil
 }
 
+func (c *obliqueClient) GetPolicyExceptionConfig(ctx context.Context, in *GetPolicyExceptionConfigRequest, opts ...grpc.CallOption) (*PolicyExceptionConfig, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PolicyExceptionConfig)
+	err := c.cc.Invoke(ctx, Oblique_GetPolicyExceptionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) ListPolicyExceptionConfigs(ctx context.Context, in *ListPolicyExceptionConfigsRequest, opts ...grpc.CallOption) (*ListPolicyExceptionConfigsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListPolicyExceptionConfigsResponse)
+	err := c.cc.Invoke(ctx, Oblique_ListPolicyExceptionConfigs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) CreatePolicyExceptionConfig(ctx context.Context, in *CreatePolicyExceptionConfigRequest, opts ...grpc.CallOption) (*PolicyExceptionConfig, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PolicyExceptionConfig)
+	err := c.cc.Invoke(ctx, Oblique_CreatePolicyExceptionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) UpdatePolicyExceptionConfig(ctx context.Context, in *UpdatePolicyExceptionConfigRequest, opts ...grpc.CallOption) (*PolicyExceptionConfig, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PolicyExceptionConfig)
+	err := c.cc.Invoke(ctx, Oblique_UpdatePolicyExceptionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) DeletePolicyExceptionConfig(ctx context.Context, in *DeletePolicyExceptionConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, Oblique_DeletePolicyExceptionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) GetPolicyException(ctx context.Context, in *GetPolicyExceptionRequest, opts ...grpc.CallOption) (*PolicyException, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PolicyException)
+	err := c.cc.Invoke(ctx, Oblique_GetPolicyException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) ListPolicyExceptions(ctx context.Context, in *ListPolicyExceptionsRequest, opts ...grpc.CallOption) (*ListPolicyExceptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListPolicyExceptionsResponse)
+	err := c.cc.Invoke(ctx, Oblique_ListPolicyExceptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) CreatePolicyException(ctx context.Context, in *CreatePolicyExceptionRequest, opts ...grpc.CallOption) (*PolicyException, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PolicyException)
+	err := c.cc.Invoke(ctx, Oblique_CreatePolicyException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) UpdatePolicyException(ctx context.Context, in *UpdatePolicyExceptionRequest, opts ...grpc.CallOption) (*PolicyException, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PolicyException)
+	err := c.cc.Invoke(ctx, Oblique_UpdatePolicyException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *obliqueClient) DeletePolicyException(ctx context.Context, in *DeletePolicyExceptionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, Oblique_DeletePolicyException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ObliqueServer is the server API for Oblique service.
 // All implementations must embed UnimplementedObliqueServer
 // for forward compatibility.
@@ -2606,6 +2736,26 @@ type ObliqueServer interface {
 	UpdatePolicy(context.Context, *UpdatePolicyRequest) (*Policy, error)
 	// Soft-delete a policy. The policy's delete_time will be set.
 	DeletePolicy(context.Context, *DeletePolicyRequest) (*Policy, error)
+	// Get a policy exception config by name.
+	GetPolicyExceptionConfig(context.Context, *GetPolicyExceptionConfigRequest) (*PolicyExceptionConfig, error)
+	// List exception configs for a policy.
+	ListPolicyExceptionConfigs(context.Context, *ListPolicyExceptionConfigsRequest) (*ListPolicyExceptionConfigsResponse, error)
+	// Create a new exception config for a policy.
+	CreatePolicyExceptionConfig(context.Context, *CreatePolicyExceptionConfigRequest) (*PolicyExceptionConfig, error)
+	// Update an existing policy exception config, or create one if allow_missing is set.
+	UpdatePolicyExceptionConfig(context.Context, *UpdatePolicyExceptionConfigRequest) (*PolicyExceptionConfig, error)
+	// Delete a policy exception config.
+	DeletePolicyExceptionConfig(context.Context, *DeletePolicyExceptionConfigRequest) (*emptypb.Empty, error)
+	// Get a policy exception by name.
+	GetPolicyException(context.Context, *GetPolicyExceptionRequest) (*PolicyException, error)
+	// List exceptions for a policy.
+	ListPolicyExceptions(context.Context, *ListPolicyExceptionsRequest) (*ListPolicyExceptionsResponse, error)
+	// Create a new exception to an existing policy.
+	CreatePolicyException(context.Context, *CreatePolicyExceptionRequest) (*PolicyException, error)
+	// Update an existing policy exception.
+	UpdatePolicyException(context.Context, *UpdatePolicyExceptionRequest) (*PolicyException, error)
+	// Delete a policy exception.
+	DeletePolicyException(context.Context, *DeletePolicyExceptionRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedObliqueServer()
 }
 
@@ -3143,6 +3293,36 @@ func (UnimplementedObliqueServer) UpdatePolicy(context.Context, *UpdatePolicyReq
 }
 func (UnimplementedObliqueServer) DeletePolicy(context.Context, *DeletePolicyRequest) (*Policy, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePolicy not implemented")
+}
+func (UnimplementedObliqueServer) GetPolicyExceptionConfig(context.Context, *GetPolicyExceptionConfigRequest) (*PolicyExceptionConfig, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPolicyExceptionConfig not implemented")
+}
+func (UnimplementedObliqueServer) ListPolicyExceptionConfigs(context.Context, *ListPolicyExceptionConfigsRequest) (*ListPolicyExceptionConfigsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPolicyExceptionConfigs not implemented")
+}
+func (UnimplementedObliqueServer) CreatePolicyExceptionConfig(context.Context, *CreatePolicyExceptionConfigRequest) (*PolicyExceptionConfig, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePolicyExceptionConfig not implemented")
+}
+func (UnimplementedObliqueServer) UpdatePolicyExceptionConfig(context.Context, *UpdatePolicyExceptionConfigRequest) (*PolicyExceptionConfig, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePolicyExceptionConfig not implemented")
+}
+func (UnimplementedObliqueServer) DeletePolicyExceptionConfig(context.Context, *DeletePolicyExceptionConfigRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePolicyExceptionConfig not implemented")
+}
+func (UnimplementedObliqueServer) GetPolicyException(context.Context, *GetPolicyExceptionRequest) (*PolicyException, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPolicyException not implemented")
+}
+func (UnimplementedObliqueServer) ListPolicyExceptions(context.Context, *ListPolicyExceptionsRequest) (*ListPolicyExceptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPolicyExceptions not implemented")
+}
+func (UnimplementedObliqueServer) CreatePolicyException(context.Context, *CreatePolicyExceptionRequest) (*PolicyException, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePolicyException not implemented")
+}
+func (UnimplementedObliqueServer) UpdatePolicyException(context.Context, *UpdatePolicyExceptionRequest) (*PolicyException, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePolicyException not implemented")
+}
+func (UnimplementedObliqueServer) DeletePolicyException(context.Context, *DeletePolicyExceptionRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePolicyException not implemented")
 }
 func (UnimplementedObliqueServer) mustEmbedUnimplementedObliqueServer() {}
 func (UnimplementedObliqueServer) testEmbeddedByValue()                 {}
@@ -6333,6 +6513,186 @@ func _Oblique_DeletePolicy_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Oblique_GetPolicyExceptionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPolicyExceptionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).GetPolicyExceptionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_GetPolicyExceptionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).GetPolicyExceptionConfig(ctx, req.(*GetPolicyExceptionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_ListPolicyExceptionConfigs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPolicyExceptionConfigsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).ListPolicyExceptionConfigs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_ListPolicyExceptionConfigs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).ListPolicyExceptionConfigs(ctx, req.(*ListPolicyExceptionConfigsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_CreatePolicyExceptionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePolicyExceptionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).CreatePolicyExceptionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_CreatePolicyExceptionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).CreatePolicyExceptionConfig(ctx, req.(*CreatePolicyExceptionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_UpdatePolicyExceptionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePolicyExceptionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).UpdatePolicyExceptionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_UpdatePolicyExceptionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).UpdatePolicyExceptionConfig(ctx, req.(*UpdatePolicyExceptionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_DeletePolicyExceptionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePolicyExceptionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).DeletePolicyExceptionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_DeletePolicyExceptionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).DeletePolicyExceptionConfig(ctx, req.(*DeletePolicyExceptionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_GetPolicyException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPolicyExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).GetPolicyException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_GetPolicyException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).GetPolicyException(ctx, req.(*GetPolicyExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_ListPolicyExceptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPolicyExceptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).ListPolicyExceptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_ListPolicyExceptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).ListPolicyExceptions(ctx, req.(*ListPolicyExceptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_CreatePolicyException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePolicyExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).CreatePolicyException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_CreatePolicyException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).CreatePolicyException(ctx, req.(*CreatePolicyExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_UpdatePolicyException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePolicyExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).UpdatePolicyException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_UpdatePolicyException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).UpdatePolicyException(ctx, req.(*UpdatePolicyExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Oblique_DeletePolicyException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePolicyExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObliqueServer).DeletePolicyException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Oblique_DeletePolicyException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObliqueServer).DeletePolicyException(ctx, req.(*DeletePolicyExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Oblique_ServiceDesc is the grpc.ServiceDesc for Oblique service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -7043,6 +7403,46 @@ var Oblique_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePolicy",
 			Handler:    _Oblique_DeletePolicy_Handler,
+		},
+		{
+			MethodName: "GetPolicyExceptionConfig",
+			Handler:    _Oblique_GetPolicyExceptionConfig_Handler,
+		},
+		{
+			MethodName: "ListPolicyExceptionConfigs",
+			Handler:    _Oblique_ListPolicyExceptionConfigs_Handler,
+		},
+		{
+			MethodName: "CreatePolicyExceptionConfig",
+			Handler:    _Oblique_CreatePolicyExceptionConfig_Handler,
+		},
+		{
+			MethodName: "UpdatePolicyExceptionConfig",
+			Handler:    _Oblique_UpdatePolicyExceptionConfig_Handler,
+		},
+		{
+			MethodName: "DeletePolicyExceptionConfig",
+			Handler:    _Oblique_DeletePolicyExceptionConfig_Handler,
+		},
+		{
+			MethodName: "GetPolicyException",
+			Handler:    _Oblique_GetPolicyException_Handler,
+		},
+		{
+			MethodName: "ListPolicyExceptions",
+			Handler:    _Oblique_ListPolicyExceptions_Handler,
+		},
+		{
+			MethodName: "CreatePolicyException",
+			Handler:    _Oblique_CreatePolicyException_Handler,
+		},
+		{
+			MethodName: "UpdatePolicyException",
+			Handler:    _Oblique_UpdatePolicyException_Handler,
+		},
+		{
+			MethodName: "DeletePolicyException",
+			Handler:    _Oblique_DeletePolicyException_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -31,8 +31,6 @@ const (
 	ExportTenantRequest_ADMINS                  ExportTenantRequest_EntityKind = 2
 	ExportTenantRequest_INTEGRATIONS            ExportTenantRequest_EntityKind = 3
 	ExportTenantRequest_GROUPS                  ExportTenantRequest_EntityKind = 4
-	ExportTenantRequest_ENTITLEMENTS            ExportTenantRequest_EntityKind = 5
-	ExportTenantRequest_USERS                   ExportTenantRequest_EntityKind = 6
 	ExportTenantRequest_LISTINGS                ExportTenantRequest_EntityKind = 7
 )
 
@@ -44,8 +42,6 @@ var (
 		2: "ADMINS",
 		3: "INTEGRATIONS",
 		4: "GROUPS",
-		5: "ENTITLEMENTS",
-		6: "USERS",
 		7: "LISTINGS",
 	}
 	ExportTenantRequest_EntityKind_value = map[string]int32{
@@ -54,8 +50,6 @@ var (
 		"ADMINS":                  2,
 		"INTEGRATIONS":            3,
 		"GROUPS":                  4,
-		"ENTITLEMENTS":            5,
-		"USERS":                   6,
 		"LISTINGS":                7,
 	}
 )
@@ -396,9 +390,9 @@ const file_oblique_security_v1_export_proto_rawDesc = "" +
 	"\x04name\x18\x01 \x01(\tB\t\xe0A\x02\xfaA\x03\n" +
 	"\x01*R\x04name\"0\n" +
 	"\x14ExportEntityResponse\x12\x18\n" +
-	"\acontent\x18\x01 \x01(\fR\acontent\"\xf1\x01\n" +
+	"\acontent\x18\x01 \x01(\fR\acontent\"\xf5\x01\n" +
 	"\x13ExportTenantRequest\x12N\n" +
-	"\x05kinds\x18\x01 \x03(\x0e23.oblique.security.v1.ExportTenantRequest.EntityKindB\x03\xe0A\x01R\x05kinds\"\x89\x01\n" +
+	"\x05kinds\x18\x01 \x03(\x0e23.oblique.security.v1.ExportTenantRequest.EntityKindB\x03\xe0A\x01R\x05kinds\"\x8d\x01\n" +
 	"\n" +
 	"EntityKind\x12\x1b\n" +
 	"\x17ENTITY_KIND_UNSPECIFIED\x10\x00\x12\t\n" +
@@ -407,10 +401,8 @@ const file_oblique_security_v1_export_proto_rawDesc = "" +
 	"\x06ADMINS\x10\x02\x12\x10\n" +
 	"\fINTEGRATIONS\x10\x03\x12\n" +
 	"\n" +
-	"\x06GROUPS\x10\x04\x12\x10\n" +
-	"\fENTITLEMENTS\x10\x05\x12\t\n" +
-	"\x05USERS\x10\x06\x12\f\n" +
-	"\bLISTINGS\x10\a\"0\n" +
+	"\x06GROUPS\x10\x04\x12\f\n" +
+	"\bLISTINGS\x10\a\"\x04\b\x06\x10\x06\"\x04\b\x05\x10\x05*\x05USERS*\fENTITLEMENTS\"0\n" +
 	"\x14ExportTenantResponse\x12\x18\n" +
 	"\acontent\x18\x01 \x01(\fR\acontentB\xd0\x01\n" +
 	"\x17com.oblique.security.v1B\vExportProtoP\x01Z:github.com/oblique-security/web/backend/internal/api/apipb\xa2\x02\x03OSX\xaa\x02\x13Oblique.Security.V1\xca\x02\x13Oblique\\Security\\V1\xe2\x02\x1fOblique\\Security\\V1\\GPBMetadata\xea\x02\x15Oblique::Security::V1b\beditionsp\xe8\a"

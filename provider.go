@@ -71,7 +71,7 @@ func (p *Provider) Configure(ctx context.Context, req provider.ConfigureRequest,
 
 func (p *Provider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, groups, listings, and entitlements.",
+		MarkdownDescription: "The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, groups, and listings.",
 		Attributes: map[string]schema.Attribute{
 			"endpoint": schema.StringAttribute{
 				MarkdownDescription: "Base URL of the Oblique instance used.",
@@ -153,12 +153,21 @@ func allMessages() []proto.Message {
 //   - Resource: discovered by integrations, not authored by operators.
 //   - UserAttribute: populated by integration sync and overwritten on each
 //     sync, so anything managed via Terraform would be clobbered.
+//   - User and UserProfile: users originate from integration sync, which
+//     updates their fields out of band, so managing them via Terraform would
+//     conflict with sync. A UserProfile is inseparable from its parent User,
+//     so it follows the same rule.
+//   - Entitlement: granted and revoked through the Oblique request/grant
+//     flows and synced from integrations, not authored as Terraform configuration.
 func resourceMessages() []proto.Message {
 	var out []proto.Message
 	for _, m := range allMessages() {
 		_, isResource := m.(*apipb.Resource)
 		_, isUserAttribute := m.(*apipb.UserAttribute)
-		if isResource || isUserAttribute {
+		_, isUser := m.(*apipb.User)
+		_, isUserProfile := m.(*apipb.UserProfile)
+		_, isEntitlement := m.(*apipb.Entitlement)
+		if isResource || isUserAttribute || isUser || isUserProfile || isEntitlement {
 			continue
 		}
 		out = append(out, m)
@@ -174,7 +183,7 @@ func resourceName(m proto.Message) string {
 
 // ResourceTypeNames returns the Terraform type name for each managed resource
 // the Oblique provider exposes, in registration order (e.g. "oblique_admin",
-// "oblique_entitlement", ...).
+// "oblique_team", ...).
 func ResourceTypeNames() []string {
 	msgs := resourceMessages()
 	names := make([]string, len(msgs))

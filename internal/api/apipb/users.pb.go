@@ -27,7 +27,6 @@ const (
 type User struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name              *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Management        *Management            `protobuf:"bytes,14,opt,name=management"`
 	xxx_hidden_CreateTime        *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime"`
 	xxx_hidden_UpdateTime        *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime"`
 	xxx_hidden_DeleteTime        *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=delete_time,json=deleteTime"`
@@ -78,13 +77,6 @@ func (x *User) GetName() string {
 		return ""
 	}
 	return ""
-}
-
-func (x *User) GetManagement() *Management {
-	if x != nil {
-		return x.xxx_hidden_Management
-	}
-	return nil
 }
 
 func (x *User) GetCreateTime() *timestamppb.Timestamp {
@@ -181,11 +173,7 @@ func (x *User) GetTotalReportCount() int32 {
 
 func (x *User) SetName(v string) {
 	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 13)
-}
-
-func (x *User) SetManagement(v *Management) {
-	x.xxx_hidden_Management = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 12)
 }
 
 func (x *User) SetCreateTime(v *timestamppb.Timestamp) {
@@ -202,12 +190,12 @@ func (x *User) SetDeleteTime(v *timestamppb.Timestamp) {
 
 func (x *User) SetDisplayName(v string) {
 	x.xxx_hidden_DisplayName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 12)
 }
 
 func (x *User) SetEmail(v string) {
 	x.xxx_hidden_Email = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 12)
 }
 
 func (x *User) SetSecondaryEmails(v []string) {
@@ -216,27 +204,27 @@ func (x *User) SetSecondaryEmails(v []string) {
 
 func (x *User) SetTitle(v string) {
 	x.xxx_hidden_Title = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 12)
 }
 
 func (x *User) SetManager(v string) {
 	x.xxx_hidden_Manager = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 12)
 }
 
 func (x *User) SetPictureUri(v string) {
 	x.xxx_hidden_PictureUri = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 12)
 }
 
 func (x *User) SetDirectReportCount(v int32) {
 	x.xxx_hidden_DirectReportCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 12)
 }
 
 func (x *User) SetTotalReportCount(v int32) {
 	x.xxx_hidden_TotalReportCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 12, 13)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 12)
 }
 
 func (x *User) HasName() bool {
@@ -244,13 +232,6 @@ func (x *User) HasName() bool {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *User) HasManagement() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Management != nil
 }
 
 func (x *User) HasCreateTime() bool {
@@ -278,58 +259,54 @@ func (x *User) HasDisplayName() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *User) HasEmail() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *User) HasTitle() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
 }
 
 func (x *User) HasManager() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
 }
 
 func (x *User) HasPictureUri() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 10)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
 }
 
 func (x *User) HasDirectReportCount() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 11)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 10)
 }
 
 func (x *User) HasTotalReportCount() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 12)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 11)
 }
 
 func (x *User) ClearName() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
 	x.xxx_hidden_Name = nil
-}
-
-func (x *User) ClearManagement() {
-	x.xxx_hidden_Management = nil
 }
 
 func (x *User) ClearCreateTime() {
@@ -345,37 +322,37 @@ func (x *User) ClearDeleteTime() {
 }
 
 func (x *User) ClearDisplayName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
 	x.xxx_hidden_DisplayName = nil
 }
 
 func (x *User) ClearEmail() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
 	x.xxx_hidden_Email = nil
 }
 
 func (x *User) ClearTitle() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
 	x.xxx_hidden_Title = nil
 }
 
 func (x *User) ClearManager() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
 	x.xxx_hidden_Manager = nil
 }
 
 func (x *User) ClearPictureUri() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
 	x.xxx_hidden_PictureUri = nil
 }
 
 func (x *User) ClearDirectReportCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
 	x.xxx_hidden_DirectReportCount = 0
 }
 
 func (x *User) ClearTotalReportCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 12)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
 	x.xxx_hidden_TotalReportCount = 0
 }
 
@@ -384,10 +361,6 @@ type User_builder struct {
 
 	// Format: `users/{id}`
 	Name *string
-	// How this user is managed. Set automatically by the server based on the
-	// calling client. Omitted from responses when the user is manually
-	// managed (the default).
-	Management *Management
 	// Create and update timestamps.
 	CreateTime *timestamppb.Timestamp
 	UpdateTime *timestamppb.Timestamp
@@ -425,40 +398,39 @@ func (b0 User_builder) Build() *User {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 12)
 		x.xxx_hidden_Name = b.Name
 	}
-	x.xxx_hidden_Management = b.Management
 	x.xxx_hidden_CreateTime = b.CreateTime
 	x.xxx_hidden_UpdateTime = b.UpdateTime
 	x.xxx_hidden_DeleteTime = b.DeleteTime
 	if b.DisplayName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 12)
 		x.xxx_hidden_DisplayName = b.DisplayName
 	}
 	if b.Email != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 12)
 		x.xxx_hidden_Email = b.Email
 	}
 	x.xxx_hidden_SecondaryEmails = b.SecondaryEmails
 	if b.Title != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 12)
 		x.xxx_hidden_Title = b.Title
 	}
 	if b.Manager != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 12)
 		x.xxx_hidden_Manager = b.Manager
 	}
 	if b.PictureUri != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 10, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 12)
 		x.xxx_hidden_PictureUri = b.PictureUri
 	}
 	if b.DirectReportCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 10, 12)
 		x.xxx_hidden_DirectReportCount = *b.DirectReportCount
 	}
 	if b.TotalReportCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 12, 13)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 12)
 		x.xxx_hidden_TotalReportCount = *b.TotalReportCount
 	}
 	return m0
@@ -475,7 +447,6 @@ func (b0 User_builder) Build() *User {
 type UserProfile struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name           *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Management     *Management            `protobuf:"bytes,11,opt,name=management"`
 	xxx_hidden_CreateTime     *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime"`
 	xxx_hidden_UpdateTime     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=update_time,json=updateTime"`
 	xxx_hidden_DeleteTime     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=delete_time,json=deleteTime"`
@@ -524,13 +495,6 @@ func (x *UserProfile) GetName() string {
 		return ""
 	}
 	return ""
-}
-
-func (x *UserProfile) GetManagement() *Management {
-	if x != nil {
-		return x.xxx_hidden_Management
-	}
-	return nil
 }
 
 func (x *UserProfile) GetCreateTime() *timestamppb.Timestamp {
@@ -610,11 +574,7 @@ func (x *UserProfile) GetReports() []string {
 
 func (x *UserProfile) SetName(v string) {
 	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 11)
-}
-
-func (x *UserProfile) SetManagement(v *Management) {
-	x.xxx_hidden_Management = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
 func (x *UserProfile) SetCreateTime(v *timestamppb.Timestamp) {
@@ -631,22 +591,22 @@ func (x *UserProfile) SetDeleteTime(v *timestamppb.Timestamp) {
 
 func (x *UserProfile) SetAbout(v string) {
 	x.xxx_hidden_About = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 11)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
 }
 
 func (x *UserProfile) SetPronouns(v string) {
 	x.xxx_hidden_Pronouns = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 11)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
 }
 
 func (x *UserProfile) SetLocation(v string) {
 	x.xxx_hidden_Location = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 11)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
 }
 
 func (x *UserProfile) SetTimeZone(v string) {
 	x.xxx_hidden_TimeZone = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 11)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
 }
 
 func (x *UserProfile) SetReportingChain(v []string) {
@@ -662,13 +622,6 @@ func (x *UserProfile) HasName() bool {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UserProfile) HasManagement() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Management != nil
 }
 
 func (x *UserProfile) HasCreateTime() bool {
@@ -696,37 +649,33 @@ func (x *UserProfile) HasAbout() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *UserProfile) HasPronouns() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *UserProfile) HasLocation() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *UserProfile) HasTimeZone() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
 }
 
 func (x *UserProfile) ClearName() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
 	x.xxx_hidden_Name = nil
-}
-
-func (x *UserProfile) ClearManagement() {
-	x.xxx_hidden_Management = nil
 }
 
 func (x *UserProfile) ClearCreateTime() {
@@ -742,22 +691,22 @@ func (x *UserProfile) ClearDeleteTime() {
 }
 
 func (x *UserProfile) ClearAbout() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
 	x.xxx_hidden_About = nil
 }
 
 func (x *UserProfile) ClearPronouns() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
 	x.xxx_hidden_Pronouns = nil
 }
 
 func (x *UserProfile) ClearLocation() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
 	x.xxx_hidden_Location = nil
 }
 
 func (x *UserProfile) ClearTimeZone() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
 	x.xxx_hidden_TimeZone = nil
 }
 
@@ -766,12 +715,6 @@ type UserProfile_builder struct {
 
 	// Format: `users/{user}/userprofile`
 	Name *string
-	// How this profile is managed. Inherited from the parent user:
-	// profiles of Terraform-managed users are themselves Terraform
-	// managed and can only be updated through the Terraform provider;
-	// manage the parent user to change this. Omitted from responses
-	// when the parent user is manually managed (the default).
-	Management *Management
 	// Create and update timestamps.
 	CreateTime *timestamppb.Timestamp
 	UpdateTime *timestamppb.Timestamp
@@ -804,27 +747,26 @@ func (b0 UserProfile_builder) Build() *UserProfile {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 11)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
 		x.xxx_hidden_Name = b.Name
 	}
-	x.xxx_hidden_Management = b.Management
 	x.xxx_hidden_CreateTime = b.CreateTime
 	x.xxx_hidden_UpdateTime = b.UpdateTime
 	x.xxx_hidden_DeleteTime = b.DeleteTime
 	if b.About != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 11)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
 		x.xxx_hidden_About = b.About
 	}
 	if b.Pronouns != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 11)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
 		x.xxx_hidden_Pronouns = b.Pronouns
 	}
 	if b.Location != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 11)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
 		x.xxx_hidden_Location = b.Location
 	}
 	if b.TimeZone != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 11)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
 		x.xxx_hidden_TimeZone = b.TimeZone
 	}
 	x.xxx_hidden_ReportingChain = b.ReportingChain
@@ -3782,12 +3724,9 @@ var File_oblique_security_v1_users_proto protoreflect.FileDescriptor
 
 const file_oblique_security_v1_users_proto_rawDesc = "" +
 	"\n" +
-	"\x1foblique/security/v1/users.proto\x12\x13oblique.security.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$oblique/security/v1/management.proto\"\xb0\x05\n" +
+	"\x1foblique/security/v1/users.proto\x12\x13oblique.security.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf0\x04\n" +
 	"\x04User\x12\x17\n" +
-	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12D\n" +
-	"\n" +
-	"management\x18\x0e \x01(\v2\x1f.oblique.security.v1.ManagementB\x03\xe0A\x01R\n" +
-	"management\x12@\n" +
+	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12@\n" +
 	"\vcreate_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampB\x03\xe0A\x03R\n" +
 	"createTime\x12@\n" +
 	"\vupdate_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x03\xe0A\x03R\n" +
@@ -3805,12 +3744,9 @@ const file_oblique_security_v1_users_proto_rawDesc = "" +
 	"pictureUri\x123\n" +
 	"\x13direct_report_count\x18\v \x01(\x05B\x03\xe0A\x03R\x11directReportCount\x121\n" +
 	"\x12total_report_count\x18\f \x01(\x05B\x03\xe0A\x03R\x10totalReportCount:+\xeaA(\n" +
-	"\x18oblique.security.v1/User\x12\fusers/{user}\"\xf8\x04\n" +
+	"\x18oblique.security.v1/User\x12\fusers/{user}J\x04\b\x0e\x10\x0f\"\xb8\x04\n" +
 	"\vUserProfile\x12\x17\n" +
-	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12D\n" +
-	"\n" +
-	"management\x18\v \x01(\v2\x1f.oblique.security.v1.ManagementB\x03\xe0A\x01R\n" +
-	"management\x12@\n" +
+	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12@\n" +
 	"\vcreate_time\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampB\x03\xe0A\x03R\n" +
 	"createTime\x12@\n" +
 	"\vupdate_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampB\x03\xe0A\x03R\n" +
@@ -3826,7 +3762,7 @@ const file_oblique_security_v1_users_proto_rawDesc = "" +
 	"\x18oblique.security.v1/UserR\x0ereportingChain\x12:\n" +
 	"\areports\x18\t \x03(\tB \xe0A\x03\xfaA\x1a\n" +
 	"\x18oblique.security.v1/UserR\areports:>\xeaA;\n" +
-	"\x1foblique.security.v1/UserProfile\x12\x18users/{user}/userprofile\"\xb2\x02\n" +
+	"\x1foblique.security.v1/UserProfile\x12\x18users/{user}/userprofileJ\x04\b\v\x10\f\"\xb2\x02\n" +
 	"\fUserSettings\x12\x17\n" +
 	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12@\n" +
 	"\vcreate_time\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x03\xe0A\x03R\n" +
@@ -3973,42 +3909,39 @@ var file_oblique_security_v1_users_proto_goTypes = []any{
 	(*ImpersonateUserRequest)(nil),     // 26: oblique.security.v1.ImpersonateUserRequest
 	(*ImpersonateUserResponse)(nil),    // 27: oblique.security.v1.ImpersonateUserResponse
 	(*GetCurrentUserRequest)(nil),      // 28: oblique.security.v1.GetCurrentUserRequest
-	(*Management)(nil),                 // 29: oblique.security.v1.Management
-	(*timestamppb.Timestamp)(nil),      // 30: google.protobuf.Timestamp
-	(*fieldmaskpb.FieldMask)(nil),      // 31: google.protobuf.FieldMask
+	(*timestamppb.Timestamp)(nil),      // 29: google.protobuf.Timestamp
+	(*fieldmaskpb.FieldMask)(nil),      // 30: google.protobuf.FieldMask
 }
 var file_oblique_security_v1_users_proto_depIdxs = []int32{
-	29, // 0: oblique.security.v1.User.management:type_name -> oblique.security.v1.Management
-	30, // 1: oblique.security.v1.User.create_time:type_name -> google.protobuf.Timestamp
-	30, // 2: oblique.security.v1.User.update_time:type_name -> google.protobuf.Timestamp
-	30, // 3: oblique.security.v1.User.delete_time:type_name -> google.protobuf.Timestamp
-	29, // 4: oblique.security.v1.UserProfile.management:type_name -> oblique.security.v1.Management
-	30, // 5: oblique.security.v1.UserProfile.create_time:type_name -> google.protobuf.Timestamp
-	30, // 6: oblique.security.v1.UserProfile.update_time:type_name -> google.protobuf.Timestamp
-	30, // 7: oblique.security.v1.UserProfile.delete_time:type_name -> google.protobuf.Timestamp
-	30, // 8: oblique.security.v1.UserSettings.create_time:type_name -> google.protobuf.Timestamp
-	30, // 9: oblique.security.v1.UserSettings.update_time:type_name -> google.protobuf.Timestamp
-	30, // 10: oblique.security.v1.UserAttribute.create_time:type_name -> google.protobuf.Timestamp
-	30, // 11: oblique.security.v1.UserAttribute.update_time:type_name -> google.protobuf.Timestamp
-	0,  // 12: oblique.security.v1.BatchGetUsersResponse.users:type_name -> oblique.security.v1.User
-	0,  // 13: oblique.security.v1.ListUsersResponse.users:type_name -> oblique.security.v1.User
-	0,  // 14: oblique.security.v1.CreateUserRequest.user:type_name -> oblique.security.v1.User
-	0,  // 15: oblique.security.v1.UpdateUserRequest.user:type_name -> oblique.security.v1.User
-	31, // 16: oblique.security.v1.UpdateUserRequest.update_mask:type_name -> google.protobuf.FieldMask
-	2,  // 17: oblique.security.v1.UpdateUserSettingsRequest.user_settings:type_name -> oblique.security.v1.UserSettings
-	31, // 18: oblique.security.v1.UpdateUserSettingsRequest.update_mask:type_name -> google.protobuf.FieldMask
-	1,  // 19: oblique.security.v1.ListUserProfilesResponse.user_profiles:type_name -> oblique.security.v1.UserProfile
-	1,  // 20: oblique.security.v1.UpdateUserProfileRequest.user_profile:type_name -> oblique.security.v1.UserProfile
-	31, // 21: oblique.security.v1.UpdateUserProfileRequest.update_mask:type_name -> google.protobuf.FieldMask
-	3,  // 22: oblique.security.v1.ListUserAttributesResponse.user_attributes:type_name -> oblique.security.v1.UserAttribute
-	3,  // 23: oblique.security.v1.CreateUserAttributeRequest.user_attribute:type_name -> oblique.security.v1.UserAttribute
-	3,  // 24: oblique.security.v1.UpdateUserAttributeRequest.user_attribute:type_name -> oblique.security.v1.UserAttribute
-	31, // 25: oblique.security.v1.UpdateUserAttributeRequest.update_mask:type_name -> google.protobuf.FieldMask
-	26, // [26:26] is the sub-list for method output_type
-	26, // [26:26] is the sub-list for method input_type
-	26, // [26:26] is the sub-list for extension type_name
-	26, // [26:26] is the sub-list for extension extendee
-	0,  // [0:26] is the sub-list for field type_name
+	29, // 0: oblique.security.v1.User.create_time:type_name -> google.protobuf.Timestamp
+	29, // 1: oblique.security.v1.User.update_time:type_name -> google.protobuf.Timestamp
+	29, // 2: oblique.security.v1.User.delete_time:type_name -> google.protobuf.Timestamp
+	29, // 3: oblique.security.v1.UserProfile.create_time:type_name -> google.protobuf.Timestamp
+	29, // 4: oblique.security.v1.UserProfile.update_time:type_name -> google.protobuf.Timestamp
+	29, // 5: oblique.security.v1.UserProfile.delete_time:type_name -> google.protobuf.Timestamp
+	29, // 6: oblique.security.v1.UserSettings.create_time:type_name -> google.protobuf.Timestamp
+	29, // 7: oblique.security.v1.UserSettings.update_time:type_name -> google.protobuf.Timestamp
+	29, // 8: oblique.security.v1.UserAttribute.create_time:type_name -> google.protobuf.Timestamp
+	29, // 9: oblique.security.v1.UserAttribute.update_time:type_name -> google.protobuf.Timestamp
+	0,  // 10: oblique.security.v1.BatchGetUsersResponse.users:type_name -> oblique.security.v1.User
+	0,  // 11: oblique.security.v1.ListUsersResponse.users:type_name -> oblique.security.v1.User
+	0,  // 12: oblique.security.v1.CreateUserRequest.user:type_name -> oblique.security.v1.User
+	0,  // 13: oblique.security.v1.UpdateUserRequest.user:type_name -> oblique.security.v1.User
+	30, // 14: oblique.security.v1.UpdateUserRequest.update_mask:type_name -> google.protobuf.FieldMask
+	2,  // 15: oblique.security.v1.UpdateUserSettingsRequest.user_settings:type_name -> oblique.security.v1.UserSettings
+	30, // 16: oblique.security.v1.UpdateUserSettingsRequest.update_mask:type_name -> google.protobuf.FieldMask
+	1,  // 17: oblique.security.v1.ListUserProfilesResponse.user_profiles:type_name -> oblique.security.v1.UserProfile
+	1,  // 18: oblique.security.v1.UpdateUserProfileRequest.user_profile:type_name -> oblique.security.v1.UserProfile
+	30, // 19: oblique.security.v1.UpdateUserProfileRequest.update_mask:type_name -> google.protobuf.FieldMask
+	3,  // 20: oblique.security.v1.ListUserAttributesResponse.user_attributes:type_name -> oblique.security.v1.UserAttribute
+	3,  // 21: oblique.security.v1.CreateUserAttributeRequest.user_attribute:type_name -> oblique.security.v1.UserAttribute
+	3,  // 22: oblique.security.v1.UpdateUserAttributeRequest.user_attribute:type_name -> oblique.security.v1.UserAttribute
+	30, // 23: oblique.security.v1.UpdateUserAttributeRequest.update_mask:type_name -> google.protobuf.FieldMask
+	24, // [24:24] is the sub-list for method output_type
+	24, // [24:24] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_oblique_security_v1_users_proto_init() }
@@ -4016,7 +3949,6 @@ func file_oblique_security_v1_users_proto_init() {
 	if File_oblique_security_v1_users_proto != nil {
 		return
 	}
-	file_oblique_security_v1_management_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

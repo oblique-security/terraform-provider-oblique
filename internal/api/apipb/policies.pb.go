@@ -131,21 +131,22 @@ func (x Policy_Visibility) Number() protoreflect.EnumNumber {
 //
 // Policies are evaluated at request-time.
 type Policy struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_DisplayName *string                `protobuf:"bytes,2,opt,name=display_name,json=displayName"`
-	xxx_hidden_Description *string                `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_CreateTime  *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime"`
-	xxx_hidden_UpdateTime  *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime"`
-	xxx_hidden_DeleteTime  *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=delete_time,json=deleteTime"`
-	xxx_hidden_Targets     *PolicyResourceMatch   `protobuf:"bytes,7,opt,name=targets"`
-	xxx_hidden_Checks      *PolicyChecks          `protobuf:"bytes,8,opt,name=checks"`
-	xxx_hidden_Mode        Policy_Mode            `protobuf:"varint,9,opt,name=mode,enum=oblique.security.v1.Policy_Mode"`
-	xxx_hidden_Visibility  Policy_Visibility      `protobuf:"varint,10,opt,name=visibility,enum=oblique.security.v1.Policy_Visibility"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name            *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_DisplayName     *string                `protobuf:"bytes,2,opt,name=display_name,json=displayName"`
+	xxx_hidden_Description     *string                `protobuf:"bytes,3,opt,name=description"`
+	xxx_hidden_CreateTime      *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime"`
+	xxx_hidden_UpdateTime      *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime"`
+	xxx_hidden_DeleteTime      *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=delete_time,json=deleteTime"`
+	xxx_hidden_Targets         *PolicyResourceMatch   `protobuf:"bytes,7,opt,name=targets"`
+	xxx_hidden_Checks          *PolicyChecks          `protobuf:"bytes,8,opt,name=checks"`
+	xxx_hidden_CoveredSubjects *PolicyMembershipMatch `protobuf:"bytes,11,opt,name=covered_subjects,json=coveredSubjects"`
+	xxx_hidden_Mode            Policy_Mode            `protobuf:"varint,9,opt,name=mode,enum=oblique.security.v1.Policy_Mode"`
+	xxx_hidden_Visibility      Policy_Visibility      `protobuf:"varint,10,opt,name=visibility,enum=oblique.security.v1.Policy_Visibility"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *Policy) Reset() {
@@ -238,9 +239,16 @@ func (x *Policy) GetChecks() *PolicyChecks {
 	return nil
 }
 
+func (x *Policy) GetCoveredSubjects() *PolicyMembershipMatch {
+	if x != nil {
+		return x.xxx_hidden_CoveredSubjects
+	}
+	return nil
+}
+
 func (x *Policy) GetMode() Policy_Mode {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			return x.xxx_hidden_Mode
 		}
 	}
@@ -249,7 +257,7 @@ func (x *Policy) GetMode() Policy_Mode {
 
 func (x *Policy) GetVisibility() Policy_Visibility {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 10) {
 			return x.xxx_hidden_Visibility
 		}
 	}
@@ -258,17 +266,17 @@ func (x *Policy) GetVisibility() Policy_Visibility {
 
 func (x *Policy) SetName(v string) {
 	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 11)
 }
 
 func (x *Policy) SetDisplayName(v string) {
 	x.xxx_hidden_DisplayName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 11)
 }
 
 func (x *Policy) SetDescription(v string) {
 	x.xxx_hidden_Description = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 11)
 }
 
 func (x *Policy) SetCreateTime(v *timestamppb.Timestamp) {
@@ -291,14 +299,18 @@ func (x *Policy) SetChecks(v *PolicyChecks) {
 	x.xxx_hidden_Checks = v
 }
 
+func (x *Policy) SetCoveredSubjects(v *PolicyMembershipMatch) {
+	x.xxx_hidden_CoveredSubjects = v
+}
+
 func (x *Policy) SetMode(v Policy_Mode) {
 	x.xxx_hidden_Mode = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 11)
 }
 
 func (x *Policy) SetVisibility(v Policy_Visibility) {
 	x.xxx_hidden_Visibility = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 11)
 }
 
 func (x *Policy) HasName() bool {
@@ -357,18 +369,25 @@ func (x *Policy) HasChecks() bool {
 	return x.xxx_hidden_Checks != nil
 }
 
+func (x *Policy) HasCoveredSubjects() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_CoveredSubjects != nil
+}
+
 func (x *Policy) HasMode() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
 }
 
 func (x *Policy) HasVisibility() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 10)
 }
 
 func (x *Policy) ClearName() {
@@ -406,13 +425,17 @@ func (x *Policy) ClearChecks() {
 	x.xxx_hidden_Checks = nil
 }
 
+func (x *Policy) ClearCoveredSubjects() {
+	x.xxx_hidden_CoveredSubjects = nil
+}
+
 func (x *Policy) ClearMode() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
 	x.xxx_hidden_Mode = Policy_MODE_UNSPECIFIED
 }
 
 func (x *Policy) ClearVisibility() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
 	x.xxx_hidden_Visibility = Policy_VISIBILITY_UNSPECIFIED
 }
 
@@ -436,9 +459,12 @@ type Policy_builder struct {
 	// The set of checks that are evaluated as part of this policy. A policy is considered
 	// to be in violation if any of the checks fail. If no checks are specified,
 	// the policy cannot be put into enforcement mode.
-	Checks     *PolicyChecks
-	Mode       *Policy_Mode
-	Visibility *Policy_Visibility
+	Checks *PolicyChecks
+	// If specified, only users who are members of covered_subjects will have this policy enforced
+	// on them. Otherwise, the policy will be enforced for all users.
+	CoveredSubjects *PolicyMembershipMatch
+	Mode            *Policy_Mode
+	Visibility      *Policy_Visibility
 }
 
 func (b0 Policy_builder) Build() *Policy {
@@ -446,15 +472,15 @@ func (b0 Policy_builder) Build() *Policy {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 11)
 		x.xxx_hidden_Name = b.Name
 	}
 	if b.DisplayName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 11)
 		x.xxx_hidden_DisplayName = b.DisplayName
 	}
 	if b.Description != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 11)
 		x.xxx_hidden_Description = b.Description
 	}
 	x.xxx_hidden_CreateTime = b.CreateTime
@@ -462,12 +488,13 @@ func (b0 Policy_builder) Build() *Policy {
 	x.xxx_hidden_DeleteTime = b.DeleteTime
 	x.xxx_hidden_Targets = b.Targets
 	x.xxx_hidden_Checks = b.Checks
+	x.xxx_hidden_CoveredSubjects = b.CoveredSubjects
 	if b.Mode != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 11)
 		x.xxx_hidden_Mode = *b.Mode
 	}
 	if b.Visibility != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 10, 11)
 		x.xxx_hidden_Visibility = *b.Visibility
 	}
 	return m0
@@ -2578,6 +2605,1310 @@ func (b0 ListPoliciesResponse_builder) Build() *ListPoliciesResponse {
 	return m0
 }
 
+type GetPolicyExceptionConfigRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *GetPolicyExceptionConfigRequest) Reset() {
+	*x = GetPolicyExceptionConfigRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPolicyExceptionConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPolicyExceptionConfigRequest) ProtoMessage() {}
+
+func (x *GetPolicyExceptionConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *GetPolicyExceptionConfigRequest) GetName() string {
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *GetPolicyExceptionConfigRequest) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+}
+
+func (x *GetPolicyExceptionConfigRequest) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *GetPolicyExceptionConfigRequest) ClearName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
+}
+
+type GetPolicyExceptionConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the exception config to get.
+	// Format: policies/{policy}/exceptionConfigs/{policy_exception_config}
+	Name *string
+}
+
+func (b0 GetPolicyExceptionConfigRequest_builder) Build() *GetPolicyExceptionConfigRequest {
+	m0 := &GetPolicyExceptionConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		x.xxx_hidden_Name = b.Name
+	}
+	return m0
+}
+
+type ListPolicyExceptionConfigsRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Parent      *string                `protobuf:"bytes,1,opt,name=parent"`
+	xxx_hidden_PageSize    int32                  `protobuf:"varint,2,opt,name=page_size,json=pageSize"`
+	xxx_hidden_PageToken   *string                `protobuf:"bytes,3,opt,name=page_token,json=pageToken"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *ListPolicyExceptionConfigsRequest) Reset() {
+	*x = ListPolicyExceptionConfigsRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPolicyExceptionConfigsRequest) ProtoMessage() {}
+
+func (x *ListPolicyExceptionConfigsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) GetParent() string {
+	if x != nil {
+		if x.xxx_hidden_Parent != nil {
+			return *x.xxx_hidden_Parent
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPolicyExceptionConfigsRequest) GetPageSize() int32 {
+	if x != nil {
+		return x.xxx_hidden_PageSize
+	}
+	return 0
+}
+
+func (x *ListPolicyExceptionConfigsRequest) GetPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_PageToken != nil {
+			return *x.xxx_hidden_PageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPolicyExceptionConfigsRequest) SetParent(v string) {
+	x.xxx_hidden_Parent = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) SetPageSize(v int32) {
+	x.xxx_hidden_PageSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) SetPageToken(v string) {
+	x.xxx_hidden_PageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) HasParent() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ListPolicyExceptionConfigsRequest) ClearParent() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Parent = nil
+}
+
+func (x *ListPolicyExceptionConfigsRequest) ClearPageSize() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PageSize = 0
+}
+
+func (x *ListPolicyExceptionConfigsRequest) ClearPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PageToken = nil
+}
+
+type ListPolicyExceptionConfigsRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the parent policy.
+	// Format: policies/{policy}
+	Parent *string
+	// The maximum number of exception configs to return.
+	PageSize *int32
+	// A page token, received from a previous `ListPolicyExceptionConfigs` call.
+	PageToken *string
+}
+
+func (b0 ListPolicyExceptionConfigsRequest_builder) Build() *ListPolicyExceptionConfigsRequest {
+	m0 := &ListPolicyExceptionConfigsRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Parent != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Parent = b.Parent
+	}
+	if b.PageSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_PageSize = *b.PageSize
+	}
+	if b.PageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_PageToken = b.PageToken
+	}
+	return m0
+}
+
+type ListPolicyExceptionConfigsResponse struct {
+	state                             protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_PolicyExceptionConfigs *[]*PolicyExceptionConfig `protobuf:"bytes,1,rep,name=policy_exception_configs,json=policyExceptionConfigs"`
+	xxx_hidden_NextPageToken          *string                   `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken"`
+	XXX_raceDetectHookData            protoimpl.RaceDetectHookData
+	XXX_presence                      [1]uint32
+	unknownFields                     protoimpl.UnknownFields
+	sizeCache                         protoimpl.SizeCache
+}
+
+func (x *ListPolicyExceptionConfigsResponse) Reset() {
+	*x = ListPolicyExceptionConfigsResponse{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPolicyExceptionConfigsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPolicyExceptionConfigsResponse) ProtoMessage() {}
+
+func (x *ListPolicyExceptionConfigsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListPolicyExceptionConfigsResponse) GetPolicyExceptionConfigs() []*PolicyExceptionConfig {
+	if x != nil {
+		if x.xxx_hidden_PolicyExceptionConfigs != nil {
+			return *x.xxx_hidden_PolicyExceptionConfigs
+		}
+	}
+	return nil
+}
+
+func (x *ListPolicyExceptionConfigsResponse) GetNextPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_NextPageToken != nil {
+			return *x.xxx_hidden_NextPageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPolicyExceptionConfigsResponse) SetPolicyExceptionConfigs(v []*PolicyExceptionConfig) {
+	x.xxx_hidden_PolicyExceptionConfigs = &v
+}
+
+func (x *ListPolicyExceptionConfigsResponse) SetNextPageToken(v string) {
+	x.xxx_hidden_NextPageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+}
+
+func (x *ListPolicyExceptionConfigsResponse) HasNextPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListPolicyExceptionConfigsResponse) ClearNextPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_NextPageToken = nil
+}
+
+type ListPolicyExceptionConfigsResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	PolicyExceptionConfigs []*PolicyExceptionConfig
+	// A token, which can be sent as `page_token` to retrieve the next page.
+	NextPageToken *string
+}
+
+func (b0 ListPolicyExceptionConfigsResponse_builder) Build() *ListPolicyExceptionConfigsResponse {
+	m0 := &ListPolicyExceptionConfigsResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_PolicyExceptionConfigs = &b.PolicyExceptionConfigs
+	if b.NextPageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_NextPageToken = b.NextPageToken
+	}
+	return m0
+}
+
+type CreatePolicyExceptionConfigRequest struct {
+	state                              protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Parent                  *string                `protobuf:"bytes,1,opt,name=parent"`
+	xxx_hidden_PolicyExceptionConfigId *string                `protobuf:"bytes,2,opt,name=policy_exception_config_id,json=policyExceptionConfigId"`
+	xxx_hidden_PolicyExceptionConfig   *PolicyExceptionConfig `protobuf:"bytes,3,opt,name=policy_exception_config,json=policyExceptionConfig"`
+	XXX_raceDetectHookData             protoimpl.RaceDetectHookData
+	XXX_presence                       [1]uint32
+	unknownFields                      protoimpl.UnknownFields
+	sizeCache                          protoimpl.SizeCache
+}
+
+func (x *CreatePolicyExceptionConfigRequest) Reset() {
+	*x = CreatePolicyExceptionConfigRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePolicyExceptionConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePolicyExceptionConfigRequest) ProtoMessage() {}
+
+func (x *CreatePolicyExceptionConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *CreatePolicyExceptionConfigRequest) GetParent() string {
+	if x != nil {
+		if x.xxx_hidden_Parent != nil {
+			return *x.xxx_hidden_Parent
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *CreatePolicyExceptionConfigRequest) GetPolicyExceptionConfigId() string {
+	if x != nil {
+		if x.xxx_hidden_PolicyExceptionConfigId != nil {
+			return *x.xxx_hidden_PolicyExceptionConfigId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *CreatePolicyExceptionConfigRequest) GetPolicyExceptionConfig() *PolicyExceptionConfig {
+	if x != nil {
+		return x.xxx_hidden_PolicyExceptionConfig
+	}
+	return nil
+}
+
+func (x *CreatePolicyExceptionConfigRequest) SetParent(v string) {
+	x.xxx_hidden_Parent = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *CreatePolicyExceptionConfigRequest) SetPolicyExceptionConfigId(v string) {
+	x.xxx_hidden_PolicyExceptionConfigId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *CreatePolicyExceptionConfigRequest) SetPolicyExceptionConfig(v *PolicyExceptionConfig) {
+	x.xxx_hidden_PolicyExceptionConfig = v
+}
+
+func (x *CreatePolicyExceptionConfigRequest) HasParent() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *CreatePolicyExceptionConfigRequest) HasPolicyExceptionConfigId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *CreatePolicyExceptionConfigRequest) HasPolicyExceptionConfig() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_PolicyExceptionConfig != nil
+}
+
+func (x *CreatePolicyExceptionConfigRequest) ClearParent() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Parent = nil
+}
+
+func (x *CreatePolicyExceptionConfigRequest) ClearPolicyExceptionConfigId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PolicyExceptionConfigId = nil
+}
+
+func (x *CreatePolicyExceptionConfigRequest) ClearPolicyExceptionConfig() {
+	x.xxx_hidden_PolicyExceptionConfig = nil
+}
+
+type CreatePolicyExceptionConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the parent policy.
+	// Format: policies/{policy}
+	Parent *string
+	// ID of the exception config to create. If omitted, a random ID will be generated.
+	PolicyExceptionConfigId *string
+	// Exception config to create.
+	PolicyExceptionConfig *PolicyExceptionConfig
+}
+
+func (b0 CreatePolicyExceptionConfigRequest_builder) Build() *CreatePolicyExceptionConfigRequest {
+	m0 := &CreatePolicyExceptionConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Parent != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Parent = b.Parent
+	}
+	if b.PolicyExceptionConfigId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_PolicyExceptionConfigId = b.PolicyExceptionConfigId
+	}
+	x.xxx_hidden_PolicyExceptionConfig = b.PolicyExceptionConfig
+	return m0
+}
+
+type UpdatePolicyExceptionConfigRequest struct {
+	state                            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_PolicyExceptionConfig *PolicyExceptionConfig `protobuf:"bytes,1,opt,name=policy_exception_config,json=policyExceptionConfig"`
+	xxx_hidden_UpdateMask            *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_AllowMissing          bool                   `protobuf:"varint,3,opt,name=allow_missing,json=allowMissing"`
+	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
+	XXX_presence                     [1]uint32
+	unknownFields                    protoimpl.UnknownFields
+	sizeCache                        protoimpl.SizeCache
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) Reset() {
+	*x = UpdatePolicyExceptionConfigRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePolicyExceptionConfigRequest) ProtoMessage() {}
+
+func (x *UpdatePolicyExceptionConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) GetPolicyExceptionConfig() *PolicyExceptionConfig {
+	if x != nil {
+		return x.xxx_hidden_PolicyExceptionConfig
+	}
+	return nil
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+	if x != nil {
+		return x.xxx_hidden_UpdateMask
+	}
+	return nil
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) GetAllowMissing() bool {
+	if x != nil {
+		return x.xxx_hidden_AllowMissing
+	}
+	return false
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) SetPolicyExceptionConfig(v *PolicyExceptionConfig) {
+	x.xxx_hidden_PolicyExceptionConfig = v
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
+	x.xxx_hidden_UpdateMask = v
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) SetAllowMissing(v bool) {
+	x.xxx_hidden_AllowMissing = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) HasPolicyExceptionConfig() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_PolicyExceptionConfig != nil
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) HasUpdateMask() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_UpdateMask != nil
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) HasAllowMissing() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) ClearPolicyExceptionConfig() {
+	x.xxx_hidden_PolicyExceptionConfig = nil
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) ClearUpdateMask() {
+	x.xxx_hidden_UpdateMask = nil
+}
+
+func (x *UpdatePolicyExceptionConfigRequest) ClearAllowMissing() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_AllowMissing = false
+}
+
+type UpdatePolicyExceptionConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Exception config to update.
+	PolicyExceptionConfig *PolicyExceptionConfig
+	// The list of fields to update.
+	UpdateMask *fieldmaskpb.FieldMask
+	// If set to true, and the exception config is not found, a new exception
+	// config will be created. If created in this way, update_mask is ignored.
+	AllowMissing *bool
+}
+
+func (b0 UpdatePolicyExceptionConfigRequest_builder) Build() *UpdatePolicyExceptionConfigRequest {
+	m0 := &UpdatePolicyExceptionConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_PolicyExceptionConfig = b.PolicyExceptionConfig
+	x.xxx_hidden_UpdateMask = b.UpdateMask
+	if b.AllowMissing != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_AllowMissing = *b.AllowMissing
+	}
+	return m0
+}
+
+type DeletePolicyExceptionConfigRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *DeletePolicyExceptionConfigRequest) Reset() {
+	*x = DeletePolicyExceptionConfigRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePolicyExceptionConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePolicyExceptionConfigRequest) ProtoMessage() {}
+
+func (x *DeletePolicyExceptionConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *DeletePolicyExceptionConfigRequest) GetName() string {
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DeletePolicyExceptionConfigRequest) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+}
+
+func (x *DeletePolicyExceptionConfigRequest) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *DeletePolicyExceptionConfigRequest) ClearName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
+}
+
+type DeletePolicyExceptionConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the exception config to delete.
+	// Format: policies/{policy}/exceptionConfigs/{policy_exception_config}
+	Name *string
+}
+
+func (b0 DeletePolicyExceptionConfigRequest_builder) Build() *DeletePolicyExceptionConfigRequest {
+	m0 := &DeletePolicyExceptionConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		x.xxx_hidden_Name = b.Name
+	}
+	return m0
+}
+
+type GetPolicyExceptionRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *GetPolicyExceptionRequest) Reset() {
+	*x = GetPolicyExceptionRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPolicyExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPolicyExceptionRequest) ProtoMessage() {}
+
+func (x *GetPolicyExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *GetPolicyExceptionRequest) GetName() string {
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *GetPolicyExceptionRequest) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+}
+
+func (x *GetPolicyExceptionRequest) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *GetPolicyExceptionRequest) ClearName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
+}
+
+type GetPolicyExceptionRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the exception to get.
+	// Format: policies/{policy}/exceptions/{policy_exception}
+	Name *string
+}
+
+func (b0 GetPolicyExceptionRequest_builder) Build() *GetPolicyExceptionRequest {
+	m0 := &GetPolicyExceptionRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		x.xxx_hidden_Name = b.Name
+	}
+	return m0
+}
+
+type ListPolicyExceptionsRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Parent      *string                `protobuf:"bytes,1,opt,name=parent"`
+	xxx_hidden_PageSize    int32                  `protobuf:"varint,2,opt,name=page_size,json=pageSize"`
+	xxx_hidden_PageToken   *string                `protobuf:"bytes,3,opt,name=page_token,json=pageToken"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *ListPolicyExceptionsRequest) Reset() {
+	*x = ListPolicyExceptionsRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPolicyExceptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPolicyExceptionsRequest) ProtoMessage() {}
+
+func (x *ListPolicyExceptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListPolicyExceptionsRequest) GetParent() string {
+	if x != nil {
+		if x.xxx_hidden_Parent != nil {
+			return *x.xxx_hidden_Parent
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPolicyExceptionsRequest) GetPageSize() int32 {
+	if x != nil {
+		return x.xxx_hidden_PageSize
+	}
+	return 0
+}
+
+func (x *ListPolicyExceptionsRequest) GetPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_PageToken != nil {
+			return *x.xxx_hidden_PageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPolicyExceptionsRequest) SetParent(v string) {
+	x.xxx_hidden_Parent = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *ListPolicyExceptionsRequest) SetPageSize(v int32) {
+	x.xxx_hidden_PageSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *ListPolicyExceptionsRequest) SetPageToken(v string) {
+	x.xxx_hidden_PageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *ListPolicyExceptionsRequest) HasParent() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ListPolicyExceptionsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListPolicyExceptionsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ListPolicyExceptionsRequest) ClearParent() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Parent = nil
+}
+
+func (x *ListPolicyExceptionsRequest) ClearPageSize() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PageSize = 0
+}
+
+func (x *ListPolicyExceptionsRequest) ClearPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PageToken = nil
+}
+
+type ListPolicyExceptionsRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the parent policy.
+	// Format: policies/{policy}
+	Parent *string
+	// The maximum number of exceptions to return.
+	PageSize *int32
+	// A page token, received from a previous `ListPolicyExceptions` call.
+	PageToken *string
+}
+
+func (b0 ListPolicyExceptionsRequest_builder) Build() *ListPolicyExceptionsRequest {
+	m0 := &ListPolicyExceptionsRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Parent != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Parent = b.Parent
+	}
+	if b.PageSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_PageSize = *b.PageSize
+	}
+	if b.PageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_PageToken = b.PageToken
+	}
+	return m0
+}
+
+type ListPolicyExceptionsResponse struct {
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_PolicyExceptions *[]*PolicyException    `protobuf:"bytes,1,rep,name=policy_exceptions,json=policyExceptions"`
+	xxx_hidden_NextPageToken    *string                `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken"`
+	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
+	XXX_presence                [1]uint32
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
+}
+
+func (x *ListPolicyExceptionsResponse) Reset() {
+	*x = ListPolicyExceptionsResponse{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPolicyExceptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPolicyExceptionsResponse) ProtoMessage() {}
+
+func (x *ListPolicyExceptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListPolicyExceptionsResponse) GetPolicyExceptions() []*PolicyException {
+	if x != nil {
+		if x.xxx_hidden_PolicyExceptions != nil {
+			return *x.xxx_hidden_PolicyExceptions
+		}
+	}
+	return nil
+}
+
+func (x *ListPolicyExceptionsResponse) GetNextPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_NextPageToken != nil {
+			return *x.xxx_hidden_NextPageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPolicyExceptionsResponse) SetPolicyExceptions(v []*PolicyException) {
+	x.xxx_hidden_PolicyExceptions = &v
+}
+
+func (x *ListPolicyExceptionsResponse) SetNextPageToken(v string) {
+	x.xxx_hidden_NextPageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+}
+
+func (x *ListPolicyExceptionsResponse) HasNextPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListPolicyExceptionsResponse) ClearNextPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_NextPageToken = nil
+}
+
+type ListPolicyExceptionsResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	PolicyExceptions []*PolicyException
+	// A token, which can be sent as `page_token` to retrieve the next page.
+	NextPageToken *string
+}
+
+func (b0 ListPolicyExceptionsResponse_builder) Build() *ListPolicyExceptionsResponse {
+	m0 := &ListPolicyExceptionsResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_PolicyExceptions = &b.PolicyExceptions
+	if b.NextPageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_NextPageToken = b.NextPageToken
+	}
+	return m0
+}
+
+type CreatePolicyExceptionRequest struct {
+	state                        protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Parent            *string                `protobuf:"bytes,1,opt,name=parent"`
+	xxx_hidden_PolicyExceptionId *string                `protobuf:"bytes,2,opt,name=policy_exception_id,json=policyExceptionId"`
+	xxx_hidden_PolicyException   *PolicyException       `protobuf:"bytes,3,opt,name=policy_exception,json=policyException"`
+	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
+	XXX_presence                 [1]uint32
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
+}
+
+func (x *CreatePolicyExceptionRequest) Reset() {
+	*x = CreatePolicyExceptionRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePolicyExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePolicyExceptionRequest) ProtoMessage() {}
+
+func (x *CreatePolicyExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *CreatePolicyExceptionRequest) GetParent() string {
+	if x != nil {
+		if x.xxx_hidden_Parent != nil {
+			return *x.xxx_hidden_Parent
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *CreatePolicyExceptionRequest) GetPolicyExceptionId() string {
+	if x != nil {
+		if x.xxx_hidden_PolicyExceptionId != nil {
+			return *x.xxx_hidden_PolicyExceptionId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *CreatePolicyExceptionRequest) GetPolicyException() *PolicyException {
+	if x != nil {
+		return x.xxx_hidden_PolicyException
+	}
+	return nil
+}
+
+func (x *CreatePolicyExceptionRequest) SetParent(v string) {
+	x.xxx_hidden_Parent = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *CreatePolicyExceptionRequest) SetPolicyExceptionId(v string) {
+	x.xxx_hidden_PolicyExceptionId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *CreatePolicyExceptionRequest) SetPolicyException(v *PolicyException) {
+	x.xxx_hidden_PolicyException = v
+}
+
+func (x *CreatePolicyExceptionRequest) HasParent() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *CreatePolicyExceptionRequest) HasPolicyExceptionId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *CreatePolicyExceptionRequest) HasPolicyException() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_PolicyException != nil
+}
+
+func (x *CreatePolicyExceptionRequest) ClearParent() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Parent = nil
+}
+
+func (x *CreatePolicyExceptionRequest) ClearPolicyExceptionId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PolicyExceptionId = nil
+}
+
+func (x *CreatePolicyExceptionRequest) ClearPolicyException() {
+	x.xxx_hidden_PolicyException = nil
+}
+
+type CreatePolicyExceptionRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the parent policy.
+	// Format: policies/{policy}
+	Parent *string
+	// ID of the exception to create. If omitted, a random ID will be generated.
+	PolicyExceptionId *string
+	// Exception to create.
+	PolicyException *PolicyException
+}
+
+func (b0 CreatePolicyExceptionRequest_builder) Build() *CreatePolicyExceptionRequest {
+	m0 := &CreatePolicyExceptionRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Parent != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Parent = b.Parent
+	}
+	if b.PolicyExceptionId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_PolicyExceptionId = b.PolicyExceptionId
+	}
+	x.xxx_hidden_PolicyException = b.PolicyException
+	return m0
+}
+
+type UpdatePolicyExceptionRequest struct {
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_PolicyException *PolicyException       `protobuf:"bytes,1,opt,name=policy_exception,json=policyException"`
+	xxx_hidden_UpdateMask      *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
+}
+
+func (x *UpdatePolicyExceptionRequest) Reset() {
+	*x = UpdatePolicyExceptionRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePolicyExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePolicyExceptionRequest) ProtoMessage() {}
+
+func (x *UpdatePolicyExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *UpdatePolicyExceptionRequest) GetPolicyException() *PolicyException {
+	if x != nil {
+		return x.xxx_hidden_PolicyException
+	}
+	return nil
+}
+
+func (x *UpdatePolicyExceptionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+	if x != nil {
+		return x.xxx_hidden_UpdateMask
+	}
+	return nil
+}
+
+func (x *UpdatePolicyExceptionRequest) SetPolicyException(v *PolicyException) {
+	x.xxx_hidden_PolicyException = v
+}
+
+func (x *UpdatePolicyExceptionRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
+	x.xxx_hidden_UpdateMask = v
+}
+
+func (x *UpdatePolicyExceptionRequest) HasPolicyException() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_PolicyException != nil
+}
+
+func (x *UpdatePolicyExceptionRequest) HasUpdateMask() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_UpdateMask != nil
+}
+
+func (x *UpdatePolicyExceptionRequest) ClearPolicyException() {
+	x.xxx_hidden_PolicyException = nil
+}
+
+func (x *UpdatePolicyExceptionRequest) ClearUpdateMask() {
+	x.xxx_hidden_UpdateMask = nil
+}
+
+type UpdatePolicyExceptionRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Exception to update.
+	PolicyException *PolicyException
+	// The list of fields to update.
+	UpdateMask *fieldmaskpb.FieldMask
+}
+
+func (b0 UpdatePolicyExceptionRequest_builder) Build() *UpdatePolicyExceptionRequest {
+	m0 := &UpdatePolicyExceptionRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_PolicyException = b.PolicyException
+	x.xxx_hidden_UpdateMask = b.UpdateMask
+	return m0
+}
+
+type DeletePolicyExceptionRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *DeletePolicyExceptionRequest) Reset() {
+	*x = DeletePolicyExceptionRequest{}
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePolicyExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePolicyExceptionRequest) ProtoMessage() {}
+
+func (x *DeletePolicyExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *DeletePolicyExceptionRequest) GetName() string {
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DeletePolicyExceptionRequest) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+}
+
+func (x *DeletePolicyExceptionRequest) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *DeletePolicyExceptionRequest) ClearName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
+}
+
+type DeletePolicyExceptionRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the exception to delete.
+	// Format: policies/{policy}/exceptions/{policy_exception}
+	Name *string
+}
+
+func (b0 DeletePolicyExceptionRequest_builder) Build() *DeletePolicyExceptionRequest {
+	m0 := &DeletePolicyExceptionRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		x.xxx_hidden_Name = b.Name
+	}
+	return m0
+}
+
 type PolicyResourceMatch_ResourceList struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Resources []string               `protobuf:"bytes,1,rep,name=resources"`
@@ -2587,7 +3918,7 @@ type PolicyResourceMatch_ResourceList struct {
 
 func (x *PolicyResourceMatch_ResourceList) Reset() {
 	*x = PolicyResourceMatch_ResourceList{}
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[13]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2599,7 +3930,7 @@ func (x *PolicyResourceMatch_ResourceList) String() string {
 func (*PolicyResourceMatch_ResourceList) ProtoMessage() {}
 
 func (x *PolicyResourceMatch_ResourceList) ProtoReflect() protoreflect.Message {
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[13]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2644,7 +3975,7 @@ type PolicyResourceMatch_AttributeMatch struct {
 
 func (x *PolicyResourceMatch_AttributeMatch) Reset() {
 	*x = PolicyResourceMatch_AttributeMatch{}
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[14]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2656,7 +3987,7 @@ func (x *PolicyResourceMatch_AttributeMatch) String() string {
 func (*PolicyResourceMatch_AttributeMatch) ProtoMessage() {}
 
 func (x *PolicyResourceMatch_AttributeMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[14]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2705,7 +4036,7 @@ type PolicyResourceMatch_ListingMatch struct {
 
 func (x *PolicyResourceMatch_ListingMatch) Reset() {
 	*x = PolicyResourceMatch_ListingMatch{}
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[15]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2717,7 +4048,7 @@ func (x *PolicyResourceMatch_ListingMatch) String() string {
 func (*PolicyResourceMatch_ListingMatch) ProtoMessage() {}
 
 func (x *PolicyResourceMatch_ListingMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[15]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2783,7 +4114,7 @@ type PolicyResourceMatch_ListingRoleMatch struct {
 
 func (x *PolicyResourceMatch_ListingRoleMatch) Reset() {
 	*x = PolicyResourceMatch_ListingRoleMatch{}
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[16]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2795,7 +4126,7 @@ func (x *PolicyResourceMatch_ListingRoleMatch) String() string {
 func (*PolicyResourceMatch_ListingRoleMatch) ProtoMessage() {}
 
 func (x *PolicyResourceMatch_ListingRoleMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[16]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2863,7 +4194,7 @@ type PolicyResourceMatch_AttributeMatch_Attribute struct {
 
 func (x *PolicyResourceMatch_AttributeMatch_Attribute) Reset() {
 	*x = PolicyResourceMatch_AttributeMatch_Attribute{}
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[17]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2875,7 +4206,7 @@ func (x *PolicyResourceMatch_AttributeMatch_Attribute) String() string {
 func (*PolicyResourceMatch_AttributeMatch_Attribute) ProtoMessage() {}
 
 func (x *PolicyResourceMatch_AttributeMatch_Attribute) ProtoReflect() protoreflect.Message {
-	mi := &file_oblique_security_v1_policies_proto_msgTypes[17]
+	mi := &file_oblique_security_v1_policies_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2998,7 +4329,7 @@ var File_oblique_security_v1_policies_proto protoreflect.FileDescriptor
 
 const file_oblique_security_v1_policies_proto_rawDesc = "" +
 	"\n" +
-	"\"oblique/security/v1/policies.proto\x12\x13oblique.security.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x05\n" +
+	"\"oblique/security/v1/policies.proto\x12\x13oblique.security.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x06\n" +
 	"\x06Policy\x12\x17\n" +
 	"\x04name\x18\x01 \x01(\tB\x03\xe0A\bR\x04name\x12&\n" +
 	"\fdisplay_name\x18\x02 \x01(\tB\x03\xe0A\x02R\vdisplayName\x12%\n" +
@@ -3010,7 +4341,8 @@ const file_oblique_security_v1_policies_proto_rawDesc = "" +
 	"\vdelete_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x03\xe0A\x03R\n" +
 	"deleteTime\x12G\n" +
 	"\atargets\x18\a \x01(\v2(.oblique.security.v1.PolicyResourceMatchB\x03\xe0A\x02R\atargets\x12>\n" +
-	"\x06checks\x18\b \x01(\v2!.oblique.security.v1.PolicyChecksB\x03\xe0A\x01R\x06checks\x129\n" +
+	"\x06checks\x18\b \x01(\v2!.oblique.security.v1.PolicyChecksB\x03\xe0A\x01R\x06checks\x12Z\n" +
+	"\x10covered_subjects\x18\v \x01(\v2*.oblique.security.v1.PolicyMembershipMatchB\x03\xe0A\x01R\x0fcoveredSubjects\x129\n" +
 	"\x04mode\x18\t \x01(\x0e2 .oblique.security.v1.Policy.ModeB\x03\xe0A\x02R\x04mode\x12K\n" +
 	"\n" +
 	"visibility\x18\n" +
@@ -3129,11 +4461,60 @@ const file_oblique_security_v1_policies_proto_rawDesc = "" +
 	"\fshow_deleted\x18\x03 \x01(\bB\x03\xe0A\x01R\vshowDeleted\"w\n" +
 	"\x14ListPoliciesResponse\x127\n" +
 	"\bpolicies\x18\x01 \x03(\v2\x1b.oblique.security.v1.PolicyR\bpolicies\x12&\n" +
-	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageTokenB\xd2\x01\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\"h\n" +
+	"\x1fGetPolicyExceptionConfigRequest\x12E\n" +
+	"\x04name\x18\x01 \x01(\tB1\xe0A\x02\xfaA+\n" +
+	")oblique.security.v1/PolicyExceptionConfigR\x04name\"\xa5\x01\n" +
+	"!ListPolicyExceptionConfigsRequest\x12:\n" +
+	"\x06parent\x18\x01 \x01(\tB\"\xe0A\x02\xfaA\x1c\n" +
+	"\x1aoblique.security.v1/PolicyR\x06parent\x12 \n" +
+	"\tpage_size\x18\x02 \x01(\x05B\x03\xe0A\x01R\bpageSize\x12\"\n" +
+	"\n" +
+	"page_token\x18\x03 \x01(\tB\x03\xe0A\x01R\tpageToken\"\xb2\x01\n" +
+	"\"ListPolicyExceptionConfigsResponse\x12d\n" +
+	"\x18policy_exception_configs\x18\x01 \x03(\v2*.oblique.security.v1.PolicyExceptionConfigR\x16policyExceptionConfigs\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\"\x8b\x02\n" +
+	"\"CreatePolicyExceptionConfigRequest\x12:\n" +
+	"\x06parent\x18\x01 \x01(\tB\"\xe0A\x02\xfaA\x1c\n" +
+	"\x1aoblique.security.v1/PolicyR\x06parent\x12@\n" +
+	"\x1apolicy_exception_config_id\x18\x02 \x01(\tB\x03\xe0A\x01R\x17policyExceptionConfigId\x12g\n" +
+	"\x17policy_exception_config\x18\x03 \x01(\v2*.oblique.security.v1.PolicyExceptionConfigB\x03\xe0A\x02R\x15policyExceptionConfig\"\xf9\x01\n" +
+	"\"UpdatePolicyExceptionConfigRequest\x12g\n" +
+	"\x17policy_exception_config\x18\x01 \x01(\v2*.oblique.security.v1.PolicyExceptionConfigB\x03\xe0A\x02R\x15policyExceptionConfig\x12@\n" +
+	"\vupdate_mask\x18\x02 \x01(\v2\x1a.google.protobuf.FieldMaskB\x03\xe0A\x01R\n" +
+	"updateMask\x12(\n" +
+	"\rallow_missing\x18\x03 \x01(\bB\x03\xe0A\x01R\fallowMissing\"k\n" +
+	"\"DeletePolicyExceptionConfigRequest\x12E\n" +
+	"\x04name\x18\x01 \x01(\tB1\xe0A\x02\xfaA+\n" +
+	")oblique.security.v1/PolicyExceptionConfigR\x04name\"\\\n" +
+	"\x19GetPolicyExceptionRequest\x12?\n" +
+	"\x04name\x18\x01 \x01(\tB+\xe0A\x02\xfaA%\n" +
+	"#oblique.security.v1/PolicyExceptionR\x04name\"\x9f\x01\n" +
+	"\x1bListPolicyExceptionsRequest\x12:\n" +
+	"\x06parent\x18\x01 \x01(\tB\"\xe0A\x02\xfaA\x1c\n" +
+	"\x1aoblique.security.v1/PolicyR\x06parent\x12 \n" +
+	"\tpage_size\x18\x02 \x01(\x05B\x03\xe0A\x01R\bpageSize\x12\"\n" +
+	"\n" +
+	"page_token\x18\x03 \x01(\tB\x03\xe0A\x01R\tpageToken\"\x99\x01\n" +
+	"\x1cListPolicyExceptionsResponse\x12Q\n" +
+	"\x11policy_exceptions\x18\x01 \x03(\v2$.oblique.security.v1.PolicyExceptionR\x10policyExceptions\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\"\xe5\x01\n" +
+	"\x1cCreatePolicyExceptionRequest\x12:\n" +
+	"\x06parent\x18\x01 \x01(\tB\"\xe0A\x02\xfaA\x1c\n" +
+	"\x1aoblique.security.v1/PolicyR\x06parent\x123\n" +
+	"\x13policy_exception_id\x18\x02 \x01(\tB\x03\xe0A\x01R\x11policyExceptionId\x12T\n" +
+	"\x10policy_exception\x18\x03 \x01(\v2$.oblique.security.v1.PolicyExceptionB\x03\xe0A\x02R\x0fpolicyException\"\xb6\x01\n" +
+	"\x1cUpdatePolicyExceptionRequest\x12T\n" +
+	"\x10policy_exception\x18\x01 \x01(\v2$.oblique.security.v1.PolicyExceptionB\x03\xe0A\x02R\x0fpolicyException\x12@\n" +
+	"\vupdate_mask\x18\x02 \x01(\v2\x1a.google.protobuf.FieldMaskB\x03\xe0A\x01R\n" +
+	"updateMask\"_\n" +
+	"\x1cDeletePolicyExceptionRequest\x12?\n" +
+	"\x04name\x18\x01 \x01(\tB+\xe0A\x02\xfaA%\n" +
+	"#oblique.security.v1/PolicyExceptionR\x04nameB\xd2\x01\n" +
 	"\x17com.oblique.security.v1B\rPoliciesProtoP\x01Z:github.com/oblique-security/web/backend/internal/api/apipb\xa2\x02\x03OSX\xaa\x02\x13Oblique.Security.V1\xca\x02\x13Oblique\\Security\\V1\xe2\x02\x1fOblique\\Security\\V1\\GPBMetadata\xea\x02\x15Oblique::Security::V1b\beditionsp\xe8\a"
 
 var file_oblique_security_v1_policies_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_oblique_security_v1_policies_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_oblique_security_v1_policies_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
 var file_oblique_security_v1_policies_proto_goTypes = []any{
 	(Policy_Mode)(0),                                     // 0: oblique.security.v1.Policy.Mode
 	(Policy_Visibility)(0),                               // 1: oblique.security.v1.Policy.Visibility
@@ -3150,51 +4531,72 @@ var file_oblique_security_v1_policies_proto_goTypes = []any{
 	(*DeletePolicyRequest)(nil),                          // 12: oblique.security.v1.DeletePolicyRequest
 	(*ListPoliciesRequest)(nil),                          // 13: oblique.security.v1.ListPoliciesRequest
 	(*ListPoliciesResponse)(nil),                         // 14: oblique.security.v1.ListPoliciesResponse
-	(*PolicyResourceMatch_ResourceList)(nil),             // 15: oblique.security.v1.PolicyResourceMatch.ResourceList
-	(*PolicyResourceMatch_AttributeMatch)(nil),           // 16: oblique.security.v1.PolicyResourceMatch.AttributeMatch
-	(*PolicyResourceMatch_ListingMatch)(nil),             // 17: oblique.security.v1.PolicyResourceMatch.ListingMatch
-	(*PolicyResourceMatch_ListingRoleMatch)(nil),         // 18: oblique.security.v1.PolicyResourceMatch.ListingRoleMatch
-	(*PolicyResourceMatch_AttributeMatch_Attribute)(nil), // 19: oblique.security.v1.PolicyResourceMatch.AttributeMatch.Attribute
-	(*timestamppb.Timestamp)(nil),                        // 20: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),                          // 21: google.protobuf.Duration
-	(*fieldmaskpb.FieldMask)(nil),                        // 22: google.protobuf.FieldMask
+	(*GetPolicyExceptionConfigRequest)(nil),              // 15: oblique.security.v1.GetPolicyExceptionConfigRequest
+	(*ListPolicyExceptionConfigsRequest)(nil),            // 16: oblique.security.v1.ListPolicyExceptionConfigsRequest
+	(*ListPolicyExceptionConfigsResponse)(nil),           // 17: oblique.security.v1.ListPolicyExceptionConfigsResponse
+	(*CreatePolicyExceptionConfigRequest)(nil),           // 18: oblique.security.v1.CreatePolicyExceptionConfigRequest
+	(*UpdatePolicyExceptionConfigRequest)(nil),           // 19: oblique.security.v1.UpdatePolicyExceptionConfigRequest
+	(*DeletePolicyExceptionConfigRequest)(nil),           // 20: oblique.security.v1.DeletePolicyExceptionConfigRequest
+	(*GetPolicyExceptionRequest)(nil),                    // 21: oblique.security.v1.GetPolicyExceptionRequest
+	(*ListPolicyExceptionsRequest)(nil),                  // 22: oblique.security.v1.ListPolicyExceptionsRequest
+	(*ListPolicyExceptionsResponse)(nil),                 // 23: oblique.security.v1.ListPolicyExceptionsResponse
+	(*CreatePolicyExceptionRequest)(nil),                 // 24: oblique.security.v1.CreatePolicyExceptionRequest
+	(*UpdatePolicyExceptionRequest)(nil),                 // 25: oblique.security.v1.UpdatePolicyExceptionRequest
+	(*DeletePolicyExceptionRequest)(nil),                 // 26: oblique.security.v1.DeletePolicyExceptionRequest
+	(*PolicyResourceMatch_ResourceList)(nil),             // 27: oblique.security.v1.PolicyResourceMatch.ResourceList
+	(*PolicyResourceMatch_AttributeMatch)(nil),           // 28: oblique.security.v1.PolicyResourceMatch.AttributeMatch
+	(*PolicyResourceMatch_ListingMatch)(nil),             // 29: oblique.security.v1.PolicyResourceMatch.ListingMatch
+	(*PolicyResourceMatch_ListingRoleMatch)(nil),         // 30: oblique.security.v1.PolicyResourceMatch.ListingRoleMatch
+	(*PolicyResourceMatch_AttributeMatch_Attribute)(nil), // 31: oblique.security.v1.PolicyResourceMatch.AttributeMatch.Attribute
+	(*timestamppb.Timestamp)(nil),                        // 32: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),                          // 33: google.protobuf.Duration
+	(*fieldmaskpb.FieldMask)(nil),                        // 34: google.protobuf.FieldMask
 }
 var file_oblique_security_v1_policies_proto_depIdxs = []int32{
-	20, // 0: oblique.security.v1.Policy.create_time:type_name -> google.protobuf.Timestamp
-	20, // 1: oblique.security.v1.Policy.update_time:type_name -> google.protobuf.Timestamp
-	20, // 2: oblique.security.v1.Policy.delete_time:type_name -> google.protobuf.Timestamp
+	32, // 0: oblique.security.v1.Policy.create_time:type_name -> google.protobuf.Timestamp
+	32, // 1: oblique.security.v1.Policy.update_time:type_name -> google.protobuf.Timestamp
+	32, // 2: oblique.security.v1.Policy.delete_time:type_name -> google.protobuf.Timestamp
 	6,  // 3: oblique.security.v1.Policy.targets:type_name -> oblique.security.v1.PolicyResourceMatch
 	3,  // 4: oblique.security.v1.Policy.checks:type_name -> oblique.security.v1.PolicyChecks
-	0,  // 5: oblique.security.v1.Policy.mode:type_name -> oblique.security.v1.Policy.Mode
-	1,  // 6: oblique.security.v1.Policy.visibility:type_name -> oblique.security.v1.Policy.Visibility
-	21, // 7: oblique.security.v1.PolicyChecks.max_entitlement_ttl:type_name -> google.protobuf.Duration
-	7,  // 8: oblique.security.v1.PolicyChecks.membership_match:type_name -> oblique.security.v1.PolicyMembershipMatch
-	20, // 9: oblique.security.v1.PolicyExceptionConfig.create_time:type_name -> google.protobuf.Timestamp
-	20, // 10: oblique.security.v1.PolicyExceptionConfig.update_time:type_name -> google.protobuf.Timestamp
-	7,  // 11: oblique.security.v1.PolicyExceptionConfig.eligible_subjects:type_name -> oblique.security.v1.PolicyMembershipMatch
-	21, // 12: oblique.security.v1.PolicyExceptionConfig.max_exception_ttl:type_name -> google.protobuf.Duration
-	20, // 13: oblique.security.v1.PolicyException.create_time:type_name -> google.protobuf.Timestamp
-	20, // 14: oblique.security.v1.PolicyException.update_time:type_name -> google.protobuf.Timestamp
-	6,  // 15: oblique.security.v1.PolicyException.targets:type_name -> oblique.security.v1.PolicyResourceMatch
-	20, // 16: oblique.security.v1.PolicyException.expire_time:type_name -> google.protobuf.Timestamp
-	21, // 17: oblique.security.v1.PolicyException.ttl:type_name -> google.protobuf.Duration
-	21, // 18: oblique.security.v1.PolicyException.max_entitlement_ttl:type_name -> google.protobuf.Duration
-	15, // 19: oblique.security.v1.PolicyResourceMatch.resources:type_name -> oblique.security.v1.PolicyResourceMatch.ResourceList
-	16, // 20: oblique.security.v1.PolicyResourceMatch.attribute_match:type_name -> oblique.security.v1.PolicyResourceMatch.AttributeMatch
-	17, // 21: oblique.security.v1.PolicyResourceMatch.listing_match:type_name -> oblique.security.v1.PolicyResourceMatch.ListingMatch
-	18, // 22: oblique.security.v1.PolicyResourceMatch.listing_role_match:type_name -> oblique.security.v1.PolicyResourceMatch.ListingRoleMatch
-	20, // 23: oblique.security.v1.PolicyOwner.create_time:type_name -> google.protobuf.Timestamp
-	20, // 24: oblique.security.v1.PolicyOwner.update_time:type_name -> google.protobuf.Timestamp
-	2,  // 25: oblique.security.v1.CreatePolicyRequest.policy:type_name -> oblique.security.v1.Policy
-	2,  // 26: oblique.security.v1.UpdatePolicyRequest.policy:type_name -> oblique.security.v1.Policy
-	22, // 27: oblique.security.v1.UpdatePolicyRequest.update_mask:type_name -> google.protobuf.FieldMask
-	2,  // 28: oblique.security.v1.ListPoliciesResponse.policies:type_name -> oblique.security.v1.Policy
-	19, // 29: oblique.security.v1.PolicyResourceMatch.AttributeMatch.attributes:type_name -> oblique.security.v1.PolicyResourceMatch.AttributeMatch.Attribute
-	30, // [30:30] is the sub-list for method output_type
-	30, // [30:30] is the sub-list for method input_type
-	30, // [30:30] is the sub-list for extension type_name
-	30, // [30:30] is the sub-list for extension extendee
-	0,  // [0:30] is the sub-list for field type_name
+	7,  // 5: oblique.security.v1.Policy.covered_subjects:type_name -> oblique.security.v1.PolicyMembershipMatch
+	0,  // 6: oblique.security.v1.Policy.mode:type_name -> oblique.security.v1.Policy.Mode
+	1,  // 7: oblique.security.v1.Policy.visibility:type_name -> oblique.security.v1.Policy.Visibility
+	33, // 8: oblique.security.v1.PolicyChecks.max_entitlement_ttl:type_name -> google.protobuf.Duration
+	7,  // 9: oblique.security.v1.PolicyChecks.membership_match:type_name -> oblique.security.v1.PolicyMembershipMatch
+	32, // 10: oblique.security.v1.PolicyExceptionConfig.create_time:type_name -> google.protobuf.Timestamp
+	32, // 11: oblique.security.v1.PolicyExceptionConfig.update_time:type_name -> google.protobuf.Timestamp
+	7,  // 12: oblique.security.v1.PolicyExceptionConfig.eligible_subjects:type_name -> oblique.security.v1.PolicyMembershipMatch
+	33, // 13: oblique.security.v1.PolicyExceptionConfig.max_exception_ttl:type_name -> google.protobuf.Duration
+	32, // 14: oblique.security.v1.PolicyException.create_time:type_name -> google.protobuf.Timestamp
+	32, // 15: oblique.security.v1.PolicyException.update_time:type_name -> google.protobuf.Timestamp
+	6,  // 16: oblique.security.v1.PolicyException.targets:type_name -> oblique.security.v1.PolicyResourceMatch
+	32, // 17: oblique.security.v1.PolicyException.expire_time:type_name -> google.protobuf.Timestamp
+	33, // 18: oblique.security.v1.PolicyException.ttl:type_name -> google.protobuf.Duration
+	33, // 19: oblique.security.v1.PolicyException.max_entitlement_ttl:type_name -> google.protobuf.Duration
+	27, // 20: oblique.security.v1.PolicyResourceMatch.resources:type_name -> oblique.security.v1.PolicyResourceMatch.ResourceList
+	28, // 21: oblique.security.v1.PolicyResourceMatch.attribute_match:type_name -> oblique.security.v1.PolicyResourceMatch.AttributeMatch
+	29, // 22: oblique.security.v1.PolicyResourceMatch.listing_match:type_name -> oblique.security.v1.PolicyResourceMatch.ListingMatch
+	30, // 23: oblique.security.v1.PolicyResourceMatch.listing_role_match:type_name -> oblique.security.v1.PolicyResourceMatch.ListingRoleMatch
+	32, // 24: oblique.security.v1.PolicyOwner.create_time:type_name -> google.protobuf.Timestamp
+	32, // 25: oblique.security.v1.PolicyOwner.update_time:type_name -> google.protobuf.Timestamp
+	2,  // 26: oblique.security.v1.CreatePolicyRequest.policy:type_name -> oblique.security.v1.Policy
+	2,  // 27: oblique.security.v1.UpdatePolicyRequest.policy:type_name -> oblique.security.v1.Policy
+	34, // 28: oblique.security.v1.UpdatePolicyRequest.update_mask:type_name -> google.protobuf.FieldMask
+	2,  // 29: oblique.security.v1.ListPoliciesResponse.policies:type_name -> oblique.security.v1.Policy
+	4,  // 30: oblique.security.v1.ListPolicyExceptionConfigsResponse.policy_exception_configs:type_name -> oblique.security.v1.PolicyExceptionConfig
+	4,  // 31: oblique.security.v1.CreatePolicyExceptionConfigRequest.policy_exception_config:type_name -> oblique.security.v1.PolicyExceptionConfig
+	4,  // 32: oblique.security.v1.UpdatePolicyExceptionConfigRequest.policy_exception_config:type_name -> oblique.security.v1.PolicyExceptionConfig
+	34, // 33: oblique.security.v1.UpdatePolicyExceptionConfigRequest.update_mask:type_name -> google.protobuf.FieldMask
+	5,  // 34: oblique.security.v1.ListPolicyExceptionsResponse.policy_exceptions:type_name -> oblique.security.v1.PolicyException
+	5,  // 35: oblique.security.v1.CreatePolicyExceptionRequest.policy_exception:type_name -> oblique.security.v1.PolicyException
+	5,  // 36: oblique.security.v1.UpdatePolicyExceptionRequest.policy_exception:type_name -> oblique.security.v1.PolicyException
+	34, // 37: oblique.security.v1.UpdatePolicyExceptionRequest.update_mask:type_name -> google.protobuf.FieldMask
+	31, // 38: oblique.security.v1.PolicyResourceMatch.AttributeMatch.attributes:type_name -> oblique.security.v1.PolicyResourceMatch.AttributeMatch.Attribute
+	39, // [39:39] is the sub-list for method output_type
+	39, // [39:39] is the sub-list for method input_type
+	39, // [39:39] is the sub-list for extension type_name
+	39, // [39:39] is the sub-list for extension extendee
+	0,  // [0:39] is the sub-list for field type_name
 }
 
 func init() { file_oblique_security_v1_policies_proto_init() }
@@ -3218,7 +4620,7 @@ func file_oblique_security_v1_policies_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_oblique_security_v1_policies_proto_rawDesc), len(file_oblique_security_v1_policies_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   18,
+			NumMessages:   30,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

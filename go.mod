@@ -1,12 +1,12 @@
 module github.com/oblique-security/terraform-provider-oblique
 
-go 1.26.3
+go 1.26.4
 
 require (
 	github.com/hashicorp/terraform-plugin-framework v1.19.0
 	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0
-	google.golang.org/genproto/googleapis/api v0.0.0-20260526163538-3dc84a4a5aaa
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260526163538-3dc84a4a5aaa
+	google.golang.org/genproto/googleapis/api v0.0.0-20260608224507-4308a22a1bab
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260608224507-4308a22a1bab
 	google.golang.org/grpc v1.81.1
 	google.golang.org/protobuf v1.36.11
 )

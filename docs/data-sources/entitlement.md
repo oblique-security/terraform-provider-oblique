@@ -37,7 +37,6 @@ Format: `policies/{policy}`
 - `id` (String) The ID is a computed type that always matches 'name'.
 - `imported` (Boolean) When true, this boolean indicates this entitlement was "imported" from a syncing process, such as reading data from Okta or Google Groups. User created entitlements will always cause this field to be false or unset.
 - `justification` (String) Human readable justification for the entitlement to be granted. For example, this may contain a link to a ticket or other artifacts.
-- `management` (Attributes) How this entitlement is managed. Set automatically by the server based on the calling client. Omitted from responses when the entitlement is manually managed (the default). (see [below for nested schema](#nestedatt--management))
 - `okta_app` (Attributes) (see [below for nested schema](#nestedatt--okta_app))
 - `request` (String) If present, the request that most recently created or updated this entitlement.
 
@@ -49,16 +48,6 @@ Format: `resources/{resource}`
 
 Format: `users/{user}`, `teams/{team}`, `groups/{group}`
 - `update_time` (String)
-
-<a id="nestedatt--management"></a>
-### Nested Schema for `management`
-
-Read-Only:
-
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-
 
 <a id="nestedatt--okta_app"></a>
 ### Nested Schema for `okta_app`

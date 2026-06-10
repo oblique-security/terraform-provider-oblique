@@ -26,7 +26,7 @@ var File_oblique_security_v1_directory_proto protoreflect.FileDescriptor
 
 const file_oblique_security_v1_directory_proto_rawDesc = "" +
 	"\n" +
-	"#oblique/security/v1/directory.proto\x12\x13oblique.security.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a oblique/security/v1/admins.proto\x1a\x1foblique/security/v1/audit.proto\x1a\x1eoblique/security/v1/auth.proto\x1a\x1eoblique/security/v1/bugs.proto\x1a oblique/security/v1/config.proto\x1a+oblique/security/v1/effective_members.proto\x1a&oblique/security/v1/entitlements.proto\x1a oblique/security/v1/events.proto\x1a oblique/security/v1/export.proto\x1a oblique/security/v1/groups.proto\x1a&oblique/security/v1/integrations.proto\x1a\"oblique/security/v1/listings.proto\x1a\x1doblique/security/v1/mcp.proto\x1a\"oblique/security/v1/policies.proto\x1a)oblique/security/v1/recommendations.proto\x1a\"oblique/security/v1/requests.proto\x1a#oblique/security/v1/resources.proto\x1a*oblique/security/v1/service_accounts.proto\x1a\x1foblique/security/v1/teams.proto\x1a\x1foblique/security/v1/users.proto2\xa9\xd7\x01\n" +
+	"#oblique/security/v1/directory.proto\x12\x13oblique.security.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a oblique/security/v1/admins.proto\x1a\x1foblique/security/v1/audit.proto\x1a\x1eoblique/security/v1/auth.proto\x1a\x1eoblique/security/v1/bugs.proto\x1a oblique/security/v1/config.proto\x1a+oblique/security/v1/effective_members.proto\x1a&oblique/security/v1/entitlements.proto\x1a oblique/security/v1/events.proto\x1a oblique/security/v1/export.proto\x1a oblique/security/v1/groups.proto\x1a&oblique/security/v1/integrations.proto\x1a\"oblique/security/v1/listings.proto\x1a\x1doblique/security/v1/mcp.proto\x1a\"oblique/security/v1/policies.proto\x1a)oblique/security/v1/recommendations.proto\x1a\"oblique/security/v1/requests.proto\x1a#oblique/security/v1/resources.proto\x1a*oblique/security/v1/service_accounts.proto\x1a\x1foblique/security/v1/teams.proto\x1a\x1foblique/security/v1/users.proto2\xaa\xe6\x01\n" +
 	"\aOblique\x12p\n" +
 	"\aGetTeam\x12#.oblique.security.v1.GetTeamRequest\x1a\x19.oblique.security.v1.Team\"%\xe2\xe9\xdb*\x02\x04\a\x82\xd3\xe4\x93\x02\x18\x12\x16/api/v1/{name=teams/*}\x12\x8d\x01\n" +
 	"\rBatchGetTeams\x12).oblique.security.v1.BatchGetTeamsRequest\x1a*.oblique.security.v1.BatchGetTeamsResponse\"%\xe2\xe9\xdb*\x02\x04\b\x82\xd3\xe4\x93\x02\x18\x12\x16/api/v1/teams:batchGet\x12x\n" +
@@ -217,7 +217,17 @@ const file_oblique_security_v1_directory_proto_rawDesc = "" +
 	"\fListPolicies\x12(.oblique.security.v1.ListPoliciesRequest\x1a).oblique.security.v1.ListPoliciesResponse\" \xe2\xe9\xdb*\x03\x04\a\b\x82\xd3\xe4\x93\x02\x12\x12\x10/api/v1/policies\x12}\n" +
 	"\fCreatePolicy\x12(.oblique.security.v1.CreatePolicyRequest\x1a\x1b.oblique.security.v1.Policy\"&\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02\x1a:\x06policy\"\x10/api/v1/policies\x12\x8d\x01\n" +
 	"\fUpdatePolicy\x12(.oblique.security.v1.UpdatePolicyRequest\x1a\x1b.oblique.security.v1.Policy\"6\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02*:\x06policy2 /api/v1/{policy.name=policies/*}\x12~\n" +
-	"\fDeletePolicy\x12(.oblique.security.v1.DeletePolicyRequest\x1a\x1b.oblique.security.v1.Policy\"'\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02\x1b*\x19/api/v1/{name=policies/*}B\xd3\x01\n" +
+	"\fDeletePolicy\x12(.oblique.security.v1.DeletePolicyRequest\x1a\x1b.oblique.security.v1.Policy\"'\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02\x1b*\x19/api/v1/{name=policies/*}\x12\xba\x01\n" +
+	"\x18GetPolicyExceptionConfig\x124.oblique.security.v1.GetPolicyExceptionConfigRequest\x1a*.oblique.security.v1.PolicyExceptionConfig\"<\xe2\xe9\xdb*\x03\x04\b\a\x82\xd3\xe4\x93\x02.\x12,/api/v1/{name=policies/*/exceptionConfigs/*}\x12\xcb\x01\n" +
+	"\x1aListPolicyExceptionConfigs\x126.oblique.security.v1.ListPolicyExceptionConfigsRequest\x1a7.oblique.security.v1.ListPolicyExceptionConfigsResponse\"<\xe2\xe9\xdb*\x03\x04\b\a\x82\xd3\xe4\x93\x02.\x12,/api/v1/{parent=policies/*}/exceptionConfigs\x12\xd7\x01\n" +
+	"\x1bCreatePolicyExceptionConfig\x127.oblique.security.v1.CreatePolicyExceptionConfigRequest\x1a*.oblique.security.v1.PolicyExceptionConfig\"S\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02G:\x17policy_exception_config\",/api/v1/{parent=policies/*}/exceptionConfigs\x12\xef\x01\n" +
+	"\x1bUpdatePolicyExceptionConfig\x127.oblique.security.v1.UpdatePolicyExceptionConfigRequest\x1a*.oblique.security.v1.PolicyExceptionConfig\"k\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02_:\x17policy_exception_config2D/api/v1/{policy_exception_config.name=policies/*/exceptionConfigs/*}\x12\xaa\x01\n" +
+	"\x1bDeletePolicyExceptionConfig\x127.oblique.security.v1.DeletePolicyExceptionConfigRequest\x1a\x16.google.protobuf.Empty\":\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02.*,/api/v1/{name=policies/*/exceptionConfigs/*}\x12\xa2\x01\n" +
+	"\x12GetPolicyException\x12..oblique.security.v1.GetPolicyExceptionRequest\x1a$.oblique.security.v1.PolicyException\"6\xe2\xe9\xdb*\x03\x04\b\a\x82\xd3\xe4\x93\x02(\x12&/api/v1/{name=policies/*/exceptions/*}\x12\xb3\x01\n" +
+	"\x14ListPolicyExceptions\x120.oblique.security.v1.ListPolicyExceptionsRequest\x1a1.oblique.security.v1.ListPolicyExceptionsResponse\"6\xe2\xe9\xdb*\x03\x04\b\a\x82\xd3\xe4\x93\x02(\x12&/api/v1/{parent=policies/*}/exceptions\x12\xb8\x01\n" +
+	"\x15CreatePolicyException\x121.oblique.security.v1.CreatePolicyExceptionRequest\x1a$.oblique.security.v1.PolicyException\"F\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02::\x10policy_exception\"&/api/v1/{parent=policies/*}/exceptions\x12\xc9\x01\n" +
+	"\x15UpdatePolicyException\x121.oblique.security.v1.UpdatePolicyExceptionRequest\x1a$.oblique.security.v1.PolicyException\"W\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02K:\x10policy_exception27/api/v1/{policy_exception.name=policies/*/exceptions/*}\x12\x98\x01\n" +
+	"\x15DeletePolicyException\x121.oblique.security.v1.DeletePolicyExceptionRequest\x1a\x16.google.protobuf.Empty\"4\xe2\xe9\xdb*\x01\x01\x82\xd3\xe4\x93\x02(*&/api/v1/{name=policies/*/exceptions/*}B\xd3\x01\n" +
 	"\x17com.oblique.security.v1B\x0eDirectoryProtoP\x01Z:github.com/oblique-security/web/backend/internal/api/apipb\xa2\x02\x03OSX\xaa\x02\x13Oblique.Security.V1\xca\x02\x13Oblique\\Security\\V1\xe2\x02\x1fOblique\\Security\\V1\\GPBMetadata\xea\x02\x15Oblique::Security::V1b\beditionsp\xe8\a"
 
 var file_oblique_security_v1_directory_proto_goTypes = []any{
@@ -397,112 +407,126 @@ var file_oblique_security_v1_directory_proto_goTypes = []any{
 	(*CreatePolicyRequest)(nil),                      // 173: oblique.security.v1.CreatePolicyRequest
 	(*UpdatePolicyRequest)(nil),                      // 174: oblique.security.v1.UpdatePolicyRequest
 	(*DeletePolicyRequest)(nil),                      // 175: oblique.security.v1.DeletePolicyRequest
-	(*Team)(nil),                                     // 176: oblique.security.v1.Team
-	(*BatchGetTeamsResponse)(nil),                    // 177: oblique.security.v1.BatchGetTeamsResponse
-	(*ListTeamsResponse)(nil),                        // 178: oblique.security.v1.ListTeamsResponse
-	(*TeamRoles)(nil),                                // 179: oblique.security.v1.TeamRoles
-	(*TeamMember)(nil),                               // 180: oblique.security.v1.TeamMember
-	(*ListTeamMembersResponse)(nil),                  // 181: oblique.security.v1.ListTeamMembersResponse
-	(*emptypb.Empty)(nil),                            // 182: google.protobuf.Empty
-	(*TeamOwner)(nil),                                // 183: oblique.security.v1.TeamOwner
-	(*ListTeamOwnersResponse)(nil),                   // 184: oblique.security.v1.ListTeamOwnersResponse
-	(*TeamEffectiveOwner)(nil),                       // 185: oblique.security.v1.TeamEffectiveOwner
-	(*ListTeamEffectiveOwnersResponse)(nil),          // 186: oblique.security.v1.ListTeamEffectiveOwnersResponse
-	(*EffectiveMember)(nil),                          // 187: oblique.security.v1.EffectiveMember
-	(*ListEffectiveMembersResponse)(nil),             // 188: oblique.security.v1.ListEffectiveMembersResponse
-	(*User)(nil),                                     // 189: oblique.security.v1.User
-	(*ListUsersResponse)(nil),                        // 190: oblique.security.v1.ListUsersResponse
-	(*BatchGetUsersResponse)(nil),                    // 191: oblique.security.v1.BatchGetUsersResponse
-	(*ImpersonateUserResponse)(nil),                  // 192: oblique.security.v1.ImpersonateUserResponse
-	(*CurrentUser)(nil),                              // 193: oblique.security.v1.CurrentUser
-	(*UserSettings)(nil),                             // 194: oblique.security.v1.UserSettings
-	(*UserProfile)(nil),                              // 195: oblique.security.v1.UserProfile
-	(*ListUserProfilesResponse)(nil),                 // 196: oblique.security.v1.ListUserProfilesResponse
-	(*UserAttribute)(nil),                            // 197: oblique.security.v1.UserAttribute
-	(*ListUserAttributesResponse)(nil),               // 198: oblique.security.v1.ListUserAttributesResponse
-	(*Resource)(nil),                                 // 199: oblique.security.v1.Resource
-	(*ListResourcesResponse)(nil),                    // 200: oblique.security.v1.ListResourcesResponse
-	(*BatchGetResourcesResponse)(nil),                // 201: oblique.security.v1.BatchGetResourcesResponse
-	(*Entitlement)(nil),                              // 202: oblique.security.v1.Entitlement
-	(*ListEntitlementsResponse)(nil),                 // 203: oblique.security.v1.ListEntitlementsResponse
-	(*BatchGetEntitlementsResponse)(nil),             // 204: oblique.security.v1.BatchGetEntitlementsResponse
-	(*BatchCreateEntitlementsResponse)(nil),          // 205: oblique.security.v1.BatchCreateEntitlementsResponse
-	(*Integration)(nil),                              // 206: oblique.security.v1.Integration
-	(*ListIntegrationsResponse)(nil),                 // 207: oblique.security.v1.ListIntegrationsResponse
-	(*IntegrationExecution)(nil),                     // 208: oblique.security.v1.IntegrationExecution
-	(*ListIntegrationExecutionsResponse)(nil),        // 209: oblique.security.v1.ListIntegrationExecutionsResponse
-	(*IntegrationAttribute)(nil),                     // 210: oblique.security.v1.IntegrationAttribute
-	(*ListIntegrationAttributesResponse)(nil),        // 211: oblique.security.v1.ListIntegrationAttributesResponse
-	(*ExportIntegrationAttributesResponse)(nil),      // 212: oblique.security.v1.ExportIntegrationAttributesResponse
-	(*SlackChannels)(nil),                            // 213: oblique.security.v1.SlackChannels
-	(*SendSlackTestNotificationResponse)(nil),        // 214: oblique.security.v1.SendSlackTestNotificationResponse
-	(*ExportEntityResponse)(nil),                     // 215: oblique.security.v1.ExportEntityResponse
-	(*ExportTenantResponse)(nil),                     // 216: oblique.security.v1.ExportTenantResponse
-	(*Group)(nil),                                    // 217: oblique.security.v1.Group
-	(*ListGroupsResponse)(nil),                       // 218: oblique.security.v1.ListGroupsResponse
-	(*BatchGetGroupsResponse)(nil),                   // 219: oblique.security.v1.BatchGetGroupsResponse
-	(*PreviewGroupResponse)(nil),                     // 220: oblique.security.v1.PreviewGroupResponse
-	(*GroupMember)(nil),                              // 221: oblique.security.v1.GroupMember
-	(*ListGroupMembersResponse)(nil),                 // 222: oblique.security.v1.ListGroupMembersResponse
-	(*GroupOwner)(nil),                               // 223: oblique.security.v1.GroupOwner
-	(*ListGroupOwnersResponse)(nil),                  // 224: oblique.security.v1.ListGroupOwnersResponse
-	(*GroupRoles)(nil),                               // 225: oblique.security.v1.GroupRoles
-	(*GroupEffectiveOwner)(nil),                      // 226: oblique.security.v1.GroupEffectiveOwner
-	(*ListGroupEffectiveOwnersResponse)(nil),         // 227: oblique.security.v1.ListGroupEffectiveOwnersResponse
-	(*AuditEvent)(nil),                               // 228: oblique.security.v1.AuditEvent
-	(*ListAuditEventsResponse)(nil),                  // 229: oblique.security.v1.ListAuditEventsResponse
-	(*Admin)(nil),                                    // 230: oblique.security.v1.Admin
-	(*ListAdminsResponse)(nil),                       // 231: oblique.security.v1.ListAdminsResponse
-	(*Owner)(nil),                                    // 232: oblique.security.v1.Owner
-	(*ServiceAccount)(nil),                           // 233: oblique.security.v1.ServiceAccount
-	(*ListServiceAccountsResponse)(nil),              // 234: oblique.security.v1.ListServiceAccountsResponse
-	(*MCPSession)(nil),                               // 235: oblique.security.v1.MCPSession
-	(*ListMCPSessionsResponse)(nil),                  // 236: oblique.security.v1.ListMCPSessionsResponse
-	(*Request)(nil),                                  // 237: oblique.security.v1.Request
-	(*BatchGetRequestsResponse)(nil),                 // 238: oblique.security.v1.BatchGetRequestsResponse
-	(*ListRequestsResponse)(nil),                     // 239: oblique.security.v1.ListRequestsResponse
-	(*PreviewRequestResponse)(nil),                   // 240: oblique.security.v1.PreviewRequestResponse
-	(*RequestPreview)(nil),                           // 241: oblique.security.v1.RequestPreview
-	(*PreviewSuggestedReviewersResponse)(nil),        // 242: oblique.security.v1.PreviewSuggestedReviewersResponse
-	(*SuggestedReviewers)(nil),                       // 243: oblique.security.v1.SuggestedReviewers
-	(*ApproveRequestResponse)(nil),                   // 244: oblique.security.v1.ApproveRequestResponse
-	(*CloseRequestResponse)(nil),                     // 245: oblique.security.v1.CloseRequestResponse
-	(*RequestRoles)(nil),                             // 246: oblique.security.v1.RequestRoles
-	(*RequestEvent)(nil),                             // 247: oblique.security.v1.RequestEvent
-	(*ListRequestEventsResponse)(nil),                // 248: oblique.security.v1.ListRequestEventsResponse
-	(*Recommendation)(nil),                           // 249: oblique.security.v1.Recommendation
-	(*BatchGetRecommendationsResponse)(nil),          // 250: oblique.security.v1.BatchGetRecommendationsResponse
-	(*ListRecommendationsResponse)(nil),              // 251: oblique.security.v1.ListRecommendationsResponse
-	(*IgnoreRecommendationsResponse)(nil),            // 252: oblique.security.v1.IgnoreRecommendationsResponse
-	(*RecommendationGroup)(nil),                      // 253: oblique.security.v1.RecommendationGroup
-	(*BatchGetRecommendationGroupsResponse)(nil),     // 254: oblique.security.v1.BatchGetRecommendationGroupsResponse
-	(*ListRecommendationGroupsResponse)(nil),         // 255: oblique.security.v1.ListRecommendationGroupsResponse
-	(*Listing)(nil),                                  // 256: oblique.security.v1.Listing
-	(*BatchGetListingsResponse)(nil),                 // 257: oblique.security.v1.BatchGetListingsResponse
-	(*ListListingsResponse)(nil),                     // 258: oblique.security.v1.ListListingsResponse
-	(*ListingRole)(nil),                              // 259: oblique.security.v1.ListingRole
-	(*BatchGetListingRolesResponse)(nil),             // 260: oblique.security.v1.BatchGetListingRolesResponse
-	(*ListListingRolesResponse)(nil),                 // 261: oblique.security.v1.ListListingRolesResponse
-	(*ListingRolePolicy)(nil),                        // 262: oblique.security.v1.ListingRolePolicy
-	(*ListListingRolePoliciesResponse)(nil),          // 263: oblique.security.v1.ListListingRolePoliciesResponse
-	(*BatchCreateListingRolePoliciesResponse)(nil),   // 264: oblique.security.v1.BatchCreateListingRolePoliciesResponse
-	(*ListingRoleEffectiveSubject)(nil),              // 265: oblique.security.v1.ListingRoleEffectiveSubject
-	(*ListListingRoleEffectiveSubjectsResponse)(nil), // 266: oblique.security.v1.ListListingRoleEffectiveSubjectsResponse
-	(*ListingOwner)(nil),                             // 267: oblique.security.v1.ListingOwner
-	(*ListListingOwnersResponse)(nil),                // 268: oblique.security.v1.ListListingOwnersResponse
-	(*ListingEffectiveOwner)(nil),                    // 269: oblique.security.v1.ListingEffectiveOwner
-	(*ListListingEffectiveOwnersResponse)(nil),       // 270: oblique.security.v1.ListListingEffectiveOwnersResponse
-	(*Config)(nil),                                   // 271: oblique.security.v1.Config
-	(*CoreAttributeConfig)(nil),                      // 272: oblique.security.v1.CoreAttributeConfig
-	(*Feature)(nil),                                  // 273: oblique.security.v1.Feature
-	(*ListFeaturesResponse)(nil),                     // 274: oblique.security.v1.ListFeaturesResponse
-	(*FeatureOverride)(nil),                          // 275: oblique.security.v1.FeatureOverride
-	(*ListFeatureOverridesResponse)(nil),             // 276: oblique.security.v1.ListFeatureOverridesResponse
-	(*Event)(nil),                                    // 277: oblique.security.v1.Event
-	(*ListEventsResponse)(nil),                       // 278: oblique.security.v1.ListEventsResponse
-	(*ReportBugResponse)(nil),                        // 279: oblique.security.v1.ReportBugResponse
-	(*Policy)(nil),                                   // 280: oblique.security.v1.Policy
-	(*ListPoliciesResponse)(nil),                     // 281: oblique.security.v1.ListPoliciesResponse
+	(*GetPolicyExceptionConfigRequest)(nil),          // 176: oblique.security.v1.GetPolicyExceptionConfigRequest
+	(*ListPolicyExceptionConfigsRequest)(nil),        // 177: oblique.security.v1.ListPolicyExceptionConfigsRequest
+	(*CreatePolicyExceptionConfigRequest)(nil),       // 178: oblique.security.v1.CreatePolicyExceptionConfigRequest
+	(*UpdatePolicyExceptionConfigRequest)(nil),       // 179: oblique.security.v1.UpdatePolicyExceptionConfigRequest
+	(*DeletePolicyExceptionConfigRequest)(nil),       // 180: oblique.security.v1.DeletePolicyExceptionConfigRequest
+	(*GetPolicyExceptionRequest)(nil),                // 181: oblique.security.v1.GetPolicyExceptionRequest
+	(*ListPolicyExceptionsRequest)(nil),              // 182: oblique.security.v1.ListPolicyExceptionsRequest
+	(*CreatePolicyExceptionRequest)(nil),             // 183: oblique.security.v1.CreatePolicyExceptionRequest
+	(*UpdatePolicyExceptionRequest)(nil),             // 184: oblique.security.v1.UpdatePolicyExceptionRequest
+	(*DeletePolicyExceptionRequest)(nil),             // 185: oblique.security.v1.DeletePolicyExceptionRequest
+	(*Team)(nil),                                     // 186: oblique.security.v1.Team
+	(*BatchGetTeamsResponse)(nil),                    // 187: oblique.security.v1.BatchGetTeamsResponse
+	(*ListTeamsResponse)(nil),                        // 188: oblique.security.v1.ListTeamsResponse
+	(*TeamRoles)(nil),                                // 189: oblique.security.v1.TeamRoles
+	(*TeamMember)(nil),                               // 190: oblique.security.v1.TeamMember
+	(*ListTeamMembersResponse)(nil),                  // 191: oblique.security.v1.ListTeamMembersResponse
+	(*emptypb.Empty)(nil),                            // 192: google.protobuf.Empty
+	(*TeamOwner)(nil),                                // 193: oblique.security.v1.TeamOwner
+	(*ListTeamOwnersResponse)(nil),                   // 194: oblique.security.v1.ListTeamOwnersResponse
+	(*TeamEffectiveOwner)(nil),                       // 195: oblique.security.v1.TeamEffectiveOwner
+	(*ListTeamEffectiveOwnersResponse)(nil),          // 196: oblique.security.v1.ListTeamEffectiveOwnersResponse
+	(*EffectiveMember)(nil),                          // 197: oblique.security.v1.EffectiveMember
+	(*ListEffectiveMembersResponse)(nil),             // 198: oblique.security.v1.ListEffectiveMembersResponse
+	(*User)(nil),                                     // 199: oblique.security.v1.User
+	(*ListUsersResponse)(nil),                        // 200: oblique.security.v1.ListUsersResponse
+	(*BatchGetUsersResponse)(nil),                    // 201: oblique.security.v1.BatchGetUsersResponse
+	(*ImpersonateUserResponse)(nil),                  // 202: oblique.security.v1.ImpersonateUserResponse
+	(*CurrentUser)(nil),                              // 203: oblique.security.v1.CurrentUser
+	(*UserSettings)(nil),                             // 204: oblique.security.v1.UserSettings
+	(*UserProfile)(nil),                              // 205: oblique.security.v1.UserProfile
+	(*ListUserProfilesResponse)(nil),                 // 206: oblique.security.v1.ListUserProfilesResponse
+	(*UserAttribute)(nil),                            // 207: oblique.security.v1.UserAttribute
+	(*ListUserAttributesResponse)(nil),               // 208: oblique.security.v1.ListUserAttributesResponse
+	(*Resource)(nil),                                 // 209: oblique.security.v1.Resource
+	(*ListResourcesResponse)(nil),                    // 210: oblique.security.v1.ListResourcesResponse
+	(*BatchGetResourcesResponse)(nil),                // 211: oblique.security.v1.BatchGetResourcesResponse
+	(*Entitlement)(nil),                              // 212: oblique.security.v1.Entitlement
+	(*ListEntitlementsResponse)(nil),                 // 213: oblique.security.v1.ListEntitlementsResponse
+	(*BatchGetEntitlementsResponse)(nil),             // 214: oblique.security.v1.BatchGetEntitlementsResponse
+	(*BatchCreateEntitlementsResponse)(nil),          // 215: oblique.security.v1.BatchCreateEntitlementsResponse
+	(*Integration)(nil),                              // 216: oblique.security.v1.Integration
+	(*ListIntegrationsResponse)(nil),                 // 217: oblique.security.v1.ListIntegrationsResponse
+	(*IntegrationExecution)(nil),                     // 218: oblique.security.v1.IntegrationExecution
+	(*ListIntegrationExecutionsResponse)(nil),        // 219: oblique.security.v1.ListIntegrationExecutionsResponse
+	(*IntegrationAttribute)(nil),                     // 220: oblique.security.v1.IntegrationAttribute
+	(*ListIntegrationAttributesResponse)(nil),        // 221: oblique.security.v1.ListIntegrationAttributesResponse
+	(*ExportIntegrationAttributesResponse)(nil),      // 222: oblique.security.v1.ExportIntegrationAttributesResponse
+	(*SlackChannels)(nil),                            // 223: oblique.security.v1.SlackChannels
+	(*SendSlackTestNotificationResponse)(nil),        // 224: oblique.security.v1.SendSlackTestNotificationResponse
+	(*ExportEntityResponse)(nil),                     // 225: oblique.security.v1.ExportEntityResponse
+	(*ExportTenantResponse)(nil),                     // 226: oblique.security.v1.ExportTenantResponse
+	(*Group)(nil),                                    // 227: oblique.security.v1.Group
+	(*ListGroupsResponse)(nil),                       // 228: oblique.security.v1.ListGroupsResponse
+	(*BatchGetGroupsResponse)(nil),                   // 229: oblique.security.v1.BatchGetGroupsResponse
+	(*PreviewGroupResponse)(nil),                     // 230: oblique.security.v1.PreviewGroupResponse
+	(*GroupMember)(nil),                              // 231: oblique.security.v1.GroupMember
+	(*ListGroupMembersResponse)(nil),                 // 232: oblique.security.v1.ListGroupMembersResponse
+	(*GroupOwner)(nil),                               // 233: oblique.security.v1.GroupOwner
+	(*ListGroupOwnersResponse)(nil),                  // 234: oblique.security.v1.ListGroupOwnersResponse
+	(*GroupRoles)(nil),                               // 235: oblique.security.v1.GroupRoles
+	(*GroupEffectiveOwner)(nil),                      // 236: oblique.security.v1.GroupEffectiveOwner
+	(*ListGroupEffectiveOwnersResponse)(nil),         // 237: oblique.security.v1.ListGroupEffectiveOwnersResponse
+	(*AuditEvent)(nil),                               // 238: oblique.security.v1.AuditEvent
+	(*ListAuditEventsResponse)(nil),                  // 239: oblique.security.v1.ListAuditEventsResponse
+	(*Admin)(nil),                                    // 240: oblique.security.v1.Admin
+	(*ListAdminsResponse)(nil),                       // 241: oblique.security.v1.ListAdminsResponse
+	(*Owner)(nil),                                    // 242: oblique.security.v1.Owner
+	(*ServiceAccount)(nil),                           // 243: oblique.security.v1.ServiceAccount
+	(*ListServiceAccountsResponse)(nil),              // 244: oblique.security.v1.ListServiceAccountsResponse
+	(*MCPSession)(nil),                               // 245: oblique.security.v1.MCPSession
+	(*ListMCPSessionsResponse)(nil),                  // 246: oblique.security.v1.ListMCPSessionsResponse
+	(*Request)(nil),                                  // 247: oblique.security.v1.Request
+	(*BatchGetRequestsResponse)(nil),                 // 248: oblique.security.v1.BatchGetRequestsResponse
+	(*ListRequestsResponse)(nil),                     // 249: oblique.security.v1.ListRequestsResponse
+	(*PreviewRequestResponse)(nil),                   // 250: oblique.security.v1.PreviewRequestResponse
+	(*RequestPreview)(nil),                           // 251: oblique.security.v1.RequestPreview
+	(*PreviewSuggestedReviewersResponse)(nil),        // 252: oblique.security.v1.PreviewSuggestedReviewersResponse
+	(*SuggestedReviewers)(nil),                       // 253: oblique.security.v1.SuggestedReviewers
+	(*ApproveRequestResponse)(nil),                   // 254: oblique.security.v1.ApproveRequestResponse
+	(*CloseRequestResponse)(nil),                     // 255: oblique.security.v1.CloseRequestResponse
+	(*RequestRoles)(nil),                             // 256: oblique.security.v1.RequestRoles
+	(*RequestEvent)(nil),                             // 257: oblique.security.v1.RequestEvent
+	(*ListRequestEventsResponse)(nil),                // 258: oblique.security.v1.ListRequestEventsResponse
+	(*Recommendation)(nil),                           // 259: oblique.security.v1.Recommendation
+	(*BatchGetRecommendationsResponse)(nil),          // 260: oblique.security.v1.BatchGetRecommendationsResponse
+	(*ListRecommendationsResponse)(nil),              // 261: oblique.security.v1.ListRecommendationsResponse
+	(*IgnoreRecommendationsResponse)(nil),            // 262: oblique.security.v1.IgnoreRecommendationsResponse
+	(*RecommendationGroup)(nil),                      // 263: oblique.security.v1.RecommendationGroup
+	(*BatchGetRecommendationGroupsResponse)(nil),     // 264: oblique.security.v1.BatchGetRecommendationGroupsResponse
+	(*ListRecommendationGroupsResponse)(nil),         // 265: oblique.security.v1.ListRecommendationGroupsResponse
+	(*Listing)(nil),                                  // 266: oblique.security.v1.Listing
+	(*BatchGetListingsResponse)(nil),                 // 267: oblique.security.v1.BatchGetListingsResponse
+	(*ListListingsResponse)(nil),                     // 268: oblique.security.v1.ListListingsResponse
+	(*ListingRole)(nil),                              // 269: oblique.security.v1.ListingRole
+	(*BatchGetListingRolesResponse)(nil),             // 270: oblique.security.v1.BatchGetListingRolesResponse
+	(*ListListingRolesResponse)(nil),                 // 271: oblique.security.v1.ListListingRolesResponse
+	(*ListingRolePolicy)(nil),                        // 272: oblique.security.v1.ListingRolePolicy
+	(*ListListingRolePoliciesResponse)(nil),          // 273: oblique.security.v1.ListListingRolePoliciesResponse
+	(*BatchCreateListingRolePoliciesResponse)(nil),   // 274: oblique.security.v1.BatchCreateListingRolePoliciesResponse
+	(*ListingRoleEffectiveSubject)(nil),              // 275: oblique.security.v1.ListingRoleEffectiveSubject
+	(*ListListingRoleEffectiveSubjectsResponse)(nil), // 276: oblique.security.v1.ListListingRoleEffectiveSubjectsResponse
+	(*ListingOwner)(nil),                             // 277: oblique.security.v1.ListingOwner
+	(*ListListingOwnersResponse)(nil),                // 278: oblique.security.v1.ListListingOwnersResponse
+	(*ListingEffectiveOwner)(nil),                    // 279: oblique.security.v1.ListingEffectiveOwner
+	(*ListListingEffectiveOwnersResponse)(nil),       // 280: oblique.security.v1.ListListingEffectiveOwnersResponse
+	(*Config)(nil),                                   // 281: oblique.security.v1.Config
+	(*CoreAttributeConfig)(nil),                      // 282: oblique.security.v1.CoreAttributeConfig
+	(*Feature)(nil),                                  // 283: oblique.security.v1.Feature
+	(*ListFeaturesResponse)(nil),                     // 284: oblique.security.v1.ListFeaturesResponse
+	(*FeatureOverride)(nil),                          // 285: oblique.security.v1.FeatureOverride
+	(*ListFeatureOverridesResponse)(nil),             // 286: oblique.security.v1.ListFeatureOverridesResponse
+	(*Event)(nil),                                    // 287: oblique.security.v1.Event
+	(*ListEventsResponse)(nil),                       // 288: oblique.security.v1.ListEventsResponse
+	(*ReportBugResponse)(nil),                        // 289: oblique.security.v1.ReportBugResponse
+	(*Policy)(nil),                                   // 290: oblique.security.v1.Policy
+	(*ListPoliciesResponse)(nil),                     // 291: oblique.security.v1.ListPoliciesResponse
+	(*PolicyExceptionConfig)(nil),                    // 292: oblique.security.v1.PolicyExceptionConfig
+	(*ListPolicyExceptionConfigsResponse)(nil),       // 293: oblique.security.v1.ListPolicyExceptionConfigsResponse
+	(*PolicyException)(nil),                          // 294: oblique.security.v1.PolicyException
+	(*ListPolicyExceptionsResponse)(nil),             // 295: oblique.security.v1.ListPolicyExceptionsResponse
 }
 var file_oblique_security_v1_directory_proto_depIdxs = []int32{
 	0,   // 0: oblique.security.v1.Oblique.GetTeam:input_type -> oblique.security.v1.GetTeamRequest
@@ -681,184 +705,204 @@ var file_oblique_security_v1_directory_proto_depIdxs = []int32{
 	173, // 173: oblique.security.v1.Oblique.CreatePolicy:input_type -> oblique.security.v1.CreatePolicyRequest
 	174, // 174: oblique.security.v1.Oblique.UpdatePolicy:input_type -> oblique.security.v1.UpdatePolicyRequest
 	175, // 175: oblique.security.v1.Oblique.DeletePolicy:input_type -> oblique.security.v1.DeletePolicyRequest
-	176, // 176: oblique.security.v1.Oblique.GetTeam:output_type -> oblique.security.v1.Team
-	177, // 177: oblique.security.v1.Oblique.BatchGetTeams:output_type -> oblique.security.v1.BatchGetTeamsResponse
-	178, // 178: oblique.security.v1.Oblique.ListTeams:output_type -> oblique.security.v1.ListTeamsResponse
-	176, // 179: oblique.security.v1.Oblique.CreateTeam:output_type -> oblique.security.v1.Team
-	176, // 180: oblique.security.v1.Oblique.UpdateTeam:output_type -> oblique.security.v1.Team
-	176, // 181: oblique.security.v1.Oblique.DeleteTeam:output_type -> oblique.security.v1.Team
-	176, // 182: oblique.security.v1.Oblique.UndeleteTeam:output_type -> oblique.security.v1.Team
-	179, // 183: oblique.security.v1.Oblique.GetTeamRoles:output_type -> oblique.security.v1.TeamRoles
-	180, // 184: oblique.security.v1.Oblique.GetTeamMember:output_type -> oblique.security.v1.TeamMember
-	181, // 185: oblique.security.v1.Oblique.ListTeamMembers:output_type -> oblique.security.v1.ListTeamMembersResponse
-	180, // 186: oblique.security.v1.Oblique.CreateTeamMember:output_type -> oblique.security.v1.TeamMember
-	180, // 187: oblique.security.v1.Oblique.UpdateTeamMember:output_type -> oblique.security.v1.TeamMember
-	182, // 188: oblique.security.v1.Oblique.DeleteTeamMember:output_type -> google.protobuf.Empty
-	183, // 189: oblique.security.v1.Oblique.GetTeamOwner:output_type -> oblique.security.v1.TeamOwner
-	183, // 190: oblique.security.v1.Oblique.CreateTeamOwner:output_type -> oblique.security.v1.TeamOwner
-	182, // 191: oblique.security.v1.Oblique.DeleteTeamOwner:output_type -> google.protobuf.Empty
-	184, // 192: oblique.security.v1.Oblique.ListTeamOwners:output_type -> oblique.security.v1.ListTeamOwnersResponse
-	183, // 193: oblique.security.v1.Oblique.UpdateTeamOwner:output_type -> oblique.security.v1.TeamOwner
-	185, // 194: oblique.security.v1.Oblique.GetTeamEffectiveOwner:output_type -> oblique.security.v1.TeamEffectiveOwner
-	186, // 195: oblique.security.v1.Oblique.ListTeamEffectiveOwners:output_type -> oblique.security.v1.ListTeamEffectiveOwnersResponse
-	187, // 196: oblique.security.v1.Oblique.GetEffectiveMember:output_type -> oblique.security.v1.EffectiveMember
-	188, // 197: oblique.security.v1.Oblique.ListEffectiveMembers:output_type -> oblique.security.v1.ListEffectiveMembersResponse
-	189, // 198: oblique.security.v1.Oblique.GetUser:output_type -> oblique.security.v1.User
-	190, // 199: oblique.security.v1.Oblique.ListUsers:output_type -> oblique.security.v1.ListUsersResponse
-	189, // 200: oblique.security.v1.Oblique.CreateUser:output_type -> oblique.security.v1.User
-	189, // 201: oblique.security.v1.Oblique.UpdateUser:output_type -> oblique.security.v1.User
-	189, // 202: oblique.security.v1.Oblique.DeleteUser:output_type -> oblique.security.v1.User
-	189, // 203: oblique.security.v1.Oblique.UndeleteUser:output_type -> oblique.security.v1.User
-	191, // 204: oblique.security.v1.Oblique.BatchGetUsers:output_type -> oblique.security.v1.BatchGetUsersResponse
-	192, // 205: oblique.security.v1.Oblique.ImpersonateUser:output_type -> oblique.security.v1.ImpersonateUserResponse
-	193, // 206: oblique.security.v1.Oblique.GetCurrentUser:output_type -> oblique.security.v1.CurrentUser
-	194, // 207: oblique.security.v1.Oblique.GetUserSettings:output_type -> oblique.security.v1.UserSettings
-	194, // 208: oblique.security.v1.Oblique.UpdateUserSettings:output_type -> oblique.security.v1.UserSettings
-	195, // 209: oblique.security.v1.Oblique.GetUserProfile:output_type -> oblique.security.v1.UserProfile
-	195, // 210: oblique.security.v1.Oblique.UpdateUserProfile:output_type -> oblique.security.v1.UserProfile
-	196, // 211: oblique.security.v1.Oblique.ListUserProfiles:output_type -> oblique.security.v1.ListUserProfilesResponse
-	197, // 212: oblique.security.v1.Oblique.GetUserAttribute:output_type -> oblique.security.v1.UserAttribute
-	198, // 213: oblique.security.v1.Oblique.ListUserAttributes:output_type -> oblique.security.v1.ListUserAttributesResponse
-	197, // 214: oblique.security.v1.Oblique.CreateUserAttribute:output_type -> oblique.security.v1.UserAttribute
-	197, // 215: oblique.security.v1.Oblique.UpdateUserAttribute:output_type -> oblique.security.v1.UserAttribute
-	182, // 216: oblique.security.v1.Oblique.DeleteUserAttribute:output_type -> google.protobuf.Empty
-	199, // 217: oblique.security.v1.Oblique.GetResource:output_type -> oblique.security.v1.Resource
-	200, // 218: oblique.security.v1.Oblique.ListResources:output_type -> oblique.security.v1.ListResourcesResponse
-	201, // 219: oblique.security.v1.Oblique.BatchGetResources:output_type -> oblique.security.v1.BatchGetResourcesResponse
-	199, // 220: oblique.security.v1.Oblique.CreateResource:output_type -> oblique.security.v1.Resource
-	199, // 221: oblique.security.v1.Oblique.UpdateResource:output_type -> oblique.security.v1.Resource
-	199, // 222: oblique.security.v1.Oblique.DeleteResource:output_type -> oblique.security.v1.Resource
-	199, // 223: oblique.security.v1.Oblique.UndeleteResource:output_type -> oblique.security.v1.Resource
-	202, // 224: oblique.security.v1.Oblique.GetEntitlement:output_type -> oblique.security.v1.Entitlement
-	203, // 225: oblique.security.v1.Oblique.ListEntitlements:output_type -> oblique.security.v1.ListEntitlementsResponse
-	202, // 226: oblique.security.v1.Oblique.CreateEntitlement:output_type -> oblique.security.v1.Entitlement
-	202, // 227: oblique.security.v1.Oblique.UpdateEntitlement:output_type -> oblique.security.v1.Entitlement
-	182, // 228: oblique.security.v1.Oblique.DeleteEntitlement:output_type -> google.protobuf.Empty
-	204, // 229: oblique.security.v1.Oblique.BatchGetEntitlements:output_type -> oblique.security.v1.BatchGetEntitlementsResponse
-	205, // 230: oblique.security.v1.Oblique.BatchCreateEntitlements:output_type -> oblique.security.v1.BatchCreateEntitlementsResponse
-	206, // 231: oblique.security.v1.Oblique.GetIntegration:output_type -> oblique.security.v1.Integration
-	207, // 232: oblique.security.v1.Oblique.ListIntegrations:output_type -> oblique.security.v1.ListIntegrationsResponse
-	206, // 233: oblique.security.v1.Oblique.CreateIntegration:output_type -> oblique.security.v1.Integration
-	206, // 234: oblique.security.v1.Oblique.UpdateIntegration:output_type -> oblique.security.v1.Integration
-	182, // 235: oblique.security.v1.Oblique.DeleteIntegration:output_type -> google.protobuf.Empty
-	208, // 236: oblique.security.v1.Oblique.GetIntegrationExecution:output_type -> oblique.security.v1.IntegrationExecution
-	209, // 237: oblique.security.v1.Oblique.ListIntegrationExecutions:output_type -> oblique.security.v1.ListIntegrationExecutionsResponse
-	182, // 238: oblique.security.v1.Oblique.DeleteIntegrationExecution:output_type -> google.protobuf.Empty
-	210, // 239: oblique.security.v1.Oblique.GetIntegrationAttribute:output_type -> oblique.security.v1.IntegrationAttribute
-	211, // 240: oblique.security.v1.Oblique.ListIntegrationAttributes:output_type -> oblique.security.v1.ListIntegrationAttributesResponse
-	212, // 241: oblique.security.v1.Oblique.ExportIntegrationAttributes:output_type -> oblique.security.v1.ExportIntegrationAttributesResponse
-	213, // 242: oblique.security.v1.Oblique.GetSlackChannels:output_type -> oblique.security.v1.SlackChannels
-	214, // 243: oblique.security.v1.Oblique.SendSlackTestNotification:output_type -> oblique.security.v1.SendSlackTestNotificationResponse
-	215, // 244: oblique.security.v1.Oblique.ExportEntity:output_type -> oblique.security.v1.ExportEntityResponse
-	216, // 245: oblique.security.v1.Oblique.ExportTenant:output_type -> oblique.security.v1.ExportTenantResponse
-	217, // 246: oblique.security.v1.Oblique.GetGroup:output_type -> oblique.security.v1.Group
-	218, // 247: oblique.security.v1.Oblique.ListGroups:output_type -> oblique.security.v1.ListGroupsResponse
-	217, // 248: oblique.security.v1.Oblique.CreateGroup:output_type -> oblique.security.v1.Group
-	217, // 249: oblique.security.v1.Oblique.UpdateGroup:output_type -> oblique.security.v1.Group
-	217, // 250: oblique.security.v1.Oblique.DeleteGroup:output_type -> oblique.security.v1.Group
-	217, // 251: oblique.security.v1.Oblique.UndeleteGroup:output_type -> oblique.security.v1.Group
-	219, // 252: oblique.security.v1.Oblique.BatchGetGroups:output_type -> oblique.security.v1.BatchGetGroupsResponse
-	220, // 253: oblique.security.v1.Oblique.PreviewGroup:output_type -> oblique.security.v1.PreviewGroupResponse
-	221, // 254: oblique.security.v1.Oblique.GetGroupMember:output_type -> oblique.security.v1.GroupMember
-	222, // 255: oblique.security.v1.Oblique.ListGroupMembers:output_type -> oblique.security.v1.ListGroupMembersResponse
-	223, // 256: oblique.security.v1.Oblique.GetGroupOwner:output_type -> oblique.security.v1.GroupOwner
-	223, // 257: oblique.security.v1.Oblique.CreateGroupOwner:output_type -> oblique.security.v1.GroupOwner
-	182, // 258: oblique.security.v1.Oblique.DeleteGroupOwner:output_type -> google.protobuf.Empty
-	224, // 259: oblique.security.v1.Oblique.ListGroupOwners:output_type -> oblique.security.v1.ListGroupOwnersResponse
-	223, // 260: oblique.security.v1.Oblique.UpdateGroupOwner:output_type -> oblique.security.v1.GroupOwner
-	225, // 261: oblique.security.v1.Oblique.GetGroupRoles:output_type -> oblique.security.v1.GroupRoles
-	226, // 262: oblique.security.v1.Oblique.GetGroupEffectiveOwner:output_type -> oblique.security.v1.GroupEffectiveOwner
-	227, // 263: oblique.security.v1.Oblique.ListGroupEffectiveOwners:output_type -> oblique.security.v1.ListGroupEffectiveOwnersResponse
-	228, // 264: oblique.security.v1.Oblique.GetAuditEvent:output_type -> oblique.security.v1.AuditEvent
-	229, // 265: oblique.security.v1.Oblique.ListAuditEvents:output_type -> oblique.security.v1.ListAuditEventsResponse
-	230, // 266: oblique.security.v1.Oblique.GetAdmin:output_type -> oblique.security.v1.Admin
-	230, // 267: oblique.security.v1.Oblique.CreateAdmin:output_type -> oblique.security.v1.Admin
-	182, // 268: oblique.security.v1.Oblique.DeleteAdmin:output_type -> google.protobuf.Empty
-	231, // 269: oblique.security.v1.Oblique.ListAdmins:output_type -> oblique.security.v1.ListAdminsResponse
-	230, // 270: oblique.security.v1.Oblique.UpdateAdmin:output_type -> oblique.security.v1.Admin
-	232, // 271: oblique.security.v1.Oblique.GetOwner:output_type -> oblique.security.v1.Owner
-	232, // 272: oblique.security.v1.Oblique.UpdateOwner:output_type -> oblique.security.v1.Owner
-	233, // 273: oblique.security.v1.Oblique.GetServiceAccount:output_type -> oblique.security.v1.ServiceAccount
-	234, // 274: oblique.security.v1.Oblique.ListServiceAccounts:output_type -> oblique.security.v1.ListServiceAccountsResponse
-	233, // 275: oblique.security.v1.Oblique.CreateServiceAccount:output_type -> oblique.security.v1.ServiceAccount
-	233, // 276: oblique.security.v1.Oblique.UpdateServiceAccount:output_type -> oblique.security.v1.ServiceAccount
-	233, // 277: oblique.security.v1.Oblique.DeleteServiceAccount:output_type -> oblique.security.v1.ServiceAccount
-	233, // 278: oblique.security.v1.Oblique.UndeleteServiceAccount:output_type -> oblique.security.v1.ServiceAccount
-	235, // 279: oblique.security.v1.Oblique.GetMCPSession:output_type -> oblique.security.v1.MCPSession
-	236, // 280: oblique.security.v1.Oblique.ListMCPSessions:output_type -> oblique.security.v1.ListMCPSessionsResponse
-	235, // 281: oblique.security.v1.Oblique.DeleteMCPSession:output_type -> oblique.security.v1.MCPSession
-	237, // 282: oblique.security.v1.Oblique.GetRequest:output_type -> oblique.security.v1.Request
-	238, // 283: oblique.security.v1.Oblique.BatchGetRequests:output_type -> oblique.security.v1.BatchGetRequestsResponse
-	239, // 284: oblique.security.v1.Oblique.ListRequests:output_type -> oblique.security.v1.ListRequestsResponse
-	237, // 285: oblique.security.v1.Oblique.CreateRequest:output_type -> oblique.security.v1.Request
-	237, // 286: oblique.security.v1.Oblique.UpdateRequest:output_type -> oblique.security.v1.Request
-	182, // 287: oblique.security.v1.Oblique.DeleteRequest:output_type -> google.protobuf.Empty
-	240, // 288: oblique.security.v1.Oblique.PreviewRequest:output_type -> oblique.security.v1.PreviewRequestResponse
-	241, // 289: oblique.security.v1.Oblique.GetRequestPreview:output_type -> oblique.security.v1.RequestPreview
-	242, // 290: oblique.security.v1.Oblique.PreviewSuggestedReviewers:output_type -> oblique.security.v1.PreviewSuggestedReviewersResponse
-	243, // 291: oblique.security.v1.Oblique.GetSuggestedReviewers:output_type -> oblique.security.v1.SuggestedReviewers
-	237, // 292: oblique.security.v1.Oblique.AddRequestReviewer:output_type -> oblique.security.v1.Request
-	237, // 293: oblique.security.v1.Oblique.RemoveRequestReviewer:output_type -> oblique.security.v1.Request
-	244, // 294: oblique.security.v1.Oblique.ApproveRequest:output_type -> oblique.security.v1.ApproveRequestResponse
-	245, // 295: oblique.security.v1.Oblique.CloseRequest:output_type -> oblique.security.v1.CloseRequestResponse
-	237, // 296: oblique.security.v1.Oblique.ApplyRequest:output_type -> oblique.security.v1.Request
-	246, // 297: oblique.security.v1.Oblique.GetRequestRoles:output_type -> oblique.security.v1.RequestRoles
-	247, // 298: oblique.security.v1.Oblique.GetRequestEvent:output_type -> oblique.security.v1.RequestEvent
-	248, // 299: oblique.security.v1.Oblique.ListRequestEvents:output_type -> oblique.security.v1.ListRequestEventsResponse
-	249, // 300: oblique.security.v1.Oblique.GetRecommendation:output_type -> oblique.security.v1.Recommendation
-	250, // 301: oblique.security.v1.Oblique.BatchGetRecommendations:output_type -> oblique.security.v1.BatchGetRecommendationsResponse
-	251, // 302: oblique.security.v1.Oblique.ListRecommendations:output_type -> oblique.security.v1.ListRecommendationsResponse
-	249, // 303: oblique.security.v1.Oblique.DeleteRecommendation:output_type -> oblique.security.v1.Recommendation
-	252, // 304: oblique.security.v1.Oblique.IgnoreRecommendations:output_type -> oblique.security.v1.IgnoreRecommendationsResponse
-	253, // 305: oblique.security.v1.Oblique.GetRecommendationGroup:output_type -> oblique.security.v1.RecommendationGroup
-	254, // 306: oblique.security.v1.Oblique.BatchGetRecommendationGroups:output_type -> oblique.security.v1.BatchGetRecommendationGroupsResponse
-	255, // 307: oblique.security.v1.Oblique.ListRecommendationGroups:output_type -> oblique.security.v1.ListRecommendationGroupsResponse
-	256, // 308: oblique.security.v1.Oblique.GetListing:output_type -> oblique.security.v1.Listing
-	257, // 309: oblique.security.v1.Oblique.BatchGetListings:output_type -> oblique.security.v1.BatchGetListingsResponse
-	258, // 310: oblique.security.v1.Oblique.ListListings:output_type -> oblique.security.v1.ListListingsResponse
-	256, // 311: oblique.security.v1.Oblique.CreateListing:output_type -> oblique.security.v1.Listing
-	256, // 312: oblique.security.v1.Oblique.UpdateListing:output_type -> oblique.security.v1.Listing
-	182, // 313: oblique.security.v1.Oblique.DeleteListing:output_type -> google.protobuf.Empty
-	259, // 314: oblique.security.v1.Oblique.GetListingRole:output_type -> oblique.security.v1.ListingRole
-	260, // 315: oblique.security.v1.Oblique.BatchGetListingRoles:output_type -> oblique.security.v1.BatchGetListingRolesResponse
-	261, // 316: oblique.security.v1.Oblique.ListListingRoles:output_type -> oblique.security.v1.ListListingRolesResponse
-	259, // 317: oblique.security.v1.Oblique.CreateListingRole:output_type -> oblique.security.v1.ListingRole
-	259, // 318: oblique.security.v1.Oblique.UpdateListingRole:output_type -> oblique.security.v1.ListingRole
-	182, // 319: oblique.security.v1.Oblique.DeleteListingRole:output_type -> google.protobuf.Empty
-	262, // 320: oblique.security.v1.Oblique.GetListingRolePolicy:output_type -> oblique.security.v1.ListingRolePolicy
-	263, // 321: oblique.security.v1.Oblique.ListListingRolePolicies:output_type -> oblique.security.v1.ListListingRolePoliciesResponse
-	262, // 322: oblique.security.v1.Oblique.CreateListingRolePolicy:output_type -> oblique.security.v1.ListingRolePolicy
-	262, // 323: oblique.security.v1.Oblique.UpdateListingRolePolicy:output_type -> oblique.security.v1.ListingRolePolicy
-	264, // 324: oblique.security.v1.Oblique.BatchCreateListingRolePolicies:output_type -> oblique.security.v1.BatchCreateListingRolePoliciesResponse
-	182, // 325: oblique.security.v1.Oblique.DeleteListingRolePolicy:output_type -> google.protobuf.Empty
-	182, // 326: oblique.security.v1.Oblique.BatchDeleteListingRolePolicies:output_type -> google.protobuf.Empty
-	265, // 327: oblique.security.v1.Oblique.GetListingRoleEffectiveSubject:output_type -> oblique.security.v1.ListingRoleEffectiveSubject
-	266, // 328: oblique.security.v1.Oblique.ListListingRoleEffectiveSubjects:output_type -> oblique.security.v1.ListListingRoleEffectiveSubjectsResponse
-	267, // 329: oblique.security.v1.Oblique.GetListingOwner:output_type -> oblique.security.v1.ListingOwner
-	268, // 330: oblique.security.v1.Oblique.ListListingOwners:output_type -> oblique.security.v1.ListListingOwnersResponse
-	267, // 331: oblique.security.v1.Oblique.CreateListingOwner:output_type -> oblique.security.v1.ListingOwner
-	267, // 332: oblique.security.v1.Oblique.UpdateListingOwner:output_type -> oblique.security.v1.ListingOwner
-	182, // 333: oblique.security.v1.Oblique.DeleteListingOwner:output_type -> google.protobuf.Empty
-	269, // 334: oblique.security.v1.Oblique.GetListingEffectiveOwner:output_type -> oblique.security.v1.ListingEffectiveOwner
-	270, // 335: oblique.security.v1.Oblique.ListListingEffectiveOwners:output_type -> oblique.security.v1.ListListingEffectiveOwnersResponse
-	271, // 336: oblique.security.v1.Oblique.GetConfig:output_type -> oblique.security.v1.Config
-	272, // 337: oblique.security.v1.Oblique.GetCoreAttributeConfig:output_type -> oblique.security.v1.CoreAttributeConfig
-	272, // 338: oblique.security.v1.Oblique.UpdateCoreAttributeConfig:output_type -> oblique.security.v1.CoreAttributeConfig
-	273, // 339: oblique.security.v1.Oblique.GetFeature:output_type -> oblique.security.v1.Feature
-	274, // 340: oblique.security.v1.Oblique.ListFeatures:output_type -> oblique.security.v1.ListFeaturesResponse
-	275, // 341: oblique.security.v1.Oblique.GetFeatureOverride:output_type -> oblique.security.v1.FeatureOverride
-	276, // 342: oblique.security.v1.Oblique.ListFeatureOverrides:output_type -> oblique.security.v1.ListFeatureOverridesResponse
-	275, // 343: oblique.security.v1.Oblique.UpdateFeatureOverride:output_type -> oblique.security.v1.FeatureOverride
-	277, // 344: oblique.security.v1.Oblique.GetEvent:output_type -> oblique.security.v1.Event
-	278, // 345: oblique.security.v1.Oblique.ListEvents:output_type -> oblique.security.v1.ListEventsResponse
-	279, // 346: oblique.security.v1.Oblique.ReportBug:output_type -> oblique.security.v1.ReportBugResponse
-	280, // 347: oblique.security.v1.Oblique.GetPolicy:output_type -> oblique.security.v1.Policy
-	281, // 348: oblique.security.v1.Oblique.ListPolicies:output_type -> oblique.security.v1.ListPoliciesResponse
-	280, // 349: oblique.security.v1.Oblique.CreatePolicy:output_type -> oblique.security.v1.Policy
-	280, // 350: oblique.security.v1.Oblique.UpdatePolicy:output_type -> oblique.security.v1.Policy
-	280, // 351: oblique.security.v1.Oblique.DeletePolicy:output_type -> oblique.security.v1.Policy
-	176, // [176:352] is the sub-list for method output_type
-	0,   // [0:176] is the sub-list for method input_type
+	176, // 176: oblique.security.v1.Oblique.GetPolicyExceptionConfig:input_type -> oblique.security.v1.GetPolicyExceptionConfigRequest
+	177, // 177: oblique.security.v1.Oblique.ListPolicyExceptionConfigs:input_type -> oblique.security.v1.ListPolicyExceptionConfigsRequest
+	178, // 178: oblique.security.v1.Oblique.CreatePolicyExceptionConfig:input_type -> oblique.security.v1.CreatePolicyExceptionConfigRequest
+	179, // 179: oblique.security.v1.Oblique.UpdatePolicyExceptionConfig:input_type -> oblique.security.v1.UpdatePolicyExceptionConfigRequest
+	180, // 180: oblique.security.v1.Oblique.DeletePolicyExceptionConfig:input_type -> oblique.security.v1.DeletePolicyExceptionConfigRequest
+	181, // 181: oblique.security.v1.Oblique.GetPolicyException:input_type -> oblique.security.v1.GetPolicyExceptionRequest
+	182, // 182: oblique.security.v1.Oblique.ListPolicyExceptions:input_type -> oblique.security.v1.ListPolicyExceptionsRequest
+	183, // 183: oblique.security.v1.Oblique.CreatePolicyException:input_type -> oblique.security.v1.CreatePolicyExceptionRequest
+	184, // 184: oblique.security.v1.Oblique.UpdatePolicyException:input_type -> oblique.security.v1.UpdatePolicyExceptionRequest
+	185, // 185: oblique.security.v1.Oblique.DeletePolicyException:input_type -> oblique.security.v1.DeletePolicyExceptionRequest
+	186, // 186: oblique.security.v1.Oblique.GetTeam:output_type -> oblique.security.v1.Team
+	187, // 187: oblique.security.v1.Oblique.BatchGetTeams:output_type -> oblique.security.v1.BatchGetTeamsResponse
+	188, // 188: oblique.security.v1.Oblique.ListTeams:output_type -> oblique.security.v1.ListTeamsResponse
+	186, // 189: oblique.security.v1.Oblique.CreateTeam:output_type -> oblique.security.v1.Team
+	186, // 190: oblique.security.v1.Oblique.UpdateTeam:output_type -> oblique.security.v1.Team
+	186, // 191: oblique.security.v1.Oblique.DeleteTeam:output_type -> oblique.security.v1.Team
+	186, // 192: oblique.security.v1.Oblique.UndeleteTeam:output_type -> oblique.security.v1.Team
+	189, // 193: oblique.security.v1.Oblique.GetTeamRoles:output_type -> oblique.security.v1.TeamRoles
+	190, // 194: oblique.security.v1.Oblique.GetTeamMember:output_type -> oblique.security.v1.TeamMember
+	191, // 195: oblique.security.v1.Oblique.ListTeamMembers:output_type -> oblique.security.v1.ListTeamMembersResponse
+	190, // 196: oblique.security.v1.Oblique.CreateTeamMember:output_type -> oblique.security.v1.TeamMember
+	190, // 197: oblique.security.v1.Oblique.UpdateTeamMember:output_type -> oblique.security.v1.TeamMember
+	192, // 198: oblique.security.v1.Oblique.DeleteTeamMember:output_type -> google.protobuf.Empty
+	193, // 199: oblique.security.v1.Oblique.GetTeamOwner:output_type -> oblique.security.v1.TeamOwner
+	193, // 200: oblique.security.v1.Oblique.CreateTeamOwner:output_type -> oblique.security.v1.TeamOwner
+	192, // 201: oblique.security.v1.Oblique.DeleteTeamOwner:output_type -> google.protobuf.Empty
+	194, // 202: oblique.security.v1.Oblique.ListTeamOwners:output_type -> oblique.security.v1.ListTeamOwnersResponse
+	193, // 203: oblique.security.v1.Oblique.UpdateTeamOwner:output_type -> oblique.security.v1.TeamOwner
+	195, // 204: oblique.security.v1.Oblique.GetTeamEffectiveOwner:output_type -> oblique.security.v1.TeamEffectiveOwner
+	196, // 205: oblique.security.v1.Oblique.ListTeamEffectiveOwners:output_type -> oblique.security.v1.ListTeamEffectiveOwnersResponse
+	197, // 206: oblique.security.v1.Oblique.GetEffectiveMember:output_type -> oblique.security.v1.EffectiveMember
+	198, // 207: oblique.security.v1.Oblique.ListEffectiveMembers:output_type -> oblique.security.v1.ListEffectiveMembersResponse
+	199, // 208: oblique.security.v1.Oblique.GetUser:output_type -> oblique.security.v1.User
+	200, // 209: oblique.security.v1.Oblique.ListUsers:output_type -> oblique.security.v1.ListUsersResponse
+	199, // 210: oblique.security.v1.Oblique.CreateUser:output_type -> oblique.security.v1.User
+	199, // 211: oblique.security.v1.Oblique.UpdateUser:output_type -> oblique.security.v1.User
+	199, // 212: oblique.security.v1.Oblique.DeleteUser:output_type -> oblique.security.v1.User
+	199, // 213: oblique.security.v1.Oblique.UndeleteUser:output_type -> oblique.security.v1.User
+	201, // 214: oblique.security.v1.Oblique.BatchGetUsers:output_type -> oblique.security.v1.BatchGetUsersResponse
+	202, // 215: oblique.security.v1.Oblique.ImpersonateUser:output_type -> oblique.security.v1.ImpersonateUserResponse
+	203, // 216: oblique.security.v1.Oblique.GetCurrentUser:output_type -> oblique.security.v1.CurrentUser
+	204, // 217: oblique.security.v1.Oblique.GetUserSettings:output_type -> oblique.security.v1.UserSettings
+	204, // 218: oblique.security.v1.Oblique.UpdateUserSettings:output_type -> oblique.security.v1.UserSettings
+	205, // 219: oblique.security.v1.Oblique.GetUserProfile:output_type -> oblique.security.v1.UserProfile
+	205, // 220: oblique.security.v1.Oblique.UpdateUserProfile:output_type -> oblique.security.v1.UserProfile
+	206, // 221: oblique.security.v1.Oblique.ListUserProfiles:output_type -> oblique.security.v1.ListUserProfilesResponse
+	207, // 222: oblique.security.v1.Oblique.GetUserAttribute:output_type -> oblique.security.v1.UserAttribute
+	208, // 223: oblique.security.v1.Oblique.ListUserAttributes:output_type -> oblique.security.v1.ListUserAttributesResponse
+	207, // 224: oblique.security.v1.Oblique.CreateUserAttribute:output_type -> oblique.security.v1.UserAttribute
+	207, // 225: oblique.security.v1.Oblique.UpdateUserAttribute:output_type -> oblique.security.v1.UserAttribute
+	192, // 226: oblique.security.v1.Oblique.DeleteUserAttribute:output_type -> google.protobuf.Empty
+	209, // 227: oblique.security.v1.Oblique.GetResource:output_type -> oblique.security.v1.Resource
+	210, // 228: oblique.security.v1.Oblique.ListResources:output_type -> oblique.security.v1.ListResourcesResponse
+	211, // 229: oblique.security.v1.Oblique.BatchGetResources:output_type -> oblique.security.v1.BatchGetResourcesResponse
+	209, // 230: oblique.security.v1.Oblique.CreateResource:output_type -> oblique.security.v1.Resource
+	209, // 231: oblique.security.v1.Oblique.UpdateResource:output_type -> oblique.security.v1.Resource
+	209, // 232: oblique.security.v1.Oblique.DeleteResource:output_type -> oblique.security.v1.Resource
+	209, // 233: oblique.security.v1.Oblique.UndeleteResource:output_type -> oblique.security.v1.Resource
+	212, // 234: oblique.security.v1.Oblique.GetEntitlement:output_type -> oblique.security.v1.Entitlement
+	213, // 235: oblique.security.v1.Oblique.ListEntitlements:output_type -> oblique.security.v1.ListEntitlementsResponse
+	212, // 236: oblique.security.v1.Oblique.CreateEntitlement:output_type -> oblique.security.v1.Entitlement
+	212, // 237: oblique.security.v1.Oblique.UpdateEntitlement:output_type -> oblique.security.v1.Entitlement
+	192, // 238: oblique.security.v1.Oblique.DeleteEntitlement:output_type -> google.protobuf.Empty
+	214, // 239: oblique.security.v1.Oblique.BatchGetEntitlements:output_type -> oblique.security.v1.BatchGetEntitlementsResponse
+	215, // 240: oblique.security.v1.Oblique.BatchCreateEntitlements:output_type -> oblique.security.v1.BatchCreateEntitlementsResponse
+	216, // 241: oblique.security.v1.Oblique.GetIntegration:output_type -> oblique.security.v1.Integration
+	217, // 242: oblique.security.v1.Oblique.ListIntegrations:output_type -> oblique.security.v1.ListIntegrationsResponse
+	216, // 243: oblique.security.v1.Oblique.CreateIntegration:output_type -> oblique.security.v1.Integration
+	216, // 244: oblique.security.v1.Oblique.UpdateIntegration:output_type -> oblique.security.v1.Integration
+	192, // 245: oblique.security.v1.Oblique.DeleteIntegration:output_type -> google.protobuf.Empty
+	218, // 246: oblique.security.v1.Oblique.GetIntegrationExecution:output_type -> oblique.security.v1.IntegrationExecution
+	219, // 247: oblique.security.v1.Oblique.ListIntegrationExecutions:output_type -> oblique.security.v1.ListIntegrationExecutionsResponse
+	192, // 248: oblique.security.v1.Oblique.DeleteIntegrationExecution:output_type -> google.protobuf.Empty
+	220, // 249: oblique.security.v1.Oblique.GetIntegrationAttribute:output_type -> oblique.security.v1.IntegrationAttribute
+	221, // 250: oblique.security.v1.Oblique.ListIntegrationAttributes:output_type -> oblique.security.v1.ListIntegrationAttributesResponse
+	222, // 251: oblique.security.v1.Oblique.ExportIntegrationAttributes:output_type -> oblique.security.v1.ExportIntegrationAttributesResponse
+	223, // 252: oblique.security.v1.Oblique.GetSlackChannels:output_type -> oblique.security.v1.SlackChannels
+	224, // 253: oblique.security.v1.Oblique.SendSlackTestNotification:output_type -> oblique.security.v1.SendSlackTestNotificationResponse
+	225, // 254: oblique.security.v1.Oblique.ExportEntity:output_type -> oblique.security.v1.ExportEntityResponse
+	226, // 255: oblique.security.v1.Oblique.ExportTenant:output_type -> oblique.security.v1.ExportTenantResponse
+	227, // 256: oblique.security.v1.Oblique.GetGroup:output_type -> oblique.security.v1.Group
+	228, // 257: oblique.security.v1.Oblique.ListGroups:output_type -> oblique.security.v1.ListGroupsResponse
+	227, // 258: oblique.security.v1.Oblique.CreateGroup:output_type -> oblique.security.v1.Group
+	227, // 259: oblique.security.v1.Oblique.UpdateGroup:output_type -> oblique.security.v1.Group
+	227, // 260: oblique.security.v1.Oblique.DeleteGroup:output_type -> oblique.security.v1.Group
+	227, // 261: oblique.security.v1.Oblique.UndeleteGroup:output_type -> oblique.security.v1.Group
+	229, // 262: oblique.security.v1.Oblique.BatchGetGroups:output_type -> oblique.security.v1.BatchGetGroupsResponse
+	230, // 263: oblique.security.v1.Oblique.PreviewGroup:output_type -> oblique.security.v1.PreviewGroupResponse
+	231, // 264: oblique.security.v1.Oblique.GetGroupMember:output_type -> oblique.security.v1.GroupMember
+	232, // 265: oblique.security.v1.Oblique.ListGroupMembers:output_type -> oblique.security.v1.ListGroupMembersResponse
+	233, // 266: oblique.security.v1.Oblique.GetGroupOwner:output_type -> oblique.security.v1.GroupOwner
+	233, // 267: oblique.security.v1.Oblique.CreateGroupOwner:output_type -> oblique.security.v1.GroupOwner
+	192, // 268: oblique.security.v1.Oblique.DeleteGroupOwner:output_type -> google.protobuf.Empty
+	234, // 269: oblique.security.v1.Oblique.ListGroupOwners:output_type -> oblique.security.v1.ListGroupOwnersResponse
+	233, // 270: oblique.security.v1.Oblique.UpdateGroupOwner:output_type -> oblique.security.v1.GroupOwner
+	235, // 271: oblique.security.v1.Oblique.GetGroupRoles:output_type -> oblique.security.v1.GroupRoles
+	236, // 272: oblique.security.v1.Oblique.GetGroupEffectiveOwner:output_type -> oblique.security.v1.GroupEffectiveOwner
+	237, // 273: oblique.security.v1.Oblique.ListGroupEffectiveOwners:output_type -> oblique.security.v1.ListGroupEffectiveOwnersResponse
+	238, // 274: oblique.security.v1.Oblique.GetAuditEvent:output_type -> oblique.security.v1.AuditEvent
+	239, // 275: oblique.security.v1.Oblique.ListAuditEvents:output_type -> oblique.security.v1.ListAuditEventsResponse
+	240, // 276: oblique.security.v1.Oblique.GetAdmin:output_type -> oblique.security.v1.Admin
+	240, // 277: oblique.security.v1.Oblique.CreateAdmin:output_type -> oblique.security.v1.Admin
+	192, // 278: oblique.security.v1.Oblique.DeleteAdmin:output_type -> google.protobuf.Empty
+	241, // 279: oblique.security.v1.Oblique.ListAdmins:output_type -> oblique.security.v1.ListAdminsResponse
+	240, // 280: oblique.security.v1.Oblique.UpdateAdmin:output_type -> oblique.security.v1.Admin
+	242, // 281: oblique.security.v1.Oblique.GetOwner:output_type -> oblique.security.v1.Owner
+	242, // 282: oblique.security.v1.Oblique.UpdateOwner:output_type -> oblique.security.v1.Owner
+	243, // 283: oblique.security.v1.Oblique.GetServiceAccount:output_type -> oblique.security.v1.ServiceAccount
+	244, // 284: oblique.security.v1.Oblique.ListServiceAccounts:output_type -> oblique.security.v1.ListServiceAccountsResponse
+	243, // 285: oblique.security.v1.Oblique.CreateServiceAccount:output_type -> oblique.security.v1.ServiceAccount
+	243, // 286: oblique.security.v1.Oblique.UpdateServiceAccount:output_type -> oblique.security.v1.ServiceAccount
+	243, // 287: oblique.security.v1.Oblique.DeleteServiceAccount:output_type -> oblique.security.v1.ServiceAccount
+	243, // 288: oblique.security.v1.Oblique.UndeleteServiceAccount:output_type -> oblique.security.v1.ServiceAccount
+	245, // 289: oblique.security.v1.Oblique.GetMCPSession:output_type -> oblique.security.v1.MCPSession
+	246, // 290: oblique.security.v1.Oblique.ListMCPSessions:output_type -> oblique.security.v1.ListMCPSessionsResponse
+	245, // 291: oblique.security.v1.Oblique.DeleteMCPSession:output_type -> oblique.security.v1.MCPSession
+	247, // 292: oblique.security.v1.Oblique.GetRequest:output_type -> oblique.security.v1.Request
+	248, // 293: oblique.security.v1.Oblique.BatchGetRequests:output_type -> oblique.security.v1.BatchGetRequestsResponse
+	249, // 294: oblique.security.v1.Oblique.ListRequests:output_type -> oblique.security.v1.ListRequestsResponse
+	247, // 295: oblique.security.v1.Oblique.CreateRequest:output_type -> oblique.security.v1.Request
+	247, // 296: oblique.security.v1.Oblique.UpdateRequest:output_type -> oblique.security.v1.Request
+	192, // 297: oblique.security.v1.Oblique.DeleteRequest:output_type -> google.protobuf.Empty
+	250, // 298: oblique.security.v1.Oblique.PreviewRequest:output_type -> oblique.security.v1.PreviewRequestResponse
+	251, // 299: oblique.security.v1.Oblique.GetRequestPreview:output_type -> oblique.security.v1.RequestPreview
+	252, // 300: oblique.security.v1.Oblique.PreviewSuggestedReviewers:output_type -> oblique.security.v1.PreviewSuggestedReviewersResponse
+	253, // 301: oblique.security.v1.Oblique.GetSuggestedReviewers:output_type -> oblique.security.v1.SuggestedReviewers
+	247, // 302: oblique.security.v1.Oblique.AddRequestReviewer:output_type -> oblique.security.v1.Request
+	247, // 303: oblique.security.v1.Oblique.RemoveRequestReviewer:output_type -> oblique.security.v1.Request
+	254, // 304: oblique.security.v1.Oblique.ApproveRequest:output_type -> oblique.security.v1.ApproveRequestResponse
+	255, // 305: oblique.security.v1.Oblique.CloseRequest:output_type -> oblique.security.v1.CloseRequestResponse
+	247, // 306: oblique.security.v1.Oblique.ApplyRequest:output_type -> oblique.security.v1.Request
+	256, // 307: oblique.security.v1.Oblique.GetRequestRoles:output_type -> oblique.security.v1.RequestRoles
+	257, // 308: oblique.security.v1.Oblique.GetRequestEvent:output_type -> oblique.security.v1.RequestEvent
+	258, // 309: oblique.security.v1.Oblique.ListRequestEvents:output_type -> oblique.security.v1.ListRequestEventsResponse
+	259, // 310: oblique.security.v1.Oblique.GetRecommendation:output_type -> oblique.security.v1.Recommendation
+	260, // 311: oblique.security.v1.Oblique.BatchGetRecommendations:output_type -> oblique.security.v1.BatchGetRecommendationsResponse
+	261, // 312: oblique.security.v1.Oblique.ListRecommendations:output_type -> oblique.security.v1.ListRecommendationsResponse
+	259, // 313: oblique.security.v1.Oblique.DeleteRecommendation:output_type -> oblique.security.v1.Recommendation
+	262, // 314: oblique.security.v1.Oblique.IgnoreRecommendations:output_type -> oblique.security.v1.IgnoreRecommendationsResponse
+	263, // 315: oblique.security.v1.Oblique.GetRecommendationGroup:output_type -> oblique.security.v1.RecommendationGroup
+	264, // 316: oblique.security.v1.Oblique.BatchGetRecommendationGroups:output_type -> oblique.security.v1.BatchGetRecommendationGroupsResponse
+	265, // 317: oblique.security.v1.Oblique.ListRecommendationGroups:output_type -> oblique.security.v1.ListRecommendationGroupsResponse
+	266, // 318: oblique.security.v1.Oblique.GetListing:output_type -> oblique.security.v1.Listing
+	267, // 319: oblique.security.v1.Oblique.BatchGetListings:output_type -> oblique.security.v1.BatchGetListingsResponse
+	268, // 320: oblique.security.v1.Oblique.ListListings:output_type -> oblique.security.v1.ListListingsResponse
+	266, // 321: oblique.security.v1.Oblique.CreateListing:output_type -> oblique.security.v1.Listing
+	266, // 322: oblique.security.v1.Oblique.UpdateListing:output_type -> oblique.security.v1.Listing
+	192, // 323: oblique.security.v1.Oblique.DeleteListing:output_type -> google.protobuf.Empty
+	269, // 324: oblique.security.v1.Oblique.GetListingRole:output_type -> oblique.security.v1.ListingRole
+	270, // 325: oblique.security.v1.Oblique.BatchGetListingRoles:output_type -> oblique.security.v1.BatchGetListingRolesResponse
+	271, // 326: oblique.security.v1.Oblique.ListListingRoles:output_type -> oblique.security.v1.ListListingRolesResponse
+	269, // 327: oblique.security.v1.Oblique.CreateListingRole:output_type -> oblique.security.v1.ListingRole
+	269, // 328: oblique.security.v1.Oblique.UpdateListingRole:output_type -> oblique.security.v1.ListingRole
+	192, // 329: oblique.security.v1.Oblique.DeleteListingRole:output_type -> google.protobuf.Empty
+	272, // 330: oblique.security.v1.Oblique.GetListingRolePolicy:output_type -> oblique.security.v1.ListingRolePolicy
+	273, // 331: oblique.security.v1.Oblique.ListListingRolePolicies:output_type -> oblique.security.v1.ListListingRolePoliciesResponse
+	272, // 332: oblique.security.v1.Oblique.CreateListingRolePolicy:output_type -> oblique.security.v1.ListingRolePolicy
+	272, // 333: oblique.security.v1.Oblique.UpdateListingRolePolicy:output_type -> oblique.security.v1.ListingRolePolicy
+	274, // 334: oblique.security.v1.Oblique.BatchCreateListingRolePolicies:output_type -> oblique.security.v1.BatchCreateListingRolePoliciesResponse
+	192, // 335: oblique.security.v1.Oblique.DeleteListingRolePolicy:output_type -> google.protobuf.Empty
+	192, // 336: oblique.security.v1.Oblique.BatchDeleteListingRolePolicies:output_type -> google.protobuf.Empty
+	275, // 337: oblique.security.v1.Oblique.GetListingRoleEffectiveSubject:output_type -> oblique.security.v1.ListingRoleEffectiveSubject
+	276, // 338: oblique.security.v1.Oblique.ListListingRoleEffectiveSubjects:output_type -> oblique.security.v1.ListListingRoleEffectiveSubjectsResponse
+	277, // 339: oblique.security.v1.Oblique.GetListingOwner:output_type -> oblique.security.v1.ListingOwner
+	278, // 340: oblique.security.v1.Oblique.ListListingOwners:output_type -> oblique.security.v1.ListListingOwnersResponse
+	277, // 341: oblique.security.v1.Oblique.CreateListingOwner:output_type -> oblique.security.v1.ListingOwner
+	277, // 342: oblique.security.v1.Oblique.UpdateListingOwner:output_type -> oblique.security.v1.ListingOwner
+	192, // 343: oblique.security.v1.Oblique.DeleteListingOwner:output_type -> google.protobuf.Empty
+	279, // 344: oblique.security.v1.Oblique.GetListingEffectiveOwner:output_type -> oblique.security.v1.ListingEffectiveOwner
+	280, // 345: oblique.security.v1.Oblique.ListListingEffectiveOwners:output_type -> oblique.security.v1.ListListingEffectiveOwnersResponse
+	281, // 346: oblique.security.v1.Oblique.GetConfig:output_type -> oblique.security.v1.Config
+	282, // 347: oblique.security.v1.Oblique.GetCoreAttributeConfig:output_type -> oblique.security.v1.CoreAttributeConfig
+	282, // 348: oblique.security.v1.Oblique.UpdateCoreAttributeConfig:output_type -> oblique.security.v1.CoreAttributeConfig
+	283, // 349: oblique.security.v1.Oblique.GetFeature:output_type -> oblique.security.v1.Feature
+	284, // 350: oblique.security.v1.Oblique.ListFeatures:output_type -> oblique.security.v1.ListFeaturesResponse
+	285, // 351: oblique.security.v1.Oblique.GetFeatureOverride:output_type -> oblique.security.v1.FeatureOverride
+	286, // 352: oblique.security.v1.Oblique.ListFeatureOverrides:output_type -> oblique.security.v1.ListFeatureOverridesResponse
+	285, // 353: oblique.security.v1.Oblique.UpdateFeatureOverride:output_type -> oblique.security.v1.FeatureOverride
+	287, // 354: oblique.security.v1.Oblique.GetEvent:output_type -> oblique.security.v1.Event
+	288, // 355: oblique.security.v1.Oblique.ListEvents:output_type -> oblique.security.v1.ListEventsResponse
+	289, // 356: oblique.security.v1.Oblique.ReportBug:output_type -> oblique.security.v1.ReportBugResponse
+	290, // 357: oblique.security.v1.Oblique.GetPolicy:output_type -> oblique.security.v1.Policy
+	291, // 358: oblique.security.v1.Oblique.ListPolicies:output_type -> oblique.security.v1.ListPoliciesResponse
+	290, // 359: oblique.security.v1.Oblique.CreatePolicy:output_type -> oblique.security.v1.Policy
+	290, // 360: oblique.security.v1.Oblique.UpdatePolicy:output_type -> oblique.security.v1.Policy
+	290, // 361: oblique.security.v1.Oblique.DeletePolicy:output_type -> oblique.security.v1.Policy
+	292, // 362: oblique.security.v1.Oblique.GetPolicyExceptionConfig:output_type -> oblique.security.v1.PolicyExceptionConfig
+	293, // 363: oblique.security.v1.Oblique.ListPolicyExceptionConfigs:output_type -> oblique.security.v1.ListPolicyExceptionConfigsResponse
+	292, // 364: oblique.security.v1.Oblique.CreatePolicyExceptionConfig:output_type -> oblique.security.v1.PolicyExceptionConfig
+	292, // 365: oblique.security.v1.Oblique.UpdatePolicyExceptionConfig:output_type -> oblique.security.v1.PolicyExceptionConfig
+	192, // 366: oblique.security.v1.Oblique.DeletePolicyExceptionConfig:output_type -> google.protobuf.Empty
+	294, // 367: oblique.security.v1.Oblique.GetPolicyException:output_type -> oblique.security.v1.PolicyException
+	295, // 368: oblique.security.v1.Oblique.ListPolicyExceptions:output_type -> oblique.security.v1.ListPolicyExceptionsResponse
+	294, // 369: oblique.security.v1.Oblique.CreatePolicyException:output_type -> oblique.security.v1.PolicyException
+	294, // 370: oblique.security.v1.Oblique.UpdatePolicyException:output_type -> oblique.security.v1.PolicyException
+	192, // 371: oblique.security.v1.Oblique.DeletePolicyException:output_type -> google.protobuf.Empty
+	186, // [186:372] is the sub-list for method output_type
+	0,   // [0:186] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name

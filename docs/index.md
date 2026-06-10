@@ -6,7 +6,7 @@ description: |-
 
 # Oblique provider
 
-The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, groups, listings, and entitlements.
+The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, groups, and listings.
 
 ## Example usage
 
