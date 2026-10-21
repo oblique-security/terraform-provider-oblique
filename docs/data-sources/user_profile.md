@@ -3,16 +3,13 @@
 page_title: "oblique_user_profile Data Source - oblique"
 subcategory: ""
 description: |-
-  User profile is a singleton resource that's automatically created for all users and can be edited and managed separately.
-  https://google.aip.dev/156
+  User profile is a singleton API object https://google.aip.dev/156 that's automatically created for all users and can be edited and managed separately.
   As a general rule, information that is available when listing all users is on the User message, information that is only displayed when viewing an individual user's page is on the UserProfile.
 ---
 
 # oblique_user_profile (Data Source)
 
-User profile is a singleton resource that's automatically created for all users and can be edited and managed separately.
-
-https://google.aip.dev/156
+User profile is a [singleton API object](https://google.aip.dev/156) that's automatically created for all users and can be edited and managed separately.
 
 As a general rule, information that is available when listing all users is on the User message, information that is only displayed when viewing an individual user's page is on the UserProfile.
 
@@ -44,7 +41,7 @@ data "oblique_user_profile" "janedoe" {
 - `pronouns` (String) Preferred pronouns. "he/him", "they/them".
 - `reporting_chain` (List of String) Reporting chain of the user from lowest in the chain to highest.
 
-["users/manager", "users/director", "users/vp", "users/ceo"]
+`["users/manager", "users/director", "users/vp", "users/ceo"]`
 
 Format: `users/{user}`
 - `reports` (List of String) List of direct reports to this user.

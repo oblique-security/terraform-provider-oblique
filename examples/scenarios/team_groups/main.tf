@@ -6,7 +6,7 @@
 # basic_setup scenario) and that users have been synced into Oblique from
 # an identity provider — they are looked up here via data sources.
 #
-# See https://docs.oblique.security/guides/groups/ for background on the
+# See https://docs.oblique.security/admin/groups/ for background on the
 # different kinds of groups.
 
 data "oblique_user" "janedoe" {

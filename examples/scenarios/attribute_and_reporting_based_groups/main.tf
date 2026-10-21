@@ -2,7 +2,7 @@
 # an integration or based on reporting lines. Users are
 # added automatically as their attributes or reporting lines change.
 #
-# See https://docs.oblique.security/guides/groups/ for background on the
+# See https://docs.oblique.security/admin/groups/ for background on the
 # different kinds of groups.
 #
 # Pre-existing resources required:

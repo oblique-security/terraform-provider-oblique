@@ -31,4 +31,6 @@ Full documentation for every resource and data source is published on the
 
 ## License
 
-See [LICENSE](LICENSE).
+See [LICENSE](LICENSE) and [NOTICE](NOTICE). Licenses for the third-party
+software compiled into the provider are in
+[THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES).

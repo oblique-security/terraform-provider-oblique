@@ -34,7 +34,7 @@ Format: `users/{user}`
 
 ### Optional
 
-- `name` (String) The name of the admin resource. This is an arbitrary string and does not have to match the user's name.
+- `name` (String) The name of the admin API object. This is an arbitrary string and does not have to match the user's name.
 
 ### Read-Only
 
@@ -48,6 +48,6 @@ Format: `users/{user}`
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.

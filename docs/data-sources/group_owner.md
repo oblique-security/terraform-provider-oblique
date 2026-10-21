@@ -25,7 +25,7 @@ data "oblique_group_owner" "janedoe_engineering" {
 
 ### Required
 
-- `name` (String)
+- `name` (String) Name of the owner of the format "groups/{group}/owners/{owner}".
 
 ### Read-Only
 
@@ -40,6 +40,6 @@ data "oblique_group_owner" "janedoe_engineering" {
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.

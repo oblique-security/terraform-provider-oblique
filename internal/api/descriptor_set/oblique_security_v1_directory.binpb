@@ -1,0 +1,5716 @@
+
+#oblique/security/v1/directory.protooblique.security.v1google/api/annotations.proto#google/longrunning/operations.protogoogle/protobuf/empty.proto(oblique/security/v1/access_reviews.proto,oblique/security/v1/access_screenshots.proto oblique/security/v1/admins.protooblique/security/v1/audit.protooblique/security/v1/auth.protooblique/security/v1/bugs.proto oblique/security/v1/config.proto+oblique/security/v1/effective_members.proto&oblique/security/v1/entitlements.proto oblique/security/v1/events.proto oblique/security/v1/export.proto oblique/security/v1/groups.proto&oblique/security/v1/integrations.protooblique/security/v1/mcp.proto)oblique/security/v1/recommendations.proto"oblique/security/v1/requests.proto#oblique/security/v1/resources.proto$oblique/security/v1/screenshot.proto*oblique/security/v1/service_accounts.protooblique/security/v1/teams.protooblique/security/v1/users.proto2Åá
+Obliquep
+GetTeam#.oblique.security.v1.GetTeamRequest.oblique.security.v1.Team"%‚È€*Ç”‰ì/api/v1/{name=teams/*}ç
+BatchGetTeams).oblique.security.v1.BatchGetTeamsRequest*.oblique.security.v1.BatchGetTeamsResponse"%‚È€*Ç”‰ì/api/v1/teams:batchGety
+	ListTeams%.oblique.security.v1.ListTeamsRequest&.oblique.security.v1.ListTeamsResponse"‚È€*Ç”‰ì/api/v1/teamss
+
+CreateTeam&.oblique.security.v1.CreateTeamRequest.oblique.security.v1.Team""‚È€*Ç”‰ì:team"/api/v1/teamsÇ
+
+UpdateTeam&.oblique.security.v1.UpdateTeamRequest.oblique.security.v1.Team"1‚È€*Ç”‰ì#:team2/api/v1/{team.name=teams/*}u
+
+DeleteTeam&.oblique.security.v1.DeleteTeamRequest.oblique.security.v1.Team"$‚È€*Ç”‰ì*/api/v1/{name=teams/*}Ö
+UndeleteTeam(.oblique.security.v1.UndeleteTeamRequest.oblique.security.v1.Team"0‚È€*Ç”‰ì$:*"/api/v1/{name=teams/*}:undeleteÜ
+GetTeamRoles(.oblique.security.v1.GetTeamRolesRequest.oblique.security.v1.TeamRoles",‚È€*Ç”‰ì/api/v1/{name=teams/*/roles}å
+GetTeamMember).oblique.security.v1.GetTeamMemberRequest.oblique.security.v1.TeamMember"/‚È€*Ç”‰ì" /api/v1/{name=teams/*/members/*}û
+ListTeamMembers+.oblique.security.v1.ListTeamMembersRequest,.oblique.security.v1.ListTeamMembersResponse"0‚È€*Ç”‰ì" /api/v1/{parent=teams/*}/membersü
+CreateTeamMember,.oblique.security.v1.CreateTeamMemberRequest.oblique.security.v1.TeamMember"<‚È€*Ç”‰ì/:team_member" /api/v1/{parent=teams/*}/membersâ
+DeleteTeamMember,.oblique.security.v1.DeleteTeamMemberRequest.google.protobuf.Empty"/‚È€*Ç”‰ì"* /api/v1/{name=teams/*/members/*}à
+GetTeamOwner(.oblique.security.v1.GetTeamOwnerRequest.oblique.security.v1.TeamOwner".‚È€*Ç”‰ì!/api/v1/{name=teams/*/owners/*}ö
+CreateTeamOwner+.oblique.security.v1.CreateTeamOwnerRequest.oblique.security.v1.TeamOwner":‚È€*Ç”‰ì-:
+team_owner"/api/v1/{parent=teams/*}/ownersÜ
+DeleteTeamOwner+.oblique.security.v1.DeleteTeamOwnerRequest.google.protobuf.Empty".‚È€*Ç”‰ì!*/api/v1/{name=teams/*/owners/*}ö
+ListTeamOwners*.oblique.security.v1.ListTeamOwnersRequest+.oblique.security.v1.ListTeamOwnersResponse"/‚È€*Ç”‰ì!/api/v1/{parent=teams/*}/owners•
+UpdateTeamOwner+.oblique.security.v1.UpdateTeamOwnerRequest.oblique.security.v1.TeamOwner"E‚È€*Ç”‰ì8:
+team_owner2*/api/v1/{team_owner.name=teams/*/owners/*}´
+GetTeamEffectiveOwner1.oblique.security.v1.GetTeamEffectiveOwnerRequest'.oblique.security.v1.TeamEffectiveOwner"6‚È€*Ç”‰ì*(/api/v1/{name=teams/*/effectiveowners/*}Ω
+ListTeamEffectiveOwners3.oblique.security.v1.ListTeamEffectiveOwnersRequest4.oblique.security.v1.ListTeamEffectiveOwnersResponse"7‚È€*Ç”‰ì*(/api/v1/{parent=teams/*}/effectiveownersß
+GetEffectiveMember..oblique.security.v1.GetEffectiveMemberRequest$.oblique.security.v1.EffectiveMember";‚È€*Ç”‰ì/-/api/v1/{name=resources/*/effectivemembers/*}π
+ListEffectiveMembers0.oblique.security.v1.ListEffectiveMembersRequest1.oblique.security.v1.ListEffectiveMembersResponse"<‚È€*Ç”‰ì/-/api/v1/{parent=resources/*}/effectivemembersq
+GetUser#.oblique.security.v1.GetUserRequest.oblique.security.v1.User"&‚È€*Ç”‰ì/api/v1/{name=users/*}y
+	ListUsers%.oblique.security.v1.ListUsersRequest&.oblique.security.v1.ListUsersResponse"‚È€*Ç”‰ì/api/v1/usersr
+
+CreateUser&.oblique.security.v1.CreateUserRequest.oblique.security.v1.User"!‚È€*Ç”‰ì:user"/api/v1/usersÅ
+
+UpdateUser&.oblique.security.v1.UpdateUserRequest.oblique.security.v1.User"0‚È€*Ç”‰ì#:user2/api/v1/{user.name=users/*}u
+
+DeleteUser&.oblique.security.v1.DeleteUserRequest.oblique.security.v1.User"$‚È€*Ç”‰ì*/api/v1/{name=users/*}Ö
+UndeleteUser(.oblique.security.v1.UndeleteUserRequest.oblique.security.v1.User"0‚È€*Ç”‰ì$:*"/api/v1/{name=users/*}:undeleteç
+BatchGetUsers).oblique.security.v1.BatchGetUsersRequest*.oblique.security.v1.BatchGetUsersResponse"%‚È€*Ç”‰ì/api/v1/users:batchGet°
+ImpersonateUser+.oblique.security.v1.ImpersonateUserRequest,.oblique.security.v1.ImpersonateUserResponse"3‚È€*Ç”‰ì':*""/api/v1/{name=users/*}:impersonateà
+GetCurrentUser*.oblique.security.v1.GetCurrentUserRequest .oblique.security.v1.CurrentUser"(‚È€*Ç”‰ì/api/v1/{name=currentuser}î
+GetUserSettings+.oblique.security.v1.GetUserSettingsRequest!.oblique.security.v1.UserSettings"1‚È€*Ç”‰ì%#/api/v1/{name=users/*/usersettings}∑
+UpdateUserSettings..oblique.security.v1.UpdateUserSettingsRequest!.oblique.security.v1.UserSettings"N‚È€*Ç”‰ìB:user_settings21/api/v1/{user_settings.name=users/*/usersettings}í
+GetUserProfile*.oblique.security.v1.GetUserProfileRequest .oblique.security.v1.UserProfile"2‚È€*Ç”‰ì$"/api/v1/{name=users/*/userprofile}≤
+UpdateUserProfile-.oblique.security.v1.UpdateUserProfileRequest .oblique.security.v1.UserProfile"L‚È€*Ç”‰ì?:user_profile2//api/v1/{user_profile.name=users/*/userprofile}§
+ListUserProfiles,.oblique.security.v1.ListUserProfilesRequest-.oblique.security.v1.ListUserProfilesResponse"3‚È€*Ç”‰ì'%/api/v1/{parent=users/*}/userprofilesù
+GetUserAttribute,.oblique.security.v1.GetUserAttributeRequest".oblique.security.v1.UserAttribute"7‚È€*Ç”‰ì)'/api/v1/{name=users/*/userattributes/*}Ø
+ListUserAttributes..oblique.security.v1.ListUserAttributesRequest/.oblique.security.v1.ListUserAttributesResponse"8‚È€*Ç”‰ì)'/api/v1/{parent=users/*}/userattributes±
+CreateUserAttribute/.oblique.security.v1.CreateUserAttributeRequest".oblique.security.v1.UserAttribute"E‚È€*Ç”‰ì9:user_attribute"'/api/v1/{parent=users/*}/userattributes¿
+UpdateUserAttribute/.oblique.security.v1.UpdateUserAttributeRequest".oblique.security.v1.UserAttribute"T‚È€*Ç”‰ìH:user_attribute26/api/v1/{user_attribute.name=users/*/userattributes/*}ï
+DeleteUserAttribute/.oblique.security.v1.DeleteUserAttributeRequest.google.protobuf.Empty"5‚È€*Ç”‰ì)*'/api/v1/{name=users/*/userattributes/*}Ä
+GetResource'.oblique.security.v1.GetResourceRequest.oblique.security.v1.Resource")‚È€*Ç”‰ì/api/v1/{name=resources/*}â
+ListResources).oblique.security.v1.ListResourcesRequest*.oblique.security.v1.ListResourcesResponse"!‚È€*Ç”‰ì/api/v1/resourcesù
+BatchGetResources-.oblique.security.v1.BatchGetResourcesRequest..oblique.security.v1.BatchGetResourcesResponse")‚È€*Ç”‰ì/api/v1/resources:batchGetÜ
+CreateResource*.oblique.security.v1.CreateResourceRequest.oblique.security.v1.Resource")‚È€*Ç”‰ì:resource"/api/v1/resourcesö
+UpdateResource*.oblique.security.v1.UpdateResourceRequest.oblique.security.v1.Resource"=‚È€*Ç”‰ì/:resource2#/api/v1/{resource.name=resources/*}Ü
+DeleteResource*.oblique.security.v1.DeleteResourceRequest.oblique.security.v1.Resource")‚È€*Ç”‰ì*/api/v1/{name=resources/*}ï
+UndeleteResource,.oblique.security.v1.UndeleteResourceRequest.oblique.security.v1.Resource"4‚È€*Ç”‰ì(:*"#/api/v1/{name=resources/*}:undeleteò
+GetResourceOwner,.oblique.security.v1.GetResourceOwnerRequest".oblique.security.v1.ResourceOwner"2‚È€*Ç”‰ì%#/api/v1/{name=resources/*/owners/*}™
+ListResourceOwners..oblique.security.v1.ListResourceOwnersRequest/.oblique.security.v1.ListResourceOwnersResponse"3‚È€*Ç”‰ì%#/api/v1/{parent=resources/*}/ownersÆ
+CreateResourceOwner/.oblique.security.v1.CreateResourceOwnerRequest".oblique.security.v1.ResourceOwner"B‚È€*Ç”‰ì5:resource_owner"#/api/v1/{parent=resources/*}/ownersΩ
+UpdateResourceOwner/.oblique.security.v1.UpdateResourceOwnerRequest".oblique.security.v1.ResourceOwner"Q‚È€*Ç”‰ìD:resource_owner22/api/v1/{resource_owner.name=resources/*/owners/*}í
+DeleteResourceOwner/.oblique.security.v1.DeleteResourceOwnerRequest.google.protobuf.Empty"2‚È€*Ç”‰ì%*#/api/v1/{name=resources/*/owners/*}ª
+GetResourceEffectiveOwner5.oblique.security.v1.GetResourceEffectiveOwnerRequest+.oblique.security.v1.ResourceEffectiveOwner":‚È€*Ç”‰ì.,/api/v1/{name=resources/*/effectiveowners/*}Õ
+ListResourceEffectiveOwners7.oblique.security.v1.ListResourceEffectiveOwnersRequest8.oblique.security.v1.ListResourceEffectiveOwnersResponse";‚È€*Ç”‰ì.,/api/v1/{parent=resources/*}/effectiveowners∞
+GetResourceAttribute0.oblique.security.v1.GetResourceAttributeRequest&.oblique.security.v1.ResourceAttribute">‚È€*Ç”‰ì1//api/v1/{name=resources/*/resourceattributes/*}¬
+ListResourceAttributes2.oblique.security.v1.ListResourceAttributesRequest3.oblique.security.v1.ListResourceAttributesResponse"?‚È€*Ç”‰ì1//api/v1/{parent=resources/*}/resourceattributeså
+GetEntitlement*.oblique.security.v1.GetEntitlementRequest .oblique.security.v1.Entitlement",‚È€*Ç”‰ì/api/v1/{name=entitlements/*}ï
+ListEntitlements,.oblique.security.v1.ListEntitlementsRequest-.oblique.security.v1.ListEntitlementsResponse"$‚È€*Ç”‰ì/api/v1/entitlementsñ
+CreateEntitlement-.oblique.security.v1.CreateEntitlementRequest .oblique.security.v1.Entitlement"0‚È€*Ç”‰ì#:entitlement"/api/v1/entitlements´
+UpdateEntitlement-.oblique.security.v1.UpdateEntitlementRequest .oblique.security.v1.Entitlement"E‚È€*Ç”‰ì8:entitlement2)/api/v1/{entitlement.name=entitlements/*}à
+DeleteEntitlement-.oblique.security.v1.DeleteEntitlementRequest.google.protobuf.Empty",‚È€*Ç”‰ì*/api/v1/{name=entitlements/*}©
+BatchGetEntitlements0.oblique.security.v1.BatchGetEntitlementsRequest1.oblique.security.v1.BatchGetEntitlementsResponse",‚È€*Ç”‰ì/api/v1/entitlements:batchGet∑
+BatchCreateEntitlements3.oblique.security.v1.BatchCreateEntitlementsRequest4.oblique.security.v1.BatchCreateEntitlementsResponse"1‚È€*Ç”‰ì%:*" /api/v1/entitlements:batchCreateç
+GetIntegration*.oblique.security.v1.GetIntegrationRequest .oblique.security.v1.Integration"-‚È€*Ç”‰ì/api/v1/{name=integrations/*}™
+BatchGetIntegrations0.oblique.security.v1.BatchGetIntegrationsRequest1.oblique.security.v1.BatchGetIntegrationsResponse"-‚È€*Ç”‰ì/api/v1/integrations:batchGetï
+ListIntegrations,.oblique.security.v1.ListIntegrationsRequest-.oblique.security.v1.ListIntegrationsResponse"$‚È€*Ç”‰ì/api/v1/integrations™
+GetIntegrationMetadata2.oblique.security.v1.GetIntegrationMetadataRequest(.oblique.security.v1.IntegrationMetadata"2‚È€*Ç”‰ì&$/api/v1/{name=integrationmetadata/*}Ø
+ListIntegrationMetadata3.oblique.security.v1.ListIntegrationMetadataRequest4.oblique.security.v1.ListIntegrationMetadataResponse")‚È€*Ç”‰ì/api/v1/integrationmetadataó
+CreateIntegration-.oblique.security.v1.CreateIntegrationRequest .oblique.security.v1.Integration"1‚È€*Ç”‰ì#:integration"/api/v1/integrations¨
+UpdateIntegration-.oblique.security.v1.UpdateIntegrationRequest .oblique.security.v1.Integration"F‚È€*Ç”‰ì8:integration2)/api/v1/{integration.name=integrations/*}â
+DeleteIntegration-.oblique.security.v1.DeleteIntegrationRequest.google.protobuf.Empty"-‚È€*Ç”‰ì*/api/v1/{name=integrations/*}Œ
+CreateIntegrationInstallLink8.oblique.security.v1.CreateIntegrationInstallLinkRequest+.oblique.security.v1.IntegrationInstallLink"G‚È€*Ç”‰ì;:integration_install_link"/api/v1/integrationinstalllinks∑
+GetIntegrationInstallLink5.oblique.security.v1.GetIntegrationInstallLinkRequest+.oblique.security.v1.IntegrationInstallLink"6‚È€*Ç”‰ì*(/api/v1/{name=integrationinstalllinks/*}¥
+GetIntegrationExecution3.oblique.security.v1.GetIntegrationExecutionRequest).oblique.security.v1.IntegrationExecution"9‚È€*Ç”‰ì,*/api/v1/{name=integrations/*/executions/*}∆
+ListIntegrationExecutions5.oblique.security.v1.ListIntegrationExecutionsRequest6.oblique.security.v1.ListIntegrationExecutionsResponse":‚È€*Ç”‰ì,*/api/v1/{parent=integrations/*}/executions¨
+GetIntegrationAccount1.oblique.security.v1.GetIntegrationAccountRequest'.oblique.security.v1.IntegrationAccount"7‚È€*Ç”‰ì*(/api/v1/{name=integrations/*/accounts/*}æ
+ListIntegrationAccounts3.oblique.security.v1.ListIntegrationAccountsRequest4.oblique.security.v1.ListIntegrationAccountsResponse"8‚È€*Ç”‰ì*(/api/v1/{parent=integrations/*}/accounts∂
+LinkIntegrationAccount2.oblique.security.v1.LinkIntegrationAccountRequest'.oblique.security.v1.IntegrationAccount"?‚È€*Ç”‰ì2:*"-/api/v1/{name=integrations/*/accounts/*}:link†
+GetIntegrationRole..oblique.security.v1.GetIntegrationRoleRequest$.oblique.security.v1.IntegrationRole"4‚È€*Ç”‰ì'%/api/v1/{name=integrations/*/roles/*}≤
+ListIntegrationRoles0.oblique.security.v1.ListIntegrationRolesRequest1.oblique.security.v1.ListIntegrationRolesResponse"5‚È€*Ç”‰ì'%/api/v1/{parent=integrations/*}/roles¥
+GetIntegrationAttribute3.oblique.security.v1.GetIntegrationAttributeRequest).oblique.security.v1.IntegrationAttribute"9‚È€*Ç”‰ì,*/api/v1/{name=integrations/*/attributes/*}∆
+ListIntegrationAttributes5.oblique.security.v1.ListIntegrationAttributesRequest6.oblique.security.v1.ListIntegrationAttributesResponse":‚È€*Ç”‰ì,*/api/v1/{parent=integrations/*}/attributes—
+ExportIntegrationAttributes7.oblique.security.v1.ExportIntegrationAttributesRequest8.oblique.security.v1.ExportIntegrationAttributesResponse"?‚È€*Ç”‰ì31/api/v1/{parent=integrations/*}/attributes:export•
+GetIntegrationOwner/.oblique.security.v1.GetIntegrationOwnerRequest%.oblique.security.v1.IntegrationOwner"6‚È€*Ç”‰ì(&/api/v1/{name=integrations/*/owners/*}∂
+ListIntegrationOwners1.oblique.security.v1.ListIntegrationOwnersRequest2.oblique.security.v1.ListIntegrationOwnersResponse"6‚È€*Ç”‰ì(&/api/v1/{parent=integrations/*}/ownersæ
+CreateIntegrationOwner2.oblique.security.v1.CreateIntegrationOwnerRequest%.oblique.security.v1.IntegrationOwner"I‚È€*Ç”‰ì;:integration_owner"&/api/v1/{parent=integrations/*}/ownersú
+DeleteIntegrationOwner2.oblique.security.v1.DeleteIntegrationOwnerRequest.google.protobuf.Empty"6‚È€*Ç”‰ì(*&/api/v1/{name=integrations/*/owners/*}é
+GetOAuthApp'.oblique.security.v1.GetOAuthAppRequest.oblique.security.v1.OAuthApp"7‚È€*Ç”‰ì+)/api/v1/{name=integrations/*/oauthApps/*}ü
+ListOAuthApps).oblique.security.v1.ListOAuthAppsRequest*.oblique.security.v1.ListOAuthAppsResponse"7‚È€*Ç”‰ì+)/api/v1/{parent=integrations/*}/oauthAppsü
+GetSlackChannels,.oblique.security.v1.GetSlackChannelsRequest".oblique.security.v1.SlackChannels"9‚È€*Ç”‰ì-+/api/v1/{name=integrations/*/slackchannels}œ
+SendSlackTestNotification5.oblique.security.v1.SendSlackTestNotificationRequest6.oblique.security.v1.SendSlackTestNotificationResponse"C‚È€*Ç”‰ì7:*"2/api/v1/{name=integrations/*}:sendTestNotificationã
+ExportEntity(.oblique.security.v1.ExportEntityRequest).oblique.security.v1.ExportEntityResponse"&‚È€*Ç”‰ì:*"/api/v1/entity:exportã
+ExportTenant(.oblique.security.v1.ExportTenantRequest).oblique.security.v1.ExportTenantResponse"&‚È€*Ç”‰ì:*"/api/v1/tenant:exportt
+GetGroup$.oblique.security.v1.GetGroupRequest.oblique.security.v1.Group"&‚È€*Ç”‰ì/api/v1/{name=groups/*}}
+
+ListGroups&.oblique.security.v1.ListGroupsRequest'.oblique.security.v1.ListGroupsResponse"‚È€*Ç”‰ì/api/v1/groupsy
+CreateGroup'.oblique.security.v1.CreateGroupRequest.oblique.security.v1.Group"%‚È€*Ç”‰ì:group"/api/v1/groupsà
+UpdateGroup'.oblique.security.v1.UpdateGroupRequest.oblique.security.v1.Group"4‚È€*Ç”‰ì&:group2/api/v1/{group.name=groups/*}{
+DeleteGroup'.oblique.security.v1.DeleteGroupRequest.oblique.security.v1.Group"'‚È€*Ç”‰ì*/api/v1/{name=groups/*}â
+UndeleteGroup).oblique.security.v1.UndeleteGroupRequest.oblique.security.v1.Group"1‚È€*Ç”‰ì%:*" /api/v1/{name=groups/*}:undeleteë
+BatchGetGroups*.oblique.security.v1.BatchGetGroupsRequest+.oblique.security.v1.BatchGetGroupsResponse"&‚È€*Ç”‰ì/api/v1/groups:batchGetñ
+PreviewGroup(.oblique.security.v1.PreviewGroupRequest).oblique.security.v1.PreviewGroupResponse"1‚È€*Ç”‰ì$:group"/api/v1/groups:previewGroupê
+GetGroupMember*.oblique.security.v1.GetGroupMemberRequest .oblique.security.v1.GroupMember"0‚È€*Ç”‰ì#!/api/v1/{name=groups/*/members/*}¢
+ListGroupMembers,.oblique.security.v1.ListGroupMembersRequest-.oblique.security.v1.ListGroupMembersResponse"1‚È€*Ç”‰ì#!/api/v1/{parent=groups/*}/memberså
+GetGroupOwner).oblique.security.v1.GetGroupOwnerRequest.oblique.security.v1.GroupOwner"/‚È€*Ç”‰ì" /api/v1/{name=groups/*/owners/*}ü
+CreateGroupOwner,.oblique.security.v1.CreateGroupOwnerRequest.oblique.security.v1.GroupOwner"<‚È€*Ç”‰ì/:group_owner" /api/v1/{parent=groups/*}/ownersâ
+DeleteGroupOwner,.oblique.security.v1.DeleteGroupOwnerRequest.google.protobuf.Empty"/‚È€*Ç”‰ì"* /api/v1/{name=groups/*/owners/*}û
+ListGroupOwners+.oblique.security.v1.ListGroupOwnersRequest,.oblique.security.v1.ListGroupOwnersResponse"0‚È€*Ç”‰ì" /api/v1/{parent=groups/*}/owners´
+UpdateGroupOwner,.oblique.security.v1.UpdateGroupOwnerRequest.oblique.security.v1.GroupOwner"H‚È€*Ç”‰ì;:group_owner2,/api/v1/{group_owner.name=groups/*/owners/*}ä
+GetGroupRoles).oblique.security.v1.GetGroupRolesRequest.oblique.security.v1.GroupRoles"-‚È€*Ç”‰ì/api/v1/{name=groups/*/roles}Ø
+GetGroupEffectiveOwner2.oblique.security.v1.GetGroupEffectiveOwnerRequest(.oblique.security.v1.GroupEffectiveOwner"7‚È€*Ç”‰ì+)/api/v1/{name=groups/*/effectiveowners/*}¡
+ListGroupEffectiveOwners4.oblique.security.v1.ListGroupEffectiveOwnersRequest5.oblique.security.v1.ListGroupEffectiveOwnersResponse"8‚È€*Ç”‰ì+)/api/v1/{parent=groups/*}/effectiveownersá
+GetAuditEvent).oblique.security.v1.GetAuditEventRequest.oblique.security.v1.AuditEvent"*‚È€*Ç”‰ì/api/v1/{name=auditevents/*}ê
+ListAuditEvents+.oblique.security.v1.ListAuditEventsRequest,.oblique.security.v1.ListAuditEventsResponse""‚È€*Ç”‰ì/api/v1/auditeventst
+GetAdmin$.oblique.security.v1.GetAdminRequest.oblique.security.v1.Admin"&‚È€*Ç”‰ì/api/v1/{name=admins/*}y
+CreateAdmin'.oblique.security.v1.CreateAdminRequest.oblique.security.v1.Admin"%‚È€*Ç”‰ì:admin"/api/v1/adminsw
+DeleteAdmin'.oblique.security.v1.DeleteAdminRequest.google.protobuf.Empty"'‚È€*Ç”‰ì*/api/v1/{name=admins/*}}
+
+ListAdmins&.oblique.security.v1.ListAdminsRequest'.oblique.security.v1.ListAdminsResponse"‚È€*Ç”‰ì/api/v1/adminsá
+UpdateAdmin'.oblique.security.v1.UpdateAdminRequest.oblique.security.v1.Admin"3‚È€*Ç”‰ì&:admin2/api/v1/{admin.name=admins/*}è
+GetAccessReview+.oblique.security.v1.GetAccessReviewRequest!.oblique.security.v1.AccessReview",‚È€*Ç”‰ì /api/v1/{name=accessreviews/*}ò
+ListAccessReviews-.oblique.security.v1.ListAccessReviewsRequest..oblique.security.v1.ListAccessReviewsResponse"$‚È€*Ç”‰ì/api/v1/accessreviewsõ
+CreateAccessReview..oblique.security.v1.CreateAccessReviewRequest!.oblique.security.v1.AccessReview"2‚È€*Ç”‰ì&:access_review"/api/v1/accessreviews≤
+UpdateAccessReview..oblique.security.v1.UpdateAccessReviewRequest!.oblique.security.v1.AccessReview"I‚È€*Ç”‰ì=:access_review2,/api/v1/{access_review.name=accessreviews/*}ä
+DeleteAccessReview..oblique.security.v1.DeleteAccessReviewRequest.google.protobuf.Empty",‚È€*Ç”‰ì */api/v1/{name=accessreviews/*}•
+CompleteAccessReview0.oblique.security.v1.CompleteAccessReviewRequest!.oblique.security.v1.AccessReview"8‚È€*Ç”‰ì,:*"'/api/v1/{name=accessreviews/*}:completeü
+ReopenAccessReview..oblique.security.v1.ReopenAccessReviewRequest!.oblique.security.v1.AccessReview"6‚È€*Ç”‰ì*:*"%/api/v1/{name=accessreviews/*}:reopenü
+GetAccessReviewApp..oblique.security.v1.GetAccessReviewAppRequest$.oblique.security.v1.AccessReviewApp"3‚È€*Ç”‰ì'%/api/v1/{name=accessreviews/*/apps/*}±
+ListAccessReviewApps0.oblique.security.v1.ListAccessReviewAppsRequest1.oblique.security.v1.ListAccessReviewAppsResponse"4‚È€*Ç”‰ì'%/api/v1/{parent=accessreviews/*}/apps∏
+CreateAccessReviewApp1.oblique.security.v1.CreateAccessReviewAppRequest$.oblique.security.v1.AccessReviewApp"F‚È€*Ç”‰ì::access_review_app"%/api/v1/{parent=accessreviews/*}/apps‘
+BatchCreateAccessReviewApps7.oblique.security.v1.BatchCreateAccessReviewAppsRequest8.oblique.security.v1.BatchCreateAccessReviewAppsResponse"B‚È€*Ç”‰ì6:*"1/api/v1/{parent=accessreviews/*}/apps:batchCreate≤
+BatchDeleteAccessReviewApps7.oblique.security.v1.BatchDeleteAccessReviewAppsRequest.google.protobuf.Empty"B‚È€*Ç”‰ì6:*"1/api/v1/{parent=accessreviews/*}/apps:batchDelete 
+UpdateAccessReviewApp1.oblique.security.v1.UpdateAccessReviewAppRequest$.oblique.security.v1.AccessReviewApp"X‚È€*Ç”‰ìL:access_review_app27/api/v1/{access_review_app.name=accessreviews/*/apps/*}ó
+DeleteAccessReviewApp1.oblique.security.v1.DeleteAccessReviewAppRequest.google.protobuf.Empty"3‚È€*Ç”‰ì'*%/api/v1/{name=accessreviews/*/apps/*}∂
+GetAccessReviewAccount2.oblique.security.v1.GetAccessReviewAccountRequest(.oblique.security.v1.AccessReviewAccount">‚È€*Ç”‰ì20/api/v1/{name=accessreviews/*/apps/*/accounts/*}»
+ListAccessReviewAccounts4.oblique.security.v1.ListAccessReviewAccountsRequest5.oblique.security.v1.ListAccessReviewAccountsResponse"?‚È€*Ç”‰ì20/api/v1/{parent=accessreviews/*/apps/*}/accounts”
+CreateAccessReviewAccount5.oblique.security.v1.CreateAccessReviewAccountRequest(.oblique.security.v1.AccessReviewAccount"U‚È€*Ç”‰ìI:access_review_account"0/api/v1/{parent=accessreviews/*/apps/*}/accountsÎ
+BatchCreateAccessReviewAccounts;.oblique.security.v1.BatchCreateAccessReviewAccountsRequest<.oblique.security.v1.BatchCreateAccessReviewAccountsResponse"M‚È€*Ç”‰ìA:*"</api/v1/{parent=accessreviews/*/apps/*}/accounts:batchCreate≈
+BatchDeleteAccessReviewAccounts;.oblique.security.v1.BatchDeleteAccessReviewAccountsRequest.google.protobuf.Empty"M‚È€*Ç”‰ìA:*"</api/v1/{parent=accessreviews/*/apps/*}/accounts:batchDeleteÈ
+UpdateAccessReviewAccount5.oblique.security.v1.UpdateAccessReviewAccountRequest(.oblique.security.v1.AccessReviewAccount"k‚È€*Ç”‰ì_:access_review_account2F/api/v1/{access_review_account.name=accessreviews/*/apps/*/accounts/*}Î
+BatchUpdateAccessReviewAccounts;.oblique.security.v1.BatchUpdateAccessReviewAccountsRequest<.oblique.security.v1.BatchUpdateAccessReviewAccountsResponse"M‚È€*Ç”‰ìA:*"</api/v1/{parent=accessreviews/*/apps/*}/accounts:batchUpdate™
+DeleteAccessReviewAccount5.oblique.security.v1.DeleteAccessReviewAccountRequest.google.protobuf.Empty">‚È€*Ç”‰ì2*0/api/v1/{name=accessreviews/*/apps/*/accounts/*}¬
+GetAccessReviewDecision3.oblique.security.v1.GetAccessReviewDecisionRequest).oblique.security.v1.AccessReviewDecision"G‚È€*Ç”‰ì;9/api/v1/{name=accessreviews/*/apps/*/accounts/*/decision}◊
+ListAccessReviewDecisions5.oblique.security.v1.ListAccessReviewDecisionsRequest6.oblique.security.v1.ListAccessReviewDecisionsResponse"K‚È€*Ç”‰ì></api/v1/{parent=accessreviews/*/apps/*/accounts/*}/decisions˜
+UpdateAccessReviewDecision6.oblique.security.v1.UpdateAccessReviewDecisionRequest).oblique.security.v1.AccessReviewDecision"v‚È€*Ç”‰ìj:access_review_decision2P/api/v1/{access_review_decision.name=accessreviews/*/apps/*/accounts/*/decision}˙
+ BatchUpdateAccessReviewDecisions<.oblique.security.v1.BatchUpdateAccessReviewDecisionsRequest=.oblique.security.v1.BatchUpdateAccessReviewDecisionsResponse"Y‚È€*Ç”‰ìM:*"H/api/v1/{parent=accessreviews/*/apps/*/accounts/*}/decisions:batchUpdateü
+GetAccessScreenshot/.oblique.security.v1.GetAccessScreenshotRequest%.oblique.security.v1.AccessScreenshot"0‚È€*Ç”‰ì$"/api/v1/{name=accessscreenshots/*}º
+BatchGetAccessScreenshots5.oblique.security.v1.BatchGetAccessScreenshotsRequest6.oblique.security.v1.BatchGetAccessScreenshotsResponse"0‚È€*Ç”‰ì$"/api/v1/accessscreenshots:batchGetØ
+CreateAccessScreenshot2.oblique.security.v1.CreateAccessScreenshotRequest%.oblique.security.v1.AccessScreenshot":‚È€*Ç”‰ì.:access_screenshot"/api/v1/accessscreenshotsñ
+DeleteAccessScreenshot2.oblique.security.v1.DeleteAccessScreenshotRequest.google.protobuf.Empty"0‚È€*Ç”‰ì$*"/api/v1/{name=accessscreenshots/*}ß
+ListAccessScreenshots1.oblique.security.v1.ListAccessScreenshotsRequest2.oblique.security.v1.ListAccessScreenshotsResponse"'‚È€*Ç”‰ì/api/v1/accessscreenshots¬
+GetAccessReviewScreenshot5.oblique.security.v1.GetAccessReviewScreenshotRequest+.oblique.security.v1.AccessReviewScreenshot"A‚È€*Ç”‰ì53/api/v1/{name=accessreviews/*/apps/*/screenshots/*}”
+ListAccessReviewScreenshots7.oblique.security.v1.ListAccessReviewScreenshotsRequest8.oblique.security.v1.ListAccessReviewScreenshotsResponse"A‚È€*Ç”‰ì53/api/v1/{parent=accessreviews/*/apps/*}/screenshots‚
+CreateAccessReviewScreenshot8.oblique.security.v1.CreateAccessReviewScreenshotRequest+.oblique.security.v1.AccessReviewScreenshot"[‚È€*Ç”‰ìO:access_review_screenshot"3/api/v1/{parent=accessreviews/*/apps/*}/screenshots˚
+UpdateAccessReviewScreenshot8.oblique.security.v1.UpdateAccessReviewScreenshotRequest+.oblique.security.v1.AccessReviewScreenshot"t‚È€*Ç”‰ìh:access_review_screenshot2L/api/v1/{access_review_screenshot.name=accessreviews/*/apps/*/screenshots/*}≥
+DeleteAccessReviewScreenshot8.oblique.security.v1.DeleteAccessReviewScreenshotRequest.google.protobuf.Empty"A‚È€*Ç”‰ì5*3/api/v1/{name=accessreviews/*/apps/*/screenshots/*}Â
+"GetAccessReviewRemediationEvidence>.oblique.security.v1.GetAccessReviewRemediationEvidenceRequest4.oblique.security.v1.AccessReviewRemediationEvidence"I‚È€*Ç”‰ì=;/api/v1/{name=accessreviews/*/apps/*/remediationEvidence/*}Û
+#ListAccessReviewRemediationEvidence?.oblique.security.v1.ListAccessReviewRemediationEvidenceRequest@.oblique.security.v1.ListAccessReviewRemediationEvidenceResponse"I‚È€*Ç”‰ì=;/api/v1/{parent=accessreviews/*/apps/*}/remediationEvidenceè
+%CreateAccessReviewRemediationEvidenceA.oblique.security.v1.CreateAccessReviewRemediationEvidenceRequest4.oblique.security.v1.AccessReviewRemediationEvidence"m‚È€*Ç”‰ìa:"access_review_remediation_evidence";/api/v1/{parent=accessreviews/*/apps/*}/remediationEvidenceÕ
+%DeleteAccessReviewRemediationEvidenceA.oblique.security.v1.DeleteAccessReviewRemediationEvidenceRequest.google.protobuf.Empty"I‚È€*Ç”‰ì=*;/api/v1/{name=accessreviews/*/apps/*/remediationEvidence/*}q
+GetOwner$.oblique.security.v1.GetOwnerRequest.oblique.security.v1.Owner"#‚È€*Ç”‰ì/api/v1/{name=owner}Ñ
+UpdateOwner'.oblique.security.v1.UpdateOwnerRequest.oblique.security.v1.Owner"0‚È€*Ç”‰ì#:owner2/api/v1/{owner.name=owner}ò
+GetServiceAccount-.oblique.security.v1.GetServiceAccountRequest#.oblique.security.v1.ServiceAccount"/‚È€*Ç”‰ì" /api/v1/{name=serviceaccounts/*}†
+ListServiceAccounts/.oblique.security.v1.ListServiceAccountsRequest0.oblique.security.v1.ListServiceAccountsResponse"&‚È€*Ç”‰ì/api/v1/serviceaccounts•
+CreateServiceAccount0.oblique.security.v1.CreateServiceAccountRequest#.oblique.security.v1.ServiceAccount"6‚È€*Ç”‰ì*:service_account"/api/v1/serviceaccountsû
+DeleteServiceAccount0.oblique.security.v1.DeleteServiceAccountRequest#.oblique.security.v1.ServiceAccount"/‚È€*Ç”‰ì"* /api/v1/{name=serviceaccounts/*}≠
+UndeleteServiceAccount2.oblique.security.v1.UndeleteServiceAccountRequest#.oblique.security.v1.ServiceAccount":‚È€*Ç”‰ì.:*")/api/v1/{name=serviceaccounts/*}:undeleteè
+GetMCPSession).oblique.security.v1.GetMCPSessionRequest.oblique.security.v1.MCPSession"2‚È€*Ç”‰ì&$/api/v1/{name=users/*/mcpsessions/*}†
+ListMCPSessions+.oblique.security.v1.ListMCPSessionsRequest,.oblique.security.v1.ListMCPSessionsResponse"2‚È€*Ç”‰ì&$/api/v1/{parent=users/*}/mcpsessionsï
+DeleteMCPSession,.oblique.security.v1.DeleteMCPSessionRequest.oblique.security.v1.MCPSession"2‚È€*Ç”‰ì&*$/api/v1/{name=users/*/mcpsessions/*}|
+
+GetRequest&.oblique.security.v1.GetRequestRequest.oblique.security.v1.Request"(‚È€*Ç”‰ì/api/v1/{name=requests/*}ô
+BatchGetRequests,.oblique.security.v1.BatchGetRequestsRequest-.oblique.security.v1.BatchGetRequestsResponse"(‚È€*Ç”‰ì/api/v1/requests:batchGetÖ
+ListRequests(.oblique.security.v1.ListRequestsRequest).oblique.security.v1.ListRequestsResponse" ‚È€*Ç”‰ì/api/v1/requestsÉ
+CreateRequest).oblique.security.v1.CreateRequestRequest.oblique.security.v1.Request")‚È€*Ç”‰ì:request"/api/v1/requestsì
+UpdateRequest).oblique.security.v1.UpdateRequestRequest.oblique.security.v1.Request"9‚È€*Ç”‰ì,:request2!/api/v1/{request.name=requests/*}õ
+PreviewRequest*.oblique.security.v1.PreviewRequestRequest+.oblique.security.v1.PreviewRequestResponse"0‚È€*Ç”‰ì$:*"/api/v1/requests:previewRequestô
+GetRequestPreview-.oblique.security.v1.GetRequestPreviewRequest#.oblique.security.v1.RequestPreview"0‚È€*Ç”‰ì#!/api/v1/{name=requests/*}/preview»
+PreviewSuggestedReviewers5.oblique.security.v1.PreviewSuggestedReviewersRequest6.oblique.security.v1.PreviewSuggestedReviewersResponse"<‚È€*Ç”‰ì/:*"*/api/v1/requests:previewSuggestedReviewers∞
+GetSuggestedReviewers1.oblique.security.v1.GetSuggestedReviewersRequest'.oblique.security.v1.SuggestedReviewers";‚È€*Ç”‰ì.,/api/v1/{name=requests/*/suggestedReviewers}°
+EditRequestReviewers0.oblique.security.v1.EditRequestReviewersRequest.oblique.security.v1.Request"9‚È€*Ç”‰ì,:*"'/api/v1/{name=requests/*}:editReviewersû
+ApproveRequest*.oblique.security.v1.ApproveRequestRequest+.oblique.security.v1.ApproveRequestResponse"3‚È€*Ç”‰ì&:*"!/api/v1/{name=requests/*}:approveñ
+CloseRequest(.oblique.security.v1.CloseRequestRequest).oblique.security.v1.CloseRequestResponse"1‚È€*Ç”‰ì$:*"/api/v1/{name=requests/*}:closeâ
+ApplyRequest(.oblique.security.v1.ApplyRequestRequest.oblique.security.v1.Request"1‚È€*Ç”‰ì$:*"/api/v1/{name=requests/*}:applyê
+GetRequestRoles+.oblique.security.v1.GetRequestRolesRequest!.oblique.security.v1.RequestRoles"-‚È€*Ç”‰ì!/api/v1/{name=requests/*/roles}ì
+GetRequestEvent+.oblique.security.v1.GetRequestEventRequest!.oblique.security.v1.RequestEvent"0‚È€*Ç”‰ì$"/api/v1/{name=requests/*/events/*}•
+ListRequestEvents-.oblique.security.v1.ListRequestEventsRequest..oblique.security.v1.ListRequestEventsResponse"1‚È€*Ç”‰ì$"/api/v1/{parent=requests/*}/eventsó
+GetRecommendation-.oblique.security.v1.GetRecommendationRequest#.oblique.security.v1.Recommendation".‚È€*Ç”‰ì" /api/v1/{name=recommendations/*}µ
+BatchGetRecommendations3.oblique.security.v1.BatchGetRecommendationsRequest4.oblique.security.v1.BatchGetRecommendationsResponse"/‚È€*Ç”‰ì" /api/v1/recommendations:batchGet†
+ListRecommendations/.oblique.security.v1.ListRecommendationsRequest0.oblique.security.v1.ListRecommendationsResponse"&‚È€*Ç”‰ì/api/v1/recommendations∞
+IgnoreRecommendations1.oblique.security.v1.IgnoreRecommendationsRequest2.oblique.security.v1.IgnoreRecommendationsResponse"0‚È€*Ç”‰ì#:*"/api/v1/recommendations:ignore´
+GetRecommendationGroup2.oblique.security.v1.GetRecommendationGroupRequest(.oblique.security.v1.RecommendationGroup"3‚È€*Ç”‰ì'%/api/v1/{name=recommendationgroups/*}…
+BatchGetRecommendationGroups8.oblique.security.v1.BatchGetRecommendationGroupsRequest9.oblique.security.v1.BatchGetRecommendationGroupsResponse"4‚È€*Ç”‰ì'%/api/v1/recommendationgroups:batchGet¥
+ListRecommendationGroups4.oblique.security.v1.ListRecommendationGroupsRequest5.oblique.security.v1.ListRecommendationGroupsResponse"+‚È€*Ç”‰ì/api/v1/recommendationgroupst
+	GetConfig%.oblique.security.v1.GetConfigRequest.oblique.security.v1.Config"#‚È€*Ç”‰ì/api/v1/{name=config}®
+GetCoreAttributeConfig2.oblique.security.v1.GetCoreAttributeConfigRequest(.oblique.security.v1.CoreAttributeConfig"0‚È€*Ç”‰ì$"/api/v1/{name=coreattributeconfig}€
+UpdateCoreAttributeConfig5.oblique.security.v1.UpdateCoreAttributeConfigRequest(.oblique.security.v1.CoreAttributeConfig"]‚È€*Ç”‰ìQ:core_attribute_config28/api/v1/{core_attribute_config.name=coreattributeconfig}{
+
+GetFeature&.oblique.security.v1.GetFeatureRequest.oblique.security.v1.Feature"'‚È€*Ç”‰ì/api/v1/{name=features/*}É
+ListFeatures(.oblique.security.v1.ListFeaturesRequest).oblique.security.v1.ListFeaturesResponse"‚È€*Ç”‰ì/api/v1/featuresú
+GetFeatureOverride..oblique.security.v1.GetFeatureOverrideRequest$.oblique.security.v1.FeatureOverride"0‚È€*Ç”‰ì$"/api/v1/{name=features/*/override}∞
+ListFeatureOverrides0.oblique.security.v1.ListFeatureOverridesRequest1.oblique.security.v1.ListFeatureOverridesResponse"3‚È€*Ç”‰ì'%/api/v1/{parent=features/*}/overrides≈
+UpdateFeatureOverride1.oblique.security.v1.UpdateFeatureOverrideRequest$.oblique.security.v1.FeatureOverride"S‚È€*Ç”‰ìG:feature_override23/api/v1/{feature_override.name=features/*/override}s
+GetEvent$.oblique.security.v1.GetEventRequest.oblique.security.v1.Event"%‚È€*Ç”‰ì/api/v1/{name=events/*}{
+
+ListEvents&.oblique.security.v1.ListEventsRequest'.oblique.security.v1.ListEventsResponse"‚È€*Ç”‰ì/api/v1/eventsÉ
+	ReportBug%.oblique.security.v1.ReportBugRequest&.oblique.security.v1.ReportBugResponse"'‚È€*Ç”‰ì:*"/api/v1/bugs:reportBug˚
+ExtractUserPermissions2.oblique.security.v1.ExtractUserPermissionsRequest.google.longrunning.Operation"ç A@
+ExtractUserPermissionsResponseExtractUserPermissionsMetadata‚È€*Ç”‰ì>:*"9/api/v1/{name=accessscreenshots/*}:extractUserPermissionsJ‚®
+  ¬
+
+  
+
+ 
+	
+  &
+	
+ -
+	
+ %
+	
+ 2
+	
+ 6
+	
+	 *
+	
+
+ )
+	
+ (
+	
+ (
+	
+	 *
+	
+
+ 5
+	
+ 0
+	
+ *
+	
+ *
+	
+ *
+	
+ 0
+	
+ '
+	
+ 3
+	
+ ,
+	
+ -
+	
+ .
+	
+ 4
+	
+ )
+	
+ )
+Ì
+   ¬º (-- api-linter: core::0121::resource-must-support-list=disabled
+     aip.dev/not-precedent: IntegrationInstallLink has no List, since a link's
+     name is the secret that grants it. --)
+"! Operations on team API objects.
+
+
+
+  
+%
+  $( Fetch a team by name.
+
+
+  $
+
+  $
+
+  $'+
+
+  %.
+
+
+  úΩ´ %.
+
+  &9
+
+
+  úΩ´&9
+
+  '?
+
+	  ∞ º"'?
+
+
+  ∞ º"' =
+-
+ *. Fetch a set of teams by name.
+
+
+ *
+
+ *(
+
+ *3H
+
+ +.
+
+
+ úΩ´ +.
+
+ ,-
+
+
+ úΩ´,-
+
+ -?
+
+	 ∞ º"-?
+
+
+ ∞ º"- =
+Œ
+ 49ø List teams or search for teams by member or owner.
+
+ (-- api-linter: core::0132::http-uri-parent=disabled
+     aip.dev/not-precedent: Parents are recursive and not part of the URL.
+     --)
+
+
+ 4
+
+ 4 
+
+ 4+<
+
+ 5.
+
+
+ úΩ´ 5.
+
+ 69
+
+
+ úΩ´69
+
+ 7-
+
+
+ úΩ´7-
+
+ 86
+
+	 ∞ º"86
+
+
+ ∞ º"8 4
+Z
+ ;BL Create a team. The caller becomes its first owner unless owners are given.
+
+
+ ;
+
+ ;"
+
+ ;-1
+
+ </
+
+
+ úΩ´ </
+
+ =9
+
+
+ úΩ´=9
+
+ >A
+
+	 ∞ º">A
+
+
+ ∞ º"?
+
+
+ ∞ º"@
+J
+ DL< Update metadata about a team such as a team's description.
+
+
+ D
+
+ D"
+
+ D-1
+
+ E/
+
+
+ úΩ´ E/
+
+ F9
+
+
+ úΩ´F9
+
+ G-
+
+
+ úΩ´G-
+
+ HK
+
+	 ∞ º"HK
+
+
+ ∞ º"I*
+
+
+ ∞ º"J
+}
+ ORo Delete a team, keeping it for a grace period so that it can be undeleted.
+ Its members and owners go with it.
+
+
+ O
+
+ O"
+
+ O-1
+
+ P9
+
+
+ úΩ´ P9
+
+ QB
+
+	 ∞ º"QB
+
+
+ ∞ º"Q @
+
+ SY
+
+ S
+
+ S&
+
+ S15
+
+ T6
+
+
+ úΩ´ T6
+
+ UX
+
+	 ∞ º"UX
+
+
+ ∞ º"V-
+
+
+ ∞ º"W
+B
+ \a4 Fetch what the calling principal may do on a team.
+
+
+ \
+
+ \&
+
+ \1:
+
+ ].
+
+
+ úΩ´ ].
+
+ ^9
+
+
+ úΩ´^9
+
+ _-
+
+
+ úΩ´_-
+
+ `E
+
+	 ∞ º"`E
+
+
+ ∞ º"` C
+N
+ fj Fetch one member of a team.
+2! Operations on team memberships.
+
+
+ f
+
+ f(
+
+ f3=
+
+ g.
+
+
+ úΩ´ g.
+
+ h9
+
+
+ úΩ´h9
+
+ iI
+
+	 ∞ º"iI
+
+
+ ∞ º"i G
++
+ 	lq List all members on a team.
+
+
+ 	l
+
+ 	l,
+
+ 	l7N
+
+ 	m.
+
+
+ 	úΩ´ m.
+
+ 	n9
+
+
+ 	úΩ´n9
+
+ 	o-
+
+
+ 	úΩ´o-
+
+ 	pI
+
+	 	∞ º"pI
+
+
+ 	∞ º"p G
+Z
+ 
+szL Add a user to a team, which grants them everything the team has access to.
+
+
+ 
+s
+
+ 
+s.
+
+ 
+s9C
+
+ 
+t/
+
+
+ 
+úΩ´ t/
+
+ 
+u9
+
+
+ 
+úΩ´u9
+
+ 
+vy
+
+	 
+∞ º"vy
+
+
+ 
+∞ º"w.
+
+
+ 
+∞ º"x
+S
+ |ÄD Remove a user from a team, revoking the access the team gave them.
+
+
+ |
+
+ |.
+
+ |9N
+
+ }/
+
+
+ úΩ´ }/
+
+ ~9
+
+
+ úΩ´~9
+
+ L
+
+	 ∞ º"L
+
+
+ ∞ º" J
+,
+ Éá Fetch one owner of a team.
+
+
+ É
+
+ É&
+
+ É1:
+
+ Ñ.
+
+
+ úΩ´ Ñ.
+
+ Ö9
+
+
+ úΩ´Ö9
+
+ ÜH
+
+	 ∞ º"ÜH
+
+
+ ∞ º"Ü F
+Z
+ âêJ Add an owner to a team. Owners manage the team and approve access to it.
+
+
+ â
+
+ â,
+
+ â7@
+
+ ä/
+
+
+ úΩ´ ä/
+
+ ã9
+
+
+ úΩ´ã9
+
+ åè
+
+	 ∞ º"åè
+
+
+ ∞ º"ç-
+
+
+ ∞ º"é
+.
+ íñ Remove an owner from a team.
+
+
+ í
+
+ í,
+
+ í7L
+
+ ì/
+
+
+ úΩ´ ì/
+
+ î9
+
+
+ úΩ´î9
+
+ ïK
+
+	 ∞ º"ïK
+
+
+ ∞ º"ï I
+±
+ ú°† List the users, teams, and groups that are owners of a team. For
+ determining the set of users who are an owner of a team (including
+ indirectly, e.g. via a group or team), use the `ListTeamEffectiveOwners` API.
+
+ Admins can also manage and approve teams without being listed as owners.
+
+
+ ú
+
+ ú*
+
+ ú5K
+
+ ù.
+
+
+ úΩ´ ù.
+
+ û9
+
+
+ úΩ´û9
+
+ ü-
+
+
+ úΩ´ü-
+
+ †H
+
+	 ∞ º"†H
+
+
+ ∞ º"† F
+C
+ £™3 Update a team ownership, such as when it expires.
+
+
+ £
+
+ £,
+
+ £7@
+
+ §/
+
+
+ úΩ´ §/
+
+ •9
+
+
+ úΩ´•9
+
+ ¶©
+
+	 ∞ º"¶©
+
+
+ ∞ º"ß9
+
+
+ ∞ º"®
+}
+ ≠∞m Fetch one effective owner of a team: a user who owns it outright, or
+ through a team or group that owns it.
+
+
+ ≠
+
+ ≠8
+
+ ≠CU
+
+ Æ.
+
+
+ úΩ´ Æ.
+
+ ØQ
+
+	 ∞ º"ØQ
+
+
+ ∞ º"Ø O
+_
+ ≥∑O List the flattened set of users who are direct or indirect owners of a
+ team.
+
+
+ ≥
+
+ ≥<
+
+ ≥Gf
+
+ ¥.
+
+
+ úΩ´ ¥.
+
+ µ-
+
+
+ úΩ´µ-
+
+ ∂Q
+
+	 ∞ º"∂Q
+
+
+ ∞ º"∂ O
+…
+ æ¡d Fetch one subject with access to a resource, whether granted directly or
+ through a team or group.
+2S Operations on team effective members. Those computed by considering child
+ teams.
+
+
+ æ
+
+ æ2
+
+ æ=L
+
+ ø.
+
+
+ úΩ´ ø.
+
+ ¿V
+
+	 ∞ º"¿V
+
+
+ ∞ º"¿ T
+}
+ ƒ»m List the set of users who have access to a Resource either directly or
+ indirectly through a team or group.
+
+
+ ƒ
+
+ ƒ6
+
+ ƒA]
+
+ ≈.
+
+
+ úΩ´ ≈.
+
+ ∆-
+
+
+ úΩ´∆-
+
+ «V
+
+	 ∞ º"«V
+
+
+ ∞ º"« T
+ï
+ Œ”b Fetch a user by name, or using the alias "users/me" to return the currently
+ authenticated user.
+2! Operations on user API objects.
+
+
+ Œ
+
+ Œ
+
+ Œ'+
+
+ œ.
+
+
+ úΩ´ œ.
+
+ –9
+
+
+ úΩ´–9
+
+ —-
+
+
+ úΩ´—-
+
+ “?
+
+	 ∞ º"“?
+
+
+ ∞ º"“ =
+[
+ ’⁄K List or search for users. Can be used to translate an email to a user ID.
+
+
+ ’
+
+ ’ 
+
+ ’+<
+
+ ÷.
+
+
+ úΩ´ ÷.
+
+ ◊9
+
+
+ úΩ´◊9
+
+ ÿ-
+
+
+ úΩ´ÿ-
+
+ Ÿ6
+
+	 ∞ º"Ÿ6
+
+
+ ∞ º"Ÿ 4
+w
+ ›‰g Create a user. Users normally arrive from an integration's sync, so this is for
+ the ones that don't.
+
+
+ ›
+
+ ›"
+
+ ›-1
+
+ ﬂ9
+N
+
+ úΩ´ ﬂ9: Users can only be created by integrations and Terraform.
+
+
+ ‡„
+
+	 ∞ º"‡„
+
+
+ ∞ º"·
+
+
+ ∞ º"‚
+]
+ ÊÔM Update a user. Fields an integration owns are overwritten on its next sync.
+
+
+ Ê
+
+ Ê"
+
+ Ê-1
+
+ Ë9
+X
+
+ úΩ´ Ë9D User objects can't be updated by users. Only their profile can be.
+
+
+ Í/
+Y
+
+ úΩ´Í/E Admins can update users, to release them from Terraform management.
+
+
+ ÎÓ
+
+	 ∞ º"ÎÓ
+
+
+ ∞ º"Ï*
+
+
+ ∞ º"Ì
+}
+ Úım Delete a user, keeping them for a grace period so that they can be undeleted.
+ Their access goes with them.
+
+
+ Ú
+
+ Ú"
+
+ Ú-1
+
+ Û9
+
+
+ úΩ´ Û9
+
+ ÙB
+
+	 ∞ º"ÙB
+
+
+ ∞ º"Ù @
+
+ ˆ¸
+
+ ˆ
+
+ ˆ&
+
+ ˆ15
+
+ ˜6
+
+
+ úΩ´ ˜6
+
+ ¯˚
+
+	 ∞ º"¯˚
+
+
+ ∞ º"˘-
+
+
+ ∞ º"˙
+H
+ ˛Ç8 Translate a set of names "users/{id}" to user objects.
+
+
+ ˛
+
+ ˛(
+
+ ˛3H
+
+ ˇ.
+
+
+ úΩ´ ˇ.
+
+ Ä-
+
+
+ úΩ´Ä-
+
+ Å?
+
+	 ∞ º"Å?
+
+
+ ∞ º"Å =
+v
+ Üåf Impersonate a user in a development environment for debugging. This is
+ never enabled in production.
+
+
+ Ü
+
+ Ü,
+
+ Ü7N
+
+ á.
+
+
+ úΩ´ á.
+
+ àã
+
+	 ∞ º"àã
+
+
+ ∞ º"â0
+
+
+ ∞ º"ä
+
+ éë
+
+ é
+
+ é*
+
+ é5@
+
+ è.
+
+
+ úΩ´ è.
+
+ êC
+
+	 ∞ º"êC
+
+
+ ∞ º"ê A
+#
+ îó User settings API
+
+
+ î
+
+ î,
+
+ î7C
+
+ ï.
+
+
+ úΩ´ ï.
+
+ ñL
+
+	 ∞ º"ñL
+
+
+ ∞ º"ñ J
+
+ òû
+
+ ò
+
+ ò2
+
+ ò=I
+
+ ô.
+
+
+ úΩ´ ô.
+
+ öù
+
+	 ∞ º"öù
+
+
+ ∞ º"õ@
+
+
+ ∞ º"ú
+ä
+  §©i Fetch additional information about a given user such as their pronouns,
+ location, and reporting chain.
+2 User Profiles
+
+
+  §
+
+  §*
+
+  §5@
+
+  •.
+
+
+  úΩ´ •.
+
+  ¶9
+
+
+  úΩ´¶9
+
+  ß-
+
+
+  úΩ´ß-
+
+  ®K
+
+	  ∞ º"®K
+
+
+  ∞ º"® I
+W
+ !´≤G Update a user's profile, the part of a user they maintain themselves.
+
+
+ !´
+
+ !´0
+
+ !´;F
+
+ !¨.
+
+
+ !úΩ´ ¨.
+
+ !≠9
+
+
+ !úΩ´≠9
+
+ !Æ±
+
+	 !∞ º"Æ±
+
+
+ !∞ º"Ø>
+
+
+ !∞ º"∞
+
+ "≥∂
+
+ "≥
+
+ "≥.
+
+ "≥9Q
+
+ "¥.
+
+
+ "úΩ´ ¥.
+
+ "µN
+
+	 "∞ º"µN
+
+
+ "∞ º"µ L
+N
+ #ª¿( Fetch one attribute of a user by name.
+2 User attribute API
+
+
+ #ª
+
+ #ª.
+
+ #ª9F
+
+ #º.
+
+
+ #úΩ´ º.
+
+ #Ω/
+
+
+ #úΩ´Ω/
+
+ #æ9
+
+
+ #úΩ´æ9
+
+ #øP
+
+	 #∞ º"øP
+
+
+ #∞ º"ø N
+≈
+ $ƒ ¥ List attributes for a given user. Attributes sourced from external systems
+ such as Okta, Google, Slack, and Workday, are used to determine membership
+ in attribute-based Groups.
+
+
+ $ƒ
+
+ $ƒ2
+
+ $ƒ=W
+
+ $≈.
+
+
+ $úΩ´ ≈.
+
+ $∆/
+
+
+ $úΩ´∆/
+
+ $«9
+
+
+ $úΩ´«9
+
+ $»-
+
+
+ $úΩ´»-
+
+ $…P
+
+	 $∞ º"…P
+
+
+ $∞ º"… N
+ó
+ %Õ”Ü Add an attribute to a user. Attributes an integration syncs are overwritten
+ on its next sync, so this is for the ones Oblique owns.
+
+
+ %Õ
+
+ %Õ4
+
+ %Õ?L
+
+ %Œ9
+
+
+ %úΩ´ Œ9
+
+ %œ“
+
+	 %∞ º"œ“
+
+
+ %∞ º"–5
+
+
+ %∞ º"—
+4
+ &’€$ Update one of a user's attributes.
+
+
+ &’
+
+ &’4
+
+ &’?L
+
+ &÷9
+
+
+ &úΩ´ ÷9
+
+ &◊⁄
+
+	 &∞ º"◊⁄
+
+
+ &∞ º"ÿE
+
+
+ &∞ º"Ÿ
+2
+ '›‡" Remove an attribute from a user.
+
+
+ '›
+
+ '›4
+
+ '›?T
+
+ 'ﬁ9
+
+
+ 'úΩ´ ﬁ9
+
+ 'ﬂS
+
+	 '∞ º"ﬂS
+
+
+ '∞ º"ﬂ Q
+R
+ (ÂÈ Fetch a resource by name.
+2% Operations on resource API objects.
+
+
+ (Â
+
+ (Â$
+
+ (Â/7
+
+ (Ê.
+
+
+ (úΩ´ Ê.
+
+ (Á9
+
+
+ (úΩ´Á9
+
+ (ËC
+
+	 (∞ º"ËC
+
+
+ (∞ º"Ë A
+®
+ )ÏÒó List resources. Resources are the objects in external systems that users
+ can be granted access to, such as Okta groups, Okta apps, or Google groups.
+
+
+ )Ï
+
+ )Ï(
+
+ )Ï3H
+
+ )Ì.
+
+
+ )úΩ´ Ì.
+
+ )Ó9
+
+
+ )úΩ´Ó9
+
+ )Ô-
+
+
+ )úΩ´Ô-
+
+ ):
+
+	 )∞ º":
+
+
+ )∞ º" 8
+R
+ *Û˜B Translate a set of resource names "resources/{id}" to resources.
+
+
+ *Û
+
+ *Û0
+
+ *Û;T
+
+ *Ù.
+
+
+ *úΩ´ Ù.
+
+ *ı-
+
+
+ *úΩ´ı-
+
+ *ˆC
+
+	 *∞ º"ˆC
+
+
+ *∞ º"ˆ A
+å
+ +˙Ä| Create a resource. Resources are normally discovered by an integration's sync,
+ so this is for the ones Oblique can't see.
+
+
+ +˙
+
+ +˙*
+
+ +˙5=
+
+ +˚9
+
+
+ +úΩ´ ˚9
+
+ +¸ˇ
+
+	 +∞ º"¸ˇ
+
+
+ +∞ º"˝
+
+
+ +∞ º"˛
+M
+ ,Çä= Update a resource, such as its description or how it syncs.
+
+
+ ,Ç
+
+ ,Ç*
+
+ ,Ç5=
+
+ ,É/
+
+
+ ,úΩ´ É/
+
+ ,Ñ9
+
+
+ ,úΩ´Ñ9
+
+ ,Ö-
+
+
+ ,úΩ´Ö-
+
+ ,Üâ
+
+	 ,∞ º"Üâ
+
+
+ ,∞ º"á2
+
+
+ ,∞ º"à
+î
+ -çëÉ Delete a resource, keeping it for a grace period so that it can be undeleted.
+ The entitlements granting access to it go with it.
+
+
+ -ç
+
+ -ç*
+
+ -ç5=
+
+ -é/
+
+
+ -úΩ´ é/
+
+ -è9
+
+
+ -úΩ´è9
+
+ -êF
+
+	 -∞ º"êF
+
+
+ -∞ º"ê D
+
+ .íò
+
+ .í
+
+ .í.
+
+ .í9A
+
+ .ì6
+
+
+ .úΩ´ ì6
+
+ .îó
+
+	 .∞ º"îó
+
+
+ .∞ º"ï1
+
+
+ .∞ º"ñ
+N
+ /ù°( Fetch one owner of a resource by name.
+2 Resource owner API
+
+
+ /ù
+
+ /ù.
+
+ /ù9F
+
+ /û.
+
+
+ /úΩ´ û.
+
+ /ü9
+
+
+ /úΩ´ü9
+
+ /†L
+
+	 /∞ º"†L
+
+
+ /∞ º"† J
+∫
+ 0•™© List the users, teams, and groups that own a resource. For the set of
+ users who own it, including through a team or group, use the
+ `ListResourceEffectiveOwners` API.
+
+
+ 0•
+
+ 0•2
+
+ 0•=W
+
+ 0¶.
+
+
+ 0úΩ´ ¶.
+
+ 0ß9
+
+
+ 0úΩ´ß9
+
+ 0®-
+
+
+ 0úΩ´®-
+
+ 0©L
+
+	 0∞ º"©L
+
+
+ 0∞ º"© J
+-
+ 1¨≥ Add an owner to a resource.
+
+
+ 1¨
+
+ 1¨4
+
+ 1¨?L
+
+ 1≠/
+
+
+ 1úΩ´ ≠/
+
+ 1Æ9
+
+
+ 1úΩ´Æ9
+
+ 1Ø≤
+
+	 1∞ º"Ø≤
+
+
+ 1∞ º"∞1
+
+
+ 1∞ º"±
+ã
+ 2∂Ω{ Update an owner of a resource. Ownership is immutable, so this only
+ supports creating an owner with `allow_missing` set.
+
+
+ 2∂
+
+ 2∂4
+
+ 2∂?L
+
+ 2∑/
+
+
+ 2úΩ´ ∑/
+
+ 2∏9
+
+
+ 2úΩ´∏9
+
+ 2πº
+
+	 2∞ º"πº
+
+
+ 2∞ º"∫A
+
+
+ 2∞ º"ª
+2
+ 3ø√" Remove an owner from a resource.
+
+
+ 3ø
+
+ 3ø4
+
+ 3ø?T
+
+ 3¿/
+
+
+ 3úΩ´ ¿/
+
+ 3¡9
+
+
+ 3úΩ´¡9
+
+ 3¬O
+
+	 3∞ º"¬O
+
+
+ 3∞ º"¬ M
+Å
+ 4∆…q Fetch one effective owner of a resource: a user who owns it outright, or
+ through a team or group that owns it.
+
+
+ 4∆
+
+ 4∆ @
+
+ 4∆Ka
+
+ 4«.
+
+
+ 4úΩ´ «.
+
+ 4»U
+
+	 4∞ º"»U
+
+
+ 4∞ º"» S
+c
+ 5Ã–S List the flattened set of users who are direct or indirect owners of a
+ resource.
+
+
+ 5Ã!
+
+ 5Ã"D
+
+ 5ÃOr
+
+ 5Õ.
+
+
+ 5úΩ´ Õ.
+
+ 5Œ-
+
+
+ 5úΩ´Œ-
+
+ 5œU
+
+	 5∞ º"œU
+
+
+ 5∞ º"œ S
+V
+ 6’Ÿ, Fetch one attribute of a resource by name.
+2 Resource attribute API
+
+
+ 6’
+
+ 6’6
+
+ 6’AR
+
+ 6÷.
+
+
+ 6úΩ´ ÷.
+
+ 6◊9
+
+
+ 6úΩ´◊9
+
+ 6ÿX
+
+	 6∞ º"ÿX
+
+
+ 6∞ º"ÿ V
+s
+ 7‹·c List attributes for a given resource. Attributes are sourced from external
+ systems such as Okta.
+
+
+ 7‹
+
+ 7‹:
+
+ 7‹Ec
+
+ 7›.
+
+
+ 7úΩ´ ›.
+
+ 7ﬁ9
+
+
+ 7úΩ´ﬁ9
+
+ 7ﬂ-
+
+
+ 7úΩ´ﬂ-
+
+ 7‡X
+
+	 7∞ º"‡X
+
+
+ 7∞ º"‡ V
+Y
+ 8ÊÍ Fetch an entitlement by name.
+2( Operations on entitlement API objects.
+
+
+ 8Ê
+
+ 8Ê*
+
+ 8Ê5@
+
+ 8Á.
+
+
+ 8úΩ´ Á.
+
+ 8Ë9
+
+
+ 8úΩ´Ë9
+
+ 8ÈF
+
+	 8∞ º"ÈF
+
+
+ 8∞ º"È D
+Ü
+ 9ıı List or search for the underlying set of access that a user, group, or team
+ has to a Resource.
+
+ Entitlements don't include access a user holds through a team or group. Use
+ ListEffectiveMembers to determine what a user or team has access to.
+
+
+ 9
+
+ 9.
+
+ 99Q
+
+ 9Ò.
+
+
+ 9úΩ´ Ò.
+
+ 9Ú9
+
+
+ 9úΩ´Ú9
+
+ 9Û-
+
+
+ 9úΩ´Û-
+
+ 9Ù=
+
+	 9∞ º"Ù=
+
+
+ 9∞ º"Ù ;
+Ü
+ :¯ˇv Grant a subject access to a resource. Access granted this way is applied
+ directly, without going through a request.
+
+
+ :¯
+
+ :¯0
+
+ :¯;F
+
+ :˘/
+
+
+ :úΩ´ ˘/
+
+ :˙9
+
+
+ :úΩ´˙9
+
+ :˚˛
+
+	 :∞ º"˚˛
+
+
+ :∞ º"¸"
+
+
+ :∞ º"˝
+S
+ ;ÅàC Update an entitlement, such as when the access it grants expires.
+
+
+ ;Å
+
+ ;Å0
+
+ ;Å;F
+
+ ;Ç/
+
+
+ ;úΩ´ Ç/
+
+ ;É9
+
+
+ ;úΩ´É9
+
+ ;Ñá
+
+	 ;∞ º"Ñá
+
+
+ ;∞ º"Ö8
+
+
+ ;∞ º"Ü
+H
+ <äé8 Revoke an entitlement, removing the access it granted.
+
+
+ <ä
+
+ <ä0
+
+ <ä;P
+
+ <ã/
+
+
+ <úΩ´ ã/
+
+ <å9
+
+
+ <úΩ´å9
+
+ <çI
+
+	 <∞ º"çI
+
+
+ <∞ º"ç G
+[
+ =êîK Translate entitlement names "entitlements/{id}" to a set of entitlements.
+
+
+ =ê
+
+ =ê6
+
+ =êA]
+
+ =ë.
+
+
+ =úΩ´ ë.
+
+ =í-
+
+
+ =úΩ´í-
+
+ =ìF
+
+	 =∞ º"ìF
+
+
+ =∞ º"ì D
+
+ >ïõ
+
+ >ï
+
+ >ï<
+
+ >ïGf
+
+ >ñ/
+
+
+ >úΩ´ ñ/
+
+ >óö
+
+	 >∞ º"óö
+
+
+ >∞ º"ò.
+
+
+ >∞ º"ô
+Y
+ ?†• Fetch an integration by name.
+2( Operations on integration API objects.
+
+
+ ?†
+
+ ?†*
+
+ ?†5@
+
+ ?°.
+
+
+ ?úΩ´ °.
+
+ ?¢9
+
+
+ ?úΩ´¢9
+
+ ?£-
+
+
+ ?úΩ´£-
+
+ ?§F
+
+	 ?∞ º"§F
+
+
+ ?∞ º"§ D
+y
+ @®≠i Translate a set of integration names "integrations/{id}" to integrations,
+ including soft-deleted ones.
+
+
+ @®
+
+ @®6
+
+ @®A]
+
+ @©.
+
+
+ @úΩ´ ©.
+
+ @™9
+
+
+ @úΩ´™9
+
+ @´-
+
+
+ @úΩ´´-
+
+ @¨F
+
+	 @∞ º"¨F
+
+
+ @∞ º"¨ D
+G
+ AØ¥7 List the integrations connected to this organization.
+
+
+ AØ
+
+ AØ.
+
+ AØ9Q
+
+ A∞.
+
+
+ AúΩ´ ∞.
+
+ A±9
+
+
+ AúΩ´±9
+
+ A≤-
+
+
+ AúΩ´≤-
+
+ A≥=
+
+	 A∞ º"≥=
+
+
+ A∞ º"≥ ;
+;
+ B∂π+ Get a kind of integration Oblique offers.
+
+
+ B∂
+
+ B∂:
+
+ B∂EX
+
+ B∑.
+
+
+ BúΩ´ ∑.
+
+ B∏M
+
+	 B∞ º"∏M
+
+
+ B∞ º"∏ K
+@
+ Cªæ0 List the kinds of integrations Oblique offers.
+
+
+ Cª
+
+ Cª<
+
+ CªGf
+
+ Cº.
+
+
+ CúΩ´ º.
+
+ CΩD
+
+	 C∞ º"ΩD
+
+
+ C∞ º"Ω B
+§
+ D¡…ì Connect an integration, which starts syncing the resources and accounts it
+ can see. Users who aren't admins may create one with an install link.
+
+
+ D¡
+
+ D¡0
+
+ D¡;F
+
+ D¬.
+
+
+ DúΩ´ ¬.
+
+ D√9
+
+
+ DúΩ´√9
+
+ Dƒ-
+
+
+ DúΩ´ƒ-
+
+ D≈»
+
+	 D∞ º"≈»
+
+
+ D∞ º"∆"
+
+
+ D∞ º"«
+é
+ EÃ‘~ Update an integration, such as its credentials or what it syncs. Owners
+ of the integration may update it as well as admins.
+
+
+ EÃ
+
+ EÃ0
+
+ EÃ;F
+
+ EÕ/
+
+
+ EúΩ´ Õ/
+
+ EŒ9
+
+
+ EúΩ´Œ9
+
+ Eœ-
+
+
+ EúΩ´œ-
+
+ E–”
+
+	 E∞ º"–”
+
+
+ E∞ º"—8
+
+
+ E∞ º"“
+V
+ F÷€F Disconnect an integration. The resources it discovered stop syncing.
+
+
+ F÷
+
+ F÷0
+
+ F÷;P
+
+ F◊/
+
+
+ FúΩ´ ◊/
+
+ Fÿ9
+
+
+ FúΩ´ÿ9
+
+ FŸ-
+
+
+ FúΩ´Ÿ-
+
+ F⁄I
+
+	 F∞ º"⁄I
+
+
+ F∞ º"⁄ G
+ö
+ Gﬁ‰â Create a single-use link that lets a user who isn't an admin connect one
+ integration of the given kind. The link expires after 7 days.
+
+
+ Gﬁ"
+
+ Gﬁ#F
+
+ GﬁQg
+
+ Gﬂ/
+
+
+ GúΩ´ ﬂ/
+
+ G‡„
+
+	 G∞ º"‡„
+
+
+ G∞ º"·-
+
+
+ G∞ º"‚&
+a
+ HÁÍQ Fetch an install link by name, to learn which kind of integration it
+ connects.
+
+
+ HÁ
+
+ HÁ @
+
+ HÁKa
+
+ HË.
+
+
+ HúΩ´ Ë.
+
+ HÈQ
+
+	 H∞ º"ÈQ
+
+
+ H∞ º"È O
+9
+ IÌÒ) Fetch one run of an integration's sync.
+
+
+ IÌ
+
+ IÌ<
+
+ IÌG[
+
+ IÓ/
+
+
+ IúΩ´ Ó/
+
+ IÔ9
+
+
+ IúΩ´Ô9
+
+ IS
+
+	 I∞ º"S
+
+
+ I∞ º" Q
+s
+ JÙ˘c List an integration's sync runs, most recent first, to see what it did and
+ whether it succeeded.
+
+
+ JÙ
+
+ JÙ @
+
+ JÙKl
+
+ Jı/
+
+
+ JúΩ´ ı/
+
+ Jˆ9
+
+
+ JúΩ´ˆ9
+
+ J˜-
+
+
+ JúΩ´˜-
+
+ J¯S
+
+	 J∞ º"¯S
+
+
+ J∞ º"¯ Q
+
+ K˚ˇ
+
+ K˚
+
+ K˚8
+
+ K˚CU
+
+ K¸.
+
+
+ KúΩ´ ¸.
+
+ K˝9
+
+
+ KúΩ´˝9
+
+ K˛Q
+
+	 K∞ º"˛Q
+
+
+ K∞ º"˛ O
+ä
+ LÇáz List the accounts an integration syncs, such as Okta users or GitHub
+ members, and the directory user each is linked to.
+
+
+ LÇ
+
+ LÇ<
+
+ LÇGf
+
+ LÉ.
+
+
+ LúΩ´ É.
+
+ LÑ9
+
+
+ LúΩ´Ñ9
+
+ LÖ-
+
+
+ LúΩ´Ö-
+
+ LÜQ
+
+	 L∞ º"ÜQ
+
+
+ L∞ º"Ü O
+˘
+ MåìË Link an account to the directory user who holds it, for an account a sync
+ couldn't match to a user on its own. Only an account that isn't already
+ linked can be linked, and later syncs of the integration leave the link in
+ place.
+
+
+ Må
+
+ Må:
+
+ MåEW
+
+ Mç/
+
+
+ MúΩ´ ç/
+
+ Mé-
+
+
+ MúΩ´é-
+
+ Mèí
+
+	 M∞ º"èí
+
+
+ M∞ º"ê;
+
+
+ M∞ º"ë
+
+ Nïô
+
+ Nï
+
+ Nï2
+
+ Nï=L
+
+ Nñ.
+
+
+ NúΩ´ ñ.
+
+ Nó9
+
+
+ NúΩ´ó9
+
+ NòN
+
+	 N∞ º"òN
+
+
+ N∞ º"ò L
+™
+ Où¢ô List the roles an integration's resources can be granted with, such as a
+ GitHub repository's "admin" role. These are the roles a request can ask
+ for.
+
+
+ Où
+
+ Où6
+
+ OùA]
+
+ Oû.
+
+
+ OúΩ´ û.
+
+ Oü9
+
+
+ OúΩ´ü9
+
+ O†-
+
+
+ OúΩ´†-
+
+ O°N
+
+	 O∞ º"°N
+
+
+ O∞ º"° L
+;
+ P•©+ Fetch one attribute an integration syncs.
+
+
+ P•
+
+ P•<
+
+ P•G[
+
+ P¶.
+
+
+ PúΩ´ ¶.
+
+ Pß9
+
+
+ PúΩ´ß9
+
+ P®S
+
+	 P∞ º"®S
+
+
+ P∞ º"® Q
+Y
+ Q´∞I List the attributes an integration syncs onto the users it knows about.
+
+
+ Q´
+
+ Q´ @
+
+ Q´Kl
+
+ Q¨.
+
+
+ QúΩ´ ¨.
+
+ Q≠9
+
+
+ QúΩ´≠9
+
+ QÆ-
+
+
+ QúΩ´Æ-
+
+ QØS
+
+	 Q∞ º"ØS
+
+
+ Q∞ º"Ø Q
+
+ R±¥
+
+ R±!
+
+ R±"D
+
+ R±Or
+
+ R≤/
+
+
+ RúΩ´ ≤/
+
+ R≥Z
+
+	 R∞ º"≥Z
+
+
+ R∞ º"≥ X
+<
+ S∑º, Fetch one owner of an integration by name.
+
+
+ S∑
+
+ S∑4
+
+ S∑?O
+
+ S∏.
+
+
+ SúΩ´ ∏.
+
+ Sπ9
+
+
+ SúΩ´π9
+
+ S∫-
+
+
+ SúΩ´∫-
+
+ SªO
+
+	 S∞ º"ªO
+
+
+ S∞ º"ª M
+L
+ Tæ√< List the users, teams, and groups that own an integration.
+
+
+ Tæ
+
+ Tæ8
+
+ TæC`
+
+ Tø.
+
+
+ TúΩ´ ø.
+
+ T¿9
+
+
+ TúΩ´¿9
+
+ T¡-
+
+
+ TúΩ´¡-
+
+ T¬O
+
+	 T∞ º"¬O
+
+
+ T∞ º"¬ M
+q
+ U∆Œa Add an owner to an integration. Owners manage the integration's settings
+ and its other owners.
+
+
+ U∆
+
+ U∆:
+
+ U∆EU
+
+ U«/
+
+
+ UúΩ´ «/
+
+ U»9
+
+
+ UúΩ´»9
+
+ U…-
+
+
+ UúΩ´…-
+
+ U Õ
+
+	 U∞ º" Õ
+
+
+ U∞ º"À4
+
+
+ U∞ º"Ã
+6
+ V–’& Remove an owner from an integration.
+
+
+ V–
+
+ V–:
+
+ V–EZ
+
+ V—/
+
+
+ VúΩ´ —/
+
+ V“9
+
+
+ VúΩ´“9
+
+ V”-
+
+
+ VúΩ´”-
+
+ V‘R
+
+	 V∞ º"‘R
+
+
+ V∞ º"‘ P
+
+ W◊⁄
+
+ W◊
+
+ W◊$
+
+ W◊/7
+
+ Wÿ/
+
+
+ WúΩ´ ÿ/
+
+ WŸR
+
+	 W∞ º"ŸR
+
+
+ W∞ º"Ÿ P
+
+ X€ﬁ
+
+ X€
+
+ X€(
+
+ X€3H
+
+ X‹/
+
+
+ XúΩ´ ‹/
+
+ X›R
+
+	 X∞ º"›R
+
+
+ X∞ º"› P
+
+ Y‡„
+
+ Y‡
+
+ Y‡.
+
+ Y‡9F
+
+ Y·/
+
+
+ YúΩ´ ·/
+
+ Y‚T
+
+	 Y∞ º"‚T
+
+
+ Y∞ º"‚ R
+
+ ZÂÎ
+
+ ZÂ
+
+ ZÂ @
+
+ ZÂKl
+
+ ZÊ/
+
+
+ ZúΩ´ Ê/
+
+ ZÁÍ
+
+	 Z∞ º"ÁÍ
+
+
+ Z∞ º"Ë@
+
+
+ Z∞ º"È
+n
+ [Ôı^ Exports a single entity and any related API objects required for it to be
+ applied directly.
+
+
+ [Ô
+
+ [Ô&
+
+ [Ô1E
+
+ [/
+
+
+ [úΩ´ /
+
+ [ÒÙ
+
+	 [∞ º"ÒÙ
+
+
+ [∞ º"Ú#
+
+
+ [∞ º"Û
+5
+ \˜˝% Exports the tenant's configuration.
+
+
+ \˜
+
+ \˜&
+
+ \˜1E
+
+ \¯/
+
+
+ \úΩ´ ¯/
+
+ \˘¸
+
+	 \∞ º"˘¸
+
+
+ \∞ º"˙#
+
+
+ \∞ º"˚
+<
+ ]ÇÜ Fetch a group by name.
+2 Group operations
+
+
+ ]Ç
+
+ ]Ç
+
+ ]Ç).
+
+ ]É.
+
+
+ ]úΩ´ É.
+
+ ]Ñ9
+
+
+ ]úΩ´Ñ9
+
+ ]Ö@
+
+	 ]∞ º"Ö@
+
+
+ ]∞ º"Ö >
+P
+ ^âé@ List or search for attribute-based and reporting-based groups.
+
+
+ ^â
+
+ ^â"
+
+ ^â-?
+
+ ^ä.
+
+
+ ^úΩ´ ä.
+
+ ^ã9
+
+
+ ^úΩ´ã9
+
+ ^å-
+
+
+ ^úΩ´å-
+
+ ^ç7
+
+	 ^∞ º"ç7
+
+
+ ^∞ º"ç 5
+ë
+ _íöÄ Create an attribute-based or reporting-based group. If the user isn't an
+ admin, they can only create a reporting-based group.
+
+
+ _í
+
+ _í$
+
+ _í/4
+
+ _ì.
+
+
+ _úΩ´ ì.
+
+ _î9
+
+
+ _úΩ´î9
+
+ _ï-
+
+
+ _úΩ´ï-
+
+ _ñô
+
+	 _∞ º"ñô
+
+
+ _∞ º"ó
+
+
+ _∞ º"ò
+x
+ `ù•h Update the display name or description of a group. The caller must be an
+ admin or owner of the group.
+
+
+ `ù
+
+ `ù$
+
+ `ù/4
+
+ `û/
+
+
+ `úΩ´ û/
+
+ `ü9
+
+
+ `úΩ´ü9
+
+ `†-
+
+
+ `úΩ´†-
+
+ `°§
+
+	 `∞ º"°§
+
+
+ `∞ º"¢,
+
+
+ `∞ º"£
+ç
+ a®≠} Delete a group, keeping it for a grace period so that it can be undeleted.
+ The access its membership granted goes with it.
+
+
+ a®
+
+ a®$
+
+ a®/4
+
+ a©/
+
+
+ aúΩ´ ©/
+
+ a™9
+
+
+ aúΩ´™9
+
+ a´-
+
+
+ aúΩ´´-
+
+ a¨C
+
+	 a∞ º"¨C
+
+
+ a∞ º"¨ A
+
+ bÆ¥
+
+ bÆ
+
+ bÆ(
+
+ bÆ38
+
+ bØ6
+
+
+ búΩ´ Ø6
+
+ b∞≥
+
+	 b∞ º"∞≥
+
+
+ b∞ º"±.
+
+
+ b∞ º"≤
+I
+ c∂∫9 Translate group names "groups/{id}" to a set of groups.
+
+
+ c∂
+
+ c∂*
+
+ c∂5K
+
+ c∑.
+
+
+ cúΩ´ ∑.
+
+ c∏-
+
+
+ cúΩ´∏-
+
+ cπ@
+
+	 c∞ º"π@
+
+
+ c∞ º"π >
+Å
+ dæ«q Work out who would be in a group, without creating or changing one. Use this to
+ check a rule before saving it.
+
+
+ dæ
+
+ dæ&
+
+ dæ1E
+
+ dø.
+
+
+ dúΩ´ ø.
+
+ d¬9
+ñ
+
+ dúΩ´¬9Å The Terraform provider previews group membership at plan time, so the
+ preview must be reachable by Terraform service accounts.
+
+
+ d√∆
+
+	 d∞ º"√∆
+
+
+ d∞ º"ƒ)
+
+
+ d∞ º"≈
+]
+ e ŒM Fetch one member of a group. Membership is computed from the group's rules.
+
+
+ e 
+
+ e *
+
+ e 5@
+
+ eÀ.
+
+
+ eúΩ´ À.
+
+ eÃ9
+
+
+ eúΩ´Ã9
+
+ eÕJ
+
+	 e∞ º"ÕJ
+
+
+ e∞ º"Õ H
+>
+ f–’. List or search for individual group members.
+
+
+ f–
+
+ f–.
+
+ f–9Q
+
+ f—.
+
+
+ fúΩ´ —.
+
+ f“9
+
+
+ fúΩ´“9
+
+ f”-
+
+
+ fúΩ´”-
+
+ f‘J
+
+	 f∞ º"‘J
+
+
+ f∞ º"‘ H
+-
+ g◊€ Fetch one owner of a group.
+
+
+ g◊
+
+ g◊(
+
+ g◊3=
+
+ gÿ.
+
+
+ gúΩ´ ÿ.
+
+ gŸ9
+
+
+ gúΩ´Ÿ9
+
+ g⁄I
+
+	 g∞ º"⁄I
+
+
+ g∞ º"⁄ G
+\
+ h›‰L Add an owner to a group. Owners manage the group and approve access to it.
+
+
+ h›
+
+ h›.
+
+ h›9C
+
+ hﬁ/
+
+
+ húΩ´ ﬁ/
+
+ hﬂ9
+
+
+ húΩ´ﬂ9
+
+ h‡„
+
+	 h∞ º"‡„
+
+
+ h∞ º"·.
+
+
+ h∞ º"‚
+/
+ iÊÍ Remove an owner from a group.
+
+
+ iÊ
+
+ iÊ.
+
+ iÊ9N
+
+ iÁ/
+
+
+ iúΩ´ Á/
+
+ iË9
+
+
+ iúΩ´Ë9
+
+ iÈL
+
+	 i∞ º"ÈL
+
+
+ i∞ º"È J
+¨
+ jÓÛõ List or search for group owners, which can be a user, team, or another
+ group. Admins can also manage and approve groups without being listed as
+ owners.
+
+
+ jÓ
+
+ jÓ,
+
+ jÓ7N
+
+ jÔ.
+
+
+ júΩ´ Ô.
+
+ j9
+
+
+ júΩ´9
+
+ jÒ-
+
+
+ júΩ´Ò-
+
+ jÚI
+
+	 j∞ º"ÚI
+
+
+ j∞ º"Ú G
+D
+ kı¸4 Update a group ownership, such as when it expires.
+
+
+ kı
+
+ kı.
+
+ kı9C
+
+ kˆ/
+
+
+ kúΩ´ ˆ/
+
+ k˜9
+
+
+ kúΩ´˜9
+
+ k¯˚
+
+	 k∞ º"¯˚
+
+
+ k∞ º"˘;
+
+
+ k∞ º"˙
+E
+ l˛É5 Fetch what the calling principal may do on a group.
+
+
+ l˛
+
+ l˛(
+
+ l˛3=
+
+ lˇ.
+
+
+ lúΩ´ ˇ.
+
+ lÄ9
+
+
+ lúΩ´Ä9
+
+ lÅ-
+
+
+ lúΩ´Å-
+
+ lÇF
+
+	 l∞ º"ÇF
+
+
+ l∞ º"Ç D
+~
+ mÜân Fetch one effective owner of a group: a user who owns it outright, or
+ through a team or group that owns it.
+
+
+ mÜ
+
+ mÜ:
+
+ mÜEX
+
+ má.
+
+
+ múΩ´ á.
+
+ màR
+
+	 m∞ º"àR
+
+
+ m∞ º"à P
+`
+ nåêP List the flattened set of users who are direct or indirect owners of a
+ group.
+
+
+ nå
+
+ nå>
+
+ nåIi
+
+ nç.
+
+
+ núΩ´ ç.
+
+ né-
+
+
+ núΩ´é-
+
+ nèR
+
+	 n∞ º"èR
+
+
+ n∞ º"è P
+
+ oîó2 Audit events
+
+
+ oî
+
+ oî(
+
+ oî3=
+
+ oï/
+
+
+ oúΩ´ ï/
+
+ oñE
+
+	 o∞ º"ñE
+
+
+ o∞ º"ñ C
+8
+ pöû( List raw audit events for this server.
+
+
+ pö
+
+ pö,
+
+ pö7N
+
+ põ/
+
+
+ púΩ´ õ/
+
+ pú-
+
+
+ púΩ´ú-
+
+ pù<
+
+	 p∞ º"ù<
+
+
+ p∞ º"ù :
+E
+ q£ß! Fetch an administrator by name.
+2 Admin operations
+
+
+ q£
+
+ q£
+
+ q£).
+
+ q§.
+
+
+ qúΩ´ §.
+
+ q•9
+
+
+ qúΩ´•9
+
+ q¶@
+
+	 q∞ º"¶@
+
+
+ q∞ º"¶ >
+:
+ r©±* Make a user a system-wide administrator.
+
+
+ r©
+
+ r©$
+
+ r©/4
+
+ r™/
+
+
+ rúΩ´ ™/
+
+ r´9
+
+
+ rúΩ´´9
+
+ r¨-
+
+
+ rúΩ´¨-
+
+ r≠∞
+
+	 r∞ º"≠∞
+
+
+ r∞ º"Æ
+
+
+ r∞ º"Ø
+?
+ s≥∏/ Remove a user as a system-wide administrator.
+
+
+ s≥
+
+ s≥$
+
+ s≥/D
+
+ s¥/
+
+
+ súΩ´ ¥/
+
+ sµ9
+
+
+ súΩ´µ9
+
+ s∂-
+
+
+ súΩ´∂-
+
+ s∑C
+
+	 s∞ º"∑C
+
+
+ s∞ º"∑ A
+6
+ t∫ø& List all system-wide administrators.
+
+
+ t∫
+
+ t∫"
+
+ t∫-?
+
+ tª.
+
+
+ túΩ´ ª.
+
+ tº9
+
+
+ túΩ´º9
+
+ tΩ-
+
+
+ túΩ´Ω-
+
+ tæ7
+
+	 t∞ º"æ7
+
+
+ t∞ º"æ 5
+*
+ u¡» Update an administrator.
+
+
+ u¡
+
+ u¡$
+
+ u¡/4
+
+ u¬/
+
+
+ uúΩ´ ¬/
+
+ u√9
+
+
+ uúΩ´√9
+
+ uƒ«
+
+	 u∞ º"ƒ«
+
+
+ u∞ º"≈,
+
+
+ u∞ º"∆
+M
+ vÕ–! Fetch an access review by name.
+2 Access review operations
+
+
+ vÕ
+
+ vÕ,
+
+ vÕ7C
+
+ vŒ/
+
+
+ vúΩ´ Œ/
+
+ vœG
+
+	 v∞ º"œG
+
+
+ v∞ º"œ E
+&
+ w“÷ List access reviews.
+
+
+ w“
+
+ w“0
+
+ w“;T
+
+ w”/
+
+
+ wúΩ´ ”/
+
+ w‘-
+
+
+ wúΩ´‘-
+
+ w’>
+
+	 w∞ º"’>
+
+
+ w∞ º"’ <
+*
+ xÿﬁ Create an access review.
+
+
+ xÿ
+
+ xÿ2
+
+ xÿ=I
+
+ xŸ/
+
+
+ xúΩ´ Ÿ/
+
+ x⁄›
+
+	 x∞ º"⁄›
+
+
+ x∞ º"€#
+
+
+ x∞ º"‹
+*
+ y‡Ê Update an access review.
+
+
+ y‡
+
+ y‡2
+
+ y‡=I
+
+ y·/
+
+
+ yúΩ´ ·/
+
+ y‚Â
+
+	 y∞ º"‚Â
+
+
+ y∞ º"„;
+
+
+ y∞ º"‰
+î
+ zÈÏÉ Delete an access review. The review is soft-deleted: it stays readable,
+ with its apps and accounts, but can no longer be edited.
+
+
+ zÈ
+
+ zÈ2
+
+ zÈ=R
+
+ zÍ/
+
+
+ zúΩ´ Í/
+
+ zÎJ
+
+	 z∞ º"ÎJ
+
+
+ z∞ º"Î H
+Ü
+ {Ôıv Complete an access review, recording that its decisions are final. Every
+ account under review must have a decision.
+
+
+ {Ô
+
+ {Ô6
+
+ {ÔAM
+
+ {/
+
+
+ {úΩ´ /
+
+ {ÒÙ
+
+	 {∞ º"ÒÙ
+
+
+ {∞ º"Ú5
+
+
+ {∞ º"Û
+Y
+ |˜˝I Reopen a completed access review so its decisions can be changed again.
+
+
+ |˜
+
+ |˜2
+
+ |˜=I
+
+ |¯/
+
+
+ |úΩ´ ¯/
+
+ |˘¸
+
+	 |∞ º"˘¸
+
+
+ |∞ º"˙3
+
+
+ |∞ º"˚
+5
+ }ˇÇ% Fetch an access review app by name.
+
+
+ }ˇ
+
+ }ˇ2
+
+ }ˇ=L
+
+ }Ä/
+
+
+ }úΩ´ Ä/
+
+ }ÅN
+
+	 }∞ º"ÅN
+
+
+ }∞ º"Å L
+<
+ ~Ñà, List the apps in an access review's scope.
+
+
+ ~Ñ
+
+ ~Ñ6
+
+ ~ÑA]
+
+ ~Ö/
+
+
+ ~úΩ´ Ö/
+
+ ~Ü-
+
+
+ ~úΩ´Ü-
+
+ ~áN
+
+	 ~∞ º"áN
+
+
+ ~∞ º"á L
+9
+ äê) Add an app to an access review's scope.
+
+
+ ä
+
+ ä8
+
+ äCR
+
+ ã/
+
+
+ úΩ´ ã/
+
+ åè
+
+	 ∞ º"åè
+
+
+ ∞ º"ç3
+
+
+ ∞ º"é
+A
+ Äíò0 Add multiple apps to an access review's scope.
+
+
+ Äí!
+
+ Äí"D
+
+ ÄíOr
+
+ Äì/
+
+ ÄúΩ´ ì/
+
+ Äîó
+
+
+ Ä∞ º"îó
+
+ Ä∞ º"ï?
+
+ Ä∞ º"ñ
+a
+ Åõ°P Remove multiple apps from an access review's scope, including their
+ accounts.
+
+
+ Åõ!
+
+ Åõ"D
+
+ ÅõOd
+
+ Åú/
+
+ ÅúΩ´ ú/
+
+ Åù†
+
+
+ Å∞ º"ù†
+
+ Å∞ º"û?
+
+ Å∞ º"ü
+=
+ Ç£©, Update an app in an access review's scope.
+
+
+ Ç£
+
+ Ç£8
+
+ Ç£CR
+
+ Ç§/
+
+ ÇúΩ´ §/
+
+ Ç•®
+
+
+ Ç∞ º"•®
+
+ Ç∞ º"¶F
+
+ Ç∞ º"ß
+W
+ É´ÆF Remove an app from an access review's scope, including its accounts.
+
+
+ É´
+
+ É´8
+
+ É´CX
+
+ É¨/
+
+ ÉúΩ´ ¨/
+
+ É≠Q
+
+
+ É∞ º"≠Q
+
+ É∞ º"≠ O
+:
+ Ñ∞≥) Fetch an access review account by name.
+
+
+ Ñ∞
+
+ Ñ∞:
+
+ Ñ∞EX
+
+ Ñ±/
+
+ ÑúΩ´ ±/
+
+ Ñ≤Y
+
+
+ Ñ∞ º"≤Y
+
+ Ñ∞ º"≤ W
+é
+ Ö∂∫} List the accounts captured for an app under review. Use "-" as the app ID
+ to list accounts across every app in the review.
+
+
+ Ö∂
+
+ Ö∂>
+
+ Ö∂Ii
+
+ Ö∑/
+
+ ÖúΩ´ ∑/
+
+ Ö∏-
+
+ ÖúΩ´∏-
+
+ ÖπY
+
+
+ Ö∞ º"πY
+
+ Ö∞ º"π W
+=
+ Üº¬, Record an account for an app under review.
+
+
+ Üº
+
+ Üº @
+
+ ÜºK^
+
+ ÜΩ/
+
+ ÜúΩ´ Ω/
+
+ Üæ¡
+
+
+ Ü∞ º"æ¡
+
+ Ü∞ º"ø>
+
+ Ü∞ º"¿#
+D
+ áƒ 3 Record multiple accounts for an app under review.
+
+
+ áƒ%
+
+ áƒ&L
+
+ áƒW~
+
+ á≈/
+
+ áúΩ´ ≈/
+
+ á∆…
+
+
+ á∞ º"∆…
+
+ á∞ º"«J
+
+ á∞ º"»
+E
+ àÃ“4 Remove multiple accounts from an app under review.
+
+
+ àÃ%
+
+ àÃ&L
+
+ àÃWl
+
+ àÕ/
+
+ àúΩ´ Õ/
+
+ àŒ—
+
+
+ à∞ º"Œ—
+
+ à∞ º"œJ
+
+ à∞ º"–
+F
+ â‘⁄5 Update an account recorded for an app under review.
+
+
+ â‘
+
+ â‘ @
+
+ â‘K^
+
+ â’/
+
+ âúΩ´ ’/
+
+ â÷Ÿ
+
+
+ â∞ º"÷Ÿ
+
+ â∞ º"◊U
+
+ â∞ º"ÿ#
+K
+ ä‹‚: Update multiple accounts recorded for apps under review.
+
+
+ ä‹%
+
+ ä‹&L
+
+ ä‹W~
+
+ ä›/
+
+ äúΩ´ ›/
+
+ äﬁ·
+
+
+ ä∞ º"ﬁ·
+
+ ä∞ º"ﬂJ
+
+ ä∞ º"‡
+>
+ ã‰Á- Remove an account from an app under review.
+
+
+ ã‰
+
+ ã‰ @
+
+ ã‰K`
+
+ ãÂ/
+
+ ãúΩ´ Â/
+
+ ãÊ\
+
+
+ ã∞ º"Ê\
+
+ ã∞ º"Ê Z
+K
+ åÈÏ: Fetch the decision recorded for an account under review.
+
+
+ åÈ
+
+ åÈ<
+
+ åÈG[
+
+ åÍ/
+
+ åúΩ´ Í/
+
+ åÎb
+
+
+ å∞ º"Îb
+
+ å∞ º"Î `
+‘
+ çÙ¬ List the decisions recorded for accounts under review. Use "-" as the
+ account ID to list decisions across an app, and "-" as both the app and
+ account IDs to list decisions across the review.
+
+
+ ç
+
+ ç @
+
+ çKl
+
+ çÒ/
+
+ çúΩ´ Ò/
+
+ çÚ-
+
+ çúΩ´Ú-
+
+ çÛe
+
+
+ ç∞ º"Ûe
+
+ ç∞ º"Û c
+M
+ éˆ¸< Record or change the decision for an account under review.
+
+
+ éˆ 
+
+ éˆ!B
+
+ éˆMa
+
+ é˜/
+
+ éúΩ´ ˜/
+
+ é¯˚
+
+
+ é∞ º"¯˚
+
+ é∞ º"˘_
+
+ é∞ º"˙$
+U
+ è˛Ñ	D Record or change the decisions for multiple accounts under review.
+
+
+ è˛&
+
+ è˛'N
+
+ è˛YÅ
+
+ èˇ/
+
+ èúΩ´ ˇ/
+
+ èÄ	É	
+
+
+ è∞ º"Ä	É	
+
+ è∞ º"Å	V
+
+ è∞ º"Ç	
+Ø
+ êä	ç	~ Fetch an access screenshot by name. The response carries the URI from
+ which the image itself can be fetched, not the image.
+2 Access screenshot operations
+
+
+ êä	
+
+ êä	4
+
+ êä	?O
+
+ êã	/
+
+ êúΩ´ ã	/
+
+ êå	K
+
+
+ ê∞ º"å	K
+
+ ê∞ º"å	 I
+Œ
+ ëë	î	º Translate access screenshot names "accessscreenshots/{id}" to a set of
+ access screenshots. The responses carry the URIs from which the images
+ themselves can be fetched, not the images.
+
+
+ ëë	
+
+ ëë	 @
+
+ ëë	Kl
+
+ ëí	/
+
+ ëúΩ´ í	/
+
+ ëì	K
+
+
+ ë∞ º"ì	K
+
+ ë∞ º"ì	 I
+g
+ íó	ù	V Create an access screenshot. The image is then uploaded to the returned
+ upload_uri.
+
+
+ íó	
+
+ íó	:
+
+ íó	EU
+
+ íò	/
+
+ íúΩ´ ò	/
+
+ íô	ú	
+
+
+ í∞ º"ô	ú	
+
+ í∞ º"ö	'
+
+ í∞ º"õ	
+=
+ ìü	¢	, Delete an access screenshot and its image.
+
+
+ ìü	
+
+ ìü	:
+
+ ìü	EZ
+
+ ì†	/
+
+ ìúΩ´ †	/
+
+ ì°	N
+
+
+ ì∞ º"°	N
+
+ ì∞ º"°	 L
++
+ î§	ß	 List access screenshots.
+
+
+ î§	
+
+ î§	8
+
+ î§	C`
+
+ î•	/
+
+ îúΩ´ •	/
+
+ î¶	B
+
+
+ î∞ º"¶	B
+
+ î∞ º"¶	 @
+=
+ ï©	¨	, Fetch an access review screenshot by name.
+
+
+ ï©	
+
+ ï©	 @
+
+ ï©	Ka
+
+ ï™	/
+
+ ïúΩ´ ™	/
+
+ ï´	\
+
+
+ ï∞ º"´	\
+
+ ï∞ º"´	 Z
+ï
+ ñØ	≤	É List the screenshots uploaded for an app under review. Use "-" as the app
+ ID to list screenshots across every app in the review.
+
+
+ ñØ	!
+
+ ñØ	"D
+
+ ñØ	Or
+
+ ñ∞	/
+
+ ñúΩ´ ∞	/
+
+ ñ±	\
+
+
+ ñ∞ º"±	\
+
+ ñ∞ º"±	 Z
+;
+ ó¥	∫	* Add a screenshot to an app under review.
+
+
+ ó¥	"
+
+ ó¥	#F
+
+ ó¥	Qg
+
+ óµ	/
+
+ óúΩ´ µ	/
+
+ ó∂	π	
+
+
+ ó∞ º"∂	π	
+
+ ó∞ º"∑	A
+
+ ó∞ º"∏	&
+>
+ òº	¬	- Update a screenshot of an app under review.
+
+
+ òº	"
+
+ òº	#F
+
+ òº	Qg
+
+ òΩ	/
+
+ òúΩ´ Ω	/
+
+ òæ	¡	
+
+
+ ò∞ º"æ	¡	
+
+ ò∞ º"ø	[
+
+ ò∞ º"¿	&
+@
+ ôƒ	«	/ Remove a screenshot from an app under review.
+
+
+ ôƒ	"
+
+ ôƒ	#F
+
+ ôƒ	Qf
+
+ ô≈	/
+
+ ôúΩ´ ≈	/
+
+ ô∆	_
+
+
+ ô∞ º"∆	_
+
+ ô∞ º"∆	 ]
+A
+ ö…	Ã	0 Fetch a piece of remediation evidence by name.
+
+
+ ö…	(
+
+ ö…	)R
+
+ ö…	]|
+
+ ö 	/
+
+ öúΩ´  	/
+
+ öÀ	d
+
+
+ ö∞ º"À	d
+
+ ö∞ º"À	 b
+õ
+ õœ	“	â List the remediation evidence recorded for an app under review. Use "-" as
+ the app ID to list evidence across every app in the review.
+
+
+ õœ	)
+
+ õœ	*T
+
+ õœ	_ä
+
+ õ–	/
+
+ õúΩ´ –	/
+
+ õ—	d
+
+
+ õ∞ º"—	d
+
+ õ∞ º"—	 b
+G
+ ú‘	⁄	6 Record remediation evidence for an app under review.
+
+
+ ú‘	+
+
+ ú‘	,X
+
+ ú‘	cÇ
+
+ ú’	/
+
+ úúΩ´ ’	/
+
+ ú÷	Ÿ	
+
+
+ ú∞ º"÷	Ÿ	
+
+ ú∞ º"◊	I
+
+ ú∞ º"ÿ	0
+H
+ ù‹	ﬂ	7 Remove remediation evidence from an app under review.
+
+
+ ù‹	+
+
+ ù‹	,X
+
+ ù‹	cx
+
+ ù›	/
+
+ ùúΩ´ ›	/
+
+ ùﬁ	g
+
+
+ ù∞ º"ﬁ	g
+
+ ù∞ º"ﬁ	 e
+Y
+ û‚	Ê	H Fetch the organization's owner, the one account that can't be removed.
+
+
+ û‚	
+
+ û‚	
+
+ û‚	).
+
+ û„	.
+
+ ûúΩ´ „	.
+
+ û‰	9
+
+ ûúΩ´‰	9
+
+ ûÂ	=
+
+
+ û∞ º"Â	=
+
+ û∞ º"Â	 ;
+;
+ üË	Ô	* Change which user owns the organization.
+
+
+ üË	
+
+ üË	$
+
+ üË	/4
+
+ üÈ	/
+
+ üúΩ´ È	/
+
+ üÍ	9
+
+ üúΩ´Í	9
+
+ üÎ	Ó	
+
+
+ ü∞ º"Î	Ó	
+
+ ü∞ º"Ï	)
+
+ ü∞ º"Ì	
+è
+ †ı	˘	` Fetch a service account by name. The API key itself is only ever returned when
+ it is created.
+2 Service account operations
+
+
+ †ı	
+
+ †ı	0
+
+ †ı	;I
+
+ †ˆ	/
+
+ †úΩ´ ˆ	/
+
+ †˜	9
+
+ †úΩ´˜	9
+
+ †¯	I
+
+
+ †∞ º"¯	I
+
+ †∞ º"¯	 G
+S
+ °˚	ˇ	B List the service accounts in this organization, one per API key.
+
+
+ °˚	
+
+ °˚	4
+
+ °˚	?Z
+
+ °¸	/
+
+ °úΩ´ ¸	/
+
+ °˝	9
+
+ °úΩ´˝	9
+
+ °˛	@
+
+
+ °∞ º"˛	@
+
+ °∞ º"˛	 >
+
+ ¢Ä
+á
+
+
+ ¢Ä
+
+
+ ¢Ä
+6
+
+ ¢Ä
+AO
+
+ ¢Å
+/
+
+ ¢úΩ´ Å
+/
+
+ ¢É
+Ü
+
+T
+
+ ¢∞ º"É
+Ü
+> Note: Service accounts cannot create other service accounts.
+
+
+ ¢∞ º"Ñ
+%
+
+ ¢∞ º"Ö
+
+ú
+ £ä
+é
+ä Delete a service account, which stops its API key working. Deleting it keeps
+ the record for a grace period so that it can be undeleted.
+
+
+ £ä
+
+
+ £ä
+6
+
+ £ä
+AO
+
+ £ã
+/
+
+ £úΩ´ ã
+/
+
+ £å
+9
+
+ £úΩ´å
+9
+
+ £ç
+L
+
+
+ £∞ º"ç
+L
+
+ £∞ º"ç
+ J
+
+ §è
+ï
+
+
+ §è
+
+
+ §è
+:
+
+ §è
+ES
+
+ §ê
+6
+
+ §úΩ´ ê
+6
+
+ §ë
+î
+
+
+
+ §∞ º"ë
+î
+
+
+ §∞ º"í
+7
+
+ §∞ º"ì
+
+P
+ •ö
+ù
+% Fetch a single MCP session by name.
+2 MCP session operations
+
+
+ •ö
+
+
+ •ö
+(
+
+ •ö
+3=
+
+ •õ
+.
+
+ •úΩ´ õ
+.
+
+ •ú
+M
+
+
+ •∞ º"ú
+M
+
+ •∞ º"ú
+ K
+A
+ ¶ü
+¢
+0 List the active MCP sessions for a given user.
+
+
+ ¶ü
+
+
+ ¶ü
+,
+
+ ¶ü
+7N
+
+ ¶†
+.
+
+ ¶úΩ´ †
+.
+
+ ¶°
+M
+
+
+ ¶∞ º"°
+M
+
+ ¶∞ º"°
+ K
+Ö
+ ß•
+®
+t Revoke an MCP session. After deletion, the session's bearer token can no
+ longer be used to authenticate requests.
+
+
+ ß•
+
+
+ ß•
+.
+
+ ß•
+9C
+
+ ß¶
+.
+
+ ßúΩ´ ¶
+.
+
+ ßß
+P
+
+
+ ß∞ º"ß
+P
+
+ ß∞ º"ß
+ N
+H
+ ®≠
+±
+! Fetch a change request by name.
+2 Request operations
+
+
+ ®≠
+
+
+ ®≠
+"
+
+ ®≠
+-4
+
+ ®Æ
+.
+
+ ®úΩ´ Æ
+.
+
+ ®Ø
+9
+
+ ®úΩ´Ø
+9
+
+ ®∞
+B
+
+
+ ®∞ º"∞
+B
+
+ ®∞ º"∞
+ @
+a
+ ©¥
+∏
+P Translate a set of request names ("requests/{id}") to the raw request
+ object.
+
+
+ ©¥
+
+
+ ©¥
+.
+
+ ©¥
+9Q
+
+ ©µ
+.
+
+ ©úΩ´ µ
+.
+
+ ©∂
+-
+
+ ©úΩ´∂
+-
+
+ ©∑
+B
+
+
+ ©∞ º"∑
+B
+
+ ©∞ º"∑
+ @
+B
+ ™∫
+ø
+1 List or search for a set of requests by filter.
+
+
+ ™∫
+
+
+ ™∫
+&
+
+ ™∫
+1E
+
+ ™ª
+.
+
+ ™úΩ´ ª
+.
+
+ ™º
+9
+
+ ™úΩ´º
+9
+
+ ™Ω
+-
+
+ ™úΩ´Ω
+-
+
+ ™æ
+9
+
+
+ ™∞ º"æ
+9
+
+ ™∞ º"æ
+ 7
+ã
+ ´«
+œ
+˘ Create a request to:
+ - Modify ownership of teams, groups, and resources.
+ - Request access to a resource.
+ - Create new teams.
+
+ A new request starts in the OPEN state. Applicable reviewers can approve
+ the request afterwards with ApproveRequest.
+
+
+ ´«
+
+
+ ´«
+(
+
+ ´«
+3:
+
+ ´»
+.
+
+ ´úΩ´ »
+.
+
+ ´…
+9
+
+ ´úΩ´…
+9
+
+ ´ 
+-
+
+ ´úΩ´ 
+-
+
+ ´À
+Œ
+
+
+
+ ´∞ º"À
+Œ
+
+
+ ´∞ º"Ã
+
+
+ ´∞ º"Õ
+
+\
+ ¨—
+ÿ
+K Update a change request: approve it, deny it, or change what it asks for.
+
+
+ ¨—
+
+
+ ¨—
+(
+
+ ¨—
+3:
+
+ ¨“
+.
+
+ ¨úΩ´ “
+.
+
+ ¨”
+9
+
+ ¨úΩ´”
+9
+
+ ¨‘
+◊
+
+
+
+ ¨∞ º"‘
+◊
+
+
+ ¨∞ º"’
+0
+
+ ¨∞ º"÷
+
+
+ ≠⁄
+‡
+
+
+ ≠⁄
+
+
+ ≠⁄
+*
+
+ ≠⁄
+5K
+
+ ≠€
+.
+
+ ≠úΩ´ €
+.
+
+ ≠‹
+ﬂ
+
+
+
+ ≠∞ º"‹
+ﬂ
+
+
+ ≠∞ º"›
+-
+
+ ≠∞ º"ﬁ
+
+E
+ Æ‚
+Ê
+4 Returns information about the impact of a request.
+
+
+ Æ‚
+
+
+ Æ‚
+0
+
+ Æ‚
+;I
+
+ Æ„
+.
+
+ ÆúΩ´ „
+.
+
+ Æ‰
+-
+
+ ÆúΩ´‰
+-
+
+ ÆÂ
+J
+
+
+ Æ∞ º"Â
+J
+
+ Æ∞ º"Â
+ H
+z
+ ØÍ
+Ò
+i When creating a request, use this API to determine the set of users who
+ should be marked as reviewers.
+
+
+ ØÍ
+
+
+ ØÍ
+ @
+
+ ØÍ
+Kl
+
+ ØÎ
+.
+
+ ØúΩ´ Î
+.
+
+ ØÏ
+-
+
+ ØúΩ´Ï
+-
+
+ ØÌ
+
+
+
+
+ Ø∞ º"Ì
+
+
+
+ Ø∞ º"Ó
+8
+
+ Ø∞ º"Ô
+
+`
+ ∞Ù
+¯
+O When updating a request, use this API to determine who to add as a
+ reviewer.
+
+
+ ∞Ù
+
+
+ ∞Ù
+8
+
+ ∞Ù
+CU
+
+ ∞ı
+.
+
+ ∞úΩ´ ı
+.
+
+ ∞ˆ
+-
+
+ ∞úΩ´ˆ
+-
+
+ ∞˜
+U
+
+
+ ∞∞ º"˜
+U
+
+ ∞∞ º"˜
+ S
+°
+ ±ˇ
+Üè Adds and removes request reviewers atomically: either all changes are
+ applied or none are.
+
+ The requester, a request owner, or an admin may add and remove any
+ reviewers. Any other reviewer may only remove themselves (recusal), and
+ only when that is the sole change.
+
+
+ ±ˇ
+
+
+ ±ˇ
+6
+
+ ±ˇ
+AH
+
+ ±Ä.
+
+ ±úΩ´ Ä.
+
+ ±Å-
+
+ ±úΩ´Å-
+
+ ±ÇÖ
+
+
+ ±∞ º"ÇÖ
+
+ ±∞ º"É5
+
+ ±∞ º"Ñ
+Ö
+ ≤èñÛ Allows a reviewer to move a request to APPROVED. If the apply_behavior is
+ AUTOMATIC, the request will automatically be APPLIED.
+
+ Approvals are based on the reviewer's role. Oblique admins and owners of
+ affected objects will allow the request to be APPROVED. Approvals from
+ users who are neither will record an approval signal, but the request's
+ state won't change.
+
+
+ ≤è
+
+ ≤è*
+
+ ≤è5K
+
+ ≤ê.
+
+ ≤úΩ´ ê.
+
+ ≤ë-
+
+ ≤úΩ´ë-
+
+ ≤íï
+
+
+ ≤∞ º"íï
+
+ ≤∞ º"ì/
+
+ ≤∞ º"î
+K
+ ≥òü: Allows an admin or the requestor to close their request.
+
+
+ ≥ò
+
+ ≥ò&
+
+ ≥ò1E
+
+ ≥ô.
+
+ ≥úΩ´ ô.
+
+ ≥ö-
+
+ ≥úΩ´ö-
+
+ ≥õû
+
+
+ ≥∞ º"õû
+
+ ≥∞ º"ú-
+
+ ≥∞ º"ù
+ˆ
+ ¥£™‰ Applies a request that isn't set to auto-apply. The requester or an admin
+ or owner can apply an approved request. When no approval on record is still
+ held by an admin or owner, an admin or owner applying it also approves it.
+
+
+ ¥£
+
+ ¥£&
+
+ ¥£18
+
+ ¥§.
+
+ ¥úΩ´ §.
+
+ ¥•-
+
+ ¥úΩ´•-
+
+ ¥¶©
+
+
+ ¥∞ º"¶©
+
+ ¥∞ º"ß-
+
+ ¥∞ º"®
+
+ µ¨Ø
+
+ µ¨
+
+ µ¨,
+
+ µ¨7C
+
+ µ≠.
+
+ µúΩ´ ≠.
+
+ µÆH
+
+
+ µ∞ º"ÆH
+
+ µ∞ º"Æ F
+
+ ∂∞≥
+
+ ∂∞
+
+ ∂∞,
+
+ ∂∞7C
+
+ ∂±.
+
+ ∂úΩ´ ±.
+
+ ∂≤K
+
+
+ ∂∞ º"≤K
+
+ ∂∞ º"≤ I
+m
+ ∑∂∫\ List the history of a particular request, including who created and
+ approved it and when.
+
+
+ ∑∂
+
+ ∑∂0
+
+ ∑∂;T
+
+ ∑∑.
+
+ ∑úΩ´ ∑.
+
+ ∑∏-
+
+ ∑úΩ´∏-
+
+ ∑πK
+
+
+ ∑∞ º"πK
+
+ ∑∞ º"π I
+,
+ ∏æ¡2 Recommendation operations
+
+
+ ∏æ
+
+ ∏æ0
+
+ ∏æ;I
+
+ ∏ø/
+
+ ∏úΩ´ ø/
+
+ ∏¿I
+
+
+ ∏∞ º"¿I
+
+ ∏∞ º"¿ G
+o
+ πƒ»^ Translate a set of recommendation names ("recommendations/{id}") to
+ recommendation objects.
+
+
+ πƒ
+
+ πƒ<
+
+ πƒGf
+
+ π≈/
+
+ πúΩ´ ≈/
+
+ π∆-
+
+ πúΩ´∆-
+
+ π«I
+
+
+ π∞ º"«I
+
+ π∞ º"« G
+f
+ ∫ÀœU List or search for a set of suggestions by the system to simplify access
+ patterns.
+
+
+ ∫À
+
+ ∫À4
+
+ ∫À?Z
+
+ ∫Ã/
+
+ ∫úΩ´ Ã/
+
+ ∫Õ-
+
+ ∫úΩ´Õ-
+
+ ∫Œ@
+
+
+ ∫∞ º"Œ@
+
+ ∫∞ º"Œ >
+4
+ ª—ÿ# Mark a recommendation as ignored.
+
+
+ ª—
+
+ ª—8
+
+ ª—C`
+
+ ª“/
+
+ ªúΩ´ “/
+
+ ª”-
+
+ ªúΩ´”-
+
+ ª‘◊
+
+
+ ª∞ º"‘◊
+
+ ª∞ º"’,
+
+ ª∞ º"÷
+2
+ º‹ﬂ2! Recommendation group operations
+
+
+ º‹
+
+ º‹:
+
+ º‹EX
+
+ º›/
+
+ ºúΩ´ ›/
+
+ ºﬁN
+
+
+ º∞ º"ﬁN
+
+ º∞ º"ﬁ L
+Ä
+ Ω‚Êo Translate a set of recommendation group names
+ ("recommendationgroups/{id}") to recommendation group objects.
+
+
+ Ω‚"
+
+ Ω‚#F
+
+ Ω‚Qu
+
+ Ω„/
+
+ ΩúΩ´ „/
+
+ Ω‰-
+
+ ΩúΩ´‰-
+
+ ΩÂN
+
+
+ Ω∞ º"ÂN
+
+ Ω∞ º"Â L
+R
+ æËÏA List the groups of related recommendations produced by Oblique.
+
+
+ æË
+
+ æË>
+
+ æËIi
+
+ æÈ/
+
+ æúΩ´ È/
+
+ æÍ-
+
+ æúΩ´Í-
+
+ æÎE
+
+
+ æ∞ º"ÎE
+
+ æ∞ º"Î C
+$
+ øÛ2 Config operations
+
+
+ ø
+
+ ø 
+
+ ø+1
+
+ øÒ.
+
+ øúΩ´ Ò.
+
+ øÚ>
+
+
+ ø∞ º"Ú>
+
+ ø∞ º"Ú <
+
+ ¿ı¯
+
+ ¿ı
+
+ ¿ı:
+
+ ¿ıEX
+
+ ¿ˆ/
+
+ ¿úΩ´ ˆ/
+
+ ¿˜K
+
+
+ ¿∞ º"˜K
+
+ ¿∞ º"˜ I
+
+ ¡˙Ä
+
+ ¡˙
+
+ ¡˙ @
+
+ ¡˙K^
+
+ ¡˚/
+
+ ¡úΩ´ ˚/
+
+ ¡¸ˇ
+
+
+ ¡∞ º"¸ˇ
+
+ ¡∞ º"˝G
+
+ ¡∞ º"˛#
+
+ ¬ÇÖ
+
+ ¬Ç
+
+ ¬Ç"
+
+ ¬Ç-4
+
+ ¬É.
+
+ ¬úΩ´ É.
+
+ ¬ÑB
+
+
+ ¬∞ º"ÑB
+
+ ¬∞ º"Ñ @
+
+ √Üâ
+
+ √Ü
+
+ √Ü&
+
+ √Ü1E
+
+ √á.
+
+ √úΩ´ á.
+
+ √à9
+
+
+ √∞ º"à9
+
+ √∞ º"à 7
+
+ ƒãé
+
+ ƒã
+
+ ƒã2
+
+ ƒã=L
+
+ ƒå.
+
+ ƒúΩ´ å.
+
+ ƒçK
+
+
+ ƒ∞ º"çK
+
+ ƒ∞ º"ç I
+
+ ≈êì
+
+ ≈ê
+
+ ≈ê6
+
+ ≈êA]
+
+ ≈ë.
+
+ ≈úΩ´ ë.
+
+ ≈íN
+
+
+ ≈∞ º"íN
+
+ ≈∞ º"í L
+
+ ∆îö
+
+ ∆î
+
+ ∆î8
+
+ ∆îCR
+
+ ∆ï/
+
+ ∆úΩ´ ï/
+
+ ∆ñô
+
+
+ ∆∞ º"ñô
+
+ ∆∞ º"óB
+
+ ∆∞ º"ò
+!
+ «û°2 System events.
+
+
+ «û
+
+ «û
+
+ «û).
+
+ «ü.
+
+ «úΩ´ ü.
+
+ «†@
+
+
+ «∞ º"†@
+
+ «∞ º"† >
+
+ »£¶
+
+ »£
+
+ »£"
+
+ »£-?
+
+ »§.
+
+ »úΩ´ §.
+
+ »•7
+
+
+ »∞ º"•7
+
+ »∞ º"• 5
+ 
+ …™∞2 Bug reporting
+
+
+ …™
+
+ …™ 
+
+ …™+<
+
+ …´.
+
+ …úΩ´ ´.
+
+ …¨Ø
+
+
+ …∞ º"¨Ø
+
+ …∞ º"≠$
+
+ …∞ º"Æ
+Î
+  ∑¡Ÿ Read a screenshot of a web application (e.g. GitHub, Okta, Figma) from a
+ previously uploaded access screenshot and extract a table of users and
+ their access. The screenshot is queued for reading. This returns a
+ long-running operation immediately; poll the Operations service until it is
+ done to retrieve the ExtractUserPermissionsResponse.
+
+
+  ∑
+
+  ∑:
+
+  ∑Ea
+
+  ∏/
+
+  úΩ´ ∏/
+
+  πº
+
+
+  ∞ º"πº
+
+  ∞ º"∫G
+
+  ∞ º"ª
+
+  Ω¿
+
+  ôΩ¿
+
+	  ôæ5
+
+	  ôø5beditionspË

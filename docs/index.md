@@ -6,7 +6,7 @@ description: |-
 
 # Oblique provider
 
-The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, groups, and listings.
+The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, and groups.
 
 ## Example usage
 
@@ -19,7 +19,7 @@ provider "oblique" {
   endpoint = "https://us.oblique.security"
   api_key  = var.oblique_api_key
   repo_url = "https://github.com/example/infra"
-  repo_dir = "oblique"
+  repo_dir = "/oblique"
 }
 
 variable "oblique_api_key" {
@@ -33,7 +33,7 @@ variable "oblique_api_key" {
 
 ### Required
 
-- `endpoint` (String) Base URL of the Oblique instance used.
+- `endpoint` (String) Base URL of the Oblique instance used. This depends on your tenant's [region](https://docs.oblique.security/admin/regions/) and should be either `"https://us.oblique.security"` or `"https://eu.oblique.security"`.
 
 ### Optional
 
@@ -80,14 +80,15 @@ provider "oblique" {
   # it. Both are optional — set them to point at the repository where this
   # Terraform configuration lives.
   repo_url = "https://github.com/example/infra"
-  repo_dir = "oblique"
+  repo_dir = "/oblique"
 }
 
 # Connect Oblique to Okta for user provisioning and group sync
 resource "oblique_integration" "okta" {
   display_name = "Okta"
   okta = {
-    api_token       = var.okta_api_token
+    client_id       = "0oa1gjh63g214q0Hq0g4"
+    client_secret   = var.okta_client_secret
     domain_base_uri = "https://your-org-admin.okta.com"
     display_name    = "Okta"
   }
@@ -115,7 +116,7 @@ Create a team group — a manually-managed collection of users that can be used 
 # basic_setup scenario) and that users have been synced into Oblique from
 # an identity provider — they are looked up here via data sources.
 #
-# See https://docs.oblique.security/guides/groups/ for background on the
+# See https://docs.oblique.security/admin/groups/ for background on the
 # different kinds of groups.
 
 data "oblique_user" "janedoe" {
@@ -156,7 +157,7 @@ Create dynamic groups that match users based on attributes from an integration o
 # an integration or based on reporting lines. Users are
 # added automatically as their attributes or reporting lines change.
 #
-# See https://docs.oblique.security/guides/groups/ for background on the
+# See https://docs.oblique.security/admin/groups/ for background on the
 # different kinds of groups.
 #
 # Pre-existing resources required:
@@ -225,88 +226,5 @@ resource "oblique_group" "kevinsmiths_organization" {
 resource "oblique_group_owner" "kevinsmiths_organization" {
   parent = oblique_group.kevinsmiths_organization.name
   owner  = data.oblique_user.kevinsmith.name
-}
-```
-
-### Service catalog with listings
-
-Set up a user-facing service catalog with listings, roles at different access levels, owners, and request policies per team.
-
-```terraform
-# Build a user-facing service catalog. Listings describe the services users
-# can request access to; roles represent different access levels within a
-# listing; policies control how teams can request those roles.
-#
-# Pre-existing resources required:
-#   - `oblique_user` "kevinsmith" — the listing owner who approves requests
-#   - `oblique_resource` "github_users" and "github_owner" — the external
-#     resources granted when a role is approved
-#   - `oblique_team` "engineering" and "contractors" — the teams the
-#     per-team policies apply to
-#
-# These would typically be created by the team_groups and
-# attribute_and_reporting_based_groups scenarios.
-
-resource "oblique_listing" "github" {
-  display_name = "GitHub"
-  visibility   = "PUBLIC"
-  description  = "Code hosting, version control, and code review"
-}
-
-data "oblique_user" "kevinsmith" {
-  email = "kevinsmith@example.com"
-}
-
-data "oblique_resource" "github_users" {
-  name = "resources/github-users"
-}
-
-data "oblique_resource" "github_owner" {
-  name = "resources/github-owner"
-}
-
-data "oblique_team" "engineering" {
-  name = "teams/engineering"
-}
-
-data "oblique_team" "contractors" {
-  name = "teams/contractors"
-}
-
-# Assign listing owners who approve access requests
-resource "oblique_listing_owner" "github_kevinsmith" {
-  parent = oblique_listing.github.name
-  owner  = data.oblique_user.kevinsmith.name
-}
-
-# Roles define levels of access, conventionally ordered by priority (lower = less access)
-resource "oblique_listing_role" "github_user" {
-  parent       = oblique_listing.github.name
-  display_name = "Collaborator"
-  description  = "Read and write access to repositories"
-  priority     = 0
-  resources    = [data.oblique_resource.github_users.name]
-}
-
-resource "oblique_listing_role" "github_owner" {
-  parent       = oblique_listing.github.name
-  display_name = "Owner"
-  description  = "Owner access to the GitHub organization"
-  priority     = 1
-  resources    = [data.oblique_resource.github_owner.name]
-}
-
-# Policies allow for automatic approval of access requests based on team membership, attributes, or other criteria.
-resource "oblique_listing_role_policy" "github_engineering" {
-  parent         = oblique_listing_role.github_user.name
-  team           = data.oblique_team.engineering.name
-  default_expiry = "604800s" # 7 days
-}
-
-resource "oblique_listing_role_policy" "github_contractors" {
-  parent                 = oblique_listing_role.github_user.name
-  team                   = data.oblique_team.contractors.name
-  default_expiry         = "86400s" # 1 day
-  justification_required = true
 }
 ```

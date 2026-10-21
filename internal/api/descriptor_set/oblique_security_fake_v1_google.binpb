@@ -1,0 +1,1551 @@
+
+%oblique/security/fake/v1/google.protooblique.security.fake.v1google/protobuf/duration.protogoogle/protobuf/empty.protogoogle/protobuf/struct.protogoogle/protobuf/timestamp.proto"’
+GoogleRateLimit
+enabled (Renabled
+requests (Rrequests1
+window (2.google.protobuf.DurationRwindow
+status (Rstatus"
+GoogleGetRateLimitRequest"h
+GoogleUpdateRateLimitRequestH
+
+rate_limit (2).oblique.security.fake.v1.GoogleRateLimitR	rateLimit"&
+GoogleUserInfo
+email (	Remail"N
+GoogleDomain
+domain_name (	R
+domainName
+
+is_primary (R	isPrimary"[
+GoogleCreateDomainRequest>
+domain (2&.oblique.security.fake.v1.GoogleDomainRdomain"9
+GoogleGetDomainRequest
+domain_name (	R
+domainName"
+GoogleListDomainsRequest"]
+GoogleListDomainsResponse@
+domains (2&.oblique.security.fake.v1.GoogleDomainRdomains"[
+GoogleUpdateDomainRequest>
+domain (2&.oblique.security.fake.v1.GoogleDomainRdomain"<
+GoogleDeleteDomainRequest
+domain_name (	R
+domainName"
+GoogleGetUserInfoRequest"d
+GoogleUpdateUserInfoRequestE
+	user_info (2(.oblique.security.fake.v1.GoogleUserInfoRuserInfo"Ô
+
+GoogleUser
+id (	Rid#
+primary_email (	RprimaryEmail
+	full_name (	RfullName!
+display_name (	RdisplayName.
+thumbnail_photo_url (	RthumbnailPhotoUrl
+	suspended (R	suspended
+is_admin (RisAdmin
+title (	Rtitle#
+employee_type	 (	RemployeeType#
+manager_email
+ (	RmanagerEmail
+
+department (	R
+department
+cost_center (	R
+costCenter
+building_id (	R
+buildingId
+
+floor_name (	R	floorName#
+floor_section (	RfloorSection"
+org_unit_path (	RorgUnitPath>
+custom_schemas (2.google.protobuf.StructRcustomSchemas"S
+GoogleCreateUserRequest8
+user (2$.oblique.security.fake.v1.GoogleUserRuser"1
+GoogleGetUserRequest
+user_key (	RuserKey"
+GoogleListUsersRequest"U
+GoogleListUsersResponse:
+users (2$.oblique.security.fake.v1.GoogleUserRusers"S
+GoogleUpdateUserRequest8
+user (2$.oblique.security.fake.v1.GoogleUserRuser")
+GoogleDeleteUserRequest
+id (	Rid"i
+GoogleGroup
+id (	Rid
+email (	Remail
+name (	Rname 
+description (	Rdescription"W
+GoogleCreateGroupRequest;
+group (2%.oblique.security.fake.v1.GoogleGroupRgroup"4
+GoogleGetGroupRequest
+	group_key (	RgroupKey"
+GoogleListGroupsRequest"Y
+GoogleListGroupsResponse=
+groups (2%.oblique.security.fake.v1.GoogleGroupRgroups"W
+GoogleUpdateGroupRequest;
+group (2%.oblique.security.fake.v1.GoogleGroupRgroup"*
+GoogleDeleteGroupRequest
+id (	Rid"~
+GoogleGroupMember
+	group_key (	RgroupKey
+id (	Rid
+email (	Remail
+role (	Rrole
+type (	Rtype"e
+GoogleCreateGroupMemberRequestC
+member (2+.oblique.security.fake.v1.GoogleGroupMemberRmember"Y
+GoogleGetGroupMemberRequest
+	group_key (	RgroupKey
+
+member_key (	R	memberKey"<
+GoogleListGroupMembersRequest
+	group_key (	RgroupKey"g
+GoogleListGroupMembersResponseE
+members (2+.oblique.security.fake.v1.GoogleGroupMemberRmembers"e
+GoogleUpdateGroupMemberRequestC
+member (2+.oblique.security.fake.v1.GoogleGroupMemberRmember"\
+GoogleDeleteGroupMemberRequest
+	group_key (	RgroupKey
+
+member_key (	R	memberKey"Q
+GoogleOrganization
+name (	Rname'
+root_org_unit_id (	RrootOrgUnitId"
+GoogleGetOrganizationRequest"º
+GoogleOrgUnit
+org_unit_id (	R	orgUnitId
+name (	Rname 
+description (	Rdescription"
+org_unit_path (	RorgUnitPath/
+parent_org_unit_path (	RparentOrgUnitPath"`
+GoogleCreateOrgUnitRequestB
+org_unit (2'.oblique.security.fake.v1.GoogleOrgUnitRorgUnit";
+GoogleGetOrgUnitRequest 
+org_unit_key (	R
+orgUnitKey"
+GoogleListOrgUnitsRequest"b
+GoogleListOrgUnitsResponseD
+	org_units (2'.oblique.security.fake.v1.GoogleOrgUnitRorgUnits"`
+GoogleUpdateOrgUnitRequestB
+org_unit (2'.oblique.security.fake.v1.GoogleOrgUnitRorgUnit"<
+GoogleDeleteOrgUnitRequest
+org_unit_id (	R	orgUnitId"Ž
+GoogleActivity
+id (	Rid)
+application_name (	RapplicationName.
+time (2.google.protobuf.TimestampRtime
+actor_email (	R
+actorEmail
+
+event_name (	R	eventNameQ
+
+parameters (21.oblique.security.fake.v1.GoogleActivityParameterR
+parameters"d
+GoogleActivityParameter
+name (	Rname
+value (	Rvalue
+multi_value (	R
+multiValue"c
+GoogleCreateActivityRequestD
+activity (2(.oblique.security.fake.v1.GoogleActivityRactivity"*
+GoogleGetActivityRequest
+id (	Rid"
+GoogleListActivitiesRequest"h
+GoogleListActivitiesResponseH
+
+activities (2(.oblique.security.fake.v1.GoogleActivityR
+activities"c
+GoogleUpdateActivityRequestD
+activity (2(.oblique.security.fake.v1.GoogleActivityRactivity"-
+GoogleDeleteActivityRequest
+id (	Rid2•
+Googlek
+CreateDomain3.oblique.security.fake.v1.GoogleCreateDomainRequest&.oblique.security.fake.v1.GoogleDomaine
+	GetDomain0.oblique.security.fake.v1.GoogleGetDomainRequest&.oblique.security.fake.v1.GoogleDomainv
+ListDomains2.oblique.security.fake.v1.GoogleListDomainsRequest3.oblique.security.fake.v1.GoogleListDomainsResponsek
+UpdateDomain3.oblique.security.fake.v1.GoogleUpdateDomainRequest&.oblique.security.fake.v1.GoogleDomain[
+DeleteDomain3.oblique.security.fake.v1.GoogleDeleteDomainRequest.google.protobuf.Emptyk
+GetUserInfo2.oblique.security.fake.v1.GoogleGetUserInfoRequest(.oblique.security.fake.v1.GoogleUserInfoq
+UpdateUserInfo5.oblique.security.fake.v1.GoogleUpdateUserInfoRequest(.oblique.security.fake.v1.GoogleUserInfoe
+
+CreateUser1.oblique.security.fake.v1.GoogleCreateUserRequest$.oblique.security.fake.v1.GoogleUser_
+GetUser..oblique.security.fake.v1.GoogleGetUserRequest$.oblique.security.fake.v1.GoogleUserp
+	ListUsers0.oblique.security.fake.v1.GoogleListUsersRequest1.oblique.security.fake.v1.GoogleListUsersResponsee
+
+UpdateUser1.oblique.security.fake.v1.GoogleUpdateUserRequest$.oblique.security.fake.v1.GoogleUserW
+
+DeleteUser1.oblique.security.fake.v1.GoogleDeleteUserRequest.google.protobuf.Emptyh
+CreateGroup2.oblique.security.fake.v1.GoogleCreateGroupRequest%.oblique.security.fake.v1.GoogleGroupb
+GetGroup/.oblique.security.fake.v1.GoogleGetGroupRequest%.oblique.security.fake.v1.GoogleGroups
+
+ListGroups1.oblique.security.fake.v1.GoogleListGroupsRequest2.oblique.security.fake.v1.GoogleListGroupsResponseh
+UpdateGroup2.oblique.security.fake.v1.GoogleUpdateGroupRequest%.oblique.security.fake.v1.GoogleGroupY
+DeleteGroup2.oblique.security.fake.v1.GoogleDeleteGroupRequest.google.protobuf.Emptyz
+CreateGroupMember8.oblique.security.fake.v1.GoogleCreateGroupMemberRequest+.oblique.security.fake.v1.GoogleGroupMembert
+GetGroupMember5.oblique.security.fake.v1.GoogleGetGroupMemberRequest+.oblique.security.fake.v1.GoogleGroupMember…
+ListGroupMembers7.oblique.security.fake.v1.GoogleListGroupMembersRequest8.oblique.security.fake.v1.GoogleListGroupMembersResponsez
+UpdateGroupMember8.oblique.security.fake.v1.GoogleUpdateGroupMemberRequest+.oblique.security.fake.v1.GoogleGroupMembere
+DeleteGroupMember8.oblique.security.fake.v1.GoogleDeleteGroupMemberRequest.google.protobuf.Emptyw
+GetOrganization6.oblique.security.fake.v1.GoogleGetOrganizationRequest,.oblique.security.fake.v1.GoogleOrganizationn
+CreateOrgUnit4.oblique.security.fake.v1.GoogleCreateOrgUnitRequest'.oblique.security.fake.v1.GoogleOrgUnith
+
+GetOrgUnit1.oblique.security.fake.v1.GoogleGetOrgUnitRequest'.oblique.security.fake.v1.GoogleOrgUnity
+ListOrgUnits3.oblique.security.fake.v1.GoogleListOrgUnitsRequest4.oblique.security.fake.v1.GoogleListOrgUnitsResponsen
+UpdateOrgUnit4.oblique.security.fake.v1.GoogleUpdateOrgUnitRequest'.oblique.security.fake.v1.GoogleOrgUnit]
+DeleteOrgUnit4.oblique.security.fake.v1.GoogleDeleteOrgUnitRequest.google.protobuf.Emptyq
+CreateActivity5.oblique.security.fake.v1.GoogleCreateActivityRequest(.oblique.security.fake.v1.GoogleActivityk
+GetActivity2.oblique.security.fake.v1.GoogleGetActivityRequest(.oblique.security.fake.v1.GoogleActivity
+ListActivities5.oblique.security.fake.v1.GoogleListActivitiesRequest6.oblique.security.fake.v1.GoogleListActivitiesResponseq
+UpdateActivity5.oblique.security.fake.v1.GoogleUpdateActivityRequest(.oblique.security.fake.v1.GoogleActivity_
+DeleteActivity5.oblique.security.fake.v1.GoogleDeleteActivityRequest.google.protobuf.Emptyn
+GetRateLimit3.oblique.security.fake.v1.GoogleGetRateLimitRequest).oblique.security.fake.v1.GoogleRateLimitt
+UpdateRateLimit6.oblique.security.fake.v1.GoogleUpdateRateLimitRequest).oblique.security.fake.v1.GoogleRateLimitJžt
+  ›
+
+  
+
+ !
+	
+  (
+	
+ %
+	
+ &
+	
+ )
+ª
+  O Google drives a fake Google Workspace: one customer, holding a primary
+ domain and any number of secondary ones. A listing reports the domain it
+ asks for.
+
+
+
+ 
+Þ
+  EÐ A domain is named by its domain name. The customer always holds exactly
+ one primary domain, so it can't be deleted, and a secondary domain can be
+ deleted only once no user or group holds an address in it.
+
+
+  
+
+  ,
+
+  7C
+
+ ?
+
+ 
+
+ &
+
+ 1=
+
+ P
+
+ 
+
+ *
+
+ 5N
+Z
+ EM Updating a domain to primary makes the customer's other domains
+ secondary.
+
+
+ 
+
+ ,
+
+ 7C
+
+ N
+
+ 
+
+ ,
+
+ 7L
+…
+ Ex The userinfo account is a singleton: it is who the access token was
+ granted to, which is what the connect flow reads.
+
+
+ 
+
+ *
+
+ 5C
+
+ K
+
+ 
+
+ 0
+
+ ;I
+
+ ?
+
+ 
+
+ (
+
+ 3=
+
+ 9
+
+ 
+
+ "
+
+ -7
+
+ 	J
+
+ 	
+
+ 	&
+
+ 	1H
+f
+ 
+"?Y Updating a user's primary email moves the group memberships it holds to
+ the new email.
+
+
+ 
+"
+
+ 
+"(
+
+ 
+"3=
+I
+ $J< Deleting a user also drops the group memberships it holds.
+
+
+ $
+
+ $(
+
+ $3H
+
+ &B
+
+ &
+
+ &*
+
+ &5@
+
+ '<
+
+ '
+
+ '$
+
+ '/:
+
+ (M
+
+ (
+
+ ((
+
+ (3K
+‘
+ +Bƒ Updating a group leaves its members alone. Changing its email moves the
+ memberships nesting it in other groups to the new email.
+
+
+ +
+
+ +*
+
+ +5@
+g
+ .LZ Deleting a group also drops its members and the memberships nesting it in
+ other groups.
+
+
+ .
+
+ .*
+
+ .5J
+
+ 0T
+
+ 0
+
+ 06
+
+ 0AR
+
+ 1N
+
+ 1
+
+ 10
+
+ 1;L
+
+ 2_
+
+ 2
+
+ 24
+
+ 2?]
+R
+ 4TE Updating a member changes only its role, as the Directory API does.
+
+
+ 4
+
+ 46
+
+ 4AR
+
+ 5X
+
+ 5
+
+ 56
+
+ 5AV
+
+ 9Q The organization is a singleton: the unit at the root of the tree, which
+ Google gives the organization's name and the audit log names it by.
+
+
+ 9
+
+ 92
+
+ 9=O
+
+ ;H
+
+ ;
+
+ ;.
+
+ ;9F
+
+ <B
+
+ <
+
+ <(
+
+ <3@
+
+ =S
+
+ =
+
+ =,
+
+ =7Q
+w
+ @Hj Renaming or moving a unit moves the units below it and the users filed
+ under any of them along with it.
+
+
+ @
+
+ @.
+
+ @9F
+`
+ CPS Deleting a unit fails while it still holds units or users, as it does in
+ Google.
+
+
+ C
+
+ C.
+
+ C9N
+
+ EK
+
+ E
+
+ E0
+
+ E;I
+
+ FE
+
+ F
+
+ F*
+
+ F5C
+
+ GY
+
+ G
+
+ G0
+
+ G;W
+
+ HK
+
+ H
+
+ H0
+
+ H;I
+
+  IR
+
+  I
+
+  I0
+
+  I;P
+ 
+ !MH’ The rate limit is a singleton, since Google counts queries against the
+ Cloud project the client belongs to rather than anything a domain holds.
+
+
+ !M
+
+ !M,
+
+ !M7F
+
+ "NN
+
+ "N
+
+ "N2
+
+ "N=L
+Ê
+ U e½ GoogleRateLimit is how the fake refuses the Admin SDK requests made beyond
+ the allowance, the way Google refuses them.
+
+ https://developers.google.com/workspace/admin/directory/v1/limits
+
+
+
+ U
+q
+  Xd Whether the fake counts requests against an allowance. A fake that doesn't
+ answers every request.
+
+
+  X
+
+  X
+
+  X
+g
+ \Z How many requests the allowance holds. Zero refuses every request once the
+ limit is on.
+
+
+ \
+
+ \
+
+ \
+L
+ _&? How long the allowance lasts. Zero lasts Google's own minute.
+
+
+ _
+
+ _!
+
+ _$%
+­
+ dŸ The HTTP status a refusal is answered with: 429 for the queries per minute
+ Google grants a project, or 403 for the ones it grants a user. Zero
+ answers 429.
+
+
+ d
+
+ d
+
+ d
+	
+g $
+
+
+g!
+
+
+i k
+
+
+i$
+
+ j!
+
+ j
+
+ j
+
+ j 
+û
+s vî GoogleUserInfo is the account the OpenID Connect userinfo endpoint reports
+ as the holder of the access token. An account in one of the customer's
+ domains is reported with the primary domain as its hosted domain (hd), and
+ any other as a consumer account, which has none.
+
+ https://developers.google.com/identity/openid-connect/openid-connect#an-id-tokens-payload
+
+
+
+s
+1
+ u$ An empty email reports no account.
+
+
+ u
+
+ u	
+
+ u
+À
+| ² GoogleDomain is a domain the customer holds, which its users' and groups'
+ addresses are in.
+
+ https://developers.google.com/workspace/admin/directory/reference/rest/v1/domains
+
+
+
+|
+
+ }
+
+ }
+
+ }	
+
+ }
+
+€€ Whether this is the customer's primary domain, which Google reports as
+ the hosted domain of every account the customer holds.
+
+
+€
+
+€
+
+€
+
+ƒ †
+
+ƒ!
+?
+ …1 The customer's first domain is its primary one.
+
+
+ …
+
+ …
+
+ …
+
+ˆ Š
+
+ˆ
+
+ ‰
+
+ ‰
+
+ ‰	
+
+ ‰
+
+
+Œ #
+
+Œ 
+
+Ž 
+
+Ž!
+
+ $
+
+ 
+
+
+ 
+
+ 
+
+ "#
+
+	’ ”
+
+	’!
+
+	 “
+
+	 “
+
+	 “
+
+	 “
+
+
+– ˜
+
+
+–!
+
+
+ —
+
+
+ —
+
+
+ —	
+
+
+ —
+
+
+š #
+
+š 
+
+œ ž
+
+œ#
+
+ 
+
+ 
+
+ 
+
+ 
+÷
+¤ Ëè GoogleUser is a Workspace user. The employee information the Admin console
+ shows is flattened into the fields the Directory API reports it in.
+
+ https://developers.google.com/workspace/admin/directory/reference/rest/v1/users#User
+
+
+¤
+
+ ¥
+
+ ¥
+
+ ¥	
+
+ ¥
+m
+¨_ The domain the user is listed under is this email's, which has to be one
+ the customer holds.
+
+
+¨
+
+¨	
+
+¨
+
+ª name.fullName.
+
+
+ª
+
+ª	
+
+ª
+!
+¬ name.displayName.
+
+
+¬
+
+¬	
+
+¬
+
+­!
+
+­
+
+­	
+
+­ 
+
+®
+
+®
+
+®
+
+®
+:
+°, Whether the user is a super administrator.
+
+
+°
+
+°
+
+°
+8
+³* The primary organizations entry's title.
+
+
+³
+
+³	
+
+³
+r
+¶d The primary organizations entry's description, which the Admin console
+ labels "Type of employee".
+
+
+¶
+
+¶	
+
+¶
+C
+	¸5 The value of the relations entry of type "manager".
+
+
+	¸
+
+	¸	
+
+	¸
+=
+
+º/ The primary organizations entry's department.
+
+
+
+º
+
+
+º	
+
+
+º
+=
+¼/ The primary organizations entry's costCenter.
+
+
+¼
+
+¼	
+
+¼
+6
+¾( The desk locations entry's buildingId.
+
+
+¾
+
+¾	
+
+¾
+5
+À' The desk locations entry's floorName.
+
+
+À
+
+À	
+
+À
+8
+Â* The desk locations entry's floorSection.
+
+
+Â
+
+Â	
+
+Â
+Q
+ÄC The organizational unit the user is filed under, "/" at the root.
+
+
+Ä
+
+Ä	
+
+Ä
+²
+Ê-£ customSchemas: the custom attributes the user holds, keyed by schema name
+ and then field name, each schema an object of its fields' values. A
+ multi-valued field is a list of objects carrying a value each.
+
+ https://developers.google.com/workspace/admin/directory/v1/guides/manage-schemas
+
+
+Ê
+
+Ê'
+
+Ê*,
+
+Í Ð
+
+Í
+9
+ Ï+ An empty ID has one assigned by the fake.
+
+
+ Ï
+
+ Ï
+
+ Ï
+
+Ò Õ
+
+Ò
+/
+ Ô! The user's ID or primary email.
+
+
+ Ô
+
+ Ô	
+
+ Ô
+
+
+× !
+
+×
+
+Ù Û
+
+Ù
+
+ Ú 
+
+ Ú
+
+
+ Ú
+
+ Ú
+
+ Ú
+
+Ý ß
+
+Ý
+
+ Þ
+
+ Þ
+
+ Þ
+
+ Þ
+
+á ã
+
+á
+
+ â
+
+ â
+
+ â	
+
+ â
+·
+é ð¨ GoogleGroup is a Workspace group. Its members are held by
+ GoogleGroupMember.
+
+ https://developers.google.com/workspace/admin/directory/reference/rest/v1/groups#Group
+
+
+é
+
+ ê
+
+ ê
+
+ ê	
+
+ ê
+n
+í` The domain the group is listed under is this email's, which has to be one
+ the customer holds.
+
+
+í
+
+í	
+
+í
+
+î
+
+î
+
+î	
+
+î
+
+ï
+
+ï
+
+ï	
+
+ï
+
+ò õ
+
+ò 
+9
+ ô+ An empty ID has one assigned by the fake.
+
+
+ ô
+
+ ô
+
+ ô
+
+÷ ú
+
+÷
+(
+ ù The group's ID or email.
+
+
+ ù
+
+ ù	
+
+ ù
+
+
+ü "
+
+ü
+
+þ €
+
+þ 
+
+ ÿ"
+
+ ÿ
+
+
+ ÿ
+
+ ÿ
+
+ ÿ !
+
+‚ „
+
+‚ 
+
+ ƒ
+
+ ƒ
+
+ ƒ
+
+ ƒ
+
+† ˆ
+
+† 
+
+ ‡
+
+ ‡
+
+ ‡	
+
+ ‡
+
+ š€ GoogleGroupMember is a member of a group: a user, a group nested inside it,
+ or a customer or external account. A user or group member must be one the
+ fake holds.
+
+ https://developers.google.com/workspace/admin/directory/reference/rest/v1/members#Member
+
+
+
+C
+ ‘5 The ID or email of the group the member belongs to.
+
+
+ ‘
+
+ ‘	
+
+ ‘
+p
+”b The ID of the user or group the member is. Left empty on create, it is
+ resolved from the email.
+
+
+”
+
+”	
+
+”
+
+•
+
+•
+
+•	
+
+•
+<
+—. "MEMBER", the default, "MANAGER" or "OWNER".
+
+
+—
+
+—	
+
+—
+G
+™9 "USER", the default, "GROUP", "CUSTOMER" or "EXTERNAL".
+
+
+™
+
+™	
+
+™
+
+œ ž
+
+œ&
+
+ 
+
+ 
+
+ 
+
+ 
+
+  ¤
+
+ #
+
+ ¡
+
+ ¡
+
+ ¡	
+
+ ¡
+)
+£ The member's ID or email.
+
+
+£
+
+£	
+
+£
+
+¦ ¨
+
+¦%
+
+ §
+
+ §
+
+ §	
+
+ §
+
+ª ¬
+
+ª&
+
+ «)
+
+ «
+
+
+ «
+
+ «$
+
+ «'(
+
+ ® ±
+
+ ®&
+T
+  °F The member is named by its ID, or by its email when it carries none.
+
+
+  °
+
+  °
+
+  °
+
+!³ ·
+
+!³&
+
+! ´
+
+! ´
+
+! ´	
+
+! ´
+)
+!¶ The member's ID or email.
+
+
+!¶
+
+!¶	
+
+!¶
+[
+"º ¿M GoogleOrganization is the unit at the root of the organizational unit tree.
+
+
+"º
+E
+" ¼7 The organization's name, which Google gives the root.
+
+
+" ¼
+
+" ¼	
+
+" ¼
+0
+"¾" The ID the root is served under.
+
+
+"¾
+
+"¾	
+
+"¾
+
+
+#Á '
+
+#Á$
+Ô
+$Ç ÐÅ GoogleOrgUnit is a Workspace organizational unit. Its path is its parent's
+ path followed by its name.
+
+ https://developers.google.com/workspace/admin/directory/reference/rest/v1/orgunits#OrgUnit
+
+
+$Ç
+
+$ È
+
+$ È
+
+$ È	
+
+$ È
+
+$É
+
+$É
+
+$É	
+
+$É
+
+$Ê
+
+$Ê
+
+$Ê	
+
+$Ê
+
+$Í Where the unit sits, such as "/Engineering/Platform". The fake derives it
+ from the parent and the name, so a write ignores it.
+
+
+$Í
+
+$Í	
+
+$Í
+O
+$Ï"A The path of the unit it sits under, "/" at the top of the tree.
+
+
+$Ï
+
+$Ï	
+
+$Ï !
+
+%Ò Õ
+
+%Ò"
+9
+% Ô+ An empty ID has one assigned by the fake.
+
+
+% Ô
+
+% Ô
+
+% Ô
+
+&× Ú
+
+&×
+&
+& Ù The unit's ID or path.
+
+
+& Ù
+
+& Ù	
+
+& Ù
+
+
+'Ü $
+
+'Ü!
+
+(Þ à
+
+(Þ"
+
+( ß'
+
+( ß
+
+
+( ß
+
+( ß"
+
+( ß%&
+
+)â ä
+
+)â"
+
+) ã
+
+) ã
+
+) ã
+
+) ã
+
+*æ è
+
+*æ"
+
+* ç
+
+* ç
+
+* ç	
+
+* ç
+Ê
++î û» GoogleActivity is a Reports API audit event, with the one event the
+ activities Oblique reads carry.
+
+ https://developers.google.com/workspace/admin/reports/reference/rest/v1/activities
+
+
++î
+W
++ ðI id.uniqueQualifier. An empty ID has one assigned by the fake on create.
+
+
++ ð
+
++ ð	
+
++ ð
+P
++òB id.applicationName: the audit source, such as "token" or "saml".
+
+
++ò
+
++ò	
+
++ò
+
++ô%
+ id.time.
+
+
++ô
+
++ô 
+
++ô#$
+
++ö actor.email.
+
+
++ö
+
++ö	
+
++ö
+G
++ø9 events[0].name, such as "authorize" or "login_success".
+
+
++ø
+
++ø	
+
++ø
+%
++ú2 events[0].parameters.
+
+
++ú
+
+
++ú"
+
++ú#-
+
++ú01
+j
+,ÿ …\ GoogleActivityParameter is a named event parameter, such as app_name,
+ client_id or scope.
+
+
+,ÿ
+
+, €
+
+, €
+
+, €	
+
+, €
+2
+,‚$ Set for a single-valued parameter.
+
+
+,‚
+
+,‚	
+
+,‚
+?
+,„"1 Set for a list-valued parameter, such as scope.
+
+
+,„
+
+
+,„
+
+,„
+
+,„ !
+
+-‡ ‰
+
+-‡#
+
+- ˆ
+
+- ˆ
+
+- ˆ
+
+- ˆ
+
+.‹ 
+
+.‹ 
+
+. Œ
+
+. Œ
+
+. Œ	
+
+. Œ
+
+
+/ &
+
+/#
+
+0‘ “
+
+0‘$
+
+0 ’)
+
+0 ’
+
+
+0 ’
+
+0 ’$
+
+0 ’'(
+
+1• —
+
+1•#
+
+1 –
+
+1 –
+
+1 –
+
+1 –
+
+2™ ›
+
+2™#
+
+2 š
+
+2 š
+
+2 š	
+
+2 šbeditionspè

@@ -62,6 +62,9 @@ type protoResource struct {
 	// set it from a resource block.
 	// TODO(johanbrandhorst): remove when all resources have management fields.
 	hasManagement bool
+	// False when the API has no Update method for the resource, so it is
+	// created through its Create method and replaced on any change.
+	updatable bool
 	// Parsed identifier for the resource.
 	ident *identifier
 	// previewer computes preview values at plan time (see ModifyPlan). Nil for
@@ -126,6 +129,11 @@ func newResource(msg proto.Message) (*protoResource, error) {
 	if err != nil {
 		return nil, err
 	}
+	// The name is immutable, so a computed one holds stable like id below.
+	if nameAttr, ok := attrs["name"].(schema.StringAttribute); ok && nameAttr.Computed {
+		nameAttr.PlanModifiers = append(nameAttr.PlanModifiers, stringplanmodifier.UseStateForUnknown())
+		attrs["name"] = nameAttr
+	}
 	attrs["id"] = schema.StringAttribute{
 		Description: "The ID is a computed type that always matches 'name'. This exists to enable Terraform import.",
 		Computed:    true,
@@ -174,12 +182,16 @@ func newResource(msg proto.Message) (*protoResource, error) {
 		mgmtFD.Kind() == protoreflect.MessageKind &&
 		mgmtFD.Message().FullName() == managementFullName
 
+	_, _, err = getMethod("Update" + m.Descriptor().Name())
+	updatable := err == nil
+
 	return &protoResource{
 		msg:           m,
 		schema:        s,
 		name:          resourceName(msg),
 		singleton:     singleton,
 		hasManagement: hasManagement,
+		updatable:     updatable,
 		ident:         ident,
 		previewer:     previewer,
 	}, nil
@@ -247,7 +259,7 @@ func newAttributes(m protoreflect.MessageDescriptor) (map[string]schema.Attribut
 // Expirations are always a oneof within a message with an optional "ttl":
 //
 //	oneof expiration {
-//	  // If present on input, the expiry for this recource. If "ttl" is provided
+//	  // If present on input, the expiry for this resource. If "ttl" is provided
 //	  // instead, this field will be the computed value of the "ttl".
 //	  google.protobuf.Timestamp expire_time = 8 [(google.api.field_behavior) = OPTIONAL];
 //	  // If present on input, expiry will be computed from the "ttl".
@@ -313,7 +325,7 @@ func newAttribute(fd protoreflect.FieldDescriptor) (string, schema.Attribute, er
 	// apply, and makes HCL produced by bulk export non-applicable when
 	// the value isn't available client-side. Demote to Optional and let
 	// the server enforce when the value is actually needed (e.g. create
-	// rejects a missing `okta.api_token` while adoption preserves the
+	// rejects a missing `okta.client_secret` while adoption preserves the
 	// existing one).
 	if fb.writeOnly() && required {
 		required = false
@@ -712,8 +724,8 @@ func (r *protoResource) Create(ctx context.Context, req resource.CreateRequest, 
 		resp.Diagnostics.Append(req.Plan.GetAttribute(ctx, path.Root("name"), &nameVal)...)
 		if nameVal.IsNull() || nameVal.ValueString() == "" {
 			// If no name was explicitly provided, generate a random one client
-			// side. Because Create uses the "allow_missing" option on an Update
-			// call, we can't rely on the server to generate the name.
+			// side. Because Create usually uses the "allow_missing" option on an
+			// Update call, we can't rely on the server to generate the name.
 			name := r.ident.namePrefix
 			if !r.ident.isSingleton {
 				name = name + "/" + newID()
@@ -722,8 +734,14 @@ func (r *protoResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 	}
 
-	allowMissing := true
-	out, err := r.update(ctx, m, allowMissing)
+	var out protoreflect.Message
+	var err error
+	if r.updatable {
+		allowMissing := true
+		out, err = r.update(ctx, m, allowMissing)
+	} else {
+		out, err = r.create(ctx, m)
+	}
 	if err != nil {
 		resp.Diagnostics.AddError("Create request failed", err.Error())
 		return
@@ -766,6 +784,10 @@ func copyParetToState(ctx context.Context, req, resp tfsdk.State) diag.Diagnosti
 }
 
 func (r *protoResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
+	if !r.updatable {
+		r.updateParent(ctx, req, resp)
+		return
+	}
 	m := r.msg.New()
 	resp.Diagnostics.Append(unmarshalState(ctx, m, &req.Plan)...)
 	if resp.Diagnostics.HasError() {
@@ -859,6 +881,10 @@ func (r *protoResource) Delete(ctx context.Context, req resource.DeleteRequest, 
 // management drift (see modifyManagementPlan) and, for resources with a
 // server-side preview API, plan-time previews (see planPreviewer).
 func (r *protoResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanRequest, resp *resource.ModifyPlanResponse) {
+	if !r.updatable {
+		r.requireReplacePlan(ctx, req, resp)
+		return
+	}
 	r.modifyManagementPlan(ctx, req, resp)
 	if resp.Diagnostics.HasError() {
 		return
@@ -873,6 +899,60 @@ func (r *protoResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanR
 		return
 	}
 	resp.Diagnostics.Append(r.previewer.previewPlan(ctx, r.providerClient, req.Config, req.State, &resp.Plan)...)
+}
+
+// updateParent records a new parent for a resource that has no Update method.
+// requireReplacePlan replaces it on any other change, and parent isn't on the
+// API object, so the resource is only read back.
+func (r *protoResource) updateParent(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
+	m := r.msg.New()
+	resp.Diagnostics.Append(unmarshalState(ctx, m, &req.State)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	out, err := r.read(ctx, m)
+	if err != nil {
+		resp.Diagnostics.AddError("Read request failed", err.Error())
+		return
+	}
+	resp.Diagnostics.Append(marshalState(ctx, out, &resp.State, path.Path{})...)
+	parent := basetypes.NewStringNull()
+	resp.Diagnostics.Append(req.Plan.GetAttribute(ctx, path.Root("parent"), &parent)...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("parent"), parent)...)
+}
+
+// requireReplacePlan replaces a resource that has no Update method when any
+// attribute the user sets changes. Its management is inherited from its
+// parent, so management drift is left to the parent's own plan.
+func (r *protoResource) requireReplacePlan(ctx context.Context, req resource.ModifyPlanRequest, resp *resource.ModifyPlanResponse) {
+	if req.State.Raw.IsNull() || req.Plan.Raw.IsNull() {
+		// Skip create (no prior state) and destroy (no plan).
+		return
+	}
+	for name, a := range r.schema.Attributes {
+		if !a.IsRequired() && !a.IsOptional() {
+			continue
+		}
+		var planVal, stateVal attr.Value
+		resp.Diagnostics.Append(req.Plan.GetAttribute(ctx, path.Root(name), &planVal)...)
+		resp.Diagnostics.Append(req.State.GetAttribute(ctx, path.Root(name), &stateVal)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if planVal.Equal(stateVal) {
+			continue
+		}
+		// parent isn't on the API object, so an imported resource has none in
+		// state; it only changes the resource when the name's parent differs.
+		if name == "parent" && !planVal.IsUnknown() && !planVal.IsNull() {
+			var stateName types.String
+			resp.Diagnostics.Append(req.State.GetAttribute(ctx, path.Root("name"), &stateName)...)
+			if parent, ok := planVal.(types.String); ok && strings.HasPrefix(stateName.ValueString(), parent.ValueString()+"/") {
+				continue
+			}
+		}
+		resp.RequiresReplace = append(resp.RequiresReplace, path.Root(name))
+	}
 }
 
 // modifyManagementPlan forces a planned change to the management attribute when
@@ -1496,13 +1576,6 @@ func (r *protoResource) update(ctx context.Context, req protoreflect.Message, al
 		return nil, fmt.Errorf("http annotation has no post path: %s", methodName)
 	}
 
-	r.ensureManagement(req)
-
-	reqBody, err := protojson.Marshal(req.Interface())
-	if err != nil {
-		return nil, fmt.Errorf("encoding request: %v", err)
-	}
-
 	// TODO: do proper name replacement.
 	u := r.endpoint + "/api/v1/" + name
 	if allowMissing && method.Input().Fields().ByTextName("allow_missing") != nil {
@@ -1510,12 +1583,83 @@ func (r *protoResource) update(ctx context.Context, req protoreflect.Message, al
 		v.Set("allowMissing", "true")
 		u = u + "?" + v.Encode()
 	}
+	return r.send(ctx, "PATCH", u, req)
+}
 
+// send stamps the provider's management on req and sends it.
+func (r *protoResource) send(ctx context.Context, verb, u string, req protoreflect.Message) (protoreflect.Message, error) {
+	r.ensureManagement(req)
+
+	reqBody, err := protojson.Marshal(req.Interface())
+	if err != nil {
+		return nil, fmt.Errorf("encoding request: %v", err)
+	}
 	respMsg := req.New()
-	if err := r.do(ctx, "PATCH", u, bytes.NewReader(reqBody), respMsg.Interface()); err != nil {
+	if err := r.do(ctx, verb, u, bytes.NewReader(reqBody), respMsg.Interface()); err != nil {
 		return nil, err
 	}
 	return respMsg, nil
+}
+
+// create creates the resource through its Create method, under the parent and
+// ID taken from its name.
+func (r *protoResource) create(ctx context.Context, req protoreflect.Message) (protoreflect.Message, error) {
+	nameFd := req.Descriptor().Fields().ByJSONName("name")
+	if nameFd == nil {
+		return nil, fmt.Errorf("request type has no name field")
+	}
+	name := req.Get(nameFd).String()
+	methodName := "Create" + req.Descriptor().Name()
+	method, httpRule, err := getMethod(methodName)
+	if err != nil {
+		return nil, err
+	}
+	if httpRule.GetPost() == "" {
+		return nil, fmt.Errorf("http annotation has no post path: %s", methodName)
+	}
+	idFd := method.Input().Fields().ByName(protoreflect.Name(toSnakeCase(string(req.Descriptor().Name())) + "_id"))
+	if idFd == nil {
+		return nil, fmt.Errorf("%s has no ID field", method.Input().FullName())
+	}
+	i := strings.LastIndex(name, "/")
+	if i < 0 {
+		return nil, fmt.Errorf("name %q has no ID", name)
+	}
+
+	// The name is "{parent}/{collection}/{id}", and the collection is created
+	// at "{parent}/{collection}".
+	v := url.Values{}
+	v.Set(idFd.JSONName(), name[i+1:])
+	u := r.endpoint + "/api/v1/" + name[:i] + "?" + v.Encode()
+
+	respMsg, err := r.send(ctx, "POST", u, req)
+	if err != nil {
+		if !errors.Is(err, errResourceExists) {
+			return nil, err
+		}
+		// Adopt a resource left behind by an earlier apply, as an update with
+		// allow_missing would, when it holds what the configuration asks for.
+		existing, readErr := r.read(ctx, req)
+		if readErr != nil || !configuredFieldsEqual(req, existing) {
+			return nil, err
+		}
+		return existing, nil
+	}
+	return respMsg, nil
+}
+
+// configuredFieldsEqual reports whether got holds every field set in want,
+// other than management, which the server derives.
+func configuredFieldsEqual(want, got protoreflect.Message) bool {
+	equal := true
+	want.Range(func(fd protoreflect.FieldDescriptor, v protoreflect.Value) bool {
+		if fd.Name() == managementFieldName {
+			return true
+		}
+		equal = got.Get(fd).Equal(v)
+		return equal
+	})
+	return equal
 }
 
 func (r *protoResource) read(ctx context.Context, req protoreflect.Message) (protoreflect.Message, error) {

@@ -3,12 +3,12 @@
 page_title: "oblique_user Data Source - oblique"
 subcategory: ""
 description: |-
-  A user represents a human user in the directory
+  A user represents a human user in the directory.
 ---
 
 # oblique_user (Data Source)
 
-A user represents a human user in the directory
+A user represents a human user in the directory.
 
 ## Example Usage
 
@@ -48,10 +48,12 @@ resource "oblique_group" "managers_reports" {
 - `direct_report_count` (Number) Number of direct reports to this user.
 - `display_name` (String) Primary display name of the user.
 - `id` (String) The ID is a computed type that always matches 'name'.
+- `last_login_time` (String) The time the user last logged in. Not set if the user has never logged in.
+- `login_created` (Boolean) Whether the user was created by signing in, rather than by an integration.
 - `manager` (String) Optional manager of the user.
 
 Format: `users/{user}`
-- `picture_uri` (String) URI for the user's profile picture. This can either be an "https://" scheme, or an absolute path (/imgs/foo.png).
+- `picture_uri` (String) URI for the user's profile picture. This can either be an `https://` scheme, or an absolute path (`/imgs/foo.png`).
 - `secondary_emails` (List of String) Additional emails of the user. These are in addition to the primary email.
 - `title` (String) Self reported role. "VP of Engineering", "Senior Frontend Engineer", "Engineering Director, Frontend".
 - `total_report_count` (Number) Number of total reports to this user.

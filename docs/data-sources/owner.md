@@ -4,14 +4,14 @@ page_title: "oblique_owner Data Source - oblique"
 subcategory: ""
 description: |-
   Owner is the primary point of contact for the Oblique server.
-  This API is a singleton resource (https://google.aip.dev/156), and as such only supports Get and Update methods.
+  This API is a singleton API object https://google.aip.dev/156, and as such only supports Get and Update methods.
 ---
 
 # oblique_owner (Data Source)
 
 Owner is the primary point of contact for the Oblique server.
 
-This API is a singleton resource (https://google.aip.dev/156), and as such only supports Get and Update methods.
+This API is a [singleton API object](https://google.aip.dev/156), and as such only supports Get and Update methods.
 
 ## Example Usage
 
@@ -28,7 +28,7 @@ data "oblique_owner" "current" {
 
 ### Required
 
-- `name` (String) Always the single string "owner".
+- `name` (String) Always the single string `owner`.
 
 ### Read-Only
 

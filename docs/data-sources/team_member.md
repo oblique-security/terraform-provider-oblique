@@ -25,7 +25,7 @@ data "oblique_team_member" "janedoe_engineering" {
 
 ### Required
 
-- `name` (String) The name of the membership. Memberships are always child resources of a given team. The "{member}" component is an arbitrary identifier, and doesn't correspond to the actual member.
+- `name` (String) The name of the membership. Memberships are always child API objects of a given team. The "{member}" component is an arbitrary identifier, and doesn't correspond to the actual member.
 
 Format: `teams/{team}/members/{member}`
 
@@ -33,7 +33,6 @@ Format: `teams/{team}/members/{member}`
 
 - `create_time` (String) Create and update timestamps.
 - `id` (String) The ID is a computed type that always matches 'name'.
-- `justification` (String) Why the user is part of the team.
 - `management` (Attributes) How this membership is managed. Inherited from the parent team: memberships of Terraform-managed teams are themselves Terraform managed and can only be created, updated, or deleted through the Terraform provider; manage the parent team to change this. Omitted from responses when the parent team is manually managed (the default). (see [below for nested schema](#nestedatt--management))
 - `member` (String) The name of the member. This currently only supports users, but will be expanded to support teams as well. Immutable after creation.
 
@@ -48,6 +47,6 @@ Format: `requests/{request}`
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.

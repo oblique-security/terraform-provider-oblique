@@ -21,6 +21,10 @@ import (
 // Ref: https://developer.hashicorp.com/terraform/plugin/framework/resources/read#recommendations
 var errResourceNotFound = errors.New("resource not found")
 
+// errResourceExists is returned by providerClient.do when the API responds
+// with HTTP 409 to a create.
+var errResourceExists = errors.New("resource already exists")
+
 // providerClient holds the HTTP configuration shared across every resource
 // and data source exposed by the provider. The provider's Configure method
 // builds a single instance and hands it to each resource and data source
@@ -76,6 +80,17 @@ func (c *providerClient) do(ctx context.Context, method, url string, body io.Rea
 		return fmt.Errorf("reading response body: %v", err)
 	}
 	if resp.StatusCode != http.StatusOK {
+		if resp.StatusCode == http.StatusUnauthorized {
+			// A 401 means the request reached Oblique but the API key was
+			// missing, invalid, or no longer usable (the service account behind
+			// it may have been deleted, revoked, or expired). The body is a
+			// plain-text status line rather than a google.rpc.Status, so surface
+			// an actionable message instead of the opaque "unexpected response
+			// status" wrapping. RPC-level authorization failures return 403 with
+			// a google.rpc.Status and are rendered below, so they keep their own
+			// message.
+			return fmt.Errorf("authentication failed: the Oblique API key is missing, invalid, or no longer valid (the service account may have been deleted, revoked, or expired); set the provider's `api_key` to a valid key (HTTP %s)", resp.Status)
+		}
 		s := &status.Status{}
 		err := protojson.Unmarshal(respBody, s)
 		if resp.StatusCode == http.StatusNotFound {
@@ -87,6 +102,12 @@ func (c *providerClient) do(ctx context.Context, method, url string, body io.Rea
 				return fmt.Errorf("%w: %s %s", errResourceNotFound, resp.Status, respBody)
 			}
 			return fmt.Errorf("%w: %s: %s", errResourceNotFound, resp.Status, prototext.Format(s))
+		}
+		if resp.StatusCode == http.StatusConflict {
+			if err != nil {
+				return fmt.Errorf("%w: %s %s", errResourceExists, resp.Status, respBody)
+			}
+			return fmt.Errorf("%w: %s: %s", errResourceExists, resp.Status, prototext.Format(s))
 		}
 		if err != nil {
 			return fmt.Errorf("unexpected response status: %s %s", resp.Status, respBody)

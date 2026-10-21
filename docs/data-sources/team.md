@@ -26,7 +26,7 @@ data "oblique_team" "engineering" {
 
 ### Required
 
-- `name` (String)
+- `name` (String) Name of the team of the format "teams/{team}".
 
 ### Read-Only
 
@@ -36,7 +36,7 @@ data "oblique_team" "engineering" {
 - `display_name` (String) Displayed name of the team.
 - `id` (String) The ID is a computed type that always matches 'name'.
 - `management` (Attributes) How this team is managed. Set automatically by the server based on the calling client. Omitted from responses when the team is manually managed (the default). (see [below for nested schema](#nestedatt--management))
-- `member_count` (Number) The number of members in the group.
+- `member_count` (Number) The number of members in the team.
 - `update_time` (String)
 
 <a id="nestedatt--management"></a>
@@ -44,6 +44,6 @@ data "oblique_team" "engineering" {
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.

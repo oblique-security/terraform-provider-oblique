@@ -24,36 +24,49 @@ data "oblique_entitlement" "github_engineering" {
 
 ### Required
 
-- `name` (String)
+- `name` (String) Name of the entitlement of the format "entitlements/{entitlement}".
 
 ### Read-Only
 
-- `create_time` (String) Create and update timestamps.
-- `disabled_time` (String) When set, this entitlement is disabled and does not grant access to the resource. Disabled entitlements are still returned in list responses. Entitlements can only be disabled by policies (at the time of enforcement, which will either be at the point of activating the policy or when a controller run detects a violation) and cannot be manually set by the client.
-- `disabling_policies` (List of String) These are the policy objects that caused this entitlement to be disabled. Empty when disabled_time is unset.
+- `action_update_time` (String) When this entitlement was created, or the last time its roles changed.
 
-Format: `policies/{policy}`
+If this entitlement is the result of a change in Oblique, it may not have been actuated to a remote system yet. See `sync_action_update_time`.
+- `create_time` (String) Create and update timestamps.
 - `expire_time` (String) If present, when this access expires. This field is always provided on output.
 - `id` (String) The ID is a computed type that always matches 'name'.
 - `imported` (Boolean) When true, this boolean indicates this entitlement was "imported" from a syncing process, such as reading data from Okta or Google Groups. User created entitlements will always cause this field to be false or unset.
-- `justification` (String) Human readable justification for the entitlement to be granted. For example, this may contain a link to a ticket or other artifacts.
-- `okta_app` (Attributes) (see [below for nested schema](#nestedatt--okta_app))
 - `request` (String) If present, the request that most recently created or updated this entitlement.
 
 Format: `requests/{request}`
 - `resource` (String) The resource that this entitlement grants access to.
 
 Format: `resources/{resource}`
-- `subject` (String) The subject that is granted access to the resource. This can be a user, team, or group.
+- `roles` (Attributes List) The roles the subject holds on the resource. A resource can grant a subject more than one role at once, such as a Cloudflare policy that carries several permission groups.
 
-Format: `users/{user}`, `teams/{team}`, `groups/{group}`
+A subject holding the system's default role has that role recorded explicitly, so an empty list means the roles are unknown rather than that the subject holds none. (see [below for nested schema](#nestedatt--roles))
+- `subject` (String) The subject that is granted access to the resource. A new entitlement names a team, group, an account in an integration, or another resource. A user is only read back, from an entitlement recorded before access moved to accounts.
+
+An account subject grants the access to that account rather than to the directory user behind it. The account must belong to the same integration as the resource.
+
+A resource subject represents a nested membership in the system that owns both resources, such as a Google group that is a member of another Google group. Both resources must come from the same integration, and the system must support that pairing: a Google group nests in a Google group, an Okta group in an Okta app, and a GitHub team in a GitHub team. A resource can't be a member of itself.
+
+Format: `teams/{team}`, `groups/{group}`, `integrations/{integration}/accounts/{account}`, `resources/{resource}`, or `users/{user}` on output
+- `sync_action_update_time` (String) The `action_update_time` when this entitlement was last observed to be in-sync with the remote system.
+
+For imported entitlements, this will always match `action_update_time`, since Oblique observes the remote state at the same time it creates the entitlement.
+
+For entitlements written to external systems, this is the `action_update_time` for the entitlement that was acted on.
+
+`sync_action_update_time` is either older than `action_update_time`, indicating an entitlement hasn't been pushed yet. Or equivalent to `action_update_time` when an entitlement has been reconciled.
 - `update_time` (String)
 
-<a id="nestedatt--okta_app"></a>
-### Nested Schema for `okta_app`
+<a id="nestedatt--roles"></a>
+### Nested Schema for `roles`
 
 Read-Only:
 
-- `group` (String) The ID of the group that the entitlement is assigned to. Either this or individual will be set.
-- `individual` (Boolean) If true, the entitlement is an "individual" app assignment.
-- `resource` (String) The resource that represents this okta group.
+- `display_name` (String) The role's name as the system that owns the resource names it. For example, a Google group membership is `MEMBER`, `MANAGER`, or `OWNER`, and a Cloudflare permission group has a name such as "OAuth App Registrations Read".
+
+Every system names its roles differently, so values are recorded verbatim. A role granted through the API must have an `id` the integration reports for the kind of the resource, when it reports any; one recorded from the integration is stored as it reports it.
+- `id` (String) The identifier the system that owns the resource uses for this role. Opaque to Oblique, and the same as `display_name` for a system that names a role only one way.
+- `role` (String) The role in the integration's role catalog, of the format "integrations/{integration}/roles/{role}", matched on `id` and the kind of the resource. Its display name is the role's name as the system names it now. Not set when the catalog doesn't list the role.

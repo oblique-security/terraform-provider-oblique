@@ -30,14 +30,15 @@ provider "oblique" {
   # it. Both are optional — set them to point at the repository where this
   # Terraform configuration lives.
   repo_url = "https://github.com/example/infra"
-  repo_dir = "oblique"
+  repo_dir = "/oblique"
 }
 
 # Connect Oblique to Okta for user provisioning and group sync
 resource "oblique_integration" "okta" {
   display_name = "Okta"
   okta = {
-    api_token       = var.okta_api_token
+    client_id       = "0oa1gjh63g214q0Hq0g4"
+    client_secret   = var.okta_client_secret
     domain_base_uri = "https://your-org-admin.okta.com"
     display_name    = "Okta"
   }

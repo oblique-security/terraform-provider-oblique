@@ -30,32 +30,247 @@ data "oblique_resource" "github_users" {
 
 ### Read-Only
 
+- `bamboohr_company` (Attributes) (see [below for nested schema](#nestedatt--bamboohr_company))
+- `capabilities` (Attributes) The changes Oblique can push to this resource, determined by the integration that reported it and re-evaluated on every sync alongside `supports_push`. Requests for changes the resource doesn't support are rejected. Unset for a resource whose integration can't push to it, which places no constraint on requests. (see [below for nested schema](#nestedatt--capabilities))
+- `claude_console_organization` (Attributes) (see [below for nested schema](#nestedatt--claude_console_organization))
+- `claude_console_workspace` (Attributes) (see [below for nested schema](#nestedatt--claude_console_workspace))
+- `cloudflare_resource_group` (Attributes) (see [below for nested schema](#nestedatt--cloudflare_resource_group))
+- `cloudflare_user_group` (Attributes) (see [below for nested schema](#nestedatt--cloudflare_user_group))
 - `create_time` (String) Create and update timestamps.
 - `delete_time` (String) Resources can only be soft-deleted to preserve logs and history. If this field is present, the resource has been deleted and won't be returned in lists.
 - `description` (String) Description of the resource.
 - `display_name` (String) Display name of the resource.
+- `github_organization` (Attributes) (see [below for nested schema](#nestedatt--github_organization))
+- `github_repository` (Attributes) (see [below for nested schema](#nestedatt--github_repository))
+- `github_team` (Attributes) (see [below for nested schema](#nestedatt--github_team))
+- `gong_workspace` (Attributes) (see [below for nested schema](#nestedatt--gong_workspace))
 - `google_group` (Attributes) (see [below for nested schema](#nestedatt--google_group))
+- `google_org_unit` (Attributes) (see [below for nested schema](#nestedatt--google_org_unit))
+- `google_saml_app` (Attributes) (see [below for nested schema](#nestedatt--google_saml_app))
+- `google_stripe_account` (Attributes) (see [below for nested schema](#nestedatt--google_stripe_account))
+- `google_stripe_organization` (Attributes) (see [below for nested schema](#nestedatt--google_stripe_organization))
 - `id` (String) The ID is a computed type that always matches 'name'.
 - `integration` (String) The integration that this resource is associated with.
-- `managed_start_time` (String) The time when the resource was first switched to PUSH mode indicating when Oblique started managing the resource as the source of truth. Empty otherwise.
-- `okta_app` (Attributes) For objects that are sourced from Okta, this field holds information about that object. (see [below for nested schema](#nestedatt--okta_app))
-- `okta_group` (Attributes) For objects that are sourced from Okta, this field holds information about that object. (see [below for nested schema](#nestedatt--okta_group))
+- `kind` (String) A string representing the value of the metadata oneof. For example, `cloudflare_user_group` or `cloudflare_resource_group`.
+- `linear_team` (Attributes) (see [below for nested schema](#nestedatt--linear_team))
+- `linear_workspace` (Attributes) (see [below for nested schema](#nestedatt--linear_workspace))
+- `managed_start_time` (String) The time when the resource was first switched to `PUSH` mode indicating when Oblique started managing the resource as the source of truth. Empty otherwise.
+- `member_rules` (Attributes List) The rules for each kind of member the resource can hold, as reported by the integration that owns it. A resource with rules only holds members of the kinds they name, each at the roles its rule allows.
+
+A resource holds another resource only through a rule for that resource's kind. A resource without rules holds accounts alone, at any roles. (see [below for nested schema](#nestedatt--member_rules))
+- `notion_workspace` (Attributes) (see [below for nested schema](#nestedatt--notion_workspace))
+- `okta_app` (Attributes) (see [below for nested schema](#nestedatt--okta_app))
+- `okta_group` (Attributes) For groups/teams that are sourced from an integration, this field holds information about that object. (see [below for nested schema](#nestedatt--okta_group))
+- `onepassword_account` (Attributes) (see [below for nested schema](#nestedatt--onepassword_account))
+- `posthog_organization` (Attributes) (see [below for nested schema](#nestedatt--posthog_organization))
+- `posthog_project` (Attributes) (see [below for nested schema](#nestedatt--posthog_project))
+- `ramp_business` (Attributes) (see [below for nested schema](#nestedatt--ramp_business))
+- `resource_id` (String) The identifier the integration uses for this resource.
+
+IDs are optional and opaque to clients. They are guarenteed to be unique within the scope of a single integration, but may overlap between integrations.
+- `resource_uri` (String) A link to the resource in the system that reported it, for example the member list of a Cloudflare user group. Empty for a resource whose integration reports no link for it.
+- `slack_channel` (Attributes) (see [below for nested schema](#nestedatt--slack_channel))
+- `slack_user_group` (Attributes) (see [below for nested schema](#nestedatt--slack_user_group))
+- `slack_workspace` (Attributes) (see [below for nested schema](#nestedatt--slack_workspace))
 - `state` (String)
+- `supports_push` (Boolean) Whether the integration that reported this resource can push to the object backing it. Determined by the access the integration was granted, and re-evaluated on every sync.
 - `sync_mode` (String)
 - `sync_time` (String) The last time this resource was synchronized successfully with its downstream.
+- `tailscale_tailnet` (Attributes) (see [below for nested schema](#nestedatt--tailscale_tailnet))
 - `update_time` (String)
 - `user_count` (Number) The number of users that have either direct or indirect access to this resource.
 
-Note that this will move to status.user_count in the future.
+Note that this will move to `status.user_count` in the future.
+- `visibility` (Attributes) Who can view this resource. An unset visibility is equivalent to PUBLIC. (see [below for nested schema](#nestedatt--visibility))
+
+<a id="nestedatt--bamboohr_company"></a>
+### Nested Schema for `bamboohr_company`
+
+Read-Only:
+
+- `subdomain` (String) The subdomain the company is reached at: "acme" for an account reached at https://acme.bamboohr.com.
+
+
+<a id="nestedatt--capabilities"></a>
+### Nested Schema for `capabilities`
+
+Read-Only:
+
+- `entitlement_add` (Boolean) Whether Oblique can grant access to a subject that holds none.
+- `entitlement_remove` (Boolean) Whether Oblique can take a subject's access away, including when an entitlement expires.
+- `entitlement_update` (Boolean) Whether Oblique can change the roles an existing entitlement carries.
+
+
+<a id="nestedatt--claude_console_organization"></a>
+### Nested Schema for `claude_console_organization`
+
+Read-Only:
+
+- `id` (String) The ID Anthropic assigns the organization.
+
+
+<a id="nestedatt--claude_console_workspace"></a>
+### Nested Schema for `claude_console_workspace`
+
+Read-Only:
+
+- `id` (String) The ID Anthropic assigns the workspace.
+
+
+<a id="nestedatt--cloudflare_resource_group"></a>
+### Nested Schema for `cloudflare_resource_group`
+
+Read-Only:
+
+- `id` (String) The ID Cloudflare assigns the resource group.
+- `scope_key` (String) The key of the Cloudflare object the group is scoped under, for example `com.cloudflare.api.account.{account id}`.
+- `scope_object_keys` (List of String) The keys of the objects the group covers within its scope, for example `com.cloudflare.api.account.zone.{zone id}`. A group covering every object in its scope reports none.
+
+
+<a id="nestedatt--cloudflare_user_group"></a>
+### Nested Schema for `cloudflare_user_group`
+
+Read-Only:
+
+- `id` (String) The ID Cloudflare assigns the user group.
+
+
+<a id="nestedatt--github_organization"></a>
+### Nested Schema for `github_organization`
+
+Read-Only:
+
+- `login` (String) The organization's login, as it appears in URLs.
+- `node_id` (String) The organization's node ID, which is stable across renames.
+
+
+<a id="nestedatt--github_repository"></a>
+### Nested Schema for `github_repository`
+
+Read-Only:
+
+- `archived` (Boolean) Whether the repository is archived, which makes it read-only.
+- `node_id` (String) The repository's node ID, which is stable across renames.
+- `organization_login` (String) The login of the organization that owns the repository, as it appears in URLs. Oblique connects only to organizations, so every repository has one.
+- `repository_name` (String) The repository's name within the organization, for example "web" for the repository "oblique-security/web".
+- `visibility` (String)
+
+
+<a id="nestedatt--github_team"></a>
+### Nested Schema for `github_team`
+
+Read-Only:
+
+- `node_id` (String) The GitHub team node ID.
+- `organization_login` (String) The login of the organization the team belongs to, as it appears in URLs.
+- `slug` (String) The GitHub team slug within the organization.
+
+
+<a id="nestedatt--gong_workspace"></a>
+### Nested Schema for `gong_workspace`
+
+Read-Only:
+
+- `id` (String) The ID Gong assigns the workspace.
+
 
 <a id="nestedatt--google_group"></a>
 ### Nested Schema for `google_group`
 
 Read-Only:
 
-- `email` (String) The email of the Google group. While groups have unique identifiers, this is used by Oblique as the primary key for determining when to add and remove users from the group.
-- `needs_creation` (Boolean) If true, the group needs to be created in Google.
-- `nested_groups` (List of String) Emails of groups that are nested within this one.
+- `email` (String) The email of the Google group. Emails change when a group is renamed, so this isn't a stable identifier for the group.
+- `id` (String) The immutable, Google assigned ID of the group. Oblique uses this to match the group across syncs.
+
+
+<a id="nestedatt--google_org_unit"></a>
+### Nested Schema for `google_org_unit`
+
+Read-Only:
+
+- `id` (String) The ID Google assigns the organizational unit, stable across renames and moves.
+- `parent_path` (String) The path of the organizational unit this one sits under, empty for the one at the root of the Workspace.
+- `path` (String) The path the organizational unit sits at, such as "/Engineering". It changes when the unit or one of its ancestors is renamed or moved.
+
+
+<a id="nestedatt--google_saml_app"></a>
+### Nested Schema for `google_saml_app`
+
+Read-Only:
+
+- `access_complete` (Boolean) Whether the entitlements to the app cover everyone it is turned on for. False for an app whose addition the audit log Oblique read doesn't record, such as one added more than six months before Oblique first read it: its entitlements are only the organizational units and groups an administrator has turned it on for since, and it may be on for others.
+- `entity_id` (String) The SAML entity ID the app was configured with, empty when Oblique hasn't seen it configured.
+- `id` (String) The ID Google assigns the app, which addresses it in the Admin console. Empty for an app whose addition the audit log Oblique read doesn't record: Google keeps six months of log, so one added more than six months before Oblique first read it.
+
+
+<a id="nestedatt--google_stripe_account"></a>
+### Nested Schema for `google_stripe_account`
+
+Read-Only:
+
+- `id` (String) The ID Stripe assigns the account, such as "acct_1Nv0FGQ9RKHgCVdK". Empty if the Google Workspace SAML attribute mapping is unknown, since the account is then unknown too.
+
+
+<a id="nestedatt--google_stripe_organization"></a>
+### Nested Schema for `google_stripe_organization`
+
+Read-Only:
+
+- `id` (String) The ID Stripe assigns the organization, such as "org_6SD3oI0eSQemPzdmaGLJ5j6".
+
+
+<a id="nestedatt--linear_team"></a>
+### Nested Schema for `linear_team`
+
+Read-Only:
+
+- `id` (String) The ID Linear assigns the team.
+- `key` (String) The team key, the prefix Linear puts on the team's issue identifiers. For example "ABC" for the issue "ABC-123".
+- `parent_id` (String) If present, the parent team's ID.
+
+
+<a id="nestedatt--linear_workspace"></a>
+### Nested Schema for `linear_workspace`
+
+Read-Only:
+
+- `id` (String) The ID Linear assigns the workspace.
+- `uri_key` (String) The URL key of the workspace, used to build links into Linear. For example `oblique` for `https://linear.app/oblique`.
+
+
+<a id="nestedatt--member_rules"></a>
+### Nested Schema for `member_rules`
+
+Read-Only:
+
+- `max_held` (Number) The most resources of this resource's kind such a member can hold at once. Zero places no limit.
+- `member_kind` (String) The kind of member the rule covers.
+
+"account" covers the accounts the integration reports, which users, teams and groups hold the resource through. Any other value is a kind of resource from the same integration, named as that resource's `kind` names it: the name of the field in Resource that holds it, such as "github_team".
+- `min_roles` (Number) The fewest roles such an entitlement names across all the groups. Zero places no minimum.
+
+For example, a person in a GitHub organization is an owner or a member at most, and holds any of the organization's own roles besides, but always holds at least one role.
+- `role_groups` (Attributes List) The roles such a member can hold, in groups that each say how many of their roles an entitlement names. An entitlement can only name roles in one of the groups, and its count in each group must fall between the group's min and max. A rule without groups places no constraint on roles.
+
+For example, a team holds a GitHub repository at exactly one permission, but never triage plus: a group of triage plus with a max of zero, and a group covering every other permission with a min and max of one. (see [below for nested schema](#nestedatt--member_rules--role_groups))
+
+<a id="nestedatt--member_rules--role_groups"></a>
+### Nested Schema for `member_rules.role_groups`
+
+Read-Only:
+
+- `max` (Number) The most roles of the group an entitlement names. Unset places no limit, and zero forbids the group's roles.
+- `min` (Number) The fewest roles of the group an entitlement names.
+- `role_ids` (List of String) The roles in the group. Empty covers every role the integration reports for the resource's kind that no other group in the rule names.
+
+
+
+<a id="nestedatt--notion_workspace"></a>
+### Nested Schema for `notion_workspace`
+
+Read-Only:
+
+- `id` (String) The ID Notion assigns the workspace.
 
 
 <a id="nestedatt--okta_app"></a>
@@ -64,13 +279,13 @@ Read-Only:
 Read-Only:
 
 - `app_links` (Attributes List) The set of app links for launching the app. Most apps have a single entry. Some apps (e.g. Google Workspace) have multiple entries, one per sub-application (e.g. drive, gmail). (see [below for nested schema](#nestedatt--okta_app--app_links))
-- `domain_base_uri` (String) Full base URL of the Okta domain, including the schema. Used to generate a URL to the app. For example: https://dev-45752433-admin.okta.com
+- `domain_base_uri` (String) Full base URL of the Okta domain, including the schema. Used to generate a URL to the app. For example: `https://dev-45752433-admin.okta.com`
 - `group_assignments` (List of String) The IDs of the Okta groups that are assigned to the app.
 - `group_push_enabled` (Boolean) Whether group push is enabled for this app.
 - `id` (String) The ID of the Okta app.
 - `oin` (String) The Okta Integration Network (OIN) ID of the app.
 - `pushes` (Attributes List) The set of pushes that are applied to the app. (see [below for nested schema](#nestedatt--okta_app--pushes))
-- `status` (String) The status of the app in Okta (ACTIVE, INACTIVE, or DELETED).
+- `status` (String) The status of the app in Okta (`ACTIVE`, `INACTIVE`, or `DELETED`).
 
 <a id="nestedatt--okta_app--app_links"></a>
 ### Nested Schema for `okta_app.app_links`
@@ -99,12 +314,12 @@ Read-Only:
 
 Read-Only:
 
-- `app_id` (String) When the group is an APP_GROUP, this field will be set to the ID of the Okta app that the group is associated with.
-- `domain_base_uri` (String) Full base URL of the Okta domain, including the schema. For example: https://dev-45752433-admin.okta.com
-- `group_create_description` (String) If provided, the description of the group to be created in Okta.
-- `group_create_name` (String) If provided, the name of a group to be created in Okta.
+- `app_id` (String) When the group is an `APP_GROUP`, this field will be set to the ID of the Okta app that the group is associated with.
+- `domain_base_uri` (String) Full base URL of the Okta domain, including the schema. For example: `https://dev-45752433-admin.okta.com`
+- `group_create_description` (String) If provided, the description of the group to be created in Okta. Rejected by CreateResource and UpdateResource.
+- `group_create_name` (String) If provided, the name of a group to be created in Okta. Rejected by CreateResource and UpdateResource.
 - `group_rules` (Attributes List) The set of rules that are applied to the group. (see [below for nested schema](#nestedatt--okta_group--group_rules))
-- `id` (String) The ID of the Okta group. Will be set unless `group_create_name` is set (indicating Oblique should create a group).
+- `id` (String) The ID of the Okta group. Required when creating or updating a resource.
 - `type` (String)
 
 <a id="nestedatt--okta_group--group_rules"></a>
@@ -117,3 +332,99 @@ Required:
 Read-Only:
 
 - `id` (String) The ID of the rule.
+
+
+
+<a id="nestedatt--onepassword_account"></a>
+### Nested Schema for `onepassword_account`
+
+Read-Only:
+
+- `id` (String) The account's ID, such as `ABYALEX3KZF3ZD4DJVBKARRNPY`.
+
+
+<a id="nestedatt--posthog_organization"></a>
+### Nested Schema for `posthog_organization`
+
+Read-Only:
+
+- `id` (String) The ID PostHog assigns the organization.
+
+
+<a id="nestedatt--posthog_project"></a>
+### Nested Schema for `posthog_project`
+
+Read-Only:
+
+- `demo` (Boolean) Whether PostHog fills the project with generated data rather than the organization's own. An organization holds at most one such project.
+- `id` (String) The ID PostHog assigns the project.
+
+
+<a id="nestedatt--ramp_business"></a>
+### Nested Schema for `ramp_business`
+
+Read-Only:
+
+- `id` (String) The ID Ramp assigns the business.
+
+
+<a id="nestedatt--slack_channel"></a>
+### Nested Schema for `slack_channel`
+
+Read-Only:
+
+- `default_channel` (Boolean) Whether the channel is the workspace's default channel, which every member other than a guest belongs to and can't leave.
+- `id` (String) The ID Slack assigns the channel.
+- `private_channel` (Boolean) Whether the channel is private, meaning only its members can see it.
+- `team_id` (String) The ID of the workspace the channel belongs to.
+
+
+<a id="nestedatt--slack_user_group"></a>
+### Nested Schema for `slack_user_group`
+
+Read-Only:
+
+- `handle` (String) The name members mention the group by, without the leading "@".
+- `id` (String) The ID Slack assigns the user group.
+- `team_id` (String) The ID of the workspace the user group belongs to.
+
+
+<a id="nestedatt--slack_workspace"></a>
+### Nested Schema for `slack_workspace`
+
+Read-Only:
+
+- `domain` (String) The subdomain the workspace is reached at: "acme" for a workspace at https://acme.slack.com.
+- `team_id` (String) The ID Slack assigns the workspace, which its API calls the team ID.
+
+
+<a id="nestedatt--tailscale_tailnet"></a>
+### Nested Schema for `tailscale_tailnet`
+
+Read-Only:
+
+- `id` (String) The tailnet's ID, as Tailscale reports it on the tailnet's users.
+
+
+<a id="nestedatt--visibility"></a>
+### Nested Schema for `visibility`
+
+Read-Only:
+
+- `audience` (Attributes) Who has visibility into an object in addition to owners/admins. Ignored when mode = PUBLIC. Retained during mode changes so that users can toggle visibility modes without rebuilding the list every time. (see [below for nested schema](#nestedatt--visibility--audience))
+- `mode` (String)
+
+<a id="nestedatt--visibility--audience"></a>
+### Nested Schema for `visibility.audience`
+
+Read-Only:
+
+- `groups` (List of String) Groups whose effective members are in the audience.
+
+Format: groups/{group}
+- `teams` (List of String) Teams whose effective members are in the audience.
+
+Format: teams/{team}
+- `users` (List of String) Users named directly in the audience.
+
+Format: users/{user}

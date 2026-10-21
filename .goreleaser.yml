@@ -33,6 +33,12 @@ builds:
 
 archives:
   - formats: [zip]
+    # Listing files replaces GoReleaser's default of LICENSE* and README*.
+    files:
+      - LICENSE
+      - NOTICE
+      - README.md
+      - THIRD_PARTY_NOTICES
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 
 checksum:

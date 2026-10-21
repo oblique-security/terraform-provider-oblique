@@ -2,8 +2,9 @@
 package api
 
 import (
-	_ "embed"
+	"embed"
 	"fmt"
+	"path"
 	"strings"
 
 	"github.com/oblique-security/terraform-provider-oblique/internal/api/apipb"
@@ -20,8 +21,8 @@ import (
 // It is used by tools that need access to values that aren't stored in the
 // compiled Go types, such as comments.
 //
-//go:embed descriptor_set.binpb
-var descriptor []byte
+//go:embed descriptor_set/*.binpb
+var descriptor embed.FS
 
 // descriptorFiles is used to track comments for messages and fields, which are
 // not part of the Go generated types.
@@ -30,8 +31,20 @@ var descriptorFiles *protoregistry.Files
 func init() {
 	opts := protodesc.FileOptions{AllowUnresolvable: true}
 	set := &descriptorpb.FileDescriptorSet{}
-	if err := proto.Unmarshal(descriptor, set); err != nil {
-		panic("parsing descriproto: " + err.Error())
+	ents, err := descriptor.ReadDir("descriptor_set")
+	if err != nil {
+		panic("reading descriptor sets: " + err.Error())
+	}
+	for _, e := range ents {
+		data, err := descriptor.ReadFile(path.Join("descriptor_set", e.Name()))
+		if err != nil {
+			panic("reading descriptor set " + e.Name() + ": " + err.Error())
+		}
+		f := &descriptorpb.FileDescriptorProto{}
+		if err := proto.Unmarshal(data, f); err != nil {
+			panic("parsing descriptor set " + e.Name() + ": " + err.Error())
+		}
+		set.File = append(set.File, f)
 	}
 	files, err := opts.NewFiles(set)
 	if err != nil {
@@ -70,7 +83,7 @@ func MethodAuthorization(method protoreflect.MethodDescriptor) ([]apipb.Authz, e
 func Comment(fullName protoreflect.FullName) (string, error) {
 	desc, err := descriptorFiles.FindDescriptorByName(fullName)
 	if err != nil {
-		return "", fmt.Errorf("finding desciptor by name: %s: %v", fullName, err)
+		return "", fmt.Errorf("finding descriptor by name: %s: %v", fullName, err)
 	}
 	srcs := desc.ParentFile().SourceLocations()
 	src := srcs.ByDescriptor(desc)

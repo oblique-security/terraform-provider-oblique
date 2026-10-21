@@ -10,8 +10,8 @@ package terraform
 import (
 	"context"
 	"fmt"
-	"net/http"
 
+	"github.com/hashicorp/go-retryablehttp"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/ephemeral"
 	"github.com/hashicorp/terraform-plugin-framework/function"
@@ -51,8 +51,19 @@ func (p *Provider) Configure(ctx context.Context, req provider.ConfigureRequest,
 		return
 	}
 
+	// Use a retrying HTTP client so transient failures are handled gracefully.
+	// retryablehttp's default policy retries on connection errors, 5xx, and 429
+	// Too Many Requests, and its default backoff honors the Retry-After header
+	// the server sends on rate-limit responses. This matters for Terraform in
+	// particular: an apply fans out many operations under a single
+	// service-account principal, so it's the most likely client to hit the
+	// per-principal rate limit.
+	retryClient := retryablehttp.NewClient()
+	// Silence the default stderr logger; retries are transparent to the user.
+	retryClient.Logger = nil
+
 	pc := &providerClient{
-		client:   http.DefaultClient,
+		client:   retryClient.StandardClient(),
 		endpoint: data.Endpoint.ValueString(),
 		apiKey:   data.APIKey.ValueString(),
 		repoURL:  data.RepoURL.ValueString(),
@@ -71,10 +82,10 @@ func (p *Provider) Configure(ctx context.Context, req provider.ConfigureRequest,
 
 func (p *Provider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, groups, and listings.",
+		MarkdownDescription: "The Oblique provider manages identity and access resources in [Oblique](https://oblique.security). Use it to configure integrations, users, teams, and groups.",
 		Attributes: map[string]schema.Attribute{
 			"endpoint": schema.StringAttribute{
-				MarkdownDescription: "Base URL of the Oblique instance used.",
+				MarkdownDescription: "Base URL of the Oblique instance used. This depends on your tenant's [region](https://docs.oblique.security/admin/regions/) and should be either `\"https://us.oblique.security\"` or `\"https://eu.oblique.security\"`.",
 				Required:            true,
 			},
 			"api_key": schema.StringAttribute{
@@ -132,10 +143,6 @@ func allMessages() []proto.Message {
 		&apipb.Group{},
 		&apipb.GroupOwner{},
 		&apipb.Integration{},
-		&apipb.Listing{},
-		&apipb.ListingOwner{},
-		&apipb.ListingRole{},
-		&apipb.ListingRolePolicy{},
 		&apipb.Owner{},
 		&apipb.Resource{},
 		&apipb.Team{},

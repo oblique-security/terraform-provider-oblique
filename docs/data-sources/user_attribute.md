@@ -26,7 +26,7 @@ data "oblique_user_attribute" "janedoe_department" {
 
 ### Required
 
-- `name` (String)
+- `name` (String) Name of the attribute of the format "users/{user}/userattributes/{user_attribute}".
 
 ### Read-Only
 

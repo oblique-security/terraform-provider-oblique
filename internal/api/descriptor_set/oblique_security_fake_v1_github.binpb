@@ -1,0 +1,2708 @@
+
+%oblique/security/fake/v1/github.protooblique.security.fake.v1google/protobuf/duration.protogoogle/protobuf/empty.proto"ï
+GitHubOrganization
+login (	Rlogin
+node_id (	RnodeId
+database_id (R
+databaseId
+name (	Rname!
+account_type (	RaccountType'
+installation_id (RinstallationId
+saml_sso (RsamlSso4
+read_only_installation (RreadOnlyInstallation"s
+GitHubCreateOrganizationRequestP
+organization (2,.oblique.security.fake.v1.GitHubOrganizationRorganization"4
+GitHubGetOrganizationRequest
+login (	Rlogin" 
+GitHubListOrganizationsRequest"u
+GitHubListOrganizationsResponseR
+organizations (2,.oblique.security.fake.v1.GitHubOrganizationRorganizations"s
+GitHubUpdateOrganizationRequestP
+organization (2,.oblique.security.fake.v1.GitHubOrganizationRorganization"7
+GitHubDeleteOrganizationRequest
+login (	Rlogin"›
+GitHubMember
+org (	Rorg
+login (	Rlogin
+node_id (	RnodeId
+email (	Remail
+role (	Rrole,
+two_factor_enabled (RtwoFactorEnabled 
+saml_name_id (	R
+samlNameId
+name (	Rname"[
+GitHubCreateMemberRequest>
+member (2&.oblique.security.fake.v1.GitHubMemberRmember"@
+GitHubGetMemberRequest
+org (	Rorg
+login (	Rlogin",
+GitHubListMembersRequest
+org (	Rorg"]
+GitHubListMembersResponse@
+members (2&.oblique.security.fake.v1.GitHubMemberRmembers"[
+GitHubUpdateMemberRequest>
+member (2&.oblique.security.fake.v1.GitHubMemberRmember"C
+GitHubDeleteMemberRequest
+org (	Rorg
+login (	Rlogin"û
+GitHubOutsideCollaborator
+org (	Rorg
+login (	Rlogin
+node_id (	RnodeId,
+two_factor_enabled (RtwoFactorEnabled
+name (	Rname"ê
+&GitHubCreateOutsideCollaboratorRequestf
+outside_collaborator (23.oblique.security.fake.v1.GitHubOutsideCollaboratorRoutsideCollaborator"M
+#GitHubGetOutsideCollaboratorRequest
+org (	Rorg
+login (	Rlogin"9
+%GitHubListOutsideCollaboratorsRequest
+org (	Rorg"í
+&GitHubListOutsideCollaboratorsResponseh
+outside_collaborators (23.oblique.security.fake.v1.GitHubOutsideCollaboratorRoutsideCollaborators"ê
+&GitHubUpdateOutsideCollaboratorRequestf
+outside_collaborator (23.oblique.security.fake.v1.GitHubOutsideCollaboratorRoutsideCollaborator"P
+&GitHubDeleteOutsideCollaboratorRequest
+org (	Rorg
+login (	Rlogin"√
+
+GitHubTeam
+org (	Rorg
+slug (	Rslug
+node_id (	RnodeId
+database_id (R
+databaseId
+name (	Rname 
+description (	Rdescription
+parent_slug (	R
+parentSlug"S
+GitHubCreateTeamRequest8
+team (2$.oblique.security.fake.v1.GitHubTeamRteam"<
+GitHubGetTeamRequest
+org (	Rorg
+slug (	Rslug"*
+GitHubListTeamsRequest
+org (	Rorg"U
+GitHubListTeamsResponse:
+teams (2$.oblique.security.fake.v1.GitHubTeamRteams"S
+GitHubUpdateTeamRequest8
+team (2$.oblique.security.fake.v1.GitHubTeamRteam"?
+GitHubDeleteTeamRequest
+org (	Rorg
+slug (	Rslug"k
+GitHubTeamMember
+org (	Rorg
+	team_slug (	RteamSlug
+login (	Rlogin
+role (	Rrole"c
+GitHubCreateTeamMemberRequestB
+member (2*.oblique.security.fake.v1.GitHubTeamMemberRmember"a
+GitHubGetTeamMemberRequest
+org (	Rorg
+	team_slug (	RteamSlug
+login (	Rlogin"M
+GitHubListTeamMembersRequest
+org (	Rorg
+	team_slug (	RteamSlug"e
+GitHubListTeamMembersResponseD
+members (2*.oblique.security.fake.v1.GitHubTeamMemberRmembers"c
+GitHubUpdateTeamMemberRequestB
+member (2*.oblique.security.fake.v1.GitHubTeamMemberRmember"d
+GitHubDeleteTeamMemberRequest
+org (	Rorg
+	team_slug (	RteamSlug
+login (	Rlogin"–
+GitHubRepository
+org (	Rorg
+name (	Rname
+node_id (	RnodeId
+database_id (R
+databaseId 
+description (	Rdescription
+
+visibility (	R
+visibility
+archived (Rarchived"k
+GitHubCreateRepositoryRequestJ
+
+repository (2*.oblique.security.fake.v1.GitHubRepositoryR
+repository"B
+GitHubGetRepositoryRequest
+org (	Rorg
+name (	Rname"1
+GitHubListRepositoriesRequest
+org (	Rorg"p
+GitHubListRepositoriesResponseN
+repositories (2*.oblique.security.fake.v1.GitHubRepositoryRrepositories"k
+GitHubUpdateRepositoryRequestJ
+
+repository (2*.oblique.security.fake.v1.GitHubRepositoryR
+repository"E
+GitHubDeleteRepositoryRequest
+org (	Rorg
+name (	Rname"|
+GitHubCollaborator
+org (	Rorg
+
+repository (	R
+repository
+login (	Rlogin
+
+permission (	R
+permission"s
+GitHubCreateCollaboratorRequestP
+collaborator (2,.oblique.security.fake.v1.GitHubCollaboratorRcollaborator"f
+GitHubGetCollaboratorRequest
+org (	Rorg
+
+repository (	R
+repository
+login (	Rlogin"R
+GitHubListCollaboratorsRequest
+org (	Rorg
+
+repository (	R
+repository"u
+GitHubListCollaboratorsResponseR
+collaborators (2,.oblique.security.fake.v1.GitHubCollaboratorRcollaborators"s
+GitHubUpdateCollaboratorRequestP
+collaborator (2,.oblique.security.fake.v1.GitHubCollaboratorRcollaborator"i
+GitHubDeleteCollaboratorRequest
+org (	Rorg
+
+repository (	R
+repository
+login (	Rlogin"Ö
+GitHubTeamRepository
+org (	Rorg
+	team_slug (	RteamSlug
+
+repository (	R
+repository
+
+permission (	R
+permission"k
+!GitHubCreateTeamRepositoryRequestF
+access (2..oblique.security.fake.v1.GitHubTeamRepositoryRaccess"o
+GitHubGetTeamRepositoryRequest
+org (	Rorg
+	team_slug (	RteamSlug
+
+repository (	R
+repository"R
+!GitHubListTeamRepositoriesRequest
+org (	Rorg
+	team_slug (	RteamSlug"l
+"GitHubListTeamRepositoriesResponseF
+access (2..oblique.security.fake.v1.GitHubTeamRepositoryRaccess"k
+!GitHubUpdateTeamRepositoryRequestF
+access (2..oblique.security.fake.v1.GitHubTeamRepositoryRaccess"r
+!GitHubDeleteTeamRepositoryRequest
+org (	Rorg
+	team_slug (	RteamSlug
+
+repository (	R
+repository"N
+GitHubOrganizationRole
+org (	Rorg
+name (	Rname
+id (Rid"k
+#GitHubCreateOrganizationRoleRequestD
+role (20.oblique.security.fake.v1.GitHubOrganizationRoleRrole"H
+ GitHubGetOrganizationRoleRequest
+org (	Rorg
+name (	Rname"6
+"GitHubListOrganizationRolesRequest
+org (	Rorg"m
+#GitHubListOrganizationRolesResponseF
+roles (20.oblique.security.fake.v1.GitHubOrganizationRoleRroles"k
+#GitHubUpdateOrganizationRoleRequestD
+role (20.oblique.security.fake.v1.GitHubOrganizationRoleRrole"K
+#GitHubDeleteOrganizationRoleRequest
+org (	Rorg
+name (	Rname"
+GitHubOrganizationRoleTeam
+org (	Rorg
+role (	Rrole
+	team_slug (	RteamSlug
+
+assignment (	R
+assignment"
+'GitHubCreateOrganizationRoleTeamRequestT
+
+assignment (24.oblique.security.fake.v1.GitHubOrganizationRoleTeamR
+assignment"i
+$GitHubGetOrganizationRoleTeamRequest
+org (	Rorg
+role (	Rrole
+	team_slug (	RteamSlug"N
+&GitHubListOrganizationRoleTeamsRequest
+org (	Rorg
+role (	Rrole"Å
+'GitHubListOrganizationRoleTeamsResponseV
+assignments (24.oblique.security.fake.v1.GitHubOrganizationRoleTeamRassignments"
+'GitHubUpdateOrganizationRoleTeamRequestT
+
+assignment (24.oblique.security.fake.v1.GitHubOrganizationRoleTeamR
+assignment"l
+'GitHubDeleteOrganizationRoleTeamRequest
+org (	Rorg
+role (	Rrole
+	team_slug (	RteamSlug"x
+GitHubOrganizationRoleUser
+org (	Rorg
+role (	Rrole
+login (	Rlogin
+
+assignment (	R
+assignment"
+'GitHubCreateOrganizationRoleUserRequestT
+
+assignment (24.oblique.security.fake.v1.GitHubOrganizationRoleUserR
+assignment"b
+$GitHubGetOrganizationRoleUserRequest
+org (	Rorg
+role (	Rrole
+login (	Rlogin"N
+&GitHubListOrganizationRoleUsersRequest
+org (	Rorg
+role (	Rrole"Å
+'GitHubListOrganizationRoleUsersResponseV
+assignments (24.oblique.security.fake.v1.GitHubOrganizationRoleUserRassignments"
+'GitHubUpdateOrganizationRoleUserRequestT
+
+assignment (24.oblique.security.fake.v1.GitHubOrganizationRoleUserR
+assignment"e
+'GitHubDeleteOrganizationRoleUserRequest
+org (	Rorg
+role (	Rrole
+login (	Rlogin"Ë
+GitHubRateLimit
+enabled (Renabled3
+rest_requests_per_hour (RrestRequestsPerHour5
+graphql_points_per_hour (RgraphqlPointsPerHour1
+window (2.google.protobuf.DurationRwindow9
+burst_requests_per_minute (RburstRequestsPerMinute:
+retry_after (2.google.protobuf.DurationR
+retryAfter%
+primary_status (RprimaryStatus"
+GitHubGetRateLimitRequest"h
+GitHubUpdateRateLimitRequestH
+
+rate_limit (2).oblique.security.fake.v1.GitHubRateLimitR	rateLimit2≥8
+GitHub}
+CreateOrganization9.oblique.security.fake.v1.GitHubCreateOrganizationRequest,.oblique.security.fake.v1.GitHubOrganizationw
+GetOrganization6.oblique.security.fake.v1.GitHubGetOrganizationRequest,.oblique.security.fake.v1.GitHubOrganizationà
+ListOrganizations8.oblique.security.fake.v1.GitHubListOrganizationsRequest9.oblique.security.fake.v1.GitHubListOrganizationsResponse}
+UpdateOrganization9.oblique.security.fake.v1.GitHubUpdateOrganizationRequest,.oblique.security.fake.v1.GitHubOrganizationg
+DeleteOrganization9.oblique.security.fake.v1.GitHubDeleteOrganizationRequest.google.protobuf.Emptyk
+CreateMember3.oblique.security.fake.v1.GitHubCreateMemberRequest&.oblique.security.fake.v1.GitHubMembere
+	GetMember0.oblique.security.fake.v1.GitHubGetMemberRequest&.oblique.security.fake.v1.GitHubMemberv
+ListMembers2.oblique.security.fake.v1.GitHubListMembersRequest3.oblique.security.fake.v1.GitHubListMembersResponsek
+UpdateMember3.oblique.security.fake.v1.GitHubUpdateMemberRequest&.oblique.security.fake.v1.GitHubMember[
+DeleteMember3.oblique.security.fake.v1.GitHubDeleteMemberRequest.google.protobuf.Emptyí
+CreateOutsideCollaborator@.oblique.security.fake.v1.GitHubCreateOutsideCollaboratorRequest3.oblique.security.fake.v1.GitHubOutsideCollaboratorå
+GetOutsideCollaborator=.oblique.security.fake.v1.GitHubGetOutsideCollaboratorRequest3.oblique.security.fake.v1.GitHubOutsideCollaboratorù
+ListOutsideCollaborators?.oblique.security.fake.v1.GitHubListOutsideCollaboratorsRequest@.oblique.security.fake.v1.GitHubListOutsideCollaboratorsResponseí
+UpdateOutsideCollaborator@.oblique.security.fake.v1.GitHubUpdateOutsideCollaboratorRequest3.oblique.security.fake.v1.GitHubOutsideCollaboratoru
+DeleteOutsideCollaborator@.oblique.security.fake.v1.GitHubDeleteOutsideCollaboratorRequest.google.protobuf.Emptye
+
+CreateTeam1.oblique.security.fake.v1.GitHubCreateTeamRequest$.oblique.security.fake.v1.GitHubTeam_
+GetTeam..oblique.security.fake.v1.GitHubGetTeamRequest$.oblique.security.fake.v1.GitHubTeamp
+	ListTeams0.oblique.security.fake.v1.GitHubListTeamsRequest1.oblique.security.fake.v1.GitHubListTeamsResponsee
+
+UpdateTeam1.oblique.security.fake.v1.GitHubUpdateTeamRequest$.oblique.security.fake.v1.GitHubTeamW
+
+DeleteTeam1.oblique.security.fake.v1.GitHubDeleteTeamRequest.google.protobuf.Emptyw
+CreateTeamMember7.oblique.security.fake.v1.GitHubCreateTeamMemberRequest*.oblique.security.fake.v1.GitHubTeamMemberq
+GetTeamMember4.oblique.security.fake.v1.GitHubGetTeamMemberRequest*.oblique.security.fake.v1.GitHubTeamMemberÇ
+ListTeamMembers6.oblique.security.fake.v1.GitHubListTeamMembersRequest7.oblique.security.fake.v1.GitHubListTeamMembersResponsew
+UpdateTeamMember7.oblique.security.fake.v1.GitHubUpdateTeamMemberRequest*.oblique.security.fake.v1.GitHubTeamMemberc
+DeleteTeamMember7.oblique.security.fake.v1.GitHubDeleteTeamMemberRequest.google.protobuf.Emptyw
+CreateRepository7.oblique.security.fake.v1.GitHubCreateRepositoryRequest*.oblique.security.fake.v1.GitHubRepositoryq
+GetRepository4.oblique.security.fake.v1.GitHubGetRepositoryRequest*.oblique.security.fake.v1.GitHubRepositoryÖ
+ListRepositories7.oblique.security.fake.v1.GitHubListRepositoriesRequest8.oblique.security.fake.v1.GitHubListRepositoriesResponsew
+UpdateRepository7.oblique.security.fake.v1.GitHubUpdateRepositoryRequest*.oblique.security.fake.v1.GitHubRepositoryc
+DeleteRepository7.oblique.security.fake.v1.GitHubDeleteRepositoryRequest.google.protobuf.Empty}
+CreateCollaborator9.oblique.security.fake.v1.GitHubCreateCollaboratorRequest,.oblique.security.fake.v1.GitHubCollaboratorw
+GetCollaborator6.oblique.security.fake.v1.GitHubGetCollaboratorRequest,.oblique.security.fake.v1.GitHubCollaboratorà
+ListCollaborators8.oblique.security.fake.v1.GitHubListCollaboratorsRequest9.oblique.security.fake.v1.GitHubListCollaboratorsResponse}
+UpdateCollaborator9.oblique.security.fake.v1.GitHubUpdateCollaboratorRequest,.oblique.security.fake.v1.GitHubCollaboratorg
+DeleteCollaborator9.oblique.security.fake.v1.GitHubDeleteCollaboratorRequest.google.protobuf.EmptyÉ
+CreateTeamRepository;.oblique.security.fake.v1.GitHubCreateTeamRepositoryRequest..oblique.security.fake.v1.GitHubTeamRepository}
+GetTeamRepository8.oblique.security.fake.v1.GitHubGetTeamRepositoryRequest..oblique.security.fake.v1.GitHubTeamRepositoryë
+ListTeamRepositories;.oblique.security.fake.v1.GitHubListTeamRepositoriesRequest<.oblique.security.fake.v1.GitHubListTeamRepositoriesResponseÉ
+UpdateTeamRepository;.oblique.security.fake.v1.GitHubUpdateTeamRepositoryRequest..oblique.security.fake.v1.GitHubTeamRepositoryk
+DeleteTeamRepository;.oblique.security.fake.v1.GitHubDeleteTeamRepositoryRequest.google.protobuf.Emptyâ
+CreateOrganizationRole=.oblique.security.fake.v1.GitHubCreateOrganizationRoleRequest0.oblique.security.fake.v1.GitHubOrganizationRoleÉ
+GetOrganizationRole:.oblique.security.fake.v1.GitHubGetOrganizationRoleRequest0.oblique.security.fake.v1.GitHubOrganizationRoleî
+ListOrganizationRoles<.oblique.security.fake.v1.GitHubListOrganizationRolesRequest=.oblique.security.fake.v1.GitHubListOrganizationRolesResponseâ
+UpdateOrganizationRole=.oblique.security.fake.v1.GitHubUpdateOrganizationRoleRequest0.oblique.security.fake.v1.GitHubOrganizationRoleo
+DeleteOrganizationRole=.oblique.security.fake.v1.GitHubDeleteOrganizationRoleRequest.google.protobuf.Emptyï
+CreateOrganizationRoleTeamA.oblique.security.fake.v1.GitHubCreateOrganizationRoleTeamRequest4.oblique.security.fake.v1.GitHubOrganizationRoleTeamè
+GetOrganizationRoleTeam>.oblique.security.fake.v1.GitHubGetOrganizationRoleTeamRequest4.oblique.security.fake.v1.GitHubOrganizationRoleTeam†
+ListOrganizationRoleTeams@.oblique.security.fake.v1.GitHubListOrganizationRoleTeamsRequestA.oblique.security.fake.v1.GitHubListOrganizationRoleTeamsResponseï
+UpdateOrganizationRoleTeamA.oblique.security.fake.v1.GitHubUpdateOrganizationRoleTeamRequest4.oblique.security.fake.v1.GitHubOrganizationRoleTeamw
+DeleteOrganizationRoleTeamA.oblique.security.fake.v1.GitHubDeleteOrganizationRoleTeamRequest.google.protobuf.Emptyï
+CreateOrganizationRoleUserA.oblique.security.fake.v1.GitHubCreateOrganizationRoleUserRequest4.oblique.security.fake.v1.GitHubOrganizationRoleUserè
+GetOrganizationRoleUser>.oblique.security.fake.v1.GitHubGetOrganizationRoleUserRequest4.oblique.security.fake.v1.GitHubOrganizationRoleUser†
+ListOrganizationRoleUsers@.oblique.security.fake.v1.GitHubListOrganizationRoleUsersRequestA.oblique.security.fake.v1.GitHubListOrganizationRoleUsersResponseï
+UpdateOrganizationRoleUserA.oblique.security.fake.v1.GitHubUpdateOrganizationRoleUserRequest4.oblique.security.fake.v1.GitHubOrganizationRoleUserw
+DeleteOrganizationRoleUserA.oblique.security.fake.v1.GitHubDeleteOrganizationRoleUserRequest.google.protobuf.Emptyn
+GetRateLimit3.oblique.security.fake.v1.GitHubGetRateLimitRequest).oblique.security.fake.v1.GitHubRateLimitt
+UpdateRateLimit6.oblique.security.fake.v1.GitHubUpdateRateLimitRequest).oblique.security.fake.v1.GitHubRateLimitJãÃ
+  §
+
+  
+
+ !
+	
+  (
+	
+ %
+˚
+  \Ó GitHub drives the organizations a fake GitHub App is installed on. A GitHub
+ App serves many organizations, each of which grants it an installation, so
+ unlike Linear's workspace an organization is a collection rather than a
+ singleton.
+
+
+
+ 
+
+  W
+
+  
+
+  8
+
+  CU
+
+ Q
+
+ 
+
+ 2
+
+ =O
+
+ b
+
+ 
+
+ 6
+
+ A`
+
+ W
+
+ 
+
+ 8
+
+ CU
+Ö
+ Zx Deleting an organization also drops its members and teams, and revokes the
+ access tokens minted for its installation.
+
+
+ 
+
+ 8
+
+ CX
+
+ E
+
+ 
+
+ ,
+
+ 7C
+
+ ?
+
+ 
+
+ &
+
+ 1=
+
+ P
+
+ 
+
+ *
+
+ 5N
+
+ E
+
+ 
+
+ ,
+
+ 7C
+ú
+ 	Né Deleting a member also drops the team memberships and repository access
+ they hold, as removing someone from an organization does on GitHub.
+
+
+ 	
+
+ 	,
+
+ 	7L
+
+ 
+l
+
+ 
+
+
+ 
+ F
+
+ 
+Qj
+
+ f
+
+ 
+
+ @
+
+ Kd
+
+ w
+
+ 
+
+ D
+
+ Ou
+
+ l
+
+ 
+
+  F
+
+ Qj
+\
+ "hO Deleting an outside collaborator also drops the repository access they
+ hold.
+
+
+ "
+
+ " F
+
+ "Qf
+
+ $?
+
+ $
+
+ $(
+
+ $3=
+
+ %9
+
+ %
+
+ %"
+
+ %-7
+
+ &J
+
+ &
+
+ &&
+
+ &1H
+
+ '?
+
+ '
+
+ '(
+
+ '3=
+:
+ )J- Deleting a team also drops its memberships.
+
+
+ )
+
+ )(
+
+ )3H
+
+ +Q
+
+ +
+
+ +4
+
+ +?O
+
+ ,K
+
+ ,
+
+ ,.
+
+ ,9I
+
+ -\
+
+ -
+
+ -2
+
+ -=Z
+
+ .Q
+
+ .
+
+ .4
+
+ .?O
+
+ /V
+
+ /
+
+ /4
+
+ /?T
+
+ 1Q
+
+ 1
+
+ 14
+
+ 1?O
+
+ 2K
+
+ 2
+
+ 2.
+
+ 29I
+
+ 3_
+
+ 3
+
+ 34
+
+ 3?]
+
+ 4Q
+
+ 4
+
+ 44
+
+ 4?O
+o
+ 7Vb Deleting a repository also drops the access it carried, both the
+ collaborators' and the teams'.
+
+
+ 7
+
+ 74
+
+ 7?T
+
+ 9W
+
+ 9
+
+ 98
+
+ 9CU
+
+ :Q
+
+ :
+
+ :2
+
+ :=O
+
+  ;b
+
+  ;
+
+  ;6
+
+  ;A`
+
+ !<W
+
+ !<
+
+ !<8
+
+ !<CU
+
+ "=Z
+
+ "=
+
+ "=8
+
+ "=CX
+
+ #?]
+
+ #?
+
+ #?<
+
+ #?G[
+
+ $@W
+
+ $@
+
+ $@6
+
+ $@AU
+
+ %Ak
+
+ %A
+
+ %A<
+
+ %AGi
+
+ &B]
+
+ &B
+
+ &B<
+
+ &BG[
+
+ 'C^
+
+ 'C
+
+ 'C<
+
+ 'CG\
+
+ (Ec
+
+ (E
+
+ (E@
+
+ (EKa
+
+ )F]
+
+ )F
+
+ )F:
+
+ )FE[
+
+ *Gn
+
+ *G
+
+ *G>
+
+ *GIl
+
+ +Hc
+
+ +H
+
+ +H@
+
+ +HKa
+E
+ ,Jb8 Deleting a role also drops the assignments it carried.
+
+
+ ,J
+
+ ,J@
+
+ ,JK`
+
+ -Lo
+
+ -L 
+
+ -L!H
+
+ -LSm
+
+ .Mi
+
+ .M
+
+ .MB
+
+ .MMg
+
+ /Nz
+
+ /N
+
+ /N F
+
+ /NQx
+
+ 0Oo
+
+ 0O 
+
+ 0O!H
+
+ 0OSm
+
+ 1Pj
+
+ 1P 
+
+ 1P!H
+
+ 1PSh
+
+ 2Ro
+
+ 2R 
+
+ 2R!H
+
+ 2RSm
+
+ 3Si
+
+ 3S
+
+ 3SB
+
+ 3SMg
+
+ 4Tz
+
+ 4T
+
+ 4T F
+
+ 4TQx
+
+ 5Uo
+
+ 5U 
+
+ 5U!H
+
+ 5USm
+
+ 6Vj
+
+ 6V 
+
+ 6V!H
+
+ 6VSh
+{
+ 7ZHn The rate limit is a singleton, since GitHub meters every installation of
+ an App against the same allowance.
+
+
+ 7Z
+
+ 7Z,
+
+ 7Z7F
+
+ 8[N
+
+ 8[
+
+ 8[2
+
+ 8[=L
+π
+ c Ö´ GitHubOrganization is an account the App can be installed on. GitHub
+ identifies it three ways: the login its URLs are built from, the global node
+ ID its GraphQL API keys on, and the numeric database ID its REST API keys on.
+
+ https://docs.github.com/en/graphql/reference/orgs#object-organization
+
+
+
+ c
+⁄
+  gÃ The login the organization's URLs are built from, for example
+ "oblique-security" for https://github.com/oblique-security. An
+ organization can be renamed, so the node ID is what an integration keys on.
+
+
+  g
+
+  g	
+
+  g
+£
+ lï The global node ID, for example "O_kgDOAbCdEf". Assigned by the fake when
+ empty.
+
+ https://docs.github.com/en/graphql/guides/using-global-node-ids
+
+
+ l
+
+ l	
+
+ l
+S
+ nF The numeric ID the REST API reports. Assigned by the fake when zero.
+
+
+ n
+
+ n
+
+ n
+^
+ qQ The display name on the organization's profile, empty when it has not set
+ one.
+
+
+ q
+
+ q	
+
+ q
+¬
+ u¥ The type of account, as GitHub reports it: "Organization", the default, or
+ "User" for a personal account, which the App can be installed on but which
+ holds no members or teams.
+
+
+ u
+
+ u	
+
+ u
+˘
+ {Î The installation the organization granted the App, which its access tokens
+ are minted for. Zero when the App is not installed. Assigned by the fake
+ when the install page is used.
+
+ https://docs.github.com/en/rest/apps/installations
+
+
+ {
+
+ {
+
+ {
+Î
+ › Whether the organization authenticates its members through SAML single
+ sign-on, which only GitHub Enterprise Cloud organizations can. When set,
+ each member's saml_name_id is reported as their linked external identity.
+
+
+ 
+
+ 
+
+ 
+á
+ Ñ"¯ Whether the installation holds each of the App's permissions at read only,
+ as one whose owner hasn't accepted the App's write permissions does. Its
+ tokens can read the organization but not change it. Set by the install
+ page's read-only choice.
+
+
+ Ñ
+
+ Ñ
+
+ Ñ !
+
+á ä
+
+á'
+Y
+ â&K An empty node ID and a zero database ID have values assigned by the fake.
+
+
+ â
+
+ â!
+
+ â$%
+
+å é
+
+å$
+
+ ç
+
+ ç
+
+ ç	
+
+ ç
+
+
+ê )
+
+ê&
+
+í î
+
+í'
+
+ ì0
+
+ ì
+
+
+ ì
+
+ ì+
+
+ ì./
+
+ñ ö
+
+ñ'
+_
+ ô&Q Members and teams are left alone; the login names the organization to
+ replace.
+
+
+ ô
+
+ ô!
+
+ ô$%
+
+ú û
+
+ú'
+
+ ù
+
+ ù
+
+ ù	
+
+ ù
+à
+£ πz GitHubMember is a user's membership of an organization.
+
+ https://docs.github.com/en/graphql/reference/users#object-user
+
+
+£
+@
+ •2 Login of the organization the member belongs to.
+
+
+ •
+
+ •	
+
+ •
+D
+ß6 The user's login, which they can change at any time.
+
+
+ß
+
+ß	
+
+ß
+†
+™ë The user's global node ID, for example "U_kgDOAbCdEf", which is the only
+ stable identity GitHub gives a user. Assigned by the fake when empty.
+
+
+™
+
+™	
+
+™
+Z
+¨L The user's public profile email, empty when they have not made one public.
+
+
+¨
+
+¨	
+
+¨
+ﬂ
+±– The role the member holds in the organization, as GitHub's REST API names
+ it: "admin" for an owner, or "member", the default.
+
+ https://docs.github.com/en/graphql/reference/orgs#enum-organizationmemberrole
+
+
+±
+
+±	
+
+±
+G
+≥9 Whether the user has two-factor authentication enabled.
+
+
+≥
+
+≥
+
+≥
+ö
+∂ã The SAML NameID the user authenticates with when the organization uses
+ SAML single sign-on, empty when they have not linked an identity.
+
+
+∂
+
+∂	
+
+∂
+Q
+∏C The name on the user's profile, empty when they have not set one.
+
+
+∏
+
+∏	
+
+∏
+
+ª æ
+
+ª!
+>
+ Ω0 An empty node ID has one assigned by the fake.
+
+
+ Ω
+
+ Ω
+
+ Ω
+
+	¿ √
+
+	¿
+
+	 ¡
+
+	 ¡
+
+	 ¡	
+
+	 ¡
+
+	¬
+
+	¬
+
+	¬	
+
+	¬
+
+
+≈ «
+
+
+≈ 
+
+
+ ∆
+
+
+ ∆
+
+
+ ∆	
+
+
+ ∆
+
+… À
+
+…!
+
+  $
+
+  
+
+
+  
+
+  
+
+  "#
+
+Õ –
+
+Õ!
+T
+ œF The node ID names the member to replace, so a member can be renamed.
+
+
+ œ
+
+ œ
+
+ œ
+
+“ ’
+
+“!
+
+ ”
+
+ ”
+
+ ”	
+
+ ”
+
+‘
+
+‘
+
+‘	
+
+‘
+˛
+€ ÊÔ GitHubOutsideCollaborator is a user granted one of an organization's
+ repositories without belonging to it.
+
+ https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators
+
+
+€!
+R
+ ›D Login of the organization whose repositories the user was granted.
+
+
+ ›
+
+ ›	
+
+ ›
+D
+ﬂ6 The user's login, which they can change at any time.
+
+
+ﬂ
+
+ﬂ	
+
+ﬂ
+K
+·= The user's global node ID. Assigned by the fake when empty.
+
+
+·
+
+·	
+
+·
+G
+„9 Whether the user has two-factor authentication enabled.
+
+
+„
+
+„
+
+„
+Q
+ÂC The name on the user's profile, empty when they have not set one.
+
+
+Â
+
+Â	
+
+Â
+
+Ë Î
+
+Ë.
+>
+ Í50 An empty node ID has one assigned by the fake.
+
+
+ Í
+
+ Í0
+
+ Í34
+
+Ì 
+
+Ì+
+
+ Ó
+
+ Ó
+
+ Ó	
+
+ Ó
+
+Ô
+
+Ô
+
+Ô	
+
+Ô
+
+Ú Ù
+
+Ú-
+
+ Û
+
+ Û
+
+ Û	
+
+ Û
+
+ˆ ¯
+
+ˆ.
+
+ ˜?
+
+ ˜
+
+
+ ˜$
+
+ ˜%:
+
+ ˜=>
+
+˙ ˝
+
+˙.
+N
+ ¸5@ The node ID names the user to replace, so they can be renamed.
+
+
+ ¸
+
+ ¸0
+
+ ¸34
+
+ˇ Ç
+
+ˇ.
+
+ Ä
+
+ Ä
+
+ Ä	
+
+ Ä
+
+Å
+
+Å
+
+Å	
+
+Å
+}
+á óo GitHubTeam is a team within an organization.
+
+ https://docs.github.com/en/graphql/reference/teams#object-team
+
+
+á
+>
+ â0 Login of the organization the team belongs to.
+
+
+ â
+
+ â	
+
+ â
+î
+åÖ The slug the team's URLs are built from, for example "engineering" for
+ https://github.com/orgs/oblique-security/teams/engineering.
+
+
+å
+
+å	
+
+å
+a
+èS The global node ID, for example "T_kwDOAbCdEf". Assigned by the fake when
+ empty.
+
+
+è
+
+è	
+
+è
+T
+ëF The numeric ID the REST API reports. Assigned by the fake when zero.
+
+
+ë
+
+ë
+
+ë
+
+í
+
+í
+
+í	
+
+í
+
+ì
+
+ì
+
+ì	
+
+ì
+â
+ñ{ Slug of the team this one is nested under, empty at the root. GitHub also
+ counts a child team's members as the parent's.
+
+
+ñ
+
+ñ	
+
+ñ
+
+ô ú
+
+ô
+Y
+ õK An empty node ID and a zero database ID have values assigned by the fake.
+
+
+ õ
+
+ õ
+
+ õ
+
+û °
+
+û
+
+ ü
+
+ ü
+
+ ü	
+
+ ü
+
+†
+
+†
+
+†	
+
+†
+
+£ •
+
+£
+
+ §
+
+ §
+
+ §	
+
+ §
+
+ß ©
+
+ß
+
+ ® 
+
+ ®
+
+
+ ®
+
+ ®
+
+ ®
+
+´ Ø
+
+´
+v
+ Æh Memberships are left alone; the node ID names the team to replace, so a
+ team can be given a new slug.
+
+
+ Æ
+
+ Æ
+
+ Æ
+
+± ¥
+
+±
+
+ ≤
+
+ ≤
+
+ ≤	
+
+ ≤
+
+≥
+
+≥
+
+≥	
+
+≥
+‘
+∫ ≈≈ GitHubTeamMember is an organization member's place on a team. The member
+ must already belong to the organization.
+
+ https://docs.github.com/en/graphql/reference/users#object-teammemberconnection
+
+
+∫
+>
+ º0 Login of the organization the team belongs to.
+
+
+ º
+
+ º	
+
+ º
+
+Ω
+
+Ω
+
+Ω	
+
+Ω
+H
+ø: Login of the organization member holding the membership.
+
+
+ø
+
+ø	
+
+ø
+»
+ƒπ The role the member holds on the team, as GitHub's REST API names it:
+ "maintainer", or "member", the default.
+
+ https://docs.github.com/en/graphql/reference/teams#enum-teammemberrole
+
+
+ƒ
+
+ƒ	
+
+ƒ
+
+« …
+
+«%
+
+ »
+
+ »
+
+ »
+
+ »
+
+À œ
+
+À"
+
+ Ã
+
+ Ã
+
+ Ã	
+
+ Ã
+
+Õ
+
+Õ
+
+Õ	
+
+Õ
+
+Œ
+
+Œ
+
+Œ	
+
+Œ
+
+— ‘
+
+—$
+
+ “
+
+ “
+
+ “	
+
+ “
+
+”
+
+”
+
+”	
+
+”
+
+ ÷ ÿ
+
+ ÷%
+
+  ◊(
+
+  ◊
+
+
+  ◊
+
+  ◊#
+
+  ◊&'
+
+!⁄ ‹
+
+!⁄%
+
+! €
+
+! €
+
+! €
+
+! €
+
+"ﬁ ‚
+
+"ﬁ%
+
+" ﬂ
+
+" ﬂ
+
+" ﬂ	
+
+" ﬂ
+
+"‡
+
+"‡
+
+"‡	
+
+"‡
+
+"·
+
+"·
+
+"·	
+
+"·
+‚
+#Ë ¸” GitHubRepository is a repository an organization owns. The access it carries
+ is held through GitHubCollaborator and GitHubTeamRepository.
+
+ https://docs.github.com/en/graphql/reference/repos#object-repository
+
+
+#Ë
+C
+# Í5 Login of the organization that owns the repository.
+
+
+# Í
+
+# Í	
+
+# Í
+~
+#Ìp The name the repository's URLs are built from, for example "web" for
+ https://github.com/oblique-security/web.
+
+
+#Ì
+
+#Ì	
+
+#Ì
+a
+#S The global node ID, for example "R_kgDOAbCdEf". Assigned by the fake when
+ empty.
+
+
+#
+
+#	
+
+#
+T
+#ÚF The numeric ID the REST API reports. Assigned by the fake when zero.
+
+
+#Ú
+
+#Ú
+
+#Ú
+
+#Û
+
+#Û
+
+#Û	
+
+#Û
+≥
+#¯§ Who the repository is visible to: "public", "private" (the default) or
+ "internal".
+
+ https://docs.github.com/en/graphql/reference/repos#enum-repositoryvisibility
+
+
+#¯
+
+#¯	
+
+#¯
+v
+#˚h Whether the repository is archived, which makes it read-only on GitHub. Its
+ access is still reported.
+
+
+#˚
+
+#˚
+
+#˚
+
+$˛ Å
+
+$˛%
+Y
+$ Ä"K An empty node ID and a zero database ID have values assigned by the fake.
+
+
+$ Ä
+
+$ Ä
+
+$ Ä !
+
+%É Ü
+
+%É"
+
+% Ñ
+
+% Ñ
+
+% Ñ	
+
+% Ñ
+
+%Ö
+
+%Ö
+
+%Ö	
+
+%Ö
+
+&à ä
+
+&à%
+
+& â
+
+& â
+
+& â	
+
+& â
+
+'å é
+
+'å&
+
+' ç-
+
+' ç
+
+
+' ç
+
+' ç(
+
+' ç+,
+
+(ê î
+
+(ê%
+i
+( ì"[ Keyed on the node ID, so the name can change. The repository's access is
+ left unchanged.
+
+
+( ì
+
+( ì
+
+( ì !
+
+)ñ ô
+
+)ñ%
+
+) ó
+
+) ó
+
+) ó	
+
+) ó
+
+)ò
+
+)ò
+
+)ò	
+
+)ò
+ÿ
+*ü ©… GitHubCollaborator is an organization member granted access to a repository
+ directly, not through a team.
+
+ https://docs.github.com/en/graphql/reference/users#object-repositorycollaboratorconnection
+
+
+*ü
+C
+* °5 Login of the organization that owns the repository.
+
+
+* °
+
+* °	
+
+* °
+=
+*£/ Name of the repository the access is held on.
+
+
+*£
+
+*£	
+
+*£
+<
+*•. Login of the organization member holding it.
+
+
+*•
+
+*•	
+
+*•
+y
+*®k The permission they hold: "read" (the default), "triage",
+ "triage_plus", "write", "maintain" or "admin".
+
+
+*®
+
+*®	
+
+*®
+
++´ ≠
+
++´'
+
++ ¨&
+
++ ¨
+
++ ¨!
+
++ ¨$%
+
+,Ø ≥
+
+,Ø$
+
+, ∞
+
+, ∞
+
+, ∞	
+
+, ∞
+
+,±
+
+,±
+
+,±	
+
+,±
+
+,≤
+
+,≤
+
+,≤	
+
+,≤
+
+-µ ∏
+
+-µ&
+
+- ∂
+
+- ∂
+
+- ∂	
+
+- ∂
+
+-∑
+
+-∑
+
+-∑	
+
+-∑
+
+.∫ º
+
+.∫'
+
+. ª0
+
+. ª
+
+
+. ª
+
+. ª+
+
+. ª./
+
+/æ ¿
+
+/æ'
+
+/ ø&
+
+/ ø
+
+/ ø!
+
+/ ø$%
+
+0¬ ∆
+
+0¬'
+
+0 √
+
+0 √
+
+0 √	
+
+0 √
+
+0ƒ
+
+0ƒ
+
+0ƒ	
+
+0ƒ
+
+0≈
+
+0≈
+
+0≈	
+
+0≈
+–
+1Ã ’¡ GitHubTeamRepository is a repository a team was granted access to, held by
+ every member through the team.
+
+ https://docs.github.com/en/graphql/reference/repos#object-teamrepositoryconnection
+
+
+1Ã
+>
+1 Œ0 Login of the organization the team belongs to.
+
+
+1 Œ
+
+1 Œ	
+
+1 Œ
+
+1œ
+
+1œ
+
+1œ	
+
+1œ
+8
+1—* Name of the repository the team reaches.
+
+
+1—
+
+1—	
+
+1—
+~
+1‘p The permission the team holds: "read" (the default), "triage",
+ "triage_plus", "write", "maintain" or "admin".
+
+
+1‘
+
+1‘	
+
+1‘
+
+2◊ Ÿ
+
+2◊)
+
+2 ÿ"
+
+2 ÿ
+
+2 ÿ
+
+2 ÿ !
+
+3€ ﬂ
+
+3€&
+
+3 ‹
+
+3 ‹
+
+3 ‹	
+
+3 ‹
+
+3›
+
+3›
+
+3›	
+
+3›
+
+3ﬁ
+
+3ﬁ
+
+3ﬁ	
+
+3ﬁ
+
+4· ‰
+
+4·)
+
+4 ‚
+
+4 ‚
+
+4 ‚	
+
+4 ‚
+
+4„
+
+4„
+
+4„	
+
+4„
+
+5Ê Ë
+
+5Ê*
+
+5 Á+
+
+5 Á
+
+
+5 Á
+
+5 Á &
+
+5 Á)*
+
+6Í Ï
+
+6Í)
+
+6 Î"
+
+6 Î
+
+6 Î
+
+6 Î !
+
+7Ó Ú
+
+7Ó)
+
+7 Ô
+
+7 Ô
+
+7 Ô	
+
+7 Ô
+
+7
+
+7
+
+7	
+
+7
+
+7Ò
+
+7Ò
+
+7Ò	
+
+7Ò
+ç
+8˘ Å˛ GitHubOrganizationRole is a role granting permissions across a whole
+ organization, predefined by GitHub or defined by the organization. A team
+ assigned one holds the organization at that role.
+
+ https://docs.github.com/en/rest/orgs/organization-roles
+
+
+8˘
+B
+8 ˚4 Login of the organization the role is defined for.
+
+
+8 ˚
+
+8 ˚	
+
+8 ˚
+X
+8˝J The role's name as GitHub's UI shows it, for example "security_manager".
+
+
+8˝
+
+8˝	
+
+8˝
+d
+8ÄV The numeric ID the REST API identifies the role by. Assigned by the fake
+ when zero.
+
+
+8Ä
+
+8Ä
+
+
+8Ä
+
+9É Ü
+
+9É+
+7
+9 Ö") A zero ID has one assigned by the fake.
+
+
+9 Ö
+
+9 Ö
+
+9 Ö !
+
+:à ã
+
+:à(
+
+: â
+
+: â
+
+: â	
+
+: â
+
+:ä
+
+:ä
+
+:ä	
+
+:ä
+
+;ç è
+
+;ç*
+
+; é
+
+; é
+
+; é	
+
+; é
+
+<ë ì
+
+<ë+
+
+< í,
+
+< í
+
+
+< í!
+
+< í"'
+
+< í*+
+
+=ï ô
+
+=ï+
+d
+= ò"V Keyed on the ID, so the name can change. The role's assignments are left
+ unchanged.
+
+
+= ò
+
+= ò
+
+= ò !
+
+>õ û
+
+>õ+
+
+> ú
+
+> ú
+
+> ú	
+
+> ú
+
+>ù
+
+>ù
+
+>ù	
+
+>ù
+S
+?° ´E GitHubOrganizationRoleTeam is a team assigned an organization role.
+
+
+?°"
+B
+? £4 Login of the organization the role is defined for.
+
+
+? £
+
+? £	
+
+? £
+7
+?•) Name of the role the team was assigned.
+
+
+?•
+
+?•	
+
+?•
+,
+?ß Slug of the team holding it.
+
+
+?ß
+
+?ß	
+
+?ß
+õ
+?™å How the team holds it: "direct" (the default) if assigned to the team
+ itself, "indirect" if only through its parent, or "mixed" for both.
+
+
+?™
+
+?™	
+
+?™
+
+@≠ Ø
+
+@≠/
+
+@ Æ,
+
+@ Æ
+
+@ Æ'
+
+@ Æ*+
+
+A± µ
+
+A±,
+
+A ≤
+
+A ≤
+
+A ≤	
+
+A ≤
+
+A≥
+
+A≥
+
+A≥	
+
+A≥
+
+A¥
+
+A¥
+
+A¥	
+
+A¥
+
+B∑ ∫
+
+B∑.
+
+B ∏
+
+B ∏
+
+B ∏	
+
+B ∏
+
+Bπ
+
+Bπ
+
+Bπ	
+
+Bπ
+
+Cº æ
+
+Cº/
+
+C Ω6
+
+C Ω
+
+
+C Ω%
+
+C Ω&1
+
+C Ω45
+
+D¿ ¬
+
+D¿/
+
+D ¡,
+
+D ¡
+
+D ¡'
+
+D ¡*+
+
+Eƒ »
+
+Eƒ/
+
+E ≈
+
+E ≈
+
+E ≈	
+
+E ≈
+
+E∆
+
+E∆
+
+E∆	
+
+E∆
+
+E«
+
+E«
+
+E«	
+
+E«
+U
+FÀ ’G GitHubOrganizationRoleUser is a member assigned an organization role.
+
+
+FÀ"
+B
+F Õ4 Login of the organization the role is defined for.
+
+
+F Õ
+
+F Õ	
+
+F Õ
+9
+Fœ+ Name of the role the member was assigned.
+
+
+Fœ
+
+Fœ	
+
+Fœ
+T
+F—F Login of the member holding it, who must belong to the organization.
+
+
+F—
+
+F—	
+
+F—
+ù
+F‘é How the member holds it: "direct" (the default) if assigned to them,
+ "indirect" if only through a team they belong to, or "mixed" for both.
+
+
+F‘
+
+F‘	
+
+F‘
+
+G◊ Ÿ
+
+G◊/
+
+G ÿ,
+
+G ÿ
+
+G ÿ'
+
+G ÿ*+
+
+H€ ﬂ
+
+H€,
+
+H ‹
+
+H ‹
+
+H ‹	
+
+H ‹
+
+H›
+
+H›
+
+H›	
+
+H›
+
+Hﬁ
+
+Hﬁ
+
+Hﬁ	
+
+Hﬁ
+
+I· ‰
+
+I·.
+
+I ‚
+
+I ‚
+
+I ‚	
+
+I ‚
+
+I„
+
+I„
+
+I„	
+
+I„
+
+JÊ Ë
+
+JÊ/
+
+J Á6
+
+J Á
+
+
+J Á%
+
+J Á&1
+
+J Á45
+
+KÍ Ï
+
+KÍ/
+
+K Î,
+
+K Î
+
+K Î'
+
+K Î*+
+
+LÓ Ú
+
+LÓ/
+
+L Ô
+
+L Ô
+
+L Ô	
+
+L Ô
+
+L
+
+L
+
+L	
+
+L
+
+LÒ
+
+LÒ
+
+LÒ	
+
+LÒ
+î
+M¸ ûÖ GitHubRateLimit is how the fake refuses the requests one installation makes
+ beyond its allowance, the way GitHub refuses them: a 403 or 429 whose
+ remaining is zero for REST and a 200 carrying a RATE_LIMITED error for
+ GraphQL, alongside the headers GitHub reports the allowance in on every
+ response. GitHub meters a GitHub App per installation, so every organization
+ the App is installed on spends its own copy of this allowance.
+
+ https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
+
+
+M¸
+â
+M ˇ{ Whether the fake counts requests against an allowance. A fake that doesn't
+ answers every request and reports no headers.
+
+
+M ˇ
+
+M ˇ
+
+M ˇ
+í
+MÉ#É How many requests the core allowance holds. GitHub allows an installation
+ 5,000 an hour, and a larger organization up to 12,500.
+
+
+MÉ
+
+MÉ
+
+MÉ!"
+Í
+Mà$€ How many points the GraphQL allowance holds. GitHub prices a query by the
+ connections it walks; every query the client issues costs one point, so
+ this is a query count. Zero holds what GitHub allows an installation.
+
+
+Mà
+
+Mà
+
+Mà"#
+‹
+Mç&Õ How long an allowance lasts, which is what the reset the fake reports is
+ measured to. Zero lasts GitHub's own hour; a shorter window is how a reset
+ near enough for a client to wait through is produced.
+
+
+Mç
+
+Mç!
+
+Mç$%
+–
+Mî&¡ How many requests an installation may make within a minute before one is
+ refused with a secondary rate limit. Zero allows what GitHub allows: 900
+ points a minute for the REST API, where a read costs a point.
+
+ https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits
+
+
+Mî
+
+Mî!
+
+Mî$%
+h
+Mò+Z The wait a secondary refusal reports in its Retry-After header. Zero asks
+ for a minute.
+
+
+Mò
+
+Mò&
+
+Mò)*
+ÿ
+Mù… The HTTP status a REST request beyond the allowance is refused with.
+ GitHub serves 403 or 429; zero serves 403. A GraphQL query is always
+ refused with a 200 naming the error, as GitHub refuses one.
+
+
+Mù
+
+Mù
+
+Mù
+
+
+N† $
+
+N†!
+
+O¢ §
+
+O¢$
+
+O £!
+
+O £
+
+O £
+
+O £ beditionspË

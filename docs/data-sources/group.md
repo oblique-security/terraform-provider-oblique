@@ -26,7 +26,7 @@ data "oblique_group" "engineering" {
 
 ### Required
 
-- `name` (String) Name of the group of the form "groups/{group}"
+- `name` (String) Name of the group of the form "groups/{group}".
 
 ### Read-Only
 
@@ -37,7 +37,7 @@ data "oblique_group" "engineering" {
 - `id` (String) The ID is a computed type that always matches 'name'.
 - `management` (Attributes) How this group is managed. Set automatically by the server based on the calling client. Omitted from responses when the group is manually managed (the default). (see [below for nested schema](#nestedatt--management))
 - `member_count` (Number) The number of members in the group.
-- `reporting` (Attributes) Reporting matches members of a group based on their reporting line (see [below for nested schema](#nestedatt--reporting))
+- `reporting` (Attributes) Reporting matches members of a group based on their reporting line. The selection is set when the group is created and can't be changed; create a new group to use a different manager or scope. (see [below for nested schema](#nestedatt--reporting))
 - `update_time` (String) The time when this object was last updated. This does not correspond to any membership changes of this group.
 - `users` (List of String) List of users that are members of this group. This is only populated for get or update requests, not during lists.
 
@@ -60,9 +60,11 @@ Read-Only:
 
 Read-Only:
 
-- `integration` (String)
+- `integration` (String) The integration that supplies the attribute to match on.
+
+Format: integrations/{integration}
 - `key` (String)
-- `operator` (String) Comparison operator for the attribute. Defaults to EQUAL when unset
+- `operator` (String) Comparison operator for the attribute. Defaults to `EQUAL` when unset.
 - `value` (String)
 
 
@@ -73,9 +75,9 @@ Read-Only:
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
 
 
 <a id="nestedatt--reporting"></a>
@@ -85,4 +87,6 @@ Read-Only:
 
 - `include_indirect` (Boolean)
 - `include_manager` (Boolean) Whether the reporting group should include the manager in membership as well. Defaults to false.
-- `manager` (String)
+- `manager` (String) The manager whose reports make up the group.
+
+Format: users/{user}

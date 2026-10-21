@@ -6,7 +6,7 @@ provider "oblique" {
   endpoint = "https://us.oblique.security"
   api_key  = var.oblique_api_key
   repo_url = "https://github.com/example/infra"
-  repo_dir = "oblique"
+  repo_dir = "/oblique"
 }
 
 variable "oblique_api_key" {

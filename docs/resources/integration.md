@@ -17,14 +17,16 @@ Integrations connect Oblique with external systems in your organization. Oblique
 # as Okta, Google Workspace, and Slack. They enable automated user sync,
 # group push, and resource management.
 #
-# Credentials for the external system (e.g. an Okta API token) must be
+# Credentials for the external system (e.g. the client secret issued when
+# installing the Oblique app from the Okta Integration Network) must be
 # provisioned out-of-band and supplied via variables or a secret store.
 
 # Okta integration.
 resource "oblique_integration" "okta" {
   display_name = "Okta"
   okta = {
-    api_token       = var.okta_api_token
+    client_id       = "0oa1gjh63g214q0Hq0g4"
+    client_secret   = var.okta_client_secret
     domain_base_uri = "https://your-org-admin.okta.com"
     display_name    = "Okta"
   }
@@ -44,24 +46,111 @@ resource "oblique_integration" "google" {
 
 ### Optional
 
-- `create_group_for_new_teams` (Boolean) If true, the integration will create a group for each new team.
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
+- `bamboohr` (Attributes) (see [below for nested schema](#nestedatt--bamboohr))
+- `claude_console` (Attributes) (see [below for nested schema](#nestedatt--claude_console))
+- `client_id` (String) The ID of the OAuth client the integration authenticates with for integrations like Tailscale and 1Password. Required when such an integration is created, rejected for other types. Provide alongside client_secret to rotate client.
+- `client_secret` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) The secret issued for client_id. Required when an integration that authenticates with OAuth client credentials is created, and never returned by the API. Provide alongside client_id to rotate client.
+- `cloudflare` (Attributes) (see [below for nested schema](#nestedatt--cloudflare))
 - `display_name` (String) A human readable name of the integration. For example "Okta Test".
+- `github` (Attributes) (see [below for nested schema](#nestedatt--github))
+- `gong` (Attributes) (see [below for nested schema](#nestedatt--gong))
 - `google` (Attributes) (see [below for nested schema](#nestedatt--google))
-- `name` (String)
+- `install_link_value` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) The ID of an install link, the last segment of its name, which lets a user who isn't an admin create an integration of the link's kind. The link can only be used once.
+- `linear` (Attributes) (see [below for nested schema](#nestedatt--linear))
+- `name` (String) Name of the integration of the format "integrations/{integration}".
+- `notion` (Attributes) (see [below for nested schema](#nestedatt--notion))
 - `okta` (Attributes) (see [below for nested schema](#nestedatt--okta))
+- `onepassword` (Attributes) (see [below for nested schema](#nestedatt--onepassword))
+- `posthog` (Attributes) (see [below for nested schema](#nestedatt--posthog))
+- `ramp` (Attributes) (see [below for nested schema](#nestedatt--ramp))
 - `slack` (Attributes) (see [below for nested schema](#nestedatt--slack))
+- `tailscale` (Attributes) (see [below for nested schema](#nestedatt--tailscale))
 
 ### Read-Only
 
+- `account_count` (Number) The number of accounts the integration reports, deactivated accounts included. Matches what ListIntegrationAccounts returns for it.
+- `attribute_count` (Number) The number of user attributes the integration syncs.
+- `connector` (String) The user who last connected new credentials for the integration, at credential_update_time. Unset if they were connected by something other than a user, such as a service account.
+
+Format: `users/{user}`
 - `create_time` (String) Create and update timestamps.
+- `credential_update_time` (String) The time a person last connected new credentials for the integration, for example by adding it, reauthorizing it, or reinstalling its app. Automatic token refreshes don't change it.
 - `delete_time` (String) The time when the integration was deleted.
 - `id` (String) The ID is a computed type that always matches 'name'. This exists to enable Terraform import.
 - `management` (Attributes) How this integration is managed. Set automatically by the server based on the calling client. Omitted from responses when the integration is manually managed (the default). (see [below for nested schema](#nestedatt--management))
+- `needs_reauth` (Boolean) Whether the integration is missing access that Oblique asks for, which is granted by reconnecting it. Re-evaluated on every sync.
+- `next_sync_time` (String) When Oblique expects to sync the integration again, recorded at the end of every sync. An integration is synced again once its interval has passed, the part of the request budget its last sync spent has come back, and any rate limit that sync hit has reset, so a large organization or a busy API pushes this further out.
+
+Unset until the integration has synced once, and for the integrations whose syncers don't report a schedule.
 - `resource_count` (Number) The number of resources that the system manages.
 - `resource_pull_count` (Number) The number of resources that have been pulled from the integration.
 - `resource_push_count` (Number) The number of resources that have been pushed to the integration.
+- `supports_push` (Boolean) Whether the integration can push to at least one of the objects it reports. Some of its write capabilities may still be unavailable. Determined by the access the integration was granted, and re-evaluated on every sync.
+- `syncs_user_attributes` (Boolean) Whether the integration is a source of directory users and the attributes held against them. Only such an integration may be named the source of a core attribute. Reported by the integration's syncer, so it is unset until the integration has synced once.
+- `syncs_user_pictures` (Boolean) Whether the integration reports users' profile photos. Only such an integration may be named the source of profile photos. Reported by the integration's syncer, so it is unset until the integration has synced once.
 - `update_time` (String)
 - `user_count` (Number) The number of users that the system contains.
+
+<a id="nestedatt--bamboohr"></a>
+### Nested Schema for `bamboohr`
+
+Read-Only:
+
+- `subdomain` (String) The subdomain of the BambooHR account that employees are synced from: "acme" for an account reached at https://acme.bamboohr.com. BambooHR serves each account's authorization endpoints from its own subdomain, so this is provided by the admin when connecting and is not editable afterwards.
+
+
+<a id="nestedatt--claude_console"></a>
+### Nested Schema for `claude_console`
+
+Optional:
+
+- `api_key` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) The admin API key used to read the organization's members and workspaces. Required when the integration is created, and never returned by the API. Provide it again to rotate the key.
+
+Read-Only:
+
+- `organization_id` (String) The ID of the Anthropic organization that members and workspaces are synced from. Determined by the organization the API key belongs to, and not editable afterwards.
+- `organization_name` (String) The human readable name of the Anthropic organization, read from Anthropic when the integration is connected.
+
+
+<a id="nestedatt--cloudflare"></a>
+### Nested Schema for `cloudflare`
+
+Read-Only:
+
+- `account_id` (String) The ID of the Cloudflare account that members and policies are synced from. Determined by the account the admin grants access to when connecting, and not editable afterwards.
+- `account_name` (String) The human readable name of the Cloudflare account, read from Cloudflare when the integration is connected. Empty if Cloudflare reports the account without a name.
+
+
+<a id="nestedatt--github"></a>
+### Nested Schema for `github`
+
+Required:
+
+- `org` (String) The GitHub organization name to sync members and teams from. May be changed by the user on the GitHub side.
+
+Optional:
+
+- `read_only` (Boolean) Whether Oblique asks GitHub only for the access to read the organization. The Oblique GitHub App is installed with the permissions to manage organization membership, teams and repository access, so this keeps a connection read-only without changing the app.
+
+GitHub enforces it: every access token Oblique uses for the organization holds the app's permissions at read access only. The app itself keeps the permissions it was installed with.
+
+A read-only integration can be made read-write by clearing this, which takes effect from the next sync. A read-write integration can't be made read-only: remove the integration and connect it again instead.
+
+Read-Only:
+
+- `installation_id` (String) The GitHub App installation ID for this organization. Set by the installation callback.
+- `org_id` (String) The immutable GitHub organization ID.
+
+
+<a id="nestedatt--gong"></a>
+### Nested Schema for `gong`
+
+Read-Only:
+
+- `base_uri` (String) The API base URL Gong serves the company's data from, such as `https://company-17.api.gong.io`. Gong reports it when the admin connects, since every company is served from a host of its own, and it is not editable afterwards.
+
 
 <a id="nestedatt--google"></a>
 ### Nested Schema for `google`
@@ -70,40 +159,81 @@ Required:
 
 - `domain` (String) The domain to query for groups and memberships.
 
+Read-Only:
+
+- `connected_account_email` (String) The email of the Workspace administrator who authorized the connection.
+- `missing_reports_scopes` (Boolean) Whether the connection is missing the Google OAuth scopes required to sync sign-in reports from the Google Workspace audit logs.
+
+
+<a id="nestedatt--linear"></a>
+### Nested Schema for `linear`
+
+Read-Only:
+
+- `uri_key` (String) The URL key of the Linear workspace, used to build links into Linear. For example `oblique` for `https://linear.app/oblique`.
+- `workspace_id` (String) The ID of the Linear workspace that members and teams are synced from. Determined by the workspace the admin grants access to when connecting, and not editable afterwards.
+- `workspace_name` (String) The human readable name of the Linear workspace, read from Linear when the integration is connected.
+
+
+<a id="nestedatt--notion"></a>
+### Nested Schema for `notion`
+
+Read-Only:
+
+- `workspace_id` (String) The ID of the Notion workspace that members are synced from. Determined by the workspace the admin grants access to when connecting, and not editable afterwards.
+- `workspace_name` (String) The human readable name of the Notion workspace, read from Notion when the integration is connected. Empty if Notion reports the workspace without a name.
+
 
 <a id="nestedatt--okta"></a>
 ### Nested Schema for `okta`
 
 Required:
 
-- `domain_base_uri` (String) Full base URL of the Okta domain, including the schema. For example: https://dev-45752433-admin.okta.com
+- `client_id` (String) The client ID issued when the Oblique app is installed from the Okta Integration Network catalog, which Oblique authenticates to Okta as. Required when the integration is created, together with client_secret.
+- `domain_base_uri` (String) Full base URL of the Okta domain, including the schema. For example: `https://dev-45752433-admin.okta.com`
 
 Optional:
 
-- `api_token` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) The API token to use when making calls to Okta. Required when the integration is created.
-- `display_name` (String) Will be removed in the future in favor of top level display_name.
-- `ignore_users` (Attributes) (see [below for nested schema](#nestedatt--okta--ignore_users))
+- `client_secret` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) The client secret issued alongside client_id when the Oblique app is installed. Required when the integration is created, and never returned by the API; provide it again to rotate.
+- `display_name` (String) Will be removed in the future in favor of top level `display_name`.
+- `read_only` (Boolean) Whether Oblique asks Okta only for the access to read the org. The Oblique app is installed with the scopes to manage groups and applications, so this keeps a connection read-only without editing the app's grants in Okta. Set when the integration is created and not editable afterwards: create the integration again to change it.
+
+Oblique won't write to Okta while this is set, but it is Oblique's own setting rather than a limit Okta enforces: the app keeps the scopes it was installed with.
+
+A connection that leaves this unset can still be read-only, when the Oblique app wasn't granted those scopes. Either way, manage_resources reports whether the connection writes to Okta.
 
 Read-Only:
 
+- `manage_resources` (Boolean) Whether Oblique manages the org's groups and applications, creating groups and changing membership and assignments, which a resource in push mode needs. False when the connection is read-only, either because read_only holds Oblique to reading or because the Oblique app in Okta wasn't granted the scopes to manage them. Either way the connection imports users, groups, applications, and their memberships, and writes nothing back to Okta.
 - `organization_id` (String) The tenant ID of the Okta organization. This is detected on first creation of the integration and is not editable.
 
-<a id="nestedatt--okta--ignore_users"></a>
-### Nested Schema for `okta.ignore_users`
+
+<a id="nestedatt--onepassword"></a>
+### Nested Schema for `onepassword`
 
 Required:
 
-- `attributes` (Attributes List) If provided, the integration will ignore users that have any of the given attributes set to this value. If multiple attributes are provided, the user will be ignored if any of their attributes match these rules. Custom attributes are supported. (see [below for nested schema](#nestedatt--okta--ignore_users--attributes))
-
-<a id="nestedatt--okta--ignore_users--attributes"></a>
-### Nested Schema for `okta.ignore_users.attributes`
-
-Required:
-
-- `key` (String) The key of the attribute. For example "department".
-- `value` (String) The value of the attribute. For example "Engineering".
+- `account_id` (String) The 1Password account that users are synced from, such as `ABYALEX3KZF3ZD4DJVBKARRNPY`. 1Password reports no account for an OAuth client, so this is provided by the admin when connecting: it's the string between `/app#/` and `/AllItems` in the address of the account's vault items page.
+- `domain` (String) The domain of the account's sign-in address, such as `acme.1password.com`, provided by the admin when connecting. The domain it's under, one of 1password.com, 1password.ca, 1password.eu, or ent.1password.com, decides the region whose API the integration reads.
 
 
+<a id="nestedatt--posthog"></a>
+### Nested Schema for `posthog`
+
+Read-Only:
+
+- `base_uri` (String) The base URI of the PostHog region the organization lives in. Either `https://us.posthog.com` or `https://eu.posthog.com`.
+- `organization_id` (String) The ID of the PostHog organization that members and projects are synced from. Determined by the organization the admin grants access to when connecting, and not editable afterwards.
+- `organization_name` (String) The human readable name of the PostHog organization, read from PostHog when the integration is connected.
+
+
+<a id="nestedatt--ramp"></a>
+### Nested Schema for `ramp`
+
+Read-Only:
+
+- `business_id` (String) The ID of the Ramp business that users are synced from. Determined by the business the admin grants access to when connecting, and not editable afterwards.
+- `business_name` (String) The legal name of the Ramp business, read from Ramp when the integration is connected. Empty if Ramp reports the business without one.
 
 
 <a id="nestedatt--slack"></a>
@@ -115,14 +245,23 @@ Required:
 
 Optional:
 
-- `allow_approval_workflow` (Boolean) Whether reviewers can approve requests directly from the Slack notification. This is false by default.
+- `allow_approval_workflow` (Boolean) Whether reviewers can approve requests directly from the Slack notification. This is true by default.
 - `channel_ids` (List of String)
 - `dm_disabled` (Boolean) Whether DM notifications are disabled. This is false by default.
 
 Read-Only:
 
-- `domain_base_uri` (String) The domain base URI of the Slack instance, including the schema. This is detected on creation and is not editable. For example: https://myworkspace.slack.com
+- `domain_base_uri` (String) The domain base URI of the Slack instance, including the schema. This is detected on creation and is not editable. For example: `https://myworkspace.slack.com`
 - `team_name` (String) The human readable name of the team that has been configured for notifications.
+
+
+<a id="nestedatt--tailscale"></a>
+### Nested Schema for `tailscale`
+
+Read-Only:
+
+- `tailnet_id` (String) The tailnet that users are synced from, as Tailscale reports it on the tailnet's users, such as `5139383669875648`. Determined by the default tailnet of the OAuth client's tokens when the integration is connected, and not editable afterwards.
+- `tailnet_name` (String) The human readable name of the tailnet, read from Tailscale when the integration is connected: the name of the organization's earliest created tailnet. Empty when the OAuth client lacks the `tailnets:read` scope.
 
 
 <a id="nestedatt--management"></a>
@@ -130,6 +269,6 @@ Read-Only:
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.

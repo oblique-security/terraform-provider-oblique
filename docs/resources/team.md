@@ -32,11 +32,8 @@ resource "oblique_team" "engineering" {
 
 ### Optional
 
-> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
-
 - `description` (String) Longer description.
-- `name` (String)
-- `resource_description` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) If Oblique is configured to create a resource for the team, this will be the description of that resource. If not provided, a default description will be used. This is only valid on creation events.
+- `name` (String) Name of the team of the format "teams/{team}".
 
 ### Read-Only
 
@@ -44,7 +41,7 @@ resource "oblique_team" "engineering" {
 - `delete_time` (String) Teams can only be soft-deleted to preserve logs and history.
 - `id` (String) The ID is a computed type that always matches 'name'. This exists to enable Terraform import.
 - `management` (Attributes) How this team is managed. Set automatically by the server based on the calling client. Omitted from responses when the team is manually managed (the default). (see [below for nested schema](#nestedatt--management))
-- `member_count` (Number) The number of members in the group.
+- `member_count` (Number) The number of members in the team.
 - `update_time` (String)
 
 <a id="nestedatt--management"></a>
@@ -52,6 +49,6 @@ resource "oblique_team" "engineering" {
 
 Read-Only:
 
-- `manager` (String) How the resource is managed. Set automatically by the server based on the caller: Terraform clients produce TERRAFORM; for all other clients the management field is left unset on the response.
-- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
-- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this resource. Populated by the Oblique Terraform provider.
+- `manager` (String) How the API object is managed. Set automatically by the server based on the caller: Terraform clients produce `TERRAFORM`; for all other clients the management field is left unset on the response.
+- `repo_dir` (String) Optionally, the subdirectory within `repo_uri` that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
+- `repo_uri` (String) URI of the VCS repository that holds the Terraform configuration for this API object. Populated by the Oblique Terraform provider.
